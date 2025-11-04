@@ -45,7 +45,7 @@ def get_data(string):
 
 
 def calc_planck(data):
-    speed_of_light = 3e8
+    speed_of_light = 2.998e8
     freqs = np.array([speed_of_light / wavelength for wavelength, _ in data])
     voltage = - np.array([p.value(res) for _, res in data])
     voltage_err = np.array([p.error(res) for _, res in data])
