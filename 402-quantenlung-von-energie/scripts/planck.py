@@ -20,9 +20,13 @@ def get_U_0(file):
     data = np.transpose(np.loadtxt(file, delimiter=",", skiprows=1))
     voltage = data[0]  # Volt
     current = (data[1] - data[1][0]) * 1e-10  # Ampere
+    current = p.ev(current, 0.1 * current)
     y = np.sqrt(current)
 
-    param, cov = curve_fit(piecwise_linear, voltage, y, p0=[-1, 0, 0.1, 0])
+    print(y)
+
+    y_v, y_e = p.ve(y)
+    param, cov = curve_fit(piecwise_linear, voltage, y_v, sigma=y_e, p0=[-1, 0, 0.1, 0])
 
     errs = np.sqrt(np.diag(cov))
     delim = p.ev(param[0], errs[0])
@@ -62,7 +66,7 @@ def calc_planck(data):
     planck_constant = alpha * electron_charge
     work = - beta * electron_charge
 
-    print(f"h = {~planck_constant}")
+    print(f"h = {~planck_constant} +- {p.error(planck_constant)}")
     print(f"W_A = {~work} J")
 
     plt.plot(xrange, params[0] * xrange + params[1])
