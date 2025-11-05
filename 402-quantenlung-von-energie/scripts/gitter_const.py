@@ -5,7 +5,9 @@ from sys import argv
 from scipy.optimize import curve_fit
 import scipy as sp
 import propeller as p
+import std
 
+std.bullshit.this_is_fucking_stupid_no_one_actually_gives_a_fuck()
 
 eb_defaults = {"fmt": " ", "elinewidth": 0.75, "capsize": 2}
 
@@ -27,20 +29,24 @@ def main():
 
     xrange = np.linspace(min(color) - 20, max(color) + 20, 1000)
 
-    chi_sq, p_value = sp.stats.chisquare(res[0] * color + res[1], f_exp=angle_term)
-    print(f"chi2 = {chi_sq}, p = {p_value}")
+    # chi_sq, p_value = sp.stats.chisquare(res[0] * color, f_exp=angle_term)
+    # print(f"chi2 = {chi_sq}, p = {p_value}")
 
-    plt.plot(xrange, res[0] * xrange + res[1])
+    gratig_const_per_point = color / angle_term
+    print(f"g = {gratig_const_per_point}")
+
+    plt.plot(xrange, res[0] * xrange)
 
     plt.errorbar(
                  color, angle_term,
                  xerr=color * 0.01,
                  yerr=angle_term * 0.01, **eb_defaults)
-    plt.grid(which="major")
-    plt.grid(which="minor", linestyle=":", linewidth=0.5)
-    plt.gca().minorticks_on()
-    plt.xlabel(r"$\lambda$ / nm")
-    plt.ylabel(r"$\sin(\alpha) + \sin(\beta)$")
+    # plt.grid(which="major")
+    # plt.grid(which="minor", linestyle=":", linewidth=0.5)
+    # plt.gca().minorticks_on()
+    # plt.xlabel(r"$\lambda$ / nm")
+    # plt.ylabel(r"$\sin(\alpha) + \sin(\beta)$")
+    std.default.plt_pretty(r"$\lambda$ / nm", r"$\sin(\alpha) + \sin(\beta)$")
     plt.show()
 
 
