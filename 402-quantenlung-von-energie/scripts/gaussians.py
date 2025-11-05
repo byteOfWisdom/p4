@@ -27,7 +27,11 @@ def double_gaussian(x, a1, a2, mu1, mu2, sigma1, sigma2, const):
 
 
 def to_beta(p):
-    return np.arctan((1024 - p) * 0.014 / 300)
+    return np.rad2deg(np.arctan((1024 - p) * 0.014 / 300))
+
+
+def from_beta(beta):
+    return 1024 - 300 * np.tan(np.deg2rad(beta))
 
 
 def main():
@@ -60,6 +64,8 @@ def main():
     plt.grid(which="major")
     plt.grid(which="minor", linestyle=":", linewidth=0.5)
     plt.gca().minorticks_on()
+    deg_axis = plt.gca().secondary_xaxis("top", (to_beta, from_beta))
+    deg_axis.set_xlabel("Winkel / Grad")
     plt.xlabel("Pixel")
     plt.ylabel("Licht")
     plt.show()
