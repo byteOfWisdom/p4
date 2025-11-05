@@ -6,7 +6,8 @@ In dem durchgeführten Versuch wird dieses quantisierte Verhalten an den Beispie
 Es werden der Wert des Planckschen Wirkungsquantums sowie die Wellenlängen der optisch sichtbaren Spektrallinien in der Balmer-Serie von Wasserstoff als Maß für die diskreten Energien des Atomanregungsstufen bestimmt.
 Außerdem wird die Größe der Aufspaltung der Energieniveaus zwischen Wasserstoff und Deuterium als Wasserstoffisotop anhand der relativen Winkelaufspaltung der Spektrallinien der beiden Isotope untersucht.
 
-Im ersten Versuchsteil wurde mithilfe der Gegenfeldmethode und einer Photozelle die Größe des Proportionalitätsfaktors $h$ in der Energie-Wellenlängen-Beziehung für Lichtquanten (Photonen) bestimmt, für die gilt:
+Im ersten Versuchsteil wurde mithilfe der Gegenfeldmethode und einer Photozelle die Größe des Proportionalitätsfaktors des Planckschen Wirkungsquantums $h$ in der Energie-Wellenlängen-Beziehung
+für Lichtquanten (Photonen) bestimmt, für die mit $\lambda$ als Wellenlänge und $\nu$ als Frequenz, gilt:
 \begin{align}
 	\label{eq:energielambda}
 	E = h\nu = h \frac{c}{\lambda}
@@ -52,34 +53,47 @@ Zusammen ergibt sich für den Fall der Grenzspannung:
 
 Es kann also nur die Austrittsarbeit der Anode aus dem funktionellen Zusammenhang bestimmt werden, nicht die Austrittsarbeit der Kathode, deren Term sich in der Energiebilanz kürzt.
 
-\subsection{Durchführung}
-Für die Messung des Photostroms wird nach Anleitung in \cite[3-5]{Versuchsanleitung} auf einer optischen Bank als Lichtquelle eine Quecksilberdampflampe sowie
+\subsection{Experimenteller Aufbau \& Durchführung}
+Für die Messung des Photostroms wurde nach Justageanleitung in \cite[3-5]{Versuchsanleitung} auf einer optischen Bank als Lichtquelle eine Quecksilberdampflampe (Hg-Lampe) sowie
 eine Irisblende zur Variation der Lichtintensität aufgebaut sowie eine dahinter folgende Sammellinse mit Brennweite $f=\SI{100}{\milli\meter}$.
-Im Abstand $f$ wird die Photozelle platziert, die hier aus einer Kalium(K)-Kathode und Pt-Rh-Ringanode besteht
-(letzteres als Ringanode, damit möglichst kein Quellenlicht auf die Anode fällt und dort ebenfalls Elektronen auslöst), sodass das Licht scharf als Lichtfleck mit Durchmesser $(5-10)~\unit{\milli\meter}$ auf die Kathode fällt. Um Streulicht zu vermeiden, wurde eine Schutzkappe
-Zudem wird noch ein Filterrad mit einstellbarer Durchlasswellenlänge vor die Photozelle platziert. Als Durchlasswellenlängen des Filterrads waren wählbar $\lambda \in \{365, 405, 436, 546, 578\}~\unit{\nano\meter}$.
+Im Abstand $f$ wurde die Photozelle platziert, die hier aus einer Kalium(K)-Kathode und Pt-Rh-Anode besteht
+(letzteres als Ringanode, damit möglichst kein Quellenlicht auf die Anode gelangt und dort ebenfalls Elektronen auslösen könnte), sodass das Licht scharf als Lichtfleck mit Durchmesser $(5-10)~\unit{\milli\meter}$ auf die Kathode fiel.
+Zudem wurde noch ein Filterrad mit einstellbarer Durchlasswellenlänge vor die Photozelle platziert. Als Durchlasswellenlängen des Filterrads waren wählbar $\lambda \in \{365, 405, 436, 546, 578\}~\unit{\nano\meter}$. Um Streulicht zu vermeiden, wurde noch ein Rohr vor die quellenseitige Öffnung der Photozelle und mit kleinem Abstand zum Filterrad aufgesetzt.
 
+
+%das hier kann wahrscheinlich noch bisschen schöner formuliert werden
 Es wird der Anodenanschluss mit dem Netzgerät, welches Spannung der Stärke $(0-12)~\unit{\V}$ liefert, verbunden, sowie der Kathodenanschluss mit einem Messverstärker, welcher anschließend mit dem anderen Anschluss des Netzgeräts verbunden wurde.
-Der Messverstärker wurde im Experiment auf die Stufe $\SI{e-10}{\A}\rightarrow \SI{1}{\V}$ gestellt. Außerdem wurden zwei Multimeter zur Messung von Gegenstrom $U_G$ und Photostrom via die gemessene Spannung
-nach dem Messverstärker $U_I$ wie auf der Aufbauskizze in Abbildung \ref{fig:aufbau_photozelle} dargestellt angeschlossen.
+Der Messverstärker wurde im Experiment auf die Stufe $\SI{e-10}{\A}\rightarrow \SI{1}{\V}$ gestellt.
+Außerdem wurden zwei Digital-Multimeter zur Messung des Gegenstroms $U_G$ und Photostroms $I$, letzteren mittels der gemessenen Spannung
+nach dem Messverstärker $U_I$, wie auf der Aufbauskizze in Abbildung \ref{fig:aufbau_photozelle} dargestellt, angeschlossen.
 
 \jafps{aufbau_photozelle}{Aufbau zur Messung des Photostroms mit (von links nach rechts) Lichtquelle, Irisblende, Linse, Filterrad, Photozelle und Messaufbau. Grafik entnommen aus \cite[3]{Versuchsanleitung}}{0.6}
 
-Zuletzt wurde noch eine Spannungsteilerschaltung zwischen die $\SI{12}{\V}$-Spannungsquelle und die Anode eingesetzt. Dafür wurden die beiden Widerstände $\SI{100}{\ohm}$ und $\SI{330}{\ohm}$ genutzt, wobei über den kleineren Widerstand die Spannung für die nachfolgende Schaltung abgegriffen wurde.
+Zuletzt wurde noch eine Spannungsteilerschaltung zwischen die $\SI{12}{\V}$-Spannungsquelle und die Anode eingesetzt. %assuming die schaltskizze ist unnötig
+Dafür wurden die beiden Widerstände $\SI{100}{\ohm}$ und $\SI{330}{\ohm}$ genutzt, wobei über den kleineren Widerstand die Spannung für die nachfolgende Schaltung abgegriffen wurde. Durch die niedrigere maximale Gegenspannung konnte der gesamte Bereich, in dem ein Photostrom floss, genauer vermessen werden.
 Es ergab sich so für den Aufbau eine theoretische maximale Gegenspannung von
 \(
 U_{\text{max,th}} = \SI{12}{\V}\cdot \frac{\SI{100}{\ohm}}{\SI{430}{\ohm}} \approx\SI{2.80}{\V}.
 \)
-Es wurde mit dem Digital-Multimeter eine damit übereinstimmende tatsächlich verfügbare Maximalspannung von $U_{\text{max}}=\SI{-2.8(1)}{V}$ (das Vorzeichen ergibt sich aus der Polung der Schaltung) gemessen.
+Es wurde mit dem Digital-Multimeter eine damit übereinstimmende tatsächlich verfügbare Maximalspannung von $U_{\text{max}}=\SI{-2.8(1)}{V}$ gemessen. Das Vorzeichen ergibt sich hier lediglich aus der Polung der Schaltung.
+Bei dieser höchsten Spannung konnte selbst bei dem energiereichsten Licht, also bei der kürzesten Durchlasswellenlänge $\lambda = \SI{365}{\nano\meter}$, kein Photostrom mehr beobachtet werden, sondern nur noch ein sehr geringer Anodenstrom $I_0$ von Elektronen,
+die sich aus der Anode lösen und sich zur Kathode bewegen, also einen positiven Strom darstellen.
 
-
-
+Für jede der Durchlasswellenlängen wurde die folgende Messung jeweils zweimal durchgeführt:
+Eine Wellenlänge des Filterrads wurde eingestellt, die Gegenspannung auf den maximalen Wert $U_{\text{max}}$ gestellt und die Größe des Anodenstroms $I_0$, bzw. die wirkende Dunkelspannung $U_{\text{I,0}}$ bestimmt.
+Anschließend wurde die Kennlinie der Photozelle vollständig vermessen, indem die Gegenspannung über den gesamten Bereich $U_G=(0-(2,8\pm 0,1)\unit{\V}$ variiert und die Spannung $U_I$ gemessen wurde.
+Durch die doppelte Messung jeder Kennlinie sollten Einflüsse von möglichen Intensitätsschwankungen der Hg-Lampe minimiert werden, welche den maximalen Photostrom bei kleiner Gegenspannung
+durch eine Variation der vorhandenen Lichtquanten zeitlich beeinflusst hätten.
+Für die Wellenlänge $\lambda = \SI{365}{\nano\meter}$ wurde anschließend die Blendenöffnung weiter geöffnet und so die Intensität des Lichts erhöht, sodass bei ausgestellter Gegenspannung ($U_G=\SI{0}{\V}$) eine um etwa Faktor $1,5$ größere Spannung an der Anode gemessen werden konnte.
+Die Kennlinie der Photozelle wurde anschließend für diese Wellenlänge ein drittes Mal gemessen.
 
 
 \section{Auswertung}
 
-Aus der Messung des Photostroms $I$, korrigiert mit einem möglicherweise vorhandenen Anodenstrom $I_0$, der von einem minimalen Wert $U_0$ invers quadratisch mit dem Verlauf der angelegten Gegenspannung $U_G$ steigt,
-kann durch Interpolation der gemessenen Werte als x-Achsenabschnitt einer Darstellung von $\sqrt{(I-I_0)}(U_G)$ die Grenzsspannung für Licht einer festen Wellenlänge bestimmt werden.
+Aus den gemessenen Kennlinien werden nun Werte für das Planksche Wirkungsquantum $h$ und die Anoden-Austrittsarbeit $W_A$ bestimmt.
+
+Aus der Messung des Photostroms $I$, korrigiert mit einem möglicherweise vorhandenen Anodenstrom $I_0$, der von einem minimalen Wert $U_0$ invers quadratisch mit dem Verlauf der angelegten Gegenspannung $U_G$ bis zu einem Sättigungsstrom $I_S$ steigt,
+kann durch Interpolation der gemessenen Werte als x-Achsenabschnitt einer Darstellung von $\sqrt{(I-I_0)}(U_G)$ die Grenzspannung für Licht einer festen Wellenlänge bestimmt werden.
 
 In der Energiebilanz für Photoelektronen bei der Grenzspannung gilt \footnote{mit ${e=\SI{1.602177e-19}{\C}}$ als Elementarladung\cite{KonstantenNIST}}:
 \begin{align}
