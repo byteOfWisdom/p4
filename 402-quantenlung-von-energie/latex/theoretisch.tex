@@ -1,0 +1,94 @@
+\chapter{Einleitung}
+
+Die Wechselwirkung von elektromagnetischer Strahlung (Licht) und Materie findet grundsätzlich in quantisierten Einheiten und nicht kontinuierlich statt.
+Dieses Phänomen wurde Anfang des 20. Jahrhunderts von \uppercase{Einstein} und \uppercase{Planck} theoretisch untersucht und ist heute eine wichtige Grundlage der modernen Physik \cite[62-65]{HakenWolf2013}.
+In dem durchgeführten Versuch wird dieses quantisierte Verhalten an den Beispielen des äußeren photoelektrischen Effekt und dem Emissionsspektrum von Wasserstoffatomen untersucht.
+Es werden der Wert des Planckschen Wirkungsquantums sowie die Wellenlängen der optisch sichtbaren Spektrallinien in der Balmer-Serie von Wasserstoff als Maß für die diskreten Energien des Atomanregungsstufen bestimmt.
+Außerdem wird die Größe der Aufspaltung der Energieniveaus zwischen Wasserstoff und Deuterium als Wasserstoffisotop anhand der relativen Winkelaufspaltung der Spektrallinien der beiden Isotope untersucht.
+
+Im ersten Versuchsteil wurde mithilfe der Gegenfeldmethode und einer Photozelle die Größe des Proportionalitätsfaktors $h$ in der Energie-Wellenlängen-Beziehung für Lichtquanten (Photonen) bestimmt, für die gilt:
+\begin{align}
+	\label{eq:energielambda}
+	E = h\nu = h \frac{c}{\lambda}
+\end{align}
+Für die verwendete Platin-Rhodium (Pt-Rh)-Anode wurde zudem die Austrittsarbeit der Elektronen aus den beobachten Strömen der Photozelle berechnet.
+
+
+Im zweiten Versuchsteil wurde das optisch beobachtbare Spektrum der Emissionslinien einer Wasserstoff-Deuterium-Dampflampe
+mithilfe eines Reflexionsgitter wellenlängenabhängig in verschiedene Winkel aufgespalten und mit dem Auge mithilfe von Linsen sowie einer CCD-Kamera vermessen,
+sodass die den Wellenlängen zugeordneten Energien bestimmt werden können.
+Das verwendete Gitter wurde dafür zudem noch mithilfe des bekannten Spektrums einer Quecksilber (Hg)-Lampe ausgemessen.
+
+
+\chapter{Bestimmung des Planckschen Wirkungsquantums}
+
+\section{Theoretische Überlegungen}
+
+Wird monochromatisches Licht mit Frequenz $\nu$ auf eine Metallplatte gestrahlt, wechselwirken die Photonen mit den (Leitungs-)Elektronen des Metalls in dem sie ihre Energie $E=h\nu$ komplett an ein Elektron übertragen.
+Übersteigt diese Energie die Austrittsarbeit, die für einen Austritt aus dem Material aufgebracht werden muss, können die Elektronen aus dem Material austreten
+und der Elektronenstrom kann als Photostrom $I$ gemessen werden.
+Ist die Energie der Photonen kleiner als die Austrittsarbeit kann kein Photostrom gemessen werden, unabhängig von der eingestrahlten Lichtintensität \cite[63]{HakenWolf2013}.
+Dies ist der sogenannte äußere photoelektrischer Effekt (Photoeffekt).
+Im Folgenden wird der Photoeffekt in einer Photozelle aus elektrisch verbundener Kathode,
+die mit Licht bestrahlt wird mit Austrittsarbeit $W_K$, und Anode mit Austrittsarbeit $W_A$, an der der Photostrom gemessen wird, untersucht.
+Es wird zudem eine Gegenspannung angelegt, die der Bewegung der Elektronen entgegenwirkt.
+Bei der Gegenspannung $U_0$ (Grenzspannung), bei der gerade kein Photostrom mehr gemessen wird, d.h. keine Elektronen mehr die Anode erreichen, ergibt sich die Energiebilanz der Photoelektronen wie folgt:
+Wenn Kathode und Anode verbunden werden, ergibt sich aufgrund der nun gleich großen Fermienergien $E_{\text{FK}}=E{_\text{FA}}$  der Leitungselektronen der beiden Materialien eine Kontaktspannung, welche ein Photoelektron überwinden muss:
+\begin{align}
+	\label{eq:kontaktspannung}
+	e U_{\text{KA}} = \Delta W_{\text{Austritt}} = W_A - W_K
+\end{align}
+Bei angelegter Grenzspannung $U_0$ muss auch diese vom Elektron noch überwunden werden.
+Die Bilanz ist für den Fall der angelegten Grenzspannung und unterschiedlich großen Austrittsarbeiten von Kathode und Anode aus verschiedenen Materialien,
+wie sie im Experiment genutzt wurden, in Abbildung \ref{fig:energiebilanz_gegenspannung} graphisch dargestellt.
+Zusammen ergibt sich für den Fall der Grenzspannung:
+\begin{align}
+	\label{eq:energiebilanz}
+	 & E = h\nu = W_K + eU_{\text{KA}} + eU_0 \qquad | \quad eU_{\text{KA}} = W_A - W_K \nonumber \\
+	 & \ergo h\nu = W_A + eU_0
+\end{align}
+
+\jafps{energiebilanz_gegenspannung}{Energiediagramm der Photozelle bei angelegter Gegenspannung $U_0$ und Kontaktspannung $eU_{\text{KA}}$. Grafik entnommen aus \cite[11]{Versuchsanleitung}.}{0.5}
+
+Es kann also nur die Austrittsarbeit der Anode aus dem funktionellen Zusammenhang bestimmt werden, nicht die Austrittsarbeit der Kathode, deren Term sich in der Energiebilanz kürzt.
+
+\subsection{Durchführung}
+Für die Messung des Photostroms wird nach Anleitung in \cite[3-5]{Versuchsanleitung} auf einer optischen Bank als Lichtquelle eine Quecksilberdampflampe sowie
+eine Irisblende zur Variation der Lichtintensität aufgebaut sowie eine dahinter folgende Sammellinse mit Brennweite $f=\SI{100}{\milli\meter}$.
+Im Abstand $f$ wird die Photozelle platziert, die hier aus einer Kalium(K)-Kathode und Pt-Rh-Ringanode besteht
+(letzteres als Ringanode, damit möglichst kein Quellenlicht auf die Anode fällt und dort ebenfalls Elektronen auslöst), sodass das Licht scharf als Lichtfleck mit Durchmesser $(5-10)~\unit{\milli\meter}$ auf die Kathode fällt. Um Streulicht zu vermeiden, wurde eine Schutzkappe
+Zudem wird noch ein Filterrad mit einstellbarer Durchlasswellenlänge vor die Photozelle platziert. Als Durchlasswellenlängen des Filterrads waren wählbar $\lambda \in \{365, 405, 436, 546, 578\}~\unit{\nano\meter}$.
+
+Es wird der Anodenanschluss mit dem Netzgerät, welches Spannung der Stärke $(0-12)~\unit{\V}$ liefert, verbunden, sowie der Kathodenanschluss mit einem Messverstärker, welcher anschließend mit dem anderen Anschluss des Netzgeräts verbunden wurde.
+Der Messverstärker wurde im Experiment auf die Stufe $\SI{e-10}{\A}\rightarrow \SI{1}{\V}$ gestellt. Außerdem wurden zwei Multimeter zur Messung von Gegenstrom $U_G$ und Photostrom via die gemessene Spannung
+nach dem Messverstärker $U_I$ wie auf der Aufbauskizze in Abbildung \ref{fig:aufbau_photozelle} dargestellt angeschlossen.
+
+\jafps{aufbau_photozelle}{Aufbau zur Messung des Photostroms mit (von links nach rechts) Lichtquelle, Irisblende, Linse, Filterrad, Photozelle und Messaufbau. Grafik entnommen aus \cite[3]{Versuchsanleitung}}{0.6}
+
+Zuletzt wurde noch eine Spannungsteilerschaltung zwischen die $\SI{12}{\V}$-Spannungsquelle und die Anode eingesetzt. Dafür wurden die beiden Widerstände $\SI{100}{\ohm}$ und $\SI{330}{\ohm}$ genutzt, wobei über den kleineren Widerstand die Spannung für die nachfolgende Schaltung abgegriffen wurde.
+Es ergab sich so für den Aufbau eine theoretische maximale Gegenspannung von
+\(
+U_{\text{max,th}} = \SI{12}{\V}\cdot \frac{\SI{100}{\ohm}}{\SI{430}{\ohm}} \approx\SI{2.80}{\V}.
+\)
+Es wurde mit dem Digital-Multimeter eine damit übereinstimmende tatsächlich verfügbare Maximalspannung von $U_{\text{max}}=\SI{-2.8(1)}{V}$ (das Vorzeichen ergibt sich aus der Polung der Schaltung) gemessen.
+
+
+
+
+
+\section{Auswertung}
+
+Aus der Messung des Photostroms $I$, korrigiert mit einem möglicherweise vorhandenen Anodenstrom $I_0$, der von einem minimalen Wert $U_0$ invers quadratisch mit dem Verlauf der angelegten Gegenspannung $U_G$ steigt,
+kann durch Interpolation der gemessenen Werte als x-Achsenabschnitt einer Darstellung von $\sqrt{(I-I_0)}(U_G)$ die Grenzsspannung für Licht einer festen Wellenlänge bestimmt werden.
+
+In der Energiebilanz für Photoelektronen bei der Grenzspannung gilt \footnote{mit ${e=\SI{1.602177e-19}{\C}}$ als Elementarladung\cite{KonstantenNIST}}:
+\begin{align}
+	\label{eq:gerade_u_gegen_h}
+	U_0 = \frac{h}{e}\nu - \frac{W_A}{e} = \frac{h}{e}\frac{c}{\lambda} - \frac{W_A}{e}
+\end{align}
+Aus der Auftragung der Grenzspannungen $U_0$, die aus den Messungen der einzelnen Wellenlängen bestimmt wurden, gegen die Wellenlängen $\lambda$ können mithilfe einer Geradenanpassung $U_0 = a \lambda + b$ dann
+der Wert des Plankschen Wirkungsquantums $h=\frac{a}{e}$ sowie die Austrittsarbeit der verwendeten Pt-Rh-Anode $W_A=-b \cdot e$ berechnet werden.
+
+
+
+\section{Diskussion}
