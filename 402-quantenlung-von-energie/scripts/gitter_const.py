@@ -10,11 +10,6 @@ import propeller as p
 eb_defaults = {"fmt": " ", "elinewidth": 0.75, "capsize": 2}
 
 
-def chi2(data, expected):
-    var = np.var(data)
-    return sum(((data - expected) / var) ** 2) / len(data - 2)
-
-
 def main():
     data = np.transpose(np.loadtxt(argv[1]))
     color = data[0]
@@ -34,7 +29,6 @@ def main():
 
     chi_sq, p_value = sp.stats.chisquare(res[0] * color + res[1], f_exp=angle_term)
     print(f"chi2 = {chi_sq}, p = {p_value}")
-    print(f"other chi2 = {chi2(res[0] * color + res[1], angle_term)}")
 
     plt.plot(xrange, res[0] * xrange + res[1])
 
