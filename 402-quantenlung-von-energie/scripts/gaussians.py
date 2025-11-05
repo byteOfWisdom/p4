@@ -26,6 +26,10 @@ def double_gaussian(x, a1, a2, mu1, mu2, sigma1, sigma2, const):
     return gaussian(x, a1, mu1, sigma1) + gaussian(x, a2, mu2, sigma2) + const
 
 
+def to_beta(p):
+    return np.arctan((1024 - p) * 0.014 / 300)
+
+
 def main():
     bins, values = parse_tf(argv[1])
 
