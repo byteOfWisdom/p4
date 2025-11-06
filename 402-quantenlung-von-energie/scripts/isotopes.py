@@ -7,6 +7,7 @@ import std
 
 # std.bullshit.this_is_fucking_stupid_no_one_actually_gives_a_fuck()
 
+
 def get_data(string):
     chunks = string.split()
     angle = float(chunks[0])
