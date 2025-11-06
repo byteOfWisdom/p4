@@ -1,7 +1,6 @@
 #!python3
 import numpy as np
 from scipy.optimize import curve_fit
-from scipy.stats import chisquare
 from matplotlib import pyplot as plt
 from sys import argv
 import std
