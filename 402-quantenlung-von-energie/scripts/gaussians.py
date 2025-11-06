@@ -1,8 +1,12 @@
 #!python3
 import numpy as np
 from scipy.optimize import curve_fit
+from scipy.stats import chisquare
 from matplotlib import pyplot as plt
 from sys import argv
+import std
+
+std.bullshit.this_is_fucking_stupid_no_one_actually_gives_a_fuck()
 
 
 def parse_tf(filename):
@@ -34,6 +38,25 @@ def from_beta(beta):
     return 1024 - 300 * np.tan(np.deg2rad(beta))
 
 
+def mu_label(mu, dmu):
+    s = r"$\mu = ("
+    dmu_angle = np.abs(to_beta(mu) - to_beta(mu + dmu))
+    s += str(round(to_beta(mu), 4))
+    s += r"\pm"
+    s += str(round(dmu_angle, 4))
+    s += r")^\circ$"
+    return s
+
+
+def fwhm_label(mu, sigma):
+    s = "FWHM $ = "
+    fwhm = 2 * np.sqrt(2 * np.log(2)) * sigma
+    fwhm_angle = to_beta(mu + 0.5 * fwhm) - to_beta(mu - 0.5 * fwhm)
+    s += str(round(fwhm)) + r" \hat{=} " + str(round(fwhm_angle, 2)) + r"\circ"
+    s += "$"
+    return s
+
+
 def main():
     bins, values = parse_tf(argv[1])
 
@@ -54,21 +77,35 @@ def main():
 
     guesses = [10, 20, int(argv[2]), int(argv[3]), 1, 1, min(values)]
     params, cov = curve_fit(double_gaussian, bins, values, p0=guesses)
-    plt.bar(bins, values, color="silver")
+    errors = np.sqrt(np.diag(cov))
+    chi2 = std.reduced_chi_2(values, double_gaussian(bins, *params), params, sigma=1)
+    print(f"reduced chi2 = {chi2}")
+
     xrange = np.linspace(min(bins), max(bins), 10000)
-    plt.plot(xrange, double_gaussian(xrange, *params), color="darkviolet")
     gauss_1 = gaussian(xrange, params[0], params[2], params[4])
     gauss_2 = gaussian(xrange, params[1], params[3], params[5])
-    plt.plot(xrange, params[6] + gauss_1, linestyle="--", color="deepskyblue")
-    plt.plot(xrange, params[6] + gauss_2, linestyle="--", color="coral")
-    plt.grid(which="major")
-    plt.grid(which="minor", linestyle=":", linewidth=0.5)
-    plt.gca().minorticks_on()
+
+    plt.bar(bins, values, color="silver")
+    chi2label = r"$\chi^2_{red} = " + str(round(chi2, 5)) + "$"
+    plt.plot(
+             xrange, double_gaussian(xrange, *params),
+             color="darkviolet", label=chi2label)
+    plt.plot(
+             xrange, params[6] + gauss_1, linestyle="--",
+             color="deepskyblue", label=mu_label(params[2], errors[2]))
+    plt.plot(
+             xrange, params[6] + gauss_2, linestyle="--",
+             color="coral", label=mu_label(params[3], errors[3]))
+    plt.legend()
+
+    std.default.plt_pretty("Pixel / Zahl", "Intensität / arbiträre Einheit")
     deg_axis = plt.gca().secondary_xaxis("top", (to_beta, from_beta))
     deg_axis.set_xlabel("Winkel / Grad")
-    plt.xlabel("Pixel")
-    plt.ylabel("Licht")
-    plt.show()
+
+    if len(argv) > 6:
+        plt.savefig(argv[6])
+    else:
+        plt.show()
 
 
 if __name__ == "__main__":
