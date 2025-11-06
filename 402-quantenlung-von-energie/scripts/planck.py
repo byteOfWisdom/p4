@@ -4,6 +4,7 @@ from matplotlib import pyplot as plt
 from sys import argv
 from scipy.optimize import curve_fit
 import propeller as p
+import std
 
 
 def piecwise_linear(x, d, a, alpha, b):
@@ -20,13 +21,9 @@ def get_U_0(file):
     data = np.transpose(np.loadtxt(file, delimiter=",", skiprows=1))
     voltage = data[0]  # Volt
     current = (data[1] - data[1][0]) * 1e-10  # Ampere
-    current = p.ev(current, 0.1 * current)
     y = np.sqrt(current)
 
-    print(y)
-
-    y_v, y_e = p.ve(y)
-    param, cov = curve_fit(piecwise_linear, voltage, y_v, sigma=y_e, p0=[-1, 0, 0.1, 0])
+    param, cov = curve_fit(piecwise_linear, voltage, y, p0=[-1, 0, 0.1, 0])
 
     errs = np.sqrt(np.diag(cov))
     delim = p.ev(param[0], errs[0])
@@ -35,8 +32,8 @@ def get_U_0(file):
     b = p.ev(param[3], errs[3])
     beta = (a - alpha) * delim + b
     voltage_zero = - beta / alpha
+    print(f"{float(voltage_zero)} +- {p.error(voltage_zero)}")
     return voltage_zero
-    # return p.value(voltage_zero), p.error(voltage_zero)
 
 
 def get_data(string):
@@ -69,8 +66,10 @@ def calc_planck(data):
     print(f"h = {~planck_constant} +- {p.error(planck_constant)}")
     print(f"W_A = {~work} J")
 
-    plt.plot(xrange, params[0] * xrange + params[1])
+    goodness = round(std.goodness_of_fit(voltage, params[0] * freqs + params[1]), 3)
+    plt.plot(xrange, params[0] * xrange + params[1], label=f"$R^2 = {goodness}$")
     plt.errorbar(freqs, voltage, voltage_err, xerr=freqs * 0.05, **eb_defaults)
+    plt.legend()
     plt.grid(which="major")
     plt.grid(which="minor", linestyle=":", linewidth=0.5)
     plt.gca().minorticks_on()
