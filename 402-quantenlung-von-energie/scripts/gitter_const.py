@@ -38,10 +38,15 @@ def main():
     goodness = std.goodness_of_fit(color, angle_term * res[0])
     print(goodness)
 
-    gratig_const_per_point = color / angle_term
+    gpp = p.ev(color, color_err) / p.ev(angle_term, angle_err)
+    gratig_const_per_point, gpp_err = p.ve(gpp)
     print(f"g = {gratig_const_per_point}")
+    print(f"g_err = {gpp_err}")
+    g_avg = sum(gpp / len(gpp))
+    print(f"g_avg = {~g_avg} +- {p.error(g_avg)}")
 
-    plt.plot(xrange, res[0] * xrange, label=f"$R^2 = {round(goodness, 2)}$")
+    label = f"$R^2 = {round(goodness, 2)}$, $g = ({round(res[0])}\\pm{round(err[0])})$ nm"
+    plt.plot(xrange, res[0] * xrange, label=label)
 
     defaults = eb_defaults
     defaults["fmt"] = "x"
@@ -51,14 +56,13 @@ def main():
                  angle_term, color,
                  yerr=color_err,
                  xerr=angle_err, **defaults)
-    # plt.grid(which="major")
-    # plt.grid(which="minor", linestyle=":", linewidth=0.5)
-    # plt.gca().minorticks_on()
-    # plt.xlabel(r"$\lambda$ / nm")
-    # plt.ylabel(r"$\sin(\alpha) + \sin(\beta)$")
+
     plt.legend()
     std.default.plt_pretty(r"$\sin(\alpha) + \sin(\beta)$", r"$\lambda$ / nm")
-    plt.show()
+    if len(argv) > 2:
+        plt.savefig(argv[2])
+    else:
+        plt.show()
 
 
 if __name__ == "__main__":
