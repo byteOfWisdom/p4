@@ -23,11 +23,12 @@ def main():
     angle_term = np.sin(alpha) + np.sin(beta)
     angle_term = angle_term / order
 
-    res, cov = curve_fit(lambda x, a, b: a * x + b, color, angle_term)
+    res, cov = curve_fit(lambda x, a: a * x, angle_term, color)
     err = np.sqrt(np.diag(cov))
-    print(f"g = {1 / res[0]} +- {1 / err[0]} nm")
+    print(f"g = {res[0]} +- {err[0]} nm")
+    # print(f"b = {res[1]}")
 
-    xrange = np.linspace(min(color) - 20, max(color) + 20, 1000)
+    xrange = np.linspace(min(angle_term) - 0.20, max(angle_term) + 0.20, 1000)
 
     # chi_sq, p_value = sp.stats.chisquare(res[0] * color, f_exp=angle_term)
     # print(f"chi2 = {chi_sq}, p = {p_value}")
@@ -38,15 +39,15 @@ def main():
     plt.plot(xrange, res[0] * xrange)
 
     plt.errorbar(
-                 color, angle_term,
-                 xerr=color * 0.01,
-                 yerr=angle_term * 0.01, **eb_defaults)
+                 angle_term, color,
+                 yerr=color * 0.01,
+                 xerr=angle_term * 0.01, **eb_defaults)
     # plt.grid(which="major")
     # plt.grid(which="minor", linestyle=":", linewidth=0.5)
     # plt.gca().minorticks_on()
     # plt.xlabel(r"$\lambda$ / nm")
     # plt.ylabel(r"$\sin(\alpha) + \sin(\beta)$")
-    std.default.plt_pretty(r"$\lambda$ / nm", r"$\sin(\alpha) + \sin(\beta)$")
+    std.default.plt_pretty(r"$\sin(\alpha) + \sin(\beta)$", r"$\lambda$ / nm")
     plt.show()
 
 
