@@ -107,6 +107,12 @@ def main():
     else:
         plt.show()
 
+    if len(argv) > 7:
+        with open(argv[7], "w") as handle:
+            s = " ".join(map(str, params)) + "\n"
+            s += " ".join(map(str, errors)) + "\n"
+            handle.write(s)
+
 
 if __name__ == "__main__":
     main()
