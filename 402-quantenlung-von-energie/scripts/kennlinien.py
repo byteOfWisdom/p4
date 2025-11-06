@@ -22,6 +22,7 @@ def main():
     voltage = data[0]  # Volt
     current = (data[1] - data[1][0]) * 1e-10  # Ampere
     y = np.sqrt(current)
+    yerr = (0.05 * current)**2 / (2 * y)
 
     param, cov = curve_fit(piecwise_linear, voltage, y, p0=[-1, 0, 0.1, 0])
 
@@ -36,13 +37,16 @@ def main():
 
     xrange = np.linspace(min(voltage) - 0.1, max(voltage) + 0.1, 10000)
     plt.plot(xrange, piecwise_linear(xrange, *param))
-    plt.errorbar(voltage, y, np.sqrt(10e-13), xerr=0.1, **eb_defaults)
+    plt.errorbar(voltage, y, yerr, xerr=0.1, **eb_defaults)
     plt.grid(which="major")
     plt.grid(which="minor", linestyle=":", linewidth=0.5)
     plt.gca().minorticks_on()
     plt.xlabel("Gegenspannung U / V")
     plt.ylabel(r"Photostrom $\sqrt{I - I_0}$ / $\sqrt{A}$")
-    plt.show()
+    if len(argv) > 2:
+        plt.savefig(argv[2])
+    else:
+        plt.show()
 
 
 if __name__ == "__main__":

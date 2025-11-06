@@ -68,14 +68,17 @@ def calc_planck(data):
 
     goodness = round(std.goodness_of_fit(voltage, params[0] * freqs + params[1]), 3)
     plt.plot(xrange, params[0] * xrange + params[1], label=f"$R^2 = {goodness}$")
-    plt.errorbar(freqs, voltage, voltage_err, xerr=freqs * 0.05, **eb_defaults)
+    plt.errorbar(freqs, voltage, voltage_err, xerr=freqs * 0.01, **eb_defaults)
     plt.legend()
     plt.grid(which="major")
     plt.grid(which="minor", linestyle=":", linewidth=0.5)
     plt.gca().minorticks_on()
     plt.xlabel("Frequenz / Hz")
     plt.ylabel(r"Grenzspannung / V")
-    plt.show()
+    if len(argv) > 2:
+        plt.savefig(argv[2])
+    else:
+        plt.show()
 
 
 if __name__ == "__main__":
