@@ -95,14 +95,83 @@ Aus den gemessenen Kennlinien werden nun Werte für das Planksche Wirkungsquantu
 Aus der Messung des Photostroms $I$, korrigiert mit einem möglicherweise vorhandenen Anodenstrom $I_0$, der von einem minimalen Wert $U_0$ invers quadratisch mit dem Verlauf der angelegten Gegenspannung $U_G$ bis zu einem Sättigungsstrom $I_S$ steigt,
 kann durch Interpolation der gemessenen Werte als x-Achsenabschnitt einer Darstellung von $\sqrt{(I-I_0)}(U_G)$ die Grenzspannung für Licht einer festen Wellenlänge bestimmt werden.
 
+%insert hier Zeug zu piecewise linear function fit, interpolation linearer Teil über 0 & actual auswertung
+
+
 In der Energiebilanz für Photoelektronen bei der Grenzspannung gilt \footnote{mit ${e=\SI{1.602177e-19}{\C}}$ als Elementarladung\cite{KonstantenNIST}}:
 \begin{align}
 	\label{eq:gerade_u_gegen_h}
 	U_0 = \frac{h}{e}\nu - \frac{W_A}{e} = \frac{h}{e}\frac{c}{\lambda} - \frac{W_A}{e}
 \end{align}
-Aus der Auftragung der Grenzspannungen $U_0$, die aus den Messungen der einzelnen Wellenlängen bestimmt wurden, gegen die Wellenlängen $\lambda$ können mithilfe einer Geradenanpassung $U_0 = a \lambda + b$ dann
-der Wert des Plankschen Wirkungsquantums $h=\frac{a}{e}$ sowie die Austrittsarbeit der verwendeten Pt-Rh-Anode $W_A=-b \cdot e$ berechnet werden.
+Aus der Auftragung der Grenzspannungen $U_0$, die aus den Messungen der einzelnen Wellenlängen bestimmt wurden, gegen die Wellenlängen $\lambda$ können mithilfe einer Geradenanpassung
+\[U_0 = a \lambda + b\]
+dann der Wert des Plankschen Wirkungsquantums als $h=\frac{a}{e}$ sowie die Austrittsarbeit der verwendeten Pt-Rh-Anode als $W_A=-b \cdot e$ berechnet werden.
+
+% here goes the geradenfit & anpassungsdiskussion
+%to do: intensitätsmessungen
+
 
 
 
 \section{Diskussion}
+
+
+\chapter{Balmer-Serie von Wasserstoff-Atomen}
+
+
+\section{Theoretische Überlegungen}
+
+Werden Atome mit elektromagnetischer Strahlung bestrahlt, emittieren oder absorbieren sie Licht diskreter, für die Atomart charakteristische Wellenlängen.
+Im Bohrschen Atommodell entspricht eine emittierte Wellenlänge der diskreten Anregung eines Elektrons in der Atomhülle in einen höheren Hauptquantenzahlzustand, also Energiezustand,
+wobei beim Übergang zurück in den niedrigeren Zustand (im Bohr-Modell in eine niederigere Hüllenschale) ein Photon der Frequenz
+\begin{align} \label{eq:lambda_übergang}
+	\nu = \frac{1}{\lambda} = \text{Ry}\cdot \left( \frac{1}{n_f^2}-\frac{1}{n_i^2} \right)
+\end{align}
+vom Atom emittiert wird. $n_i$ und $n_f$ sind dabei die ganzzahligen Hauptquantenzahlen des Atomzustands mit $n_f < n_i$ \cite[110]{Demtroeder3}.
+$\text{Ry}$ ist hierbei die Rydbergkonstante für das betrachtete Atom:
+\begin{align} \label{eq:rydbergkonst}
+	\text{Ry}=\text{Ry}_\infty \frac{\mu}{m_e}
+\end{align}
+
+mit der exakt festgelegten Rydbergkonstante in Näherung für unendliche Kernmasse $\text{Ry}_\infty=\SI{10973731.568157}{1/\meter^{-1}}$ \cite{KonstantenNIST}
+und reduzierter Atommasse $\mu = \frac{m_e\cdot m_K}{m_e + m_K}$
+\footnote{mit $m_e = \SI{9.109e-31}{\kg}$ Elektronenmasse \cite{KonstantenNIST} und $m_K$ Kernmasse}. Für Isotope eines Atoms, die sich in Neutronenzahl und damit Kernmasse $m_K$ unterscheiden, ergeben sich so geringfügig unterschiedliche Werte für $\text{Ry}$ und $\nu$ der Spektrallinien. Im Versuch werden Wasserstoff und sein Isotop Deuterium untersucht; Deuterium enthält ein Neutron im Kern, Wasserstoff nicht, wodurch Deuterium Emissionslinien mit kürzerer Wellenlänge als Wasserstoff für die gleichen $n_i$-Übergänge hat. Der Unterschied der Wellenlängen wird als Isotopieaufspaltung bezeichnet.
+
+Die im optischen Wellenlängenbereich beobachtete Reihe an Übergängen des Wasserstoffatoms mit $n_f=2$ und $n_i>2$ heißt Balmer-Serie. Sie besteht aus fünf Übergangslinien: $H_\alpha, H_\beta, H_\gamma, H_\delta$ und $H_\varepsilon$.
+Weitere Hauptquantenzahlübergangsserien, die für Wasserstoff bei Anregung in verschiedenen Frequenzbereichen beobachtbar sind, sind in Abbildung (\ref{fig:anregungsserien_wasserstoff}) dargestellt. Sie werden nach $n_f$ gruppiert.
+
+\jafps{anregungsserien_wasserstoff}{Darstellung der Emissions- und Absorptionsspektrallinien von Wasserstoff für verschiedene Serien. Grafik entnommen aus \cite[108]{Demtroeder3}}{0.5}
+
+\section{Teil 1: Bestimmung der Gitterkonstante}
+
+Um die Wellenlängen der Balmer-Serie von Wasserstoff präzise vermessen zu können, muss die Gitterkonstante des im experimentellen Aufbau zur wellenlängenabhängigen
+Aufspaltung der emittierten Spektrallinien verwendeten Reflexionsgitters genau bekannt sein. Dazu wird zunächst das sehr genau bekannte Emissionsspektrum einer Hg-Lampe aufgenommen
+und daraus die Gitterkonstante bestimmt.
+
+
+\subsection{Experimenteller Aufbau \& Durchführung}
+
+\jafps{aufbau_balmerserie}{Versuchsaufbau zur Vermessung der Spektrallinien von Hg- und Wasserstoff-Deuterium-Lampen. Von links nach rechts sind dabei: Grafik entnommen aus \cite[6]{Versuchsanleitung}}{0.8}
+
+
+\subsection{Auswertung}
+placeholder
+
+%auflösungsvermögen diskussion goes here
+
+\section{Teil 2: Vermessung der Balmer-Serie}
+
+% placeholder
+
+% \subsection{Messung mit dem Auge}
+% placeholder
+% \subsection{Messung mit CCD-Kamera}
+% placeholder
+% \subsection{Vermessung der Isotopie-Aufspaltung}
+% placeholder
+% %theorie isotopie erst hier?
+
+% \subsection{Weiterführende Überlegungen}
+% placeholder
+% %linienverbreiterungen
+% %verunreinigungen balmer-lampe zuordnen
