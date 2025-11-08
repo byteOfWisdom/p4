@@ -35,9 +35,15 @@ def characteristic(file):
     voltage_zero = -beta / alpha
     print(f"{float(voltage_zero)} +- {p.error(voltage_zero)}")
 
+    if "data/kl_" in file:
+        name = "höhere Lichtintensität"
+    else:
+        name = "niedrigere Intensität"
+
     xrange = np.linspace(min(voltage) - 0.1, max(voltage) + 0.1, 10000)
-    plt.plot(xrange, piecwise_linear(xrange, *param))
+    plt.plot(xrange, piecwise_linear(xrange, *param), label=name)
     plt.errorbar(voltage, y, np.sqrt(10e-13), xerr=0.1, **eb_defaults)
+    plt.legend(loc="upper left")
     plt.grid(which="major")
     plt.grid(which="minor", linestyle=":", linewidth=0.5)
     plt.gca().minorticks_on()
@@ -48,7 +54,8 @@ def main():
     characteristic(argv[2])
     plt.xlabel("Gegenspannung U / V")
     plt.ylabel(r"Photostrom $\sqrt{I - I_0}$ / $\sqrt{A}$")
-    plt.show()
+    # plt.show()
+    plt.savefig("intensitaet_variation.pdf")
 
 
 if __name__ == "__main__":
