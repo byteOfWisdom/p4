@@ -37,11 +37,17 @@ def characteristic(file):
 
     if "data/kl_" in file:
         name = "höhere Lichtintensität"
-    else:
+    elif len(argv) == 3 and "data/kennlinie_365nm" in file:
         name = "niedrigere Intensität"
+    else:
+        name = "noname"
 
     xrange = np.linspace(min(voltage) - 0.1, max(voltage) + 0.1, 10000)
-    plt.plot(xrange, piecwise_linear(xrange, *param), label=name)
+    if name == "noname":
+        plt.plot(xrange, piecwise_linear(xrange, *param))
+    else:
+        plt.plot(xrange, piecwise_linear(xrange, *param), label=name)
+
     plt.errorbar(voltage, y, np.sqrt(10e-13), xerr=0.1, **eb_defaults)
     plt.legend(loc="upper left")
     plt.grid(which="major")
@@ -50,12 +56,16 @@ def characteristic(file):
 
 
 def main():
-    characteristic(argv[1])
-    characteristic(argv[2])
+    i = 1
+    while i < len(argv):
+        characteristic(argv[i])
+        print(i, ":", argv[i])
+        i += 1
+
     plt.xlabel("Gegenspannung U / V")
     plt.ylabel(r"Photostrom $\sqrt{I - I_0}$ / $\sqrt{A}$")
-    # plt.show()
-    plt.savefig("intensitaet_variation.pdf")
+    plt.show()
+    # plt.savefig("intensitaet_variation.pdf")
 
 
 if __name__ == "__main__":
