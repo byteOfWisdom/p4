@@ -20,7 +20,6 @@ mithilfe eines Reflexionsgitter wellenlängenabhängig in verschiedene Winkel au
 sodass die den Wellenlängen zugeordneten Energien bestimmt werden können.
 Das verwendete Gitter wurde dafür zudem noch mithilfe des bekannten Spektrums einer Quecksilber (Hg)-Lampe ausgemessen.
 
-
 \chapter{Bestimmung des Planckschen Wirkungsquantums}
 
 \section{Theoretische Überlegungen}
@@ -28,7 +27,7 @@ Das verwendete Gitter wurde dafür zudem noch mithilfe des bekannten Spektrums e
 Wird monochromatisches Licht mit Frequenz $\nu$ auf eine Metallplatte gestrahlt, wechselwirken die Photonen mit den (Leitungs-)Elektronen des Metalls in dem sie ihre Energie $E=h\nu$ komplett an ein Elektron übertragen.
 Übersteigt diese Energie die Austrittsarbeit, die für einen Austritt aus dem Material aufgebracht werden muss, können die Elektronen aus dem Material austreten
 und der Elektronenstrom kann als Photostrom $I$ gemessen werden.
-Ist die Energie der einzelnen Photonen kleiner als die Austrittsarbeit, welche bei Metallen durch die Fermienergie $E_F$ der Elektronen bestimmt wird, d.h. ist die Lichtfrequenz zu niedrig, kann kein Photostrom gemessen werden, unabhängig von der Lichtintensität \cite[63]{HakenWolf2013}.
+Ist die Energie der einzelnen Photonen kleiner als die Austrittsarbeit, welche bei Metallen durch die Fermienergie $E_F$ der Leitungselektronen bestimmt wird\cite[110]{festkoerperphysik}, d.h. ist die Lichtfrequenz zu niedrig, kann kein Photostrom gemessen werden, unabhängig von der Lichtintensität \cite[63]{HakenWolf2013}.
 Dies ist der sogenannte äußere photoelektrischer Effekt (Photoeffekt).
 Im Folgenden wird der Photoeffekt in einer Photozelle aus elektrisch verbundener Kathode,
 die mit Licht bestrahlt wird mit Austrittsarbeit $W_K$, und Anode mit Austrittsarbeit $W_A$, an der der Photostrom gemessen wird, untersucht.
@@ -98,15 +97,15 @@ kann durch Interpolation der gemessenen Werte als x-Achsenabschnitt einer Darste
 
 Die gemessenen Kennlinien für alle untersuchten Lichtfrequenzen sind in den Abbildungen \ref{fig:kennlinie_365nm} - \ref{fig:kennlinie_578nm_2} dargestellt.
 
-\jafpp{kennlinie_365nm}{1. Messung Kennlinie für $\SI{365}{\nano\meter}$}{kennlinie_365nm_2}{2. Messung Kennlinie für $\SI{365}{\nano \meter}$}
+% \jafpp{kennlinie_365nm}{1. Messung Kennlinie für $\SI{365}{\nano\meter}$}{kennlinie_365nm_2}{2. Messung Kennlinie für $\SI{365}{\nano \meter}$}
 
-\jafpp{kennlinie_405nm}{1. Messung Kennlinie für $\SI{405}{\nano\meter}$}{kennlinie_405nm_2}{2. Messung Kennlinie für $\SI{405}{\nano\meter}$}
+% \jafpp{kennlinie_405nm}{1. Messung Kennlinie für $\SI{405}{\nano\meter}$}{kennlinie_405nm_2}{2. Messung Kennlinie für $\SI{405}{\nano\meter}$}
 
-\jafpp{kennlinie_436nm}{1. Messung Kennlinie für $\SI{436}{\nano\meter}$}{kennlinie_436nm_2}{2. Messung Kennlinie für $\SI{436}{\nano\meter}$}
+% \jafpp{kennlinie_436nm}{1. Messung Kennlinie für $\SI{436}{\nano\meter}$}{kennlinie_436nm_2}{2. Messung Kennlinie für $\SI{436}{\nano\meter}$}
 
-\jafpp{kennlinie_546nm}{1. Messung Kennlinie für $\SI{546}{\nano\meter}$}{kennlinie_546nm_2}{2. Messung Kennlinie für $\SI{546}{\nano\meter}$}
+% \jafpp{kennlinie_546nm}{1. Messung Kennlinie für $\SI{546}{\nano\meter}$}{kennlinie_546nm_2}{2. Messung Kennlinie für $\SI{546}{\nano\meter}$}
 
-\jafpp{kennlinie_578nm}{1. Messung Kennlinie für $\SI{578}{\nano\meter}$}{kennlinie_578nm_2}{2. Messung Kennlinie für $\SI{578}{\nano\meter}$}
+% \jafpp{kennlinie_578nm}{1. Messung Kennlinie für $\SI{578}{\nano\meter}$}{kennlinie_578nm_2}{2. Messung Kennlinie für $\SI{578}{\nano\meter}$}
 
 \textcolor{red}{hier fehlt noch Anmerkung zu Fehler der Werte}
 
@@ -119,26 +118,28 @@ Um die Grenzspannung $U_0$ jeder der Kennlinien zu bestimmen, wurde eine stückw
 \end{align}
 an die Datenpunkte angepasst. $k$ entspricht hier der x-Koordinate des Knickpunkts. Für die Bestimmung der Grenzspannung $U_0$ wurde für der Teil der Funktion $U>k$ als eigenständige lineare Funktion betrachtet und der x-Achsenabschnitt bestimmt, bei dem gilt: $\sqrt{(I-I_0)}(U_0)=aU_0 = 0$.
 Es wurden so die folgenden Grenzspannungen $U_0$ für die verschiedenen Wellenlängenfilter bestimmt:
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|c|c|c|} \hline
-		Messung & $\lambda ~/ ~\unit{\nano \meter}$ & $U_0 ~/~\unit{\V}$ \\
-		\hline
-		        & $365$                             & $-1.71\pm0.04$     \\
-		        & $405$                             & $-1.348 \pm 0.015$ \\
-		1       & $436$                             & $-1.16\pm0.04$     \\
-		        & $546$                             & $-0.60\pm0.02$     \\
-		        & $578$                             & $-0.47\pm0.04$     \\ \hline
 
-		        & $365$                             & $-1.69\pm0.03$     \\
-		        & $405$                             & $-1.35 \pm 0.02$   \\
-		2       & $436$                             & $-1.147\pm0.012$   \\
-		        & $546$                             & $-0.60\pm 0.02$    \\
-		        & $578$                             & $-0.464\pm 0.015$  \\ \hline
-	\end{tabular}
-	\caption{Bestimmte Grenzspannungen $U_0$ aus den aufgenommenen Kennlinien bei den fünf untersuchten Wellenlängen.}
-	\label{tab:grenzspannungen}
-\end{table}
+% ich mag das 2. layout lieber :)
+% \begin{table}[H]
+%     \centering
+%     \begin{tabular}{|c|c|c|} \hline
+%     Messung & $\lambda ~/ ~\unit{\nano \meter}$ & $U_0 ~/~\unit{\V}$ \\
+%     \hline
+%     & $365$ & $-1.71\pm0.04$ \\
+%     & $405$  &  $-1.348 \pm 0.015$ \\
+%   1  & $436$ & $-1.16\pm0.04$ \\
+%     & $546$ & $-0.60\pm0.02$ \\
+%     & $578$ & $-0.47\pm0.04$ \\ \hline
+
+%      & $365$ & $-1.69\pm0.03$ \\
+%     & $405$  &  $-1.35 \pm 0.02$ \\
+%   2  & $436$ & $-1.147\pm0.012$ \\
+%     & $546$ & $-0.60\pm 0.02$ \\
+%     & $578$ & $-0.464\pm 0.015$ \\ \hline
+%     \end{tabular}
+%     \caption{Bestimmte Grenzspannungen $U_0$ aus den aufgenommenen Kennlinien bei den fünf untersuchten Wellenlängen.}
+%     \label{tab:grenzspannungen}
+% \end{table}
 
 \begin{table}[H]
 	\centering
@@ -160,9 +161,11 @@ Es wurden so die folgenden Grenzspannungen $U_0$ für die verschiedenen Wellenl�
 		$578$                             & 1       & $-0.47\pm0.04$     \\
 		                                  & 2       & $-0.464\pm 0.015$  \\ \hline
 	\end{tabular}
-	\caption{alternatively:}
-	\label{tab:alt}
+	\caption{Bestimmte Grenzspannungen $U_0$ aus den aufgenommenen Kennlinien bei den fünf untersuchten Wellenlängen.}
+	\label{tab:grenzspannungen}
 \end{table}
+
+Die Grenzspannungen, die für die beiden Messungen bei einer Durchlasswellenlänge separat bestimmt wurden, stimmen im Rahmen ihrer Fehler in einer $1\sigma$-Umgebung jeweils miteinander überein.
 
 
 In der Energiebilanz für Photoelektronen bei der Grenzspannung gilt \footnote{mit ${e=\SI{1.602177e-19}{\C}}$ als Elementarladung\cite{KonstantenNIST}}:
@@ -179,15 +182,24 @@ der Wert des Planckschen Wirkungsquantums als $h=\frac{a}{e}$ sowie die Austritt
 
 \jafps{planck}{Bestimmte Grenzspannungen $U_0$ in Abhängigkeit von der Frequenz $v=\frac{c}{\lambda}$ aufgetragen, zusammen mit linearer Regression nach Gl. \ref{eq:geradenfit}. Der lineare Zusammenhang wird gut sichtbar, wobei die Anpassungsgüte mit Bestimmtheitsmaß $R^2=0,999$ ($0\leq R^2 \leq 1$) sehr gut ist.}{0.6}
 
-Aus der Anpassung ergeben sich die Werte $h=\SI{6,425e-34(5e-36)}{\Joule \second}$
-% i swear to fucking god why wont this work
+Aus der Anpassung ergeben sich die Werte $h=\SI{6.425(0.05)e-34}{\joule \second}$ und \\
+$W_A=\SI{2.5812477581471907e-19}{\joule}$ \textcolor{red}{hier fehlt noch der Fehler für $W_A$}, in Elektronenvolt $\frac{W_A}{e}=\SI{1.611}{\electronvolt}$.\\
+Der Literaturwert für das Plancksche Wirkungsquantum beträgt $h_{\text{Lit}}=\SI{6.62607015e-34}{\joule \second}$
+%\cite{KonstantenNIST},
+der bestimmten Wert weicht vom als exakt definierten Literaturwert um $\frac{h_{\text{Lit}-h}}{h_{\text{Lit}}}=3,0\%$ ab, mit Beachtung der $1\sigma$-Umgebung um $2,3\%$. Die beiden Werte stimmen also nicht überein, weichen aber nur in geringem Maße voneinander ab, was in Anbetracht der sehr kleinen Größenordnung von $\mathcal{O}(\SI{e-34}{\joule \second})$ für die Validität der genutzten Methode zur Bestimmung von $h$ spricht. Die Plausibilität der Austrittsarbeit der genutzten Anode ist nur schwer überprüfbar, da ihr Wert stark von den Verhältnissen von Platin und Rhodium im spezifisch genutzten Bauteil abhängt. Typische Austrittsarbeiten liegen im Bereich von $\SIrange{2,2}{6,4}{\electronvolt}$
+%\cite[494]{kittelsolidstate},\cite{workfunctionchem}, \cite{workfunctionsgeorgia}.
+Die gemessene Austrittsarbeit ist also deutlich kleiner als verfügbare Vergleichswerte. Als Gründe für den Unterschied können vermutet werden: \textcolor{red}{hier Gründe: Anodenstrom/Austrittsarbeit nicht korrekt kompensiert, Verunreinigungen in Legierung/Metallstruktur, komplexere Oberflächenstruktur, Kontaktpotential nicht korrekt in Bilanz betrachtet, höhere Temperatur $\rightarrow$ Aufweichung Fermikante (e-Energien größer als Fermienergie), noch was?.}
 
 % here goes the geradenfit & anpassungsdiskussion
 
 %to do: intensitätsmessungen
-\jafps{intensitaet_variation}{Messungen Kennlinie für $\SI{365}{\nano \meter}$ mit variierten Lichtintensitäten. Bei niedrigerer Intensität betrug die maximale Photospannung $U_{\text{I,max}}=\SI{2.8(0.1)}{\V}$, bei höherer Intensität $U_{\text{I,max}}=\SI{14.2(0.1)}{\V}$.}{0.7}
 
-\section{Diskussion}
+Zuletzt wird noch die Messung der Kennlinie bei einer höheren Lichtintensität untersucht. Hierbei werden für eine der beiden Messungen bei geringerer Intensität für $\lambda=\SI{365}{\nano\meter}$ (da die beiden Messungen in der bestimmten Grenzspannung $U_0$ im Rahmen ihrer Fehler übereinstimmen, ist egal, welche der beiden Messungen gewählt wird) und für die Messung bei höherer Intensität jeweils die Werte von Gegenspannung $U_G$ und um $I_0$ korrigierten Photostrom $\sqrt{I-I_0}$ gegeneinander aufgetragen, siehe Abbildung \ref{fig:intensitaet_variation}.
+
+\jafps{intensitaet_variation}{Messungen der Photozellen-Kennlinie für $\SI{365}{\nano \meter}$ mit variierten Lichtintensitäten. Bei niedrigerer Intensität betrug die maximale Photospannung $U_{\text{I,max}}=\SI{2.8(0.1)}{\V}$, bei höherer Intensität $U_{\text{I,max}}=\SI{14.2(0.1)}{\V}$.}{0.7}
+
+Hier fehlt noch bisschen Interpretation zu Sättigungsstrom und gleicher Grenzsspannung.
+
 
 \chapter{Balmer-Serie von Wasserstoff-Atomen}
 
@@ -200,22 +212,25 @@ wobei beim Übergang zurück in den niedrigeren Zustand (im Bohr-Modell in eine 
 \begin{align} \label{eq:lambda_übergang}
 	\nu = \frac{1}{\lambda} = \text{Ry}\cdot \left( \frac{1}{n_f^2}-\frac{1}{n_i^2} \right)
 \end{align}
-vom Atom emittiert wird. $n_i$ und $n_f$ sind dabei die ganzzahligen Hauptquantenzahlen des Atomzustands mit $n_f < n_i$ \cite[110]{Demtroeder3}.
+vom Atom emittiert wird. $n_i$ und $n_f$ sind dabei die ganzzahligen Hauptquantenzahlen des Atomzustands mit $n_f < n_i$ %\cite[110]{Demtroeder3}.
 $\text{Ry}$ ist hierbei die Rydbergkonstante für das betrachtete Atom:
 \begin{align} \label{eq:rydbergkonst}
 	\text{Ry}=\text{Ry}_\infty \frac{\mu}{m_e}
 \end{align}
 
-mit der exakt festgelegten Rydbergkonstante in Näherung für unendliche Kernmasse $\text{Ry}_\infty=\SI{10973731.568157}{1/\meter^{-1}}$ \cite{KonstantenNIST}
+mit der exakt festgelegten Rydbergkonstante in Näherung für unendliche Kernmasse $\text{Ry}_\infty=\SI{10973731.568157}{1/\meter^{-1}}$ %\cite{KonstantenNIST}
 und reduzierter Atommasse $\mu = \frac{m_e\cdot m_K}{m_e + m_K}$
-\footnote{mit $m_e = \SI{9.109e-31}{\kg}$ Elektronenmasse \cite{KonstantenNIST} und $m_K$ Kernmasse}. Für Isotope eines Atoms, die sich in Neutronenzahl und damit Kernmasse $m_K$ unterscheiden, ergeben sich so geringfügig unterschiedliche Werte für $\text{Ry}$ und $\nu$ der Spektrallinien. Im Versuch werden Wasserstoff und sein Isotop Deuterium untersucht; Deuterium enthält ein Neutron im Kern, Wasserstoff nicht, wodurch Deuterium Emissionslinien mit kürzerer Wellenlänge als Wasserstoff für die gleichen $n_i$-Übergänge hat. Der Unterschied der Wellenlängen wird als Isotopieaufspaltung bezeichnet.
+\footnote{mit $m_e = \SI{9.109e-31}{\kg}$ Elektronenmasse %\cite{KonstantenNIST}
+	und $m_K$ Kernmasse}. Für Isotope eines Atoms, die sich in Neutronenzahl und damit Kernmasse $m_K$ unterscheiden, ergeben sich so geringfügig unterschiedliche Werte für $\text{Ry}$ und $\nu$ der Spektrallinien. Im Versuch werden Wasserstoff und sein Isotop Deuterium untersucht; Deuterium enthält ein Neutron im Kern, Wasserstoff nicht, wodurch Deuterium Emissionslinien mit kürzerer Wellenlänge als Wasserstoff für die gleichen $n_i$-Übergänge hat. Der Unterschied der Wellenlängen wird als Isotopieaufspaltung bezeichnet.
 
 Die im optischen Wellenlängenbereich beobachtete Reihe an Übergängen des Wasserstoffatoms mit $n_f=2$ und $n_i>2$ heißt Balmer-Serie. Sie besteht aus fünf Übergangslinien: $H_\alpha, H_\beta, H_\gamma, H_\delta$ und $H_\varepsilon$.
 Weitere Hauptquantenzahlübergangsserien, die für Wasserstoff bei Anregung in verschiedenen Frequenzbereichen beobachtbar sind, sind in Abbildung (\ref{fig:anregungsserien_wasserstoff}) dargestellt. Sie werden nach $n_f$ gruppiert.
 
-\jafps{anregungsserien_wasserstoff}{Darstellung der Emissions- und Absorptionsspektrallinien von Wasserstoff für verschiedene Serien. Grafik entnommen aus \cite[108]{Demtroeder3}}{0.5}
+\jafps{anregungsserien_wasserstoff}{Darstellung der Emissions- und Absorptionsspektrallinien von Wasserstoff für verschiedene Serien. Grafik entnommen aus }{0.5}%\cite[108]{Demtroeder3}}{0.5}
 
-\section{Teil 1: Bestimmung der Gitterkonstante}
+\section{Vermessung der Emissionsspektren}
+
+\subsection{Teil 1: Bestimmung der Gitterkonstante}
 
 Um die Wellenlängen der Balmer-Serie von Wasserstoff präzise vermessen zu können, muss die Gitterkonstante des im experimentellen Aufbau zur wellenlängenabhängigen
 Aufspaltung der emittierten Spektrallinien verwendeten Reflexionsgitters genau bekannt sein. Dazu wird zunächst das sehr genau bekannte Emissionsspektrum einer Hg-Lampe aufgenommen
@@ -224,15 +239,42 @@ und daraus die Gitterkonstante bestimmt.
 
 \subsection{Experimenteller Aufbau \& Durchführung}
 
-\jafps{aufbau_balmerserie}{Versuchsaufbau zur Vermessung der Spektrallinien von Hg- und Wasserstoff-Deuterium-Lampen. Von links nach rechts sind dabei: Grafik entnommen aus \cite[6]{Versuchsanleitung}}{0.8}
+Es wurde auf einer optischen Bank die Anordnung in Abbildung \ref{fig:aufbau_balmerserie} aufgebaut. Als Lampe wurde für die Messung der Gitterkonstanten die Hg-Lampe eingesetzt, zur Messung des Wasserstoffspektrums die Balmer-Lampe, welche ein Wasserstoff-Deuterium-Gemisch im Verhältnis $2:1$ enthielt. Die Linsen \textbf{f)} und \textbf{g)} bzw. \textbf{f)} und Kameralinse (\textbf{h)}) standen hierbei stets in Fernrohraufbau, ihr Abstand war die Summe ihrer Brennweiten.
+
+\jafps{aufbau_balmerserie}{Versuchsaufbau zur Vermessung der Spektrallinien von Hg- und Wasserstoff-Deuterium-Lampen, mit a) Lampe, b) Linse (Brennweite $f=\SI{50}{\milli\meter}$) zur Abbildung des Lampenlichts auf den Spalt, c) verstellbarer Spalt, d) Objektivlinse zur Projektion ($f=\SI{150}{\milli\meter}$), e) Reflexionsgitter, f) Objektivlinse ($f=\SI{300}{\milli\meter}$) und g) Okularlinse mit Strichskala bzw. h) CCD-Kamera. Grafik entnommen aus }{0.8}%\cite[6]{Versuchsanleitung}}{0.8}
+
+Das Projektionsobjektiv wurde in seinem Brennweitenabstand hinter dem Spalt eingesetzt, sodass bei genau paralleler Ausrichtung des Gitters (Zeigerwinkel $\omega_G=0^\circ$ ) zum Spalt das Bild des Spalts scharf auf diesen reflektiert wurde. Diese Autokollimation stellte sicher, dass die verschiedenen Wellenlängen des Lichts genau parallel auf das Gitter fielen. Die optischen Bänke wurden auf den Winkel $\omega_B=140^\circ$ zueinander gedreht, welcher für alle Messungen konstant blieb. Die Blende wurde so weit geschlossen, dass gerade genug Lichtintensität auf das Gitter fiel, um das Emissionsspektrum scharf erkennen zu können. Das Gitter wurde nun so gedreht, dass durch das Okular \textbf{g)} die Spektrallinien der Hg-Lampe nacheinander sichtbar wurden. Um die Abbildung scharf zu stellen, wurden, falls nötig, die Positionen der beiden Objektive \textbf{d)} und \textbf{f)} variiert. Für alle sichtbaren Spektrallinien der ersten Ordnung wurde nun der Gitterwinkel variiert, bis sie scharf im Zentrum der Okularskala zu erkennen waren und $\omega_G$ notiert.
 
 
 \subsection{Auswertung}
-placeholder
+
+Um die Gitterkonstante $g$ des verwendeten Gitters zu bestimmen, wird die Gittergleichung betrachtet:
+\begin{align}
+	\label{eq:gittergl}
+	d=n\lambda=g(\sin(\alpha)+\sin(\beta))
+\end{align}
+Hier ist $d$ der Gangunterschied zwischen zwei benachbarten Strahlen in einem Maxima (siehe Abbildung \ref{fig:gittergleichung_gangunterschied}), $n$ bezeichnet die Ordnung, die hier i.d.R. als $n=1$ angenommen wird (andere Ordnungen sind mit dem verwendeten Gitter nur schlecht bis gar nicht beobachtbar) und $\lambda$ die Wellenlänge des Lichts.
+
+\jafps{gittergleichung_gangunterschied}{Illustration des Gangunterschieds in einem Maxima des Interferenzmusters, das sich bei Reflexion von Licht an einem Reflexionsgitter ausbildet. Die Winkel $\alpha$ und $\beta$ entsprechen nicht den beiden gemessenen Winkeln $\omega_B$ und $\omega_G$, sondern müssen noch umgerechnet werden. Graphik entnommen aus}{0.6} %\cite[1]{LDbalmerserie}.}{0.6}
+
+
+Die Winkelanordnung des Aufbaus ist in Abbildung \ref{fig:winkel_gitter} dargestellt.
+
+\jafps{winkel_gitter}{Winkelanordnung des Aufbaus. Graphik entnommen aus }{0.4}%\cite[8]{Versuchsanleitung}.}{0.5}
+
+Es gilt dabei:
+\begin{align}\label{eq:winkel}
+	 & \alpha = \omega_B , \quad \beta = \omega_B + \omega_G - 180^\circ
+\end{align}
+
+%hier theorie winkel --> wellenlänge & aufspaltung
 
 %auflösungsvermögen diskussion goes here
 
-\section{Teil 2: Vermessung der Balmer-Serie}
+\subsection{Teil 2: Vermessung der Balmer-Serie}
+
+Um die Wellenlängen der Balmer-Serie zu vermessen, wurde die Hg-Lampe durch die Balmer-Lampe ausgetauscht und der Aufbau erneut so justiert, dass das Licht scharf abgebildet wurde. Durch Variation des Gitterwinkels $w_G$ wurden auch hier alle sichtbaren Spektrallinien des Wasserstoffs der Lampe auf die Mitte der Okularskala ausgerichtet und $w_G$ notiert, sowie der Abstand zur deutlich schwächer (aufgrund der niedrigeren Konzentration im Gasgemisch der Lampe) aber um einen kleinen Abstand $d$ getrennten zu sehenden korrespondierenden Spektrallinie des Deuteriums. Nicht aufgespalten erscheinende Spektrallinien wurden ebenfalls vermessen. Anschließend wurde das Okular durch die CCD-Kamera ausgetauscht und die erkennbar aufgespaltenen Wasserstoff-Linien nacheinander in die Mitte der CCD-Zeile der Kamera fokussiert.
+Die Kamera wurde dabei mit dem Aufnahmeprogramm \textit{VideoCom-Intensitäten} auf einem Computer verbunden, welches die Lichtintensitäten für die einzelnen Pixel aufzeichnete, mit einer Aufnahme über einen längeren Zeitraum und automatischer Mittelwertbildung der gemessenen Intensitäten. Die Messungen der einzelnen Spektrallinien-Paare wurden als Textdateien gespeichert.
 
 % placeholder
 
