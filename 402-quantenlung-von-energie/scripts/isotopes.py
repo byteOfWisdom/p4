@@ -106,7 +106,16 @@ def rydberg_from_delta(data):
     reduced_mass_D = (mass_proton + mass_neutron) * mass_electron / (mass_electron + mass_proton + mass_neutron)
     reduced_mass_diff = reduced_mass_D - reduced_mass_H
 
-    
+    R_inf = delta_lambda *(1 / std.unit.nm) * transition * mass_electron / reduced_mass_diff
+    print(R_inf.format())
+    return R_inf
+
+
+def h_from_R(R):
+    term_a = std.unit.electron_mass * (std.unit.electron_charge ** 4)
+    term_b = (std.unit.vacuum_permitivity ** 2) * 8 * std.unit.c * R
+    h = (term_a / term_b) ** (1/3)
+    return h
 
 
 def main():
@@ -116,9 +125,12 @@ def main():
     handle.close()
 
     _ = list(map(calc_isotope_split, data))
-    _ = list(map(rydberg_from_abs_lambda, data))
+    R_inf = list(map(rydberg_from_abs_lambda, data))
     delta_lambda = list(map(delta_lambda_from_cmos, data))
     _ = [print(x.format()) for x in delta_lambda]
+    _ = list(map(rydberg_from_delta, data))
+    for h in map(h_from_R, R_inf):
+        print(h.format())
 
 
 if __name__ == "__main__":
