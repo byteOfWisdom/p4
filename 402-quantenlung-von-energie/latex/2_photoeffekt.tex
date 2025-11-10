@@ -1,0 +1,161 @@
+\chapter{Bestimmung des Planckschen Wirkungsquantums}
+
+\section{Theoretische Überlegungen}
+
+Wird monochromatisches Licht mit Frequenz $\nu$ auf eine Metallplatte gestrahlt, wechselwirken die Photonen mit den (Leitungs-)Elektronen des Metalls in dem sie ihre Energie $E=h\nu$ komplett an ein Elektron übertragen.
+Übersteigt diese Energie die Austrittsarbeit, die für einen Austritt aus dem Material aufgebracht werden muss, können die Elektronen aus dem Material austreten
+und der Elektronenstrom kann als Photostrom $I$ gemessen werden.
+Ist die Energie der einzelnen Photonen kleiner als die Austrittsarbeit, welche bei Metallen durch die Fermienergie $E_F$ der Leitungselektronen bestimmt wird\cite[110]{festkoerperphysik}, d.h. ist die Lichtfrequenz zu niedrig, kann kein Photostrom gemessen werden, unabhängig von der Lichtintensität \cite[63]{HakenWolf2013}.
+Dies ist der sogenannte äußere photoelektrischer Effekt (Photoeffekt).
+Im Folgenden wird der Photoeffekt in einer Photozelle aus elektrisch verbundener Kathode,
+die mit Licht bestrahlt wird mit Austrittsarbeit $W_K$, und Anode mit Austrittsarbeit $W_A$, an der der Photostrom gemessen wird, untersucht.
+Es wird zudem eine Gegenspannung angelegt, die der Bewegung der Elektronen entgegenwirkt, mit positiven Pol an der Anode. \textcolor{blue}{(double check: korrekte polung?)}\\
+Bei der Gegenspannung $U_0$ (Grenzspannung), bei der gerade kein Photostrom mehr gemessen wird, d.h. keine Elektronen die Anode mehr erreichen, ergibt sich die Energiebilanz der Photoelektronen wie folgt:
+Wenn Kathode und Anode verbunden werden, entsteht aufgrund der nun gleich großen Fermienergien $E_{\text{FK}}=E{_\text{FA}}$  der Leitungselektronen der beiden Materialien ein Potentialunterschied, d.h. eine Kontaktspannung, welche ein Photoelektron überwinden muss:
+\begin{align}
+	\label{eq:kontaktspannung}
+	e U_{\text{KA}} = \Delta W_{\text{Austritt}} = W_A - W_K
+\end{align}
+Bei zusätzlich angelegter Grenzspannung $U_0$ muss auch diese vom Elektron noch überwunden werden.
+Die Bilanz ist für den Fall der angelegten Grenzspannung und unterschiedlich großen Austrittsarbeiten von Kathode und Anode (aufgrund verschiedener Materialien), in Abbildung \ref{fig:energiebilanz_gegenspannung} graphisch dargestellt.
+Zusammen ergibt sich dann als Energiebilanz für den Fall der Grenzspannung:
+\begin{align}
+	\label{eq:energiebilanz}
+	 & E = h\nu = W_K + eU_{\text{KA}} + eU_0 \qquad | \quad eU_{\text{KA}} = W_A - W_K \nonumber \\
+	 & \ergo h\nu = W_A + eU_0
+\end{align}
+
+%\jafps{energiebilanz_gegenspannung}{Energiediagramm der Photozelle bei angelegter Gegenspannung $U_0$ und Kontaktspannung $eU_{\text{KA}}$. Grafik entnommen aus \cite[11]{Versuchsanleitung}.}{0.5}
+
+Es können also nur Austrittsarbeit der Anode $W_A$ und der Wert von $h$ aus dem funktionellen Zusammenhang zwischen Frequenz $\nu$ und Grenzspannung $U_0$ bestimmt werden, nicht die Austrittsarbeit der Kathode, deren Term sich in der Energiebilanz kürzt.
+
+\subsection{Experimenteller Aufbau \& Durchführung}
+Für die Messung des Photostroms wurde nach Justageanleitung in \cite[3-5]{Versuchsanleitung} auf einer optischen Bank als Lichtquelle eine Quecksilberdampflampe (Hg-Lampe) sowie
+eine Irisblende zur Variation der Lichtintensität aufgebaut sowie eine dahinter folgende Sammellinse mit Brennweite $f=\SI{100}{\milli\meter}$.
+Im Abstand $f$ wurde die Photozelle platziert, die hier aus einer Kalium (K)-Kathode und Pt-Rh-Anode besteht
+(letzteres als Ringanode, damit möglichst kein Quellenlicht auf die Anode gelangt und dort ebenfalls Elektronen auslösen könnte), sodass das Licht scharf als Lichtfleck mit Durchmesser $(5-10)~\unit{\milli\meter}$ auf die Kathode fiel. 
+Zudem wurde noch ein Filterrad mit einstellbarer Durchlasswellenlänge vor der Photozelle platziert. Als Durchlasswellenlängen des Filterrads waren wählbar: $\lambda \in \{365, 405, 436, 546, 578\}~\unit{\nano\meter}$. Um Streulicht zu vermeiden, wurde noch ein Rohr vor die quellenseitige Öffnung der Photozelle und mit kleinem Abstand zum Filterrad aufgesetzt.
+
+
+%das hier kann wahrscheinlich noch bisschen schöner formuliert werden
+Es wurde der Anodenanschluss mit dem Netzgerät, welches Spannung der Stärke $(0-12)~\unit{\V}$ liefert, verbunden, sowie der Kathodenanschluss mit einem Messverstärker, welcher anschließend mit dem anderen Anschluss des Netzgeräts verbunden wurde.
+Der Messverstärker wurde im Experiment auf die Stufe $\SI{e-10}{\A}\rightarrow \SI{1}{\V}$ gestellt. 
+Außerdem wurden zwei Digital-Multimeter zur Messung des Gegenstroms $U_G$ und Photostroms $I$, letzteren mittels der gemessenen Spannung
+nach dem Messverstärker $U_I$, wie auf der Aufbauskizze in Abbildung \ref{fig:aufbau_photozelle} dargestellt, angeschlossen.
+
+%\jafps{aufbau_photozelle}{Aufbau zur Messung des Photostroms mit (von links nach rechts) Lichtquelle, Irisblende, Linse, Filterrad, Photozelle und Messaufbau. Grafik entnommen aus \cite[3]{Versuchsanleitung}}{0.6}
+
+Zuletzt wurde noch eine Spannungsteilerschaltung zwischen die $\SI{12}{\V}$-Spannungsquelle und die Anode eingesetzt. %assuming die schaltskizze ist unnötig
+Dafür wurden die beiden Widerstände $\SI{100}{\ohm}$ und $\SI{330}{\ohm}$ genutzt, wobei über den kleineren Widerstand die Spannung für die nachfolgende Schaltung abgegriffen wurde. Durch die so verringerte maximale Gegenspannung konnte der gesamte Bereich, in dem ein Photostrom floss, präziser vermessen werden.
+Es ergab sich so für den Aufbau eine theoretische maximale Gegenspannung von
+\(
+U_{\text{max,th}} = \SI{12}{\V}\cdot \frac{\SI{100}{\ohm}}{\SI{430}{\ohm}} \approx\SI{2.80}{\V}.
+\)
+Es wurde mit dem Digital-Multimeter eine damit übereinstimmende tatsächlich verfügbare Maximalspannung von $U_{\text{max}}=\SI{-2.8(1)}{V}$ gemessen. Das Vorzeichen ergibt sich hier lediglich aus der Polung der Schaltung.
+Bei dieser höchsten Spannung konnte selbst bei dem energiereichsten Licht, also bei der kürzesten Durchlasswellenlänge $\lambda = \SI{365}{\nano\meter}$, kein Photostrom mehr beobachtet werden, sondern nur noch ein sehr geringer Anodenstrom $I_0$ von Elektronen,
+die sich aus der Anode lösen und sich zur Kathode bewegen, und so einen positiven Strom darstellten.\\
+
+Für jede der Durchlasswellenlängen wurde die folgende Messung jeweils zweimal durchgeführt:
+Eine Wellenlänge des Filterrads wurde eingestellt, die Gegenspannung auf den maximalen Wert $U_{\text{max}}$ gestellt und die Größe des Anodenstroms $I_0$, bzw. die wirkende Dunkelspannung $U_{\text{I,0}}$ bestimmt.
+Anschließend wurde die Kennlinie der Photozelle vollständig vermessen, indem die Gegenspannung über den gesamten Bereich $U_G=(0-(2,8\pm 0,1)~\unit{\V}$ variiert und die Spannung $U_I$ an der Anode gemessen wurde.
+Durch die doppelte Messung jeder Kennlinie sollten Einflüsse von möglichen Intensitätsschwankungen der Hg-Lampe minimiert werden, welche den maximalen Photostrom bei kleiner Gegenspannung
+durch eine Variation der vorhandenen Lichtquanten zeitlich beeinflusst hätten.
+Für die Wellenlänge $\lambda = \SI{365}{\nano\meter}$ wurde anschließend die Blendenöffnung weiter geöffnet und so die Intensität des Lichts erhöht, sodass bei ausgestellter Gegenspannung ($U_G=\SI{0}{\V}$) eine um etwa Faktor $1,5$ größere Spannung an der Anode gemessen werden konnte. Die Kennlinie der Photozelle wurde anschließend für diese Wellenlänge ein drittes Mal gemessen.
+
+
+
+\section{Auswertung}
+
+Aus den gemessenen Kennlinien werden nun Werte für das Plancksche Wirkungsquantum $h$ und die Anoden-Austrittsarbeit $W_A$ bestimmt.
+
+Aus der Messung des Photostroms $I$, korrigiert um einem möglicherweise vorhandenen Anodenstrom $I_0$, der von einem minimalen Wert $U_0$ invers quadratisch mit dem Verlauf der angelegten Gegenspannung $U_G$ bis zu einem Sättigungsstrom $I_S$ steigt,
+kann durch Interpolation der gemessenen Werte als x-Achsenabschnitt einer Darstellung von $\sqrt{(I-I_0)}(U_G)$ die Grenzspannung für Licht einer festen Wellenlänge bestimmt werden.
+
+%insert hier Zeug zu piecewise linear function fit, interpolation linearer Teil über 0 & actual auswertung
+
+Die gemessenen Kennlinien für alle untersuchten Lichtfrequenzen sind in den Abbildungen \ref{fig:kennlinie_365nm} - \ref{fig:kennlinie_578nm_2} dargestellt. 
+
+\jafpp{kennlinie_365nm}{1. Messung Kennlinie für $\SI{365}{\nano\meter}$}{kennlinie_365nm_2}{2. Messung Kennlinie für $\SI{365}{\nano \meter}$}
+
+\jafpp{kennlinie_405nm}{1. Messung Kennlinie für $\SI{405}{\nano\meter}$}{kennlinie_405nm_2}{2. Messung Kennlinie für $\SI{405}{\nano\meter}$}
+
+\jafpp{kennlinie_436nm}{1. Messung Kennlinie für $\SI{436}{\nano\meter}$}{kennlinie_436nm_2}{2. Messung Kennlinie für $\SI{436}{\nano\meter}$}
+
+\jafpp{kennlinie_546nm}{1. Messung Kennlinie für $\SI{546}{\nano\meter}$}{kennlinie_546nm_2}{2. Messung Kennlinie für $\SI{546}{\nano\meter}$}
+
+\jafpp{kennlinie_578nm}{1. Messung Kennlinie für $\SI{578}{\nano\meter}$}{kennlinie_578nm_2}{2. Messung Kennlinie für $\SI{578}{\nano\meter}$}
+
+
+\textcolor{blue}{hier fehlt noch Anmerkung zu Fehler der Werte}
+
+Um die Grenzspannung $U_0$ jeder der Kennlinien zu bestimmen, wurde eine stückweise lineare Funktion der Form 
+\begin{align}\label{eq:piecewise_linear_func}
+\sqrt{(I-I_0)}(\nu)= \begin{cases}
+   & a U +b \quad , ~U > k \\
+   & c U + d \quad , ~U<k
+\end{cases}
+\end{align}
+an die Datenpunkte angepasst. $k$ entspricht hier der x-Koordinate des Knickpunkts. Für die Bestimmung der Grenzspannung $U_0$ wurde für der Teil der Funktion $U>k$ als eigenständige lineare Funktion betrachtet und der x-Achsenabschnitt bestimmt, bei dem gilt: $\sqrt{(I-I_0)}(U_0)=aU_0 = 0$. 
+Es wurden so die folgenden Grenzspannungen $U_0$ für die verschiedenen Wellenlängenfilter bestimmt:
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|} \hline
+     $\lambda ~/ ~\unit{\nano \meter}$ & Messung & $U_0 ~/~\unit{\V}$ \\
+    \hline
+     $365$ & 1 & $-1.71\pm0.04$ \\
+     & 2 & $-1.69\pm0.03$\\
+     \hline
+     $405$  & 1 &  $-1.348 \pm 0.015$ \\
+     & 2 & $-1.35 \pm 0.02$ \\ 
+     \hline
+   $436$ & 1 & $-1.16\pm0.04$ \\
+   & 2 &  $-1.147\pm0.012$ \\
+   \hline
+    $546$ & 1&  $-0.60\pm0.02$ \\
+    & 2 & $-0.60\pm 0.02$  \\ 
+    \hline
+ $578$ & 1 & $-0.47\pm0.04$ \\ 
+ & 2 & $-0.464\pm 0.015$ \\ \hline
+    \end{tabular}
+    \caption{Bestimmte Grenzspannungen $U_0$ aus den aufgenommenen Kennlinien bei den fünf untersuchten Wellenlängen.}
+    \label{tab:grenzspannungen}
+\end{table}
+
+Die Grenzspannungen, die für die beiden Messungen bei einer Durchlasswellenlänge separat bestimmt wurden, stimmen im Rahmen ihrer Fehler in einer $1\sigma$-Umgebung jeweils miteinander überein.
+
+
+In der Energiebilanz für Photoelektronen bei der Grenzspannung gilt \footnote{mit ${e=\SI{1.602177e-19}{\C}}$ als Elementarladung\cite{KonstantenNIST}} der folgende lineare Zusammenhang:
+\begin{align}
+	\label{eq:gerade_u_gegen_nu}
+	U_0 = \frac{h}{e}\nu - \frac{W_A}{e} %= \frac{h}{e}\frac{c}{\lambda} - \frac{W_A}{e}
+\end{align}
+
+Über der Auftragung der Grenzspannungen $U_0$, die aus den Messungen der einzelnen Wellenlängen bestimmt wurden, gegen die Frequenzen $\nu$ können aus der Geradenanpassung 
+\begin{align} \label{eq:geradenfit}
+U_0 = a \nu + b
+\end{align}
+der Wert des Planckschen Wirkungsquantums als $h=\frac{a}{e}$ sowie die Austrittsarbeit der verwendeten Pt-Rh-Anode als $W_A=-b \cdot e$ berechnet werden, siehe Abbildung \ref{fig:planck}. Bei der Berechnung der Regressionsgeraden durch die Datenpunkte wurde als Fehler der Wellenlängen (bzw. über Gaußsche Fehlerfortpflanzung dann für den Fehler der Frequenzen) jeweils $0,5\%$ des angegebenen Werts des jeweiligen Interferenzfilter angenommen, da dieses als Bandpassfilter realistisch nicht monochromatisch ist. 
+
+\jafps{planck}{Bestimmte Grenzspannungen $U_0$ in Abhängigkeit von der Frequenz $v=\frac{c}{\lambda}$ aufgetragen, zusammen mit linearer Regression nach Gl. \ref{eq:geradenfit}. Der lineare Zusammenhang wird gut sichtbar, wobei die Anpassungsgüte mit Bestimmtheitsmaß $R^2=0,999$ ($0\leq R^2 \leq 1$) sehr gut ist.}{0.6}
+
+Aus der Anpassung ergeben sich die Werte $h=\SI{6.425(0.05)e-34}{\joule \second}$ und \\
+$W_A=\SI{2.58(0.03)e-19}{\joule}$, also in Elektronenvolt $\frac{W_A}{e}=\SI{1.611}{\electronvolt}$.\\
+Der exakt definierte Literaturwert für das Plancksche Wirkungsquantum beträgt $h_{\text{Lit}}=\SI{6.62607015e-34}{\joule \second}$
+%\cite{KonstantenNIST}, 
+der bestimmte Wert weicht vom Literaturwert um $\frac{h_{\text{Lit}-h}}{h_{\text{Lit}}}=3,0\%$ ab, mit Einbezug der $1\sigma$-Umgebung um $2,3\%$. Die beiden Werte stimmen also nicht überein, weichen aber nur in geringem Maße voneinander ab, was in Anbetracht der sehr kleinen Größenordnung von $\mathcal{O}(\SI{e-34}{\joule \second})$ für die Validität der genutzten Methode der Photostrommessung zur Bestimmung von $h$ spricht. Die Plausibilität der Austrittsarbeit der genutzten Anode ist nur schwer überprüfbar, da ihr Wert stark von den Verhältnissen von Platin und Rhodium im spezifisch genutzten Bauteil abhängt. Typische Austrittsarbeiten liegen im Bereich von $\SIrange{2,2}{6,4}{\electronvolt}$ 
+%\cite[494]{kittelsolidstate},\cite{workfunctionchem}, \cite{workfunctionsgeorgia}.
+Die gemessene Austrittsarbeit ist also deutlich kleiner als verfügbare Vergleichswerte. Als Gründe für den Unterschied können vermutet werden: \textcolor{blue}{hier Gründe: Anodenstrom/Austrittsarbeit nicht korrekt kompensiert, Verunreinigungen in Legierung/Metallstruktur, komplexere Oberflächenstruktur, Kontaktpotential nicht korrekt in Bilanz betrachtet, höhere Temperatur $\rightarrow$ Aufweichung Fermikante (e-Energien größer als Fermienergie), noch was?.}
+
+% here goes the geradenfit & anpassungsdiskussion
+
+%to do: intensitätsmessungen
+
+Zuletzt wird noch die Messung der Kennlinie bei einer höheren Lichtintensität untersucht. Hierbei werden für eine der beiden Messungen bei geringerer Intensität für $\lambda=\SI{365}{\nano\meter}$ (da die beiden Messungen in der bestimmten Grenzspannung $U_0$ im Rahmen ihrer Fehler übereinstimmen, ist egal, welche der beiden Messungen gewählt wird) und für die Messung bei höherer Intensität jeweils die Werte von Gegenspannung $U_G$ und um $I_0$ korrigierten Photostrom $\sqrt{I-I_0}$ gegeneinander aufgetragen, siehe Abbildung \ref{fig:intensitaet_variation}. 
+
+\jafps{intensitaet_variation}{Messungen der Photozellen-Kennlinie für $\SI{365}{\nano \meter}$ mit variierten Lichtintensitäten. Bei niedrigerer Intensität betrug die maximale Photospannung $U_{\text{I,max}}=\SI{2.8(0.1)}{\V}$, bei höherer Intensität $U_{\text{I,max}}=\SI{14.2(0.1)}{\V}$.}{0.7}
+
+\textcolor{blue}{Hier fehlt noch bisschen Interpretation zu Sättigungsstrom und gleicher Grenzspannung.}
+Wie theoretisch erwartet ist für beide Lichtintensitäten ein ähnlicher stückweise linearer Verlauf zu erkennen, die Grenzfrequenz in der Messung mit höherer Intensität berechnet sich über die gleiche Geradenanpassung wie für die vorherigen Kennlinienmessungen (siehe Gl. \ref{eq:gerade_u_gegen_nu} und \ref{eq:geradenfit}) als $
+U_{0,\text{hI}}=\SI{-1.69(0.08)}{\V}$. Die Grenzspannung bei geringerer Intensität und höherer Intensität von Licht der Wellenlänge $\SI{365}{\nano \meter}$ unterscheiden sich also im Rahmen der Messunsicherheiten der drei verschiedenen Messungen nicht. Die Steigungen der beiden Photostromgeraden unterscheiden sich hingegen -- die Messung mit höherer Intensität steigt stärker an. Bei einer positiven Gegenspannung, die in der experimentellen Durchführung nicht erreicht wurde, da dies eine Umpolung der Gegenspannung erfordert hätte, würde eine Sättigung des Photostroms erwartet, wobei die Kennlinie der Messung mit höherer Lichtintensität einen höheren Maximalwert erreichen würde\cite[63]{HakenWolf2013}, da hier mehr Lichtquanten Energie übertragen können als bei geringerer Lichtintensität, also geringerer Leistung. Die einzelnen Quanten haben bei beiden Messreihen die gleiche Energie $h\nu$, die Grenzspannung bleibt identisch, was mit den gemessenen Daten übereinstimmt.

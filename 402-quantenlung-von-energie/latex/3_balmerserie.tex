@@ -1,0 +1,200 @@
+\chapter{Balmer-Serie von Wasserstoff-Atomen}
+
+
+\section{Theoretische Überlegungen}
+
+Werden Atome mit elektromagnetischer Strahlung bestrahlt, emittieren oder absorbieren sie Licht diskreter, für die Atomart charakteristische Wellenlängen.
+Im Bohrschen Atommodell entspricht eine emittierte Wellenlänge der diskreten Anregung eines Elektrons in der Atomhülle in einen höheren Hauptquantenzahlzustand, also Energiezustand,
+wobei beim Übergang zurück in den niedrigeren Zustand (im Bohr-Modell in eine niederigere Hüllenschale) ein Photon der Frequenz
+\begin{align} \label{eq:lambda_übergang}
+	\nu = \frac{1}{\lambda} = \text{Ry}\cdot \left( \frac{1}{n_f^2}-\frac{1}{n_i^2} \right)
+\end{align}
+vom Atom emittiert wird. $n_i$ und $n_f$ sind dabei die ganzzahligen Hauptquantenzahlen des Atomzustands mit $n_f < n_i$ %\cite[110]{Demtroeder3}.
+$\text{Ry}$ ist hierbei die Rydbergkonstante für das betrachtete Atom:
+\begin{align} \label{eq:rydbergkonst}
+	\text{Ry}=\text{Ry}_\infty \frac{\mu}{m_e}
+\end{align}
+
+mit der exakt festgelegten Rydbergkonstante in Näherung für unendliche Kernmasse $\text{Ry}_\infty=\SI{10973731.568157}{1/\meter^{-1}}$ %\cite{KonstantenNIST}
+und reduzierter Atommasse $\mu = \frac{m_e\cdot m_K}{m_e + m_K}$
+\footnote{mit $m_e = \SI{9.109e-31}{\kg}$ Elektronenmasse %\cite{KonstantenNIST} 
+und $m_K$ Kernmasse}. Für Isotope eines Atoms, die sich in Neutronenzahl und damit Kernmasse $m_K$ unterscheiden, ergeben sich so geringfügig unterschiedliche Werte für $\text{Ry}$ und $\nu$ der Spektrallinien. Im Versuch werden Wasserstoff und sein Isotop Deuterium untersucht; Deuterium enthält ein Neutron im Kern, Wasserstoff nicht, wodurch Deuterium Emissionslinien mit kürzerer Wellenlänge als Wasserstoff für die gleichen $n_i$-Übergänge hat. Der Unterschied der Wellenlängen wird als Isotopieaufspaltung bezeichnet.
+
+Die im optischen Wellenlängenbereich beobachtete Reihe an Übergängen des Wasserstoffatoms mit $n_f=2$ und $n_i>2$ heißt Balmer-Serie. Sie besteht aus fünf Übergangslinien: $H_\alpha, H_\beta, H_\gamma, H_\delta$ und $H_\varepsilon$. 
+Weitere Hauptquantenzahlübergangsserien, die für Wasserstoff bei Anregung in verschiedenen Frequenzbereichen beobachtbar sind, sind in Abbildung (\ref{fig:anregungsserien_wasserstoff}) dargestellt. Sie werden nach $n_f$ gruppiert.
+
+\jafps{anregungsserien_wasserstoff}{Darstellung der Emissions- und Absorptionsspektrallinien von Wasserstoff für verschiedene Serien. Grafik entnommen aus }{0.5}%\cite[108]{Demtroeder3}}{0.5}
+
+Für die zudem im Experiment verwendete Hg-Lampe sind die Spektrallinien gut bekannt. Sie sind für die erste Ordnung in Tabelle \ref{tab:hg_literatur} aufgelistet.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|} \hline 
+        Farbe & $\lambda_{\text{Hg}}~ / ~ \unit{nm}$ & relative Intensität  \\ \hline
+        violett & $404,656$ & $1800$ \\
+                & $407,783$ & $150$ \\
+                & $410,805$ & $40$ \\
+                & $433,922$ & $250$ \\
+                & $434,749$ & $400$ \\
+        blau & $435,833$ & $4000$ \\
+        türkis & $491,607$ & $80$ \\
+        grün & $546,074$ & $1100$ \\
+        gelb & $576,960$ & $240$ \\
+            & $579,066$ & $280$ \\
+        rot & $623,440$ & $30$ \\
+            & $671,643$ & $160$ \\
+            & $690,752$ & $250$ \\ \hline
+    \end{tabular}
+    \caption{Im optischen Bereich sichtbares Emissionsspektrum einer Quecksilber-Spektrallampe, wobei nicht alle Linien des Spektrums aufgeführt sind. Tabelle entnommen aus} %\cite[12]{Versuchsanleitung}.}
+    \label{tab:hg_literatur}
+\end{table}
+
+
+\section{Vermessung der Emissionsspektren}
+
+%\subsection{Teil 1: Bestimmung der Gitterkonstante}
+
+Um die Wellenlängen der Balmer-Serie von Wasserstoff präzise vermessen zu können, muss die Gitterkonstante des im experimentellen Aufbau zur wellenlängenabhängigen
+Aufspaltung der emittierten Spektrallinien verwendeten Reflexionsgitters genau bekannt sein. Dazu wird zunächst das sehr genau bekannte Emissionsspektrum einer Hg-Lampe aufgenommen
+und daraus die Gitterkonstante bestimmt. 
+
+
+\subsubsection{Experimenteller Aufbau \& Durchführung}
+
+Es wurde auf einer optischen Bank die Anordnung in Abbildung \ref{fig:aufbau_balmerserie} aufgebaut. Als Lampe wurde für die Messung der Gitterkonstanten die Hg-Lampe eingesetzt, zur Messung des Wasserstoffspektrums die Balmer-Lampe, welche ein Wasserstoff-Deuterium-Gemisch im Verhältnis $2:1$ enthielt. Die Linsen \textbf{f)} und \textbf{g)} bzw. \textbf{f)} und Kameralinse (\textbf{h)}) standen hierbei stets in Fernrohraufbau, ihr Abstand war die Summe ihrer Brennweiten. 
+
+\jafps{aufbau_balmerserie}{Versuchsaufbau zur Vermessung der Spektrallinien von Hg- und Wasserstoff-Deuterium-Lampen, mit a) Lampe, b) Linse (Brennweite $f=\SI{50}{\milli\meter}$) zur Abbildung des Lampenlichts auf den Spalt, c) verstellbarer Spalt, d) Objektivlinse zur Projektion ($f=\SI{150}{\milli\meter}$), e) Reflexionsgitter, f) Objektivlinse ($f=\SI{300}{\milli\meter}$) und g) Okularlinse mit Strichskala bzw. h) CCD-Kamera. Grafik entnommen aus }{0.8}%\cite[6]{Versuchsanleitung}}{0.8}
+
+Das Projektionsobjektiv wurde in seinem Brennweitenabstand hinter dem Spalt eingesetzt, sodass bei genau paralleler Ausrichtung des Gitters (Zeigerwinkel $\omega_G=0^\circ$) zum Spalt das Bild des Spalts scharf auf diesen abgebildet wurde. Diese Autokollimation stellte sicher, dass die verschiedenen Wellenlängen des Lichts genau parallel auf das Gitter fielen. Die optischen Bänke wurden auf den Winkel $\omega_B=140^\circ$ zueinander gedreht, welcher für alle Messungen konstant blieb. Die Blende wurde so weit geschlossen, dass gerade genug Lichtintensität auf das Gitter fiel, um das Emissionsspektrum scharf erkennen zu können. Das Gitter wurde nun so gedreht, dass durch das Okular \textbf{g)} die Spektrallinien der Hg-Lampe nacheinander sichtbar wurden. Um die Abbildung scharf zu stellen, wurden, falls nötig, die Positionen der beiden Objektive \textbf{d)} und \textbf{f)} variiert. Für alle sichtbaren Spektrallinien der ersten Ordnung wurde nun der Gitterwinkel variiert, bis sie scharf im Zentrum der Okularskala zu erkennen waren und $\omega_G$ notiert. 
+
+
+\subsection{Bestimmung der Gitterkonstante}
+
+Um die Gitterkonstante $g$ des verwendeten Gitters zu bestimmen, wird die Gittergleichung betrachtet:
+\begin{align}
+    \label{eq:gittergl}
+    d=n\lambda=g(\sin(\alpha)+\sin(\beta))
+\end{align}
+Hier ist $d$ der Gangunterschied zwischen zwei benachbarten Strahlen in einem Maxima (siehe Abbildung \ref{fig:gittergleichung_gangunterschied}), $n$ bezeichnet die Ordnung, die hier i.d.R. als $n=1$ angenommen wird (andere Ordnungen sind mit dem verwendeten Gitter nur schlecht bis gar nicht beobachtbar). %und $\lambda$ die Wellenlänge des Lichts.
+
+\jafps{gittergleichung_gangunterschied}{Illustration des Gangunterschieds in einem Maxima des Interferenzmusters, das sich bei Reflexion von Licht an einem Reflexionsgitter ausbildet. Die Winkel $\alpha$ und $\beta$ entsprechen nicht den beiden gemessenen Winkeln $\omega_B$ und $\omega_G$, sondern müssen nach Gl. \ref{eq:winkel} noch umgerechnet werden. Graphik entnommen aus}{0.4} %\cite[1]{LDbalmerserie}.}{0.6}
+
+
+Die Winkelanordnung des konkreten genutzten Aufbaus ist in Abbildung \ref{fig:winkel_gitter} dargestellt.
+
+\jafps{winkel_gitter}{Winkelanordnung des Aufbaus. Graphik entnommen aus }{0.4}%\cite[8]{Versuchsanleitung}.}{0.5}
+
+Es gilt dabei: 
+\begin{align}\label{eq:winkel}
+&\alpha = \omega_B , \quad \beta = \omega_B + \omega_G - 180^\circ 
+\end{align}
+
+
+Aus der beiden Winkel $\omega_B$ und $\omega_G$ für jede Linie im Hg-Spektrum durch den Aufbau mit Okular \textbf{g)} lassen sich so direkt nach Gl. \ref{eq:gittergl} Werte für die Gitterkonstante bestimmen, wenn jeder Linie eine passende Literaturwellenlänge $\lambda_\text{lit}$ aus dem bekannten Quecksilberspektrum anhand der relativen Position der Linien zueinander und ihrer Farben zugeordnet werden kann, siehe Tabelle \ref{tab:hg_wert}.
+
+
+% \begin{table}[H]
+%     \centering
+%     \begin{tabular}{|c|c|c|c|c|} \hline
+%         $\omega_B~/~\unit{\degree}$ & $\omega_G~/~\unit{\degree}$ &  Farbe & Stärke & $\lambda_{\text{lit,Hg}} ~ / ~ \unit{nm}$ \\ \hline
+%         $140,0\pm 0.5$ & $53,0\pm0,5$& violett  & stark & $404,656$ \\
+%         $140,0 \pm 0,5$ & $53,0 \pm 0,5$ & & mittel & $407,783$\\
+%         $140,0 \pm 0,5$ & $53,5\pm 0,5$ & & schwach & $410,805$\\
+%         \hline 
+%         $140,0 \pm 0,5$ & $55,5\pm0,5$ & blau & mittel & $433,922$\\
+%         $140,0 \pm 0,5$ & $55,53\pm0,5$ & & mittel & $434,749$\\
+%         $140,0 \pm 0,5$ & $55,58\pm 0,5$ & & stark & $435,833$\\
+%         \hline 
+%         $140,0 \pm 0,5$ & $60,5\pm 0,5$ & türkis & mittel/stark & $491,607$\\
+%         $140,0 \pm 0,5$ & $61,0\pm0,5$ & & mittel & \\
+%         $140,0 \pm 0,5$ & $62,0\pm 0,5 $ & & schwach & \\
+%         $140,0 \pm 0,5$ & $62,0\pm 0,5$ & & schwach & \\
+%         $140,0 \pm 0,5$ & $62,5\pm 0,5$ & & schwach & \\
+%         $140,0 \pm 0,5$ & $63,0\pm 0,5$ & & schwach & \\
+%         \hline 
+%         %hier ist die ganz schwache türkise linie, die nicht vermessbar war
+%         $140,0 \pm 0,5$ & $64,5\pm0,5$ & grün & schwach & \\
+%         $140,0 \pm 0,5$ & $65,5\pm 0,5$ & & mittel & \\
+%         $140,0 \pm 0,5$ & $65,0\pm 0,5$ & & schwach & \\
+%         \hline 
+%         $140,0 \pm 0,5$ & $66,0\pm0,5$ & gelb-grün & stark & $546,074$ \\ 
+%         \hline
+%         $140,0 \pm 0,5$ & $68,5\pm0,5$ & gelb & schwach & \\
+%         \hline 
+%         $140,0 \pm 0,5$ & $69,5\pm0,5$ & orange-rot & stark & $576,960$ \\
+%         $140,0 \pm 0,5$ & $70,0\pm0,5$ & & stark & $579,066$\\
+%         \hline 
+%     \end{tabular}
+%     \caption{Aufgenommenene Werte der Winkel, subjektiv beobachtete Linienfarben sowie jeweils zugeordnete Hg-Literaturwellenlängen (siehe \ref{tab:hg_literatur}).}
+%     \label{tab:hg_wert}
+% \end{table}
+
+Die beobachteten Linien im Lampenspektrum, die nicht einer der in Tabelle \ref{tab:hg_literatur} gelisteten Wellenlängen zugeordnet werden konnten, sind vermutlich durch Verunreinigungen mit anderen Gasen im Lampe zu erklären sowie die Tatsache, dass Hg-Spektrallampen i.d.R. eine kleine Menge Startergas enthalten, um die Verdampfung von Quecksilber effektiv zu ermöglichen. Typische Startergase sind Halogene wie Argon oder Xenon %\cite{mercurylamp}. 
+Im Vergleich mit den Emissionsspektren mehrerer typischer Halogene wurden die übrigen beobachteten Spektrallinien wie folgt zugeordnet:
+\textcolor{blue}{to do: mit Xenon \& Neon vgl, zuordnen}
+
+
+Für die für Quecksilber zugeordneten Linien des beobachteten Linienspektrums wurden die zugeordneten Wellenlängen gegen die abgelesenen Winkel mithilfe der Beziehungen zu Einfalls- und Reflexionswinkel $\alpha$ und $\beta$ in Gl. \ref{eq:winkel} als $\sin(\alpha)+\sin(\beta)$ aufgetragen und eine Gerade der Form $\lambda = a \cdot (\sin(\alpha)+\sin(\beta))$ mithilfe der Methode der kleinsten Quadrate angepasst. Da der zu berechnende Zusammenhang der Gittergleichung \ref{eq:gittergl} keinen y-Achsenabschnitt aufweist, da eine Wellenlänge von $\lambda = \SI{0}{\nano \meter}$ physikalisch nicht sinnvoll betrachtet werden kann, wurde auch bei der Anpassung auf diesen verzichtet. Das Ergebnis ist in Abbildung \ref{fig:gitterkonstante} dargestellt. 
+
+\jafps{gitterkonstante}{Darstellung der Anpassungsgerade an den beobachteten Winkeln und zugeordneten Literaturwerten der Wellenlängen der Hg-Spektrallinien nach Tabelle \ref{tab:hg_literatur}. Die Güte der Anpassung wurde mit dem Bestimmtheitsmaß auf $R^2=0,94$ berechnet, dies zeigt eine gute Übereinstimmung der Zuordnung mit dem gesuchten linearen Zusammenhang mit berechneter Steigung $g=\SI{489(5)}{\nano \meter}$}{0.8}
+
+Als Steigung der Anpassungsgerade ergibt sich als Wert für die Gitterkonstante $g_{\text{fit}}=\SI{489(5)}{\nano\meter}$. Der Wert für $g$ wird zusätzlich auch noch direkt über die Gittergleichung für jede zugeordnete Spektrallinie als $g=\frac{\lambda_{\text{lit,Hg,i}}}{(\sin(\alpha)+\sin(\beta))}$ einzeln berechnet, siehe Tabelle \ref{tab:g_einzeln}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|} \hline
+     $\lambda_\text{lit,Hg}~/~\unit{nm}$  & $g ~/~ \unit{nm}$ \\ \hline
+        $404,656$ &  $466\pm6$ \\
+        $407,783$ & $470\pm6$ \\
+        $410,805$ & $469\pm6$ \\
+        $433,922$ & $477\pm 6$ \\
+        $434,749$ & $477\pm6$ \\
+        $435,833$ & $478\pm 6$ \\
+        $491,607$ & $495\pm 5$ \\
+        $546,074$ & $505\pm5$ \\
+        $576,960$ & $508\pm5$ \\
+        $579,066$ & $507\pm4$ \\ \hline
+    \end{tabular}
+    \caption{Einzeln berechnete Gitterkonstanten der zugeordneten Hg-Spektrallinien mit Winkeln aus Tabelle \ref{tab:hg_wert} mit Gittergleichung.}
+    \label{tab:g_einzeln}
+\end{table}
+
+Der arithmetische Mittelwert der 10 zugeordneten Spektrallinien berechnet sich dann als $\bar{g}=\SI{485.3(1.9)}{\nano \meter}$. Dabei stimmen innerhalb der $1\sigma$-Umgebung der Fehler $\bar{g}$ und $g_{\text{fit}}$ miteinander überein. Es wird im Folgenden daher $g=\SI{489(5)}{\nano \meter}$ genutzt, da hier auch $\bar{g}$ einbegriffen ist.
+
+Ein wichtiges Charakteristika eines Reflexionsgitters ist neben der Gitterkonstanten 
+das Auflösungsvermögen $\mathcal{R}$. Es berechnet sich nach dem Rayleigh-Kriterium für eine gegebene Wellenlänge als Verhältnis $\frac{\lambda}{\Delta \lambda}$, wobei $\Delta\lambda$ das minimale Intervall zwischen zwei noch als zwei getrennt erkennbare Linien darstellt %\cite[362]{Demtroeder3}. 
+Weiter gilt für Reflexionsgitter $\frac{\lambda}{\Delta \lambda}=nN$, mit $n$ als Ordnung und $N$ der Anzahl der ausgeleuchteten Gitterspalte, also $N=\frac{x}{g}$ wobei $x$ die ausgeleuchtete Breite des Gitters ist. Bei den durchgeführten Messungen wurde immer etwa $x=\SI{1.5(0.5)}{\centi\meter}$ des Gitters von der Hg-Lampe ausgeleuchtet. Daraus berechnet sich für alle betrachteten Spektrallinien ein Auflösungsvermögen von 
+\begin{align} 
+    \label{eq:aufloesung}
+    \mathcal{R} = 30~675\pm10~225 
+\end{align}
+Bei der als $\SI{546,074}{\nano\meter}$ zugeordneten gelb-grünen Linie, die stark beobachtet werden konnte, errechnet sich so ein minimales Wellenlängenintervall von $\Delta \lambda_{\text{gelb-grün}}\approx \SI{0.01.78(0.0006)}{\nano \meter}$
+
+
+
+
+%auflösungsvermögen diskussion goes here
+
+\subsection{Teil 2: Vermessung der Balmer-Serie}
+
+Um die Wellenlängen der Balmer-Serie zu vermessen, wurde die Hg-Lampe durch die Balmer-Lampe ausgetauscht und der Aufbau erneut so justiert, dass das Licht scharf abgebildet wurde. Durch Variation des Gitterwinkels $w_G$ wurden auch hier alle sichtbaren Spektrallinien des Wasserstoffs der Lampe auf die Mitte der Okularskala ausgerichtet und $w_G$ notiert, sowie der Abstand zur deutlich schwächer (aufgrund der niedrigeren Konzentration im Gasgemisch der Lampe) aber um einen kleinen Abstand $d$ getrennten zu sehenden korrespondierenden Spektrallinie des Deuteriums. Nicht aufgespalten erscheinende Spektrallinien wurden ebenfalls vermessen. Anschließend wurde das Okular durch die CCD-Kamera ausgetauscht und die erkennbar aufgespaltenen Wasserstoff-Linien nacheinander in die Mitte der CCD-Zeile der Kamera fokussiert.
+Die Kamera wurde dabei mit dem Aufnahmeprogramm \textit{VideoCom-Intensitäten} auf einem Computer verbunden, welches die Lichtintensitäten für die einzelnen Pixel aufzeichnete, mit einer Aufnahme über einen längeren Zeitraum und automatischer Mittelwertbildung der gemessenen Intensitäten. Die Messungen der einzelnen Spektrallinien-Paare wurden als Textdateien gespeichert. 
+
+% placeholder
+
+% \subsection{Messung mit dem Auge}
+% placeholder
+\subsection{Messung mit CCD-Kamera}
+
+\jafpp{balmer_rot}{CCD Messung der $\text{H}_\alpha$}{balmer_turkis}{$\text{H}_\beta$ Linie}
+\jafpp{balmer_turkis2}{Erneute Messung der $\text{H}_\beta$}{balmer_blau}{$\text{H}_\gamma$ Linie}
+
+% placeholder
+% \subsection{Vermessung der Isotopie-Aufspaltung}
+% placeholder
+% %theorie isotopie erst hier? 
+
+% \subsection{Weiterführende Überlegungen}
+% placeholder
+% %linienverbreiterungen 
+% %verunreinigungen balmer-lampe zuordnen
