@@ -127,8 +127,8 @@ def main():
     _ = list(map(calc_isotope_split, data))
     R_inf = list(map(rydberg_from_abs_lambda, data))
     delta_lambda = list(map(delta_lambda_from_cmos, data))
-    _ = [print(x.format()) for x in delta_lambda]
-    _ = list(map(rydberg_from_delta, data))
+    _ = [print("delta lambda = " + x.format() + " nm") for x in delta_lambda]
+    # _ = list(map(rydberg_from_delta, data))
     for h in map(h_from_R, R_inf):
         print(h.format())
 
