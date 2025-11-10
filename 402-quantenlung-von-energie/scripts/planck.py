@@ -64,7 +64,7 @@ def calc_planck(data):
     work = - beta * electron_charge
 
     print(f"h = {~planck_constant} +- {p.error(planck_constant)}")
-    print(f"W_A = {~work} J")
+    print(f"W_A = {~work} +- {p.error(work)}J")
 
     goodness = round(std.goodness_of_fit(voltage, params[0] * freqs + params[1]), 3)
     plt.plot(xrange, params[0] * xrange + params[1], label=f"$R^2 = {goodness}$")

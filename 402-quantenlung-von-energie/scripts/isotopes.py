@@ -4,17 +4,21 @@ from scipy.optimize import curve_fit
 from matplotlib import pyplot as plt
 from sys import argv
 import std
+import propeller as p
 
 # std.bullshit.this_is_fucking_stupid_no_one_actually_gives_a_fuck()
+
+grating_const = p.ev(489, 5)  # nm
 
 
 def get_data(string):
     chunks = string.split()
-    angle = float(chunks[0])
-    file = "/".join(argv[1].split("/")[:-1] + [chunks[1]])
-    print(file)
+    file = "/".join(argv[1].split("/")[:-1] + [chunks[0]])
+    # print(file)
     params = load(file)
-    params["angle"] = angle
+    params["angle"] = float(chunks[1])
+    params["split"] = float(chunks[2])
+    params["n"] = int(chunks[3])
     return params
 
 
@@ -27,7 +31,7 @@ def from_beta(beta):
 
 
 def load(file):
-    data = np.loadtxt(file)
+    data = np.transpose(np.loadtxt(file))
     params = {}
     params["amp_D"] = data[0]
     params["amp_H"] = data[1]
@@ -48,7 +52,37 @@ def load(file):
 
 
 def calc_isotope_split(data):
-    pass
+    delta_beta = 0.1 * data["split"] / 300
+    beta = data["angle"] + 140 - 180
+    delta_lambda = delta_beta * grating_const * np.cos(beta)
+    print(delta_lambda.format() + " nm")
+
+
+def get_wavelength(data):
+    alpha = np.deg2rad(140)
+    beta = np.deg2rad(data["angle"] + 140 - 180)
+    wavelength = ~grating_const * (np.sin(alpha) + np.sin((beta)))
+
+    wavelength *= std.unit.nm
+    print(wavelength)
+    return wavelength
+
+
+def rydberg_from_abs_lambda(data):
+    transition = (0.25 - (1 / data["n"])**2)
+    wavelength = get_wavelength(data)
+    RH = 1 / (wavelength * transition)
+
+    mass_electron = 9.1093837139e-31
+    mass_proton = 1.67262192595e-27
+    reduced_mass = mass_proton * mass_electron / (mass_electron + mass_proton)
+
+    print(RH)
+    R_inf = RH * mass_electron / reduced_mass
+
+    R_inf = R_inf
+    print(R_inf)
+    return R_inf
 
 
 def main():
@@ -57,7 +91,8 @@ def main():
     data = [get_data(line) for line in handle.readlines()]
     handle.close()
 
-    calc_isotope_split(data)
+    _ = list(map(calc_isotope_split, data))
+    _ = list(map(rydberg_from_abs_lambda, data))
 
 
 if __name__ == "__main__":
