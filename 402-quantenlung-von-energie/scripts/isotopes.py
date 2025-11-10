@@ -95,6 +95,20 @@ def delta_lambda_from_cmos(data):
     return delta_lambda
 
 
+def rydberg_from_delta(data):
+    delta_lambda = delta_lambda_from_cmos(data)
+    transition = (0.25 - (1 / data["n"])**2)
+
+    mass_electron = 9.1093837139e-31
+    mass_proton = 1.67262192595e-27
+    mass_neutron = 1.67492750056e-27
+    reduced_mass_H = mass_proton * mass_electron / (mass_electron + mass_proton)
+    reduced_mass_D = (mass_proton + mass_neutron) * mass_electron / (mass_electron + mass_proton + mass_neutron)
+    reduced_mass_diff = reduced_mass_D - reduced_mass_H
+
+    
+
+
 def main():
     key = argv[1]
     handle = open(key, "r")
