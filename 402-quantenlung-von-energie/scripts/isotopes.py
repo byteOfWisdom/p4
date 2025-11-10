@@ -35,19 +35,19 @@ def load(file):
     params = {}
     params["amp_D"] = data[0]
     params["amp_H"] = data[1]
-    params["mu_D"] = data[2]
-    params["mu_H"] = data[3]
+    params["mu_D"] = p.ev(data[2][0], data[2][1])
+    params["mu_H"] = p.ev(data[3][0], data[3][1])
     params["sigma_D"] = data[4]
     params["sigma_H"] = data[5]
-    mu, dmu = params['mu_D'][0], params['mu_D'][1]
-    dmu_angle = np.abs(to_beta(mu) - to_beta(mu + dmu))
-    mu_angle = to_beta(mu)
-    params["mu_D_deg"] = (mu_angle, dmu_angle)
+    # mu, dmu = params['mu_D'][0], params['mu_D'][1]
+    # dmu_angle = np.abs(to_beta(mu) - to_beta(mu + dmu))
+    # mu_angle = to_beta(mu)
+    # params["mu_D_deg"] = (mu_angle, dmu_angle)
 
-    mu, dmu = params['mu_H'][0], params['mu_H'][1]
-    dmu_angle = np.abs(to_beta(mu) - to_beta(mu + dmu))
-    mu_angle = to_beta(mu)
-    params["mu_H_deg"] = (mu_angle, dmu_angle)
+    # mu, dmu = params['mu_H'][0], params['mu_H'][1]
+    # dmu_angle = np.abs(to_beta(mu) - to_beta(mu + dmu))
+    # mu_angle = to_beta(mu)
+    # params["mu_H_deg"] = (mu_angle, dmu_angle)
     return params
 
 
@@ -59,12 +59,13 @@ def calc_isotope_split(data):
 
 
 def get_wavelength(data):
-    alpha = np.deg2rad(140)
-    beta = np.deg2rad(data["angle"] + 140 - 180)
-    wavelength = ~grating_const * (np.sin(alpha) + np.sin((beta)))
+    d2r = 2 * np.pi / 360
+    alpha = d2r * (p.ev(140, 0.5))
+    beta = d2r * (p.ev(data["angle"], 0.5) + 140 - 180)
+    wavelength = grating_const * (np.sin(alpha) + np.sin((beta)))
 
     wavelength *= std.unit.nm
-    print(wavelength)
+    print("lambda = " + wavelength.format())
     return wavelength
 
 
@@ -77,12 +78,21 @@ def rydberg_from_abs_lambda(data):
     mass_proton = 1.67262192595e-27
     reduced_mass = mass_proton * mass_electron / (mass_electron + mass_proton)
 
-    print(RH)
+    print("R_H = " + RH.format())
     R_inf = RH * mass_electron / reduced_mass
 
     R_inf = R_inf
-    print(R_inf)
+    print("R_inf = " + R_inf.format())
     return R_inf
+
+
+def delta_lambda_from_cmos(data):
+    # delta_beta = to_beta(data["mu_H"]) - to_beta(data["mu_D"])
+    d2r = 2 * np.pi / 360
+    delta_beta = (0.014 / 300) * (data["mu_H"] - data["mu_D"])
+    beta = d2r * (p.ev(data["angle"], 0.5) + 140 - 180)
+    delta_lambda = grating_const * delta_beta * np.cos(beta)
+    return delta_lambda
 
 
 def main():
@@ -93,6 +103,8 @@ def main():
 
     _ = list(map(calc_isotope_split, data))
     _ = list(map(rydberg_from_abs_lambda, data))
+    delta_lambda = list(map(delta_lambda_from_cmos, data))
+    _ = [print(x.format()) for x in delta_lambda]
 
 
 if __name__ == "__main__":
