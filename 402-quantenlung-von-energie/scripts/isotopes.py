@@ -52,8 +52,11 @@ def load(file):
 
 
 def calc_isotope_split(data):
-    delta_beta = 0.1 * data["split"] / 300
+    d2r = 2 * np.pi / 360
+    split = p.ev(data["split"], 1.0)
+    delta_beta = 0.1 * split / 300
     beta = data["angle"] + 140 - 180
+    beta *= d2r
     delta_lambda = delta_beta * grating_const * np.cos(beta)
     print(delta_lambda.format() + " nm")
 
@@ -83,6 +86,7 @@ def rydberg_from_abs_lambda(data):
 
     R_inf = R_inf
     print("R_inf = " + R_inf.format())
+    print()
     return R_inf
 
 
@@ -106,7 +110,7 @@ def rydberg_from_delta(data):
     reduced_mass_D = (mass_proton + mass_neutron) * mass_electron / (mass_electron + mass_proton + mass_neutron)
     reduced_mass_diff = reduced_mass_D - reduced_mass_H
 
-    R_inf = delta_lambda *(1 / std.unit.nm) * transition * mass_electron / reduced_mass_diff
+    R_inf = delta_lambda * (1 / std.unit.nm) * transition * mass_electron / reduced_mass_diff
     print(R_inf.format())
     return R_inf
 
@@ -124,11 +128,18 @@ def main():
     data = [get_data(line) for line in handle.readlines()]
     handle.close()
 
+    print("isotopic split from ocular measurements:")
     _ = list(map(calc_isotope_split, data))
+
+    print("\nRydberg constant from absolut wavelengths:")
     R_inf = list(map(rydberg_from_abs_lambda, data))
+
+    print("\nisotopic split from CCD measurements:")
     delta_lambda = list(map(delta_lambda_from_cmos, data))
     _ = [print("delta lambda = " + x.format() + " nm") for x in delta_lambda]
     # _ = list(map(rydberg_from_delta, data))
+    #
+    print("\nplanck constant from R_inf:")
     for h in map(h_from_R, R_inf):
         print(h.format())
 
