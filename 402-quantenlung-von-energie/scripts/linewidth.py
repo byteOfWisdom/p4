@@ -86,14 +86,25 @@ def line_width(data):
     print("theoretical line width:")
     delta_nu_natural = 1
 
-    doppler_lw = 2 * nu_0 * np.sqrt(2 * std.unit.boltzmann_const * np.log(2) / hydrogen_mass)
+    reduced_mass = (std.unit.proton_mass * std.unit.electron_mass) / (std.unit.proton_mass + std.unit.electron_mass)
+    hydrogen_mass = std.unit.proton_mass + std.unit.electron_mass
+    R_lit = p.ev(10973731.568157, 12)
+    RH_lit = reduced_mass * R_lit / std.unit.electron_mass
+    nu_0 = RH_lit * (0.25 - 1 / (data["n"] ** 2)) * std.unit.c
+    print("lambda_0 = " + str(~(std.unit.c / nu_0)))
+    lambda_0 = std.unit.c / nu_0
+    temperature = 1000
+    doppler_lw = (2 * nu_0 / std.unit.c) * np.sqrt(2 * std.unit.boltzmann_const * temperature * np.log(2) / hydrogen_mass)
 
-    print("doppler lw: " + to_lambda_lw(doppler_lw).format())
+    # print("doppler lw: " + to_lambda_lw(nu_0, doppler_lw).format())
+    # doppler_lw = (lambda_0 / std.unit.c) * np.sqrt(8 * std.unit.boltzmann_const * temperature * np.log(2) / hydrogen_mass)
+    doppler_lw = to_lambda_lw(nu_0, doppler_lw)
+    print(doppler_lw.format())
 
 
 def to_lambda_lw(nu, delta_nu):
-    return std.unit.c * (1 / (nu - 0.5 * delta_nu) - 1 / (nu + 0.5 * delta_nu))
-    return - std.unit.c * delta_nu / (nu ** 2)
+    # return std.unit.c * (1 / (nu - 0.5 * delta_nu) - 1 / (nu + 0.5 * delta_nu))
+    return (std.unit.c * delta_nu / (nu ** 2))
 
 
 def main():
