@@ -80,6 +80,10 @@ def main():
     chi2 = std.reduced_chi_2(values, double_gaussian(bins, *params), params, sigma=1)
     print(f"reduced chi2 = {chi2}")
 
+    fit_res = std.fit_func(double_gaussian, bins, values)
+    fit_res.pprint()
+    # print(fit_res)
+
     xrange = np.linspace(min(bins), max(bins), 10000)
     gauss_1 = gaussian(xrange, params[0], params[2], params[4])
     gauss_2 = gaussian(xrange, params[1], params[3], params[5])
