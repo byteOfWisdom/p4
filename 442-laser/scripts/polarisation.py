@@ -11,7 +11,7 @@ amplitude = data[1]
 
 
 def cos_sq(x, a, b, c, d):
-    return a * np.cos(b * x + c) + d
+    return a * np.cos(b * x + c) ** 2 + d
 
 
 params, _ = scipy.optimize.curve_fit(cos_sq, angle, amplitude, p0=[0.1, 6 / 360, 0, 0])
