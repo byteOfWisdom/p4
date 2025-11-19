@@ -14,12 +14,12 @@ def cos_sq(x, a, b, c, d):
     return a * np.cos(b * x + c) + d
 
 
-# params, _ = scipy.optimize.curve_fit(cos_sq, angle, amplitude)
-params = std.fit_func(cos_sq, angle, amplitude, p0=[0.1, 6 / 360, 0, 0])
+params, _ = scipy.optimize.curve_fit(cos_sq, angle, amplitude, p0=[0.1, 6 / 360, 0, 0])
+# params = std.fit_func(cos_sq, angle, amplitude, p0=[0.1, 6 / 360, 0, 0])
 
 
 x = np.linspace(0, 360, 10000)
-y = cos_sq(x, *params.beta)
+y = cos_sq(x, *params)#.beta)
 
 plt.scatter(angle, amplitude)
 plt.plot(x, y)
