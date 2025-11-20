@@ -17,13 +17,16 @@ def main():
     degrees = data[0]
     voltages = data[1]
 
+    u_nolaser = 0.4e-3  # correction term for dark current
+
+    corrected_voltages = voltages - u_nolaser
+
     xrange = np.linspace(0, 360, 37)
 
     # for degree of polarisation
 
-    max_trans = max(voltages)
-    min_trans = min(voltages)
-    print(min(voltages))
+    max_trans = max(corrected_voltages)
+    min_trans = min(corrected_voltages)
 
     dop = (max_trans - min_trans) / (max_trans + min_trans)
     print("degree of polarisation: ", dop)
@@ -43,19 +46,20 @@ def main():
     fit_func, cov = curve_fit(
         malus,
         degrees,
-        voltages,
+        corrected_voltages,
         init_guess,
     )
 
-    f = (fit_func[0] * np.cos(fit_func[3] * (fit_func[1] - degrees)) ** 2) + fit_func[2]
+    f = (fit_func[0] * np.cos((fit_func[3] * degrees) + fit_func[1]) ** 2) + fit_func[2]
     # err = np.sqrt(np.diag(cov))
 
     print(
-        "a: ",
+        f"a*cos(d*x+b)^2+c\n",
+        "a:",
         fit_func[0],
         "I_0:",
         fit_func[0] + fit_func[2],
-        "phi:",
+        "b:",
         fit_func[1],
         "c:",
         fit_func[2],
@@ -64,11 +68,17 @@ def main():
     )
 
     # useful to use coeff. of determination R^2 for linear model fit
-    goodness = round(std.goodness_of_fit(voltages, f), 3)
+    goodness = round(std.goodness_of_fit(corrected_voltages, f), 3)
 
     # plotting data & fit
-    plt.scatter(degrees, voltages, marker=".", color=messcolor)
-    plt.errorbar(degrees, voltages, xerr=5, yerr=voltages * 0.05, **eb_defaults)
+    plt.scatter(degrees, corrected_voltages, marker=".", color=messcolor)
+    plt.errorbar(
+        degrees,
+        corrected_voltages,
+        xerr=5,
+        yerr=corrected_voltages * 0.05,
+        **eb_defaults,
+    )
     # data yerror: 5% of value, xerror: 5 degrees fixed
     plt.plot(
         xrange,
@@ -78,7 +88,7 @@ def main():
         color="darkblue",
     )
 
-    plt.ylim(-0.01, max(voltages) + 0.02)
+    plt.ylim(-0.01, max(corrected_voltages) + 0.02)
     plt.grid(which="major")
     plt.grid(
         which="minor",
@@ -87,7 +97,7 @@ def main():
     )
     plt.gca().minorticks_on()
     plt.legend(loc="upper right")
-    plt.xlabel(r"Verdrehungswinkel /$^\circ$")
+    plt.xlabel(r"Verdrehungswinkel / $^\circ$")
     plt.ylabel(rf"U / V")
 
     # allow saving to specified file as optional 3rd argv
