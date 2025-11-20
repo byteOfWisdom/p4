@@ -19,7 +19,12 @@ def main():
 
     xrange = np.linspace(0, 360, 37)
 
-    max_u = max(voltages)
+    max_trans = max(voltages)
+    min_trans = min(voltages)
+    print(min(voltages))
+
+    dop = (max_trans - min_trans) / (max_trans + min_trans)
+    print("degree of polarisation: ", dop)
 
     init_guess = [
         0,  # a
