@@ -17,7 +17,7 @@ def main():
     degrees = data[0]
     voltages = data[1]
 
-    u_nolaser = 0.4e-3  # correction term for dark current
+    # u_nolaser = 0.0e-3  # correction term  not necessary due to being zero lol
 
     corrected_voltages = voltages - u_nolaser
 
@@ -25,8 +25,8 @@ def main():
 
     # for degree of polarisation
 
-    max_trans = max(corrected_voltages)
-    min_trans = min(corrected_voltages)
+    max_trans = max(voltages)
+    min_trans = min(voltages)
 
     dop = (max_trans - min_trans) / (max_trans + min_trans)
     print("degree of polarisation: ", dop)
@@ -68,15 +68,15 @@ def main():
     )
 
     # useful to use coeff. of determination R^2 for linear model fit
-    goodness = round(std.goodness_of_fit(corrected_voltages, f), 3)
+    goodness = round(std.goodness_of_fit(voltages, f), 3)
 
     # plotting data & fit
-    plt.scatter(degrees, corrected_voltages, marker=".", color=messcolor)
+    plt.scatter(degrees, voltages, marker=".", color=messcolor)
     plt.errorbar(
         degrees,
-        corrected_voltages,
+        voltages,
         xerr=5,
-        yerr=corrected_voltages * 0.05,
+        yerr=voltages * 0.05,
         **eb_defaults,
     )
     # data yerror: 5% of value, xerror: 5 degrees fixed
@@ -88,7 +88,7 @@ def main():
         color="darkblue",
     )
 
-    plt.ylim(-0.01, max(corrected_voltages) + 0.02)
+    plt.ylim(-0.01, max(voltages) + 0.02)
     plt.grid(which="major")
     plt.grid(
         which="minor",
