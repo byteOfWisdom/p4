@@ -19,6 +19,8 @@ def main():
 
     xrange = np.linspace(0, 360, 37)
 
+    # for degree of polarisation
+
     max_trans = max(voltages)
     min_trans = min(voltages)
     print(min(voltages))
@@ -26,6 +28,9 @@ def main():
     dop = (max_trans - min_trans) / (max_trans + min_trans)
     print("degree of polarisation: ", dop)
 
+    # fitting cos^2 func to data
+
+    # necessary to give start geusses or fit WILL be bad
     init_guess = [
         0,  # a
         6,  # b
@@ -43,10 +48,7 @@ def main():
     )
 
     f = (fit_func[0] * np.cos(fit_func[3] * (fit_func[1] - degrees)) ** 2) + fit_func[2]
-
-    err = np.sqrt(np.diag(cov))
-
-    goodness = round(std.goodness_of_fit(voltages, f), 3)
+    # err = np.sqrt(np.diag(cov))
 
     print(
         "a: ",
@@ -61,10 +63,13 @@ def main():
         fit_func[3],
     )
 
+    # useful to use coeff. of determination R^2 for linear model fit
+    goodness = round(std.goodness_of_fit(voltages, f), 3)
+
+    # plotting data & fit
     plt.scatter(degrees, voltages, marker=".", color=messcolor)
     plt.errorbar(degrees, voltages, xerr=5, yerr=voltages * 0.05, **eb_defaults)
-    # yerror: 5% of value
-
+    # data yerror: 5% of value, xerror: 5 degrees fixed
     plt.plot(
         xrange,
         f,
@@ -85,6 +90,7 @@ def main():
     plt.xlabel(r"Verdrehungswinkel /$^\circ$")
     plt.ylabel(rf"U / V")
 
+    # allow saving to specified file as optional 3rd argv
     if len(argv) > 2:
         plt.savefig(argv[2])
     else:
