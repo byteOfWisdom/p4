@@ -11,8 +11,16 @@ def get_grating(filename):
     file = filename.split("_")
     temp = file[1].split("mm")
     grating = int(temp[0])
+    grating_const = 1e-3 / grating
+    if grating == 500:
+        wall = 13e-2
+    elif grating == 1000:
+        wall = 14e-2
+    else:
+        wall = 0
+        sys.exit("you didn't measure this file name?!")
 
-    return grating
+    return grating_const, wall
 
 
 def get_data(filename):
@@ -24,23 +32,19 @@ def get_data(filename):
 
 
 def main():
-    grating = get_grating(argv[1])  # in mm!!
+    grating_const, wall = get_grating(argv[1])
     rep, order, distance = get_data(argv[1])
-    if grating == 500:
-        wall = 13e-2
-    elif grating == 1000:
-        wall = 14e-2
-    else:
-        sys.exit("you didn't measure this file name?!")
 
-    grating_const = 1e-3 / grating
     print("g:", grating_const, "m")
     dist_err = 5e-2
 
-    angle = distance / 2 * wall  # this feels like the issue
-    angle_term = np.sin(angle)
+    angle = (distance / 2) * wall  # this feels like the issue
 
-    wavelength = (grating_const * angle_term) / order
+    print("angles:", angle)
+
+    angle_term = np.cos(angle)
+
+    wavelength = grating_const * angle_term / order
     for i in range(len(wavelength)):
         print(
             "messung:",
