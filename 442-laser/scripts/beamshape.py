@@ -19,7 +19,7 @@ def get_waists(filename):
 
 
 def main():
-    dists, widths = get_waists(argv[1])
+    # params of setup
     if len(argv) > 3:
         wavelength = float(argv[3])
     else:
@@ -27,56 +27,74 @@ def main():
     length = p.ev(51.3e-2, 5e-3)
     curve = 1
 
-    dist_rel = length - dists
+    dists, widths = get_waists(argv[1])
+    radii = widths / 2
+    dist_rel = length - dists  # from plane mirror
 
+    print(~dist_rel)
+
+    # theoretical gaussian values
     waist = np.sqrt(wavelength / np.pi * np.sqrt(length * (curve - length)))
     rayleigh = np.pi * (waist**2) / wavelength
     print("w0:", waist.format())
     print("z_0:", rayleigh.format())
+    # theoretical gaussian
+    xrange = np.linspace(0.4, 0.55, 500)
 
-    radii = widths / 2
-    # print([x.format() for x in radii])
+    gaussian_theo = lambda x: waist * np.sqrt(1 + (x / rayleigh) ** 2)
 
-    # gaussian shape
-    linear = lambda x, a, b: a * x + b
-    gaussian_x = lambda x: np.sqrt(1 + (x / rayleigh) ** 2)
-
-    xvalues = gaussian_x(dist_rel)
-
-    xrange = np.linspace(0, max(xvalues) + 0.03, 50)
-
-    fit_parm, cov = curve_fit(linear, xvalues, radii, p0=[1, -1])
-    err = np.sqrt(np.diag(cov))
-    print("omega_0:", fit_parm[0], "+-", err[0], "b:", fit_parm[1], "+-", err[1])
-
-    f = linear(xrange, fit_parm[0], fit_parm[1])
-    theo = linear(xrange, waist, 0)
-
-    goodness = round(
-        std.goodness_of_fit(~radii, linear(~xvalues, fit_parm[0], fit_parm[1])), 3
-    )
-    print("R^2:", goodness)
-
-    _, xerr = p.ve(xvalues)
-    _, yerr = p.ve(radii)
-
-    plt.plot(xrange, f, color="darkblue")
-    plt.plot(xrange, theo, color="red")
-
-    # plt.scatter(~xvalues, ~radii, marker="x")
-    plt.errorbar(
-        ~xvalues,
-        ~radii,
-        xerr=xerr,
-        yerr=yerr,
-        **std.default.error_bar_def,
-        label=rf"$R^2$={goodness}",
-        color="forestgreen",
+    plt.plot(xrange, gaussian_theo(xrange), label=r"$\omega(z)_\text{theo}$")
+    plt.plot(
+        xrange, gaussian_theo(xrange) * 1.18, label=r"$\omega(z)_\text{theo,korr}$"
     )
 
-    plt.legend(loc="upper left", markerscale=0.0)
+    # fitting gaussian to data
+    #
+    rayleigh_meas = lambda a: (np.pi * (a**2)) / wavelength
+    gaussian_meas = lambda x, w, y: (w * np.sqrt(1 + ((x - y) / rayleigh_meas(w)) ** 2))
 
-    std.default.plt_pretty(r"$\sqrt{1+(\frac{z}{z_0})^2}$ / o.E.", r"$\omega(z)$ / m")
+    fit, cov = curve_fit(gaussian_meas, ~dist_rel, ~radii, p0=[0.003, 0], maxfev=20000)
+    print("w_0,meas:", fit[0])
+    print("b:", fit[1])
+
+    plt.plot(xrange, gaussian_meas(xrange, fit[0], fit[1]), label="fit")
+    # plt.plot(xrange, gaussian_theo(xrange) + fit[1], label="theo mit offset")
+    plt.scatter(~dist_rel, ~radii, marker="x")
+
+    # linear = lambda x, a, b: a * x + b
+    # xvalues = gaussian_x(dist_rel) #incorrect!! this gives the theoretical xvalues
+
+    # fit_parm, cov = curve_fit(linear, xvalues, radii, p0=[1, -1]) #incorrect fitting func
+    # err = np.sqrt(np.diag(cov))
+    # print("omega_0:", fit_parm[0], "+-", err[0], "b:", fit_parm[1], "+-", err[1])
+
+    # f = linear(xrange, fit_parm[0], fit_parm[1])
+    # theo = linear(xrange, waist, 0)
+
+    # goodness = round(
+    #     std.goodness_of_fit(~radii, linear(~xvalues, fit_parm[0], fit_parm[1])), 3
+    # )
+    # print("R^2:", goodness)
+
+    # _, xerr = p.ve(xvalues)
+    # _, yerr = p.ve(radii)
+
+    # plt.plot(xrange, f, color="darkblue")
+    # plt.plot(xrange, theo, color="red")
+
+    # plt.errorbar(
+    #     ~xvalues,
+    #     ~radii,
+    #     xerr=xerr,
+    #     yerr=yerr,
+    #     **std.default.error_bar_def,
+    #     label=rf"$R^2$={goodness}",
+    #     color="forestgreen",
+    # )
+
+    plt.legend(loc="best")
+
+    std.default.plt_pretty("z / m", r"$\omega(z)$ / m")
 
     if len(argv) > 2:
         plt.savefig(argv[2])
