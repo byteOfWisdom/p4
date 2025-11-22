@@ -46,12 +46,12 @@ def main():
     fit_func, cov = curve_fit(
         malus,
         degrees,
-        corrected_voltages,
+        voltages,
         init_guess,
     )
 
     f = (fit_func[0] * np.cos((fit_func[3] * degrees) + fit_func[1]) ** 2) + fit_func[2]
-    # err = np.sqrt(np.diag(cov))
+    err = np.sqrt(np.diag(cov))
 
     print(
         f"a*cos(d*x+b)^2+c\n",
