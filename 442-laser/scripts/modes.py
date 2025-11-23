@@ -85,15 +85,19 @@ def main():
     print(f"a = {res.slope} +- {res.stderr}")
     print(f"b = {res.intercept} +- {res.intercept_stderr}")
 
-    rel_spacing = b / np.average(ext_spacings)
-    print(rel_spacing.format())
+    q = b / np.average(ext_spacings)
+    print("q = ", q.format())
 
     laser_cavity = p.ev(51.3e-2, 1e-2)
+    external_assumed = p.ev(1e-2, 0.5e-2)
 
-    laser_mode_spacing = std.unit.c / (2 * laser_cavity)
-    print(f"assuming LEM modes, external res len is {(laser_cavity * rel_spacing / 2).format()}")
-    external_assumed = p.ev(2e-2, 1.5e-2)
-    print(f"with {external_assumed.format()} external res len, relative mode spacing is {(2 * external_assumed / laser_cavity).format()}")
+    # laser_mode_spacing = std.unit.c / (2 * laser_cavity)
+    external_mode_spacing = std.unit.c / (4 * external_assumed)
+    # print(f"assuming LEM modes, external res len is {(laser_cavity * rel_spacing / 2).format()}")
+    # print(f"with {external_assumed.format()} external res len, relative mode spacing is {(2 * external_assumed / laser_cavity).format()}")
+
+    print(f"external mode spacing = {external_mode_spacing.format()}")
+    print(f"laser mode spacing = {(q * external_mode_spacing).format()}")
 
     plt.errorbar(ids, internal_spacings, fmt="x")
     plt.plot(ids, (lambda x: (x - x) + np.average(ext_spacings))(ids))
