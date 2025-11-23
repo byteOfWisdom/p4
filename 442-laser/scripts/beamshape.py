@@ -31,66 +31,81 @@ def main():
     radii = widths / 2
     dist_rel = length - dists  # from plane mirror
 
-    print(~dist_rel)
+    # print(~dist_rel)
+    # print(~radii)
 
-    # theoretical gaussian values
+    xrange = np.linspace(0.44, 0.52, 500)
+
+    # theoretical gaussian
     waist = np.sqrt(wavelength / np.pi * np.sqrt(length * (curve - length)))
     rayleigh = np.pi * (waist**2) / wavelength
-    print("w0:", waist.format())
-    print("z_0:", rayleigh.format())
-    # theoretical gaussian
-    xrange = np.linspace(0.4, 0.55, 500)
+    print("w0,theo:", waist.format())
+    print("z_0,theo:", rayleigh.format())
 
     gaussian_theo = lambda x: waist * np.sqrt(1 + (x / rayleigh) ** 2)
 
-    plt.plot(xrange, gaussian_theo(xrange), label=r"$\omega(z)_\text{theo}$")
-    plt.plot(
-        xrange, gaussian_theo(xrange) * 1.18, label=r"$\omega(z)_\text{theo,korr}$"
-    )
+    # plt.plot(
+    #     xrange, gaussian_theo(xrange) * 1.18, label=r"$\omega(z)_\text{theo,korr}$"
+    # )
 
-    # fitting gaussian to data
-    #
+    # fitting pure gaussian to data
     rayleigh_meas = lambda a: (np.pi * (a**2)) / wavelength
     gaussian_meas = lambda x, w, y: (w * np.sqrt(1 + ((x - y) / rayleigh_meas(w)) ** 2))
 
-    fit, cov = curve_fit(gaussian_meas, ~dist_rel, ~radii, p0=[0.003, 0], maxfev=20000)
-    print("w_0,meas:", fit[0])
-    print("b:", fit[1])
+    fit_1, cov_1 = curve_fit(
+        gaussian_meas, ~dist_rel, ~radii, p0=[0.003, 0], maxfev=20000
+    )
+    err_1 = np.sqrt(np.diag(cov_1))
+    print("w_0,meas:", fit_1[0], "+-", err_1[0])
+    print("y (z offset):", fit_1[1], "+-", err_1[1])
 
-    plt.plot(xrange, gaussian_meas(xrange, fit[0], fit[1]), label="fit")
-    # plt.plot(xrange, gaussian_theo(xrange) + fit[1], label="theo mit offset")
-    plt.scatter(~dist_rel, ~radii, marker="x")
+    # corrected gaussian model w/ intensity parameter
+    gaussian_theo_corr = lambda x, y: y * (~waist * np.sqrt(1 + (x / ~rayleigh) ** 2))
 
-    # linear = lambda x, a, b: a * x + b
-    # xvalues = gaussian_x(dist_rel) #incorrect!! this gives the theoretical xvalues
+    r, r_err = p.ve(radii)
+    d, d_err = p.ve(dist_rel)
 
-    # fit_parm, cov = curve_fit(linear, xvalues, radii, p0=[1, -1]) #incorrect fitting func
-    # err = np.sqrt(np.diag(cov))
-    # print("omega_0:", fit_parm[0], "+-", err[0], "b:", fit_parm[1], "+-", err[1])
+    fit_2, cov_2 = curve_fit(gaussian_theo_corr, d, r)
+    err_2 = np.sqrt(np.diag(cov_2))
+    print("a:", fit_2[0], "+-", err_2[0])
 
-    # f = linear(xrange, fit_parm[0], fit_parm[1])
-    # theo = linear(xrange, waist, 0)
+    # goodness tests
+    goodness_1 = round(std.goodness_of_fit(r, gaussian_meas(d, fit_1[0], fit_1[1])), 3)
+    print("R^2,meas:", goodness_1)
+    goodness_2 = round(std.goodness_of_fit(r, gaussian_theo_corr(d, fit_2[0])), 3)
+    print("R^2,corr theo:", goodness_2)
 
-    # goodness = round(
-    #     std.goodness_of_fit(~radii, linear(~xvalues, fit_parm[0], fit_parm[1])), 3
-    # )
-    # print("R^2:", goodness)
-
-    # _, xerr = p.ve(xvalues)
-    # _, yerr = p.ve(radii)
-
-    # plt.plot(xrange, f, color="darkblue")
-    # plt.plot(xrange, theo, color="red")
-
-    # plt.errorbar(
-    #     ~xvalues,
-    #     ~radii,
-    #     xerr=xerr,
-    #     yerr=yerr,
-    #     **std.default.error_bar_def,
-    #     label=rf"$R^2$={goodness}",
-    #     color="forestgreen",
-    # )
+    # pure data fit
+    plt.plot(
+        xrange,
+        gaussian_meas(xrange, fit_1[0], fit_1[1]),
+        label=rf"$R^2$={goodness_1}",
+        color="darkblue",
+    )
+    # parameter corrected gaussian fit
+    plt.plot(
+        xrange,
+        gaussian_theo_corr(xrange, fit_2[0]),
+        label=r"$a\cdot\omega(z)_\text{theo}$: " + rf"$R^2=${goodness_2}",
+        linestyle="--",
+        color="orange",
+    )
+    # data w errors
+    plt.errorbar(
+        ~dist_rel,
+        ~radii,
+        xerr=d_err,
+        yerr=r_err,
+        **std.default.error_bar_def,
+        color="forestgreen",
+    )
+    # theoretical gaussian
+    plt.plot(
+        xrange,
+        gaussian_theo(xrange),
+        label=r"$\omega(z)_\text{theo}$",
+        color="darkviolet",
+    )
 
     plt.legend(loc="best")
 

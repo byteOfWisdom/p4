@@ -19,7 +19,7 @@ def main():
 
     # u_nolaser = 0.0e-3  # correction term  not necessary due to being zero lol
 
-    corrected_voltages = voltages - u_nolaser
+    corrected_voltages = voltages  # - u_nolaser
 
     xrange = np.linspace(0, 360, 37)
 
