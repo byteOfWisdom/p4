@@ -88,7 +88,7 @@ def main():
     q = b / np.average(ext_spacings)
     print("q = ", q.format())
 
-    laser_cavity = p.ev(51.3e-2, 1e-2)
+    # laser_cavity = p.ev(51.3e-2, 1e-2)
     external_assumed = p.ev(1e-2, 0.5e-2)
 
     # laser_mode_spacing = std.unit.c / (2 * laser_cavity)
