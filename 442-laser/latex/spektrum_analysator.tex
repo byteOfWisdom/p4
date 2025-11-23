@@ -1,0 +1,37 @@
+\chapter{Spektrumanalysator}
+
+Es soll nun die Modenstruktur der Laserkavität mittels eines Spektrumanalysator untersucht werden.
+Bei dem Analysator handelt es sich um einen externen, konfokalen Resonator, dessen Länge mittels eines Piezo-Kristalls verstellt wird. \cite{Versuchsanleitung442}
+
+Der Modenabstand von TEM\footnote{Tranversalen elektrischen Moden} bei einem solchen Resonator ist gegeben als: \cite{Versuchsanleitung442}
+
+\begin{align}
+	\Delta \nu_{TEM} = \frac{c}{4 l} \label{eq:mode_spacing_ext}
+\end{align}
+
+Bei der Laserkavität hingegen wird davon ausgegangen, dass in erster Linie Longitudinalmoden angeregt werden mit einem Modenabstand von:
+
+\begin{align}
+	\Delta \nu = \frac{c}{2L}
+\end{align}
+
+Nach der Justage des Analysators erfolgt die Messung indem ein Dreiecksignal an das Piezoelement angelegt wird, dessen Spannung so lange variiert wird, bis auf dem Oszilliskop eine periodische Struktur zu erkennen ist. Hierbei ist relevant, dass die Modenstruktur sowohl des Analysators als auch des Lasers überlagert beobachtet wird.
+
+Eine kurze Überschlagsrechnung zeigt auf, dass der Modenabstand des Lasers ca. eine Größenordnung kleiner als bei dem Resonator zu erwarten ist. Somit kann davon ausgegangen werden, dass die näher aneinanderliegenden, feineren Maxima Lasermoden entsprechen und die größeren, weiter auseinanderliegenden Maxima entsprechen Analysatormoden sind.
+
+Die Länge der Laserkavität ließ sich gut Messen, mit $L = \SI{51.3(5)}{\centi\meter}$. Die Länge des Analysators hingegen ist schwer akkurat zu messen, da die genaue Position der Spiegel in den jeweiligen Bauteilen nicht eindeutig ist und die Bauteile durch ihre Größe und Form ein genaues Messen erschweren. Es ergibt sich eine Länge von $l = \SI{20(15)}{\milli\meter}$
+
+In den aufgenommenen Oszillogrammen werden die Abstände der Analysatormoden und die Abstände der Lasermoden vermessen.
+
+\jafpp{analysator_spectrum_0}{Oszillogramm des Spektrums}{analysator_spectrum_2}{zweite Messung des Selben}
+
+Aufgrund des Linearen Spannungsverlaufs an dem Piezoelement und der dazu proportionalen Längenänderung werden alle Abstände an den Indizes der Datenpunkte berechnet.
+
+Die lokalen Maxima der Kurven werden ermittelt. Der Abstand der Analysatormoden wird aus den Abständen der jeweils n-ten Maxima zueinander bestimmt. 
+
+Die Abstände der nebeneinanderliegenden Moden wird berechnet und über lineare Regression der Achsenabschnitt bestimmt und dieser als mittlerer Abstand zweier Lasermoden gesehen. Bei dieser Regression kann eine Steigung nahe Null genutzt werden um Systemische Fehler auszuschließen.
+
+Es ergibt sich eine Steigung von [WERT!] und ein Achenabschnitt von [WERT!]. 
+Aus dem Modenabstand des Resonators und dem Verhältnis zum kleineren Modenabstand (des Lasers) 
+
+\jafps{modespacing}{Modenabstände}{0.75}
