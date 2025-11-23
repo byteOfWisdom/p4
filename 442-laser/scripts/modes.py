@@ -71,8 +71,10 @@ def main():
         ext_spacings = np.append(ext_spacings, external_spacing)
         internal_spacings = np.append(internal_spacings, internal_spacing)
         plot_measurement(time, peaks, voltage, next(fmts), next(colors))
-        std.default.plt_pretty("index", "Spannung / mV")
-        plt.show()
+        std.default.plt_pretty("Index", "Spannung / mV")
+        # plt.show()
+        plt.savefig(f"../figs/analysator_spectrum_{id}.pdf")
+        plt.cla()
 
     ids = np.array(list(range(len(internal_spacings))))
     # params, meta = std.fit_func(lambda x, a, b: a * x + b, ids, internal_spacing, p0=[0, 1])
@@ -90,15 +92,16 @@ def main():
 
     laser_mode_spacing = std.unit.c / (2 * laser_cavity)
     print(f"assuming LEM modes, external res len is {(laser_cavity * rel_spacing / 2).format()}")
-    external_assumed = p.ev(4e-2, 2e-2)
+    external_assumed = p.ev(2e-2, 1.5e-2)
     print(f"with {external_assumed.format()} external res len, relative mode spacing is {(2 * external_assumed / laser_cavity).format()}")
 
     plt.errorbar(ids, internal_spacings, fmt="x")
     plt.plot(ids, (lambda x: (x - x) + np.average(ext_spacings))(ids))
     plt.plot(ids, params[0] * ids + params[1])
-    std.default.plt_pretty("index", "relativer modenabstand")
-    plt.show()
-    
+    std.default.plt_pretty("Index", "relativer Modenabstand")
+    # plt.show()
+    plt.savefig("../figs/modespacing.pdf")
+    plt.cla()
 
 
 if __name__ == "__main__":
