@@ -7,48 +7,83 @@ import propeller as p
 from sys import argv
 
 
-def main():
-    data = np.transpose(np.loadtxt(argv[1], delimiter=",", skiprows=11))
-    lower_id = int(argv[2]) if len(argv) > 3 else 0
-    upper_id = int(argv[3]) if len(argv) > 3 else len(data[0])
+def load_slice(fname, lower, upper):
+    data = np.transpose(np.loadtxt(fname, delimiter=",", skiprows=11))
+
     time_const = 1
     time = data[0] * time_const
     voltage = data[1] * 1e-3
 
-    time = time[lower_id:upper_id]
-    voltage = voltage[lower_id:upper_id]
+    time = time[lower:upper]
+    voltage = voltage[lower:upper]
+    return time, voltage
 
-    peaks, _ = scipy.signal.find_peaks(voltage, width=50, distance=250, prominence=0.01)
 
-    # print(peaks)
+def get_peaks(voltage):
+    peaks, _ = scipy.signal.find_peaks(voltage, width=30, distance=250, prominence=0.0075)
+    # peaks, _ = scipy.signal.find_peaks(voltage, width=20, distance=250)
+    return peaks
 
+
+def batches(peaks):
     dists = peaks[1:] - peaks[:-1]
     seperate = list(dists).index(max(dists))
     batch_1 = peaks[:seperate + 1]
     batch_2 = peaks[seperate + 1:]
+    return batch_1, batch_2
 
-    plt.plot(time, voltage)
-    # for x in peaks:
-    # plt.vlines(time[peaks], min(voltage), max(voltage), color="green")
-    plt.vlines(time[batch_1], min(voltage), max(voltage), color="green")
-    plt.vlines(time[batch_2], min(voltage), max(voltage), color="red")
-    std.default.plt_pretty("time", "voltage")
-    plt.show()
 
-    external_spacing = batch_2 - batch_1
-    external_spacing = np.average(external_spacing)
-    internal_spacing = np.append(batch_1[1:] - batch_1[:-1], batch_2[1:] - batch_2[:-1])
+def plot_measurement(time, peaks, voltage, fmt, color):
+    plt.plot(time, voltage, linestyle=fmt, color=next(color))
+    batch_1, batch_2 = batches(peaks)
+    plt.vlines(time[batch_1], min(voltage), max(voltage), color=next(color))
+    plt.vlines(time[batch_2], min(voltage), max(voltage), color=next(color))
 
-    ids = np.array(list(range(len(internal_spacing))))
+
+def main():
+    files = [
+        ("../data/20251118_225116.csv", 36000, 66000),
+        ("../data/20251118_224854.csv", 32000, 63000),
+        ("../data/20251118_225143.csv", 36000, 66000)
+    ]
+
+    ext_spacings = np.array([])
+    internal_spacings = np.array([], dtype=np.float64)
+
+    fmts = iter(("solid", "solid", "solid"))
+    colors = iter((
+        iter(("tab:blue", "tab:red", "tab:green")),
+        iter(("tab:blue", "tab:red", "tab:green")),
+        iter(("tab:blue", "tab:red", "tab:green")),
+    ))
+
+    for arg in argv[1:]:
+        id = int(arg)
+        time, voltage = load_slice(*files[id])
+        peaks = get_peaks(voltage)
+    
+        batch_1, batch_2 = batches(peaks)
+
+        external_spacing = batch_2 - batch_1
+        external_spacing = np.average(external_spacing)
+        internal_spacing = np.append(batch_1[1:] - batch_1[:-1], batch_2[1:] - batch_2[:-1])
+
+        ext_spacings = np.append(ext_spacings, external_spacing)
+        internal_spacings = np.append(internal_spacings, internal_spacing)
+        plot_measurement(time, peaks, voltage, next(fmts), next(colors))
+        std.default.plt_pretty("index", "Spannung / mV")
+        plt.show()
+
+    ids = np.array(list(range(len(internal_spacings))))
     # params, meta = std.fit_func(lambda x, a, b: a * x + b, ids, internal_spacing, p0=[0, 1])
     # meta.pprint()
-    res = scipy.stats.linregress(ids, internal_spacing)
+    res = scipy.stats.linregress(ids, internal_spacings)
     params = [res.slope, res.intercept]
     b = p.ev(res.intercept, res.intercept_stderr)
     print(f"a = {res.slope} +- {res.stderr}")
     print(f"b = {res.intercept} +- {res.intercept_stderr}")
 
-    rel_spacing = b / external_spacing
+    rel_spacing = b / np.average(ext_spacings)
     print(rel_spacing.format())
 
     laser_cavity = p.ev(51.3e-2, 1e-2)
@@ -58,8 +93,8 @@ def main():
     external_assumed = p.ev(4e-2, 2e-2)
     print(f"with {external_assumed.format()} external res len, relative mode spacing is {(2 * external_assumed / laser_cavity).format()}")
 
-    plt.errorbar(ids, internal_spacing, fmt="x")
-    plt.plot(ids, (lambda x: (x - x) + external_spacing)(ids))
+    plt.errorbar(ids, internal_spacings, fmt="x")
+    plt.plot(ids, (lambda x: (x - x) + np.average(ext_spacings))(ids))
     plt.plot(ids, params[0] * ids + params[1])
     std.default.plt_pretty("index", "relativer modenabstand")
     plt.show()
