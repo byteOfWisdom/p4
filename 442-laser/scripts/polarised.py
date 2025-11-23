@@ -17,10 +17,23 @@ def main():
     degrees = data[0]
     voltages = data[1]
 
+    # u_nolaser = 0.0e-3  # correction term  not necessary due to being zero lol
+
+    corrected_voltages = voltages  # - u_nolaser
+
     xrange = np.linspace(0, 360, 37)
 
-    max_u = max(voltages)
+    # for degree of polarisation
 
+    max_trans = max(voltages)
+    min_trans = min(voltages)
+
+    dop = (max_trans - min_trans) / (max_trans + min_trans)
+    print("degree of polarisation: ", dop)
+
+    # fitting cos^2 func to data
+
+    # necessary to give start geusses or fit WILL be bad
     init_guess = [
         0,  # a
         6,  # b
@@ -37,18 +50,16 @@ def main():
         init_guess,
     )
 
-    f = (fit_func[0] * np.cos(fit_func[3] * (fit_func[1] - degrees)) ** 2) + fit_func[2]
-
+    f = (fit_func[0] * np.cos((fit_func[3] * degrees) + fit_func[1]) ** 2) + fit_func[2]
     err = np.sqrt(np.diag(cov))
 
-    goodness = round(std.goodness_of_fit(voltages, f), 3)
-
     print(
-        "a: ",
+        f"a*cos(d*x+b)^2+c\n",
+        "a:",
         fit_func[0],
         "I_0:",
         fit_func[0] + fit_func[2],
-        "phi:",
+        "b:",
         fit_func[1],
         "c:",
         fit_func[2],
@@ -56,10 +67,19 @@ def main():
         fit_func[3],
     )
 
-    plt.scatter(degrees, voltages, marker=".", color=messcolor)
-    plt.errorbar(degrees, voltages, xerr=5, yerr=voltages * 0.05, **eb_defaults)
-    # yerror: 5% of value
+    # useful to use coeff. of determination R^2 for linear model fit
+    goodness = round(std.goodness_of_fit(voltages, f), 3)
 
+    # plotting data & fit
+    plt.scatter(degrees, voltages, marker=".", color=messcolor)
+    plt.errorbar(
+        degrees,
+        voltages,
+        xerr=5,
+        yerr=voltages * 0.05,
+        **eb_defaults,
+    )
+    # data yerror: 5% of value, xerror: 5 degrees fixed
     plt.plot(
         xrange,
         f,
@@ -77,9 +97,10 @@ def main():
     )
     plt.gca().minorticks_on()
     plt.legend(loc="upper right")
-    plt.xlabel(r"Verdrehungswinkel /$^\circ$")
+    plt.xlabel(r"Verdrehungswinkel / $^\circ$")
     plt.ylabel(rf"U / V")
 
+    # allow saving to specified file as optional 3rd argv
     if len(argv) > 2:
         plt.savefig(argv[2])
     else:
