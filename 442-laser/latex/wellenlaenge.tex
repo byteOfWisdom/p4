@@ -1,0 +1,84 @@
+\chapter{Messung der Wellenlänge des Lasers}
+
+\section{Theoretische Überlegungen}
+
+Um die tatsächliche Wellenlänge des Laserlichts zu bestimmen, eignet sich ein Transmissionsgitter. Dabei wird der Laserstrahl genau parallel zur Gitternormalen
+auf ein Reflexionsgitter mit Spaltabstand d.h. Gitterkonstante $g$ eingestrahlt (Fall normalen Einfalls). Aus den Maxima des resultierenden Interferezmusters auf
+einem Schirm kann mithilfe der Bedingung für den Gangunterschied für konstruktive Interferenz $\delta = n \lambda$ mit $\lambda$ als Wellenlänge des Lasers die Gittergleichung aufgestellt werden:
+\begin{align}
+	\label{eq:gitter}
+	m \lambda = g \cdot (sin(\alpha)+sin(\beta_m))
+\end{align}
+Sie ist in Abbildung \ref{fig:gitter.png} grafisch dargestellt. Hier wurde als Einfallswinkel normaler Einfall gewählt, also $\alpha = \SI{0}{\degree}$.
+
+\jafps{gitter.png}{Illustration des Gangunterschieds und Ein- und Ausfallswinkel eines Lichtstrahls an einem optischen Gitter. Abbildung entnommen aus \cite{LDbalmerserie}.}{0.3}
+
+Das Maximum der $n=0$-ten Ordnung wird nach Gl. \ref{eq:gitter} wegen $0\cdot \lambda = g\sin(\beta_0)=0$, also $\beta_0=\SI{0}{\degree}$, nicht abgelenkt.
+Dies ist der Vorteil eines Transmissions- gegenüber einem Reflexionsgitter,
+bei welchen aufgrund eines notwendigen Einfallswinkels von $\alpha > 0$ ein Ablenkwinkel auch für das 0.-te Maximum des Interferenzmusters zu beachten wäre.
+Aus dem Abstand des Schirms $f$ und dem Abstand $d_m$ der m-ten Maximaordnungen von der Projektion der Gitternormale auf den Schirm bzw.
+hier der Position des 0-ten Maximums kann der Ablenkwinkel
+der Maxima bestimmt werden:
+\[\tan(\beta_m)=\frac{d_m}{f} \ergo \beta_m = \arctan(\frac{d_m}{f})\]
+
+So lässt sich dann die Wellenlänge aus der Messung der Abstände $d_m$ der verschiedenen sichtbaren Maxima bestimmen,
+indem der Term $g \cdot \sin \left( \beta_m \right)$ gegen die Ordnung $m$ aufgetragen wird:
+\begin{align}
+	\label{eq:lambda_gitter}
+	g\cdot \sin\left(\arctan\left(\frac{d_m}{f}\right)\right) = m \lambda
+\end{align}
+
+
+Die Steigung dieser Gerade entspricht dann eben der Wellenlänge $\lambda$.
+
+\section{Durchführung \& Messung}
+
+Um die Wellenlänge zu bestimmen, wurde im Experiment ein Transmissionsgitter direkt vor den ebenen Resonatorspiegel auf die Schiebe eingesetzt.
+Dann wurde der Abstand zu einem Schirm gemessen sowie der Abstand der auf dem Schirm sichtbaren Maxima zum nicht-abgelenkten Maxima der 0.-ten Ordnung.
+Zum Messung der Abstände wurde ein Zollstock genutzt, aus dessen Skalenunterteilung der Fehler der Abstandsmessungen
+als $\Delta x=\SI{5}{\milli\meter}$ abgeschätzt wurde.
+Zur Reduktion von statistischen Fehler durch eine größere Anzahl an Messwerten wurde die Messung für zwei verschiedene Gitter
+mit verschiedenen Gitterkonstanten ($500$ und $1000$ Striche pro $\unit{mm}$)
+jeweils dreimal durchgeführt.
+Die gemessenen Werte sind in Tabellen \ref{tab:gitter_500} und \ref{tab:gitter_1000} aufgeführt.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Messung & Ordnung $m$ & $d_m / \unit{m}$   \\ \hline
+		1       & 1           & \num{15(0.5)e-2}   \\
+		1       & 2           & \num{11(0.5)e-2}   \\
+		1       & 3           & \num{5(0.5)e-2}    \\
+		2       & 1           & \num{15(0.5)e-2}   \\
+		2       & 2           & \num{10.9(0.5)e-2} \\
+		2       & 3           & \num{4.8(0.5)e-2}  \\
+		3       & 1           & \num{15(0.5)e-2}   \\
+		3       & 2           & \num{10.7(0.5)e-2} \\
+		3       & 3           & \num{4.5(0.5)e-2}  \\
+		\hline
+	\end{tabular}
+	\caption{Messung der Ablenkdistanzen $d_m$ für das Gitter mit $500$ Strichen pro mm. Der Abstand zum Schirm wurde gemessen als $f=\SI{13(0.5)e-2}{\meter}$.}
+	\label{tab:gitter_500}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|} \hline
+		Messung & Ordnung $m$ & $d_m / \unit{m}$   \\ \hline
+		1       & 1           & \num{15(0.5)e-2}   \\
+		1       & 2           & \num{14.5(0.5)e-2} \\
+		1       & 3           & \num{5.5(0.5)e-2}  \\
+		2       & 1           & \num{15(0.5)e-2}   \\
+		2       & 2           & \num{14.4(0.5)e-2} \\
+		2       & 3           & \num{5.3(0.5)e-2}  \\
+		3       & 1           & \num{15(0.5)e-2}   \\
+		3       & 2           & \num{14.5(0.5)e-2} \\
+		3       & 3           & \num{5.2(0.5)e-2}  \\
+		\hline
+	\end{tabular}
+	\caption{Messung der Ablenkdistanten $d_m$ für das Gitter mit 1000 Strichen pro mm. Der Abstand zum Schirm wurde gemessen als $f=\SI{14(0.5)e-2}{\meter}$.}
+	\label{tab:gitter_1000}
+\end{table}
+
+\section{Auswertung}

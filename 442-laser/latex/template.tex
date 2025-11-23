@@ -14,16 +14,16 @@
 \usepackage{siunitx}
 
 \sisetup{
- separate-uncertainty = true,
- multi-part-units=brackets, 
- number-unit-product = \text{ }, 
- mode=math, 
- exponent-product = \cdot, 
- output-product = \cdot,
- output-decimal-marker = {,}
+	separate-uncertainty = true,
+	multi-part-units=brackets,
+	number-unit-product = \text{ },
+	mode=math,
+	exponent-product = \cdot,
+	output-product = \cdot,
+	output-decimal-marker = {,}
 }
 
-\usepackage{ circuitikz }
+%\usepackage{ circuitikz }
 
 \usepackage[backend=biber, style=numeric]{biblatex} % do not change this, the whole thing will break
 % \usepackage{bibtex}
@@ -54,7 +54,7 @@
 
 \def\jafps#1#2#3{
 	\begin{figure}[H]
-    \centering
+		\centering
 		\includegraphics[width=#3\textwidth]{#1}
 		%\includegraphics[height=0.4\textheight]{#1}
 		\captionof{figure}{#2}
@@ -106,6 +106,8 @@
 \makeatother
 
 \usepackage{graphicx}
-\graphicspath{{./figs/}}
+\titlehead{\centering\includegraphics[width=0.8\textwidth]{laser_pretty.jpeg}}
+\graphicspath{{../figs/}}
 \author{Leonie Dessau \& Lena Beckmann}
+
 \setlength\parindent{0pt}
