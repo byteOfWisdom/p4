@@ -2,9 +2,35 @@
 
 \section{Theoretische Überlegungen}
 
-\textcolor{blue}{insert polarisator \& lambda 4 theorie hier, plus malus gesetz}
+Die Polarisation einer elektromagnetischen Welle beschreibt die Ausrichtung des elektrischen Feldvektors bezüglich der Ausbreitungsrichtung der Welle.
+Bei Ausbreitung in z-Richtung kann so z.B. das elektrische Feld als $E(x,y,z)=a_x \hat{e_x} \sin(kz)+a_y \hat{e_y}\sin(kz-\Phi)$ beschrieben werden.
+Bei linear polarisierten Licht
+schwingt der Feldvektor dabei ausschließlich senkrecht zur Ausbreitungsachse, es gilt $a_y=0$ oder $a_x=0$.
+Bei zirkulär polarisierten Licht gilt hingegen $a_x=a_y$, bei elliptisch polarisierten Licht können $a_x$ und $a_y$ beliebige Werte annehmen \cite[560]{gerthsen}.
+Im aufgebauten HeNe-Laser soll linear polarisiertes Licht aus der Laserkavität ausgekoppelt werden. Dafür sind die beiden Brewsterfenster an den Enden des Entladungsrohrs eingebaut.
+Bei Durchlauf dieser Fenster wird nur die linear polarisierte Komponente transmittiert \cite[228]{Sigrist}.
+Um die Polarisation zu messen und später auch um eine optische Diode aufzubauen, wird ein Polarisator genutzt. Dies ist ein Bauteil, welches nur den Anteil des Lichts transmittiert, dessen
+Polarisationsrichtung parallel zur optischen Achse verläuft. Der funktionale Zusammenhang der transmittierten Intensität wird durch das Gesetz von Malus gegeben \cite[560-561]{gerthsen}:
+
+\begin{align}
+	\label{eq:malus}
+	I(\alpha)= I_0 \cos(\alpha)^2
+\end{align}
+Der Winkel $\alpha$ ist hier der Verdrehwinkel zwischen optischer Achse des Polarisators und der Polarisationsrichtung des Laserstrahls und nicht der am Polarisator-Bauteil eingestellter Winkel.
+
 
 \section{Durchführung \& Messung}
+
+Um die Polarisation des im Experiment erzeugten Laserlichts zu bestimmen, wird ein Polarisator mit drehbaren auf die Schiene hinter den zweiten Spiegel S2 aufgebaut. Die Abweichung zum Aufbau in \cite[7]{Versuchsanleitung442}, bei dem der Polarisator vor S2 aufgebaut wird, ergab sich aus
+der fehlenden Befestigungsmöglichkeit zwischen S1 und S2 im Versuchsraum. Der Aufbau ist in Abbildung \ref{fig:aufbau_polarisator.png} skizziert.
+
+\jafps{aufbau_polarisator.png}{Aufbau zur Messung der Polarisation des Laserlichts. Abbildung modizifiert aus \cite[7]{Versuchsanleitung442}.}{0.4}
+
+Aus praktischen Gründen (ein gemeinsames Bauteil) wurde direkt nach dem Polarisator auch noch ein $\lambda/4$-Plättchen eingesetzt,
+welches allerdings nur die Polarisation von linear zu zirkular ändert, aber nicht die Intensität beeinflusst. Da das Plättchen \textit{nach} dem Polarisator eingesetzt wurde, beeinflusst es die Messung der Polarisation nicht.
+Es wurde zusätzlich eine Photodiode hinter den Polarisator eingesetzt, an der proportional zu einfallender Lichtintensität Spannung gemessen werden kann. Diese Photodiodenspannung $U$ wurde mithilfe eines Oszilloskops gemessen.
+Es wurde darauf geachtet, dass möglichst kein Streulicht auf die Photodiode fiel. Eine Messung des Dunkelstroms bei ausgeschaltetem Laser lieferte den Wert $U_D=\SI{0.0(0.05)}{\milli\V}$, das Streulicht aus dem Raum kann also vernachlässigt werden.
+Um die Polarisation zu messen, wurde der Winkel des Polarisators verdreht und im Abstand von jeweils $\SI{10}{\degree}$ der Photodiodenstrom gemessen. Die aufgenommenen Werte sind in Tabelle \ref{tab:polarisation} dargestellt.
 
 \begin{table}[H]
 	\centering
@@ -59,7 +85,7 @@
 			\num{360(5)}     & \num{2.40(0.12)} \\ \hline
 		\end{tabular}
 	\end{minipage}
-	\caption{Gemessene Spannung an der Photodiode abhängig von Verdrehungswinkel des Polarisators. Für die Spannungswerte wurde standardmäßig ein Fehler von $5\%$ des Messwerts angenommen, für die Winkel jeweils ein fester Fehler von $\SI{5}{\degree}$.}}
+	\caption{Gemessene Spannung an der Photodiode abhängig von Verdrehungswinkel des Polarisators. Für die Spannungswerte wurde standardmäßig ein Fehler von $5\%$ des Messwerts angenommen, für die Winkel jeweils ein fester Fehler von $\SI{5}{\degree}$.}
 	\label{tab:polarisation}
 \end{table}
 
@@ -73,21 +99,21 @@ Es wird zunächst der Grad der Polarisation des Laserstrahls bestimmt. Dabei gil
 Hier wird die direkte Proportionalität der Intensität und der an der Photodiode gemessenen Spannung genutzt. Es ist daher nicht relevant, welche Werte die Intensität des Strahls tatsächlich annahm,
 sondern es können die Spannungsmesswerte genutzt werden.
 Aus Tabelle \ref{tab:polarisation} wird bestimmt:\\
-$U_\text{max}=\SI{105(5)}{\milli\V}$ und $U_\text{min}=\SI{1.6(0.08)}{\milli\V}$, es ergibt sich als Polarisationsgrad so:
+$U_\text{max}=\SI{105(5)}{\milli\V}$ und $U_\text{min}=\SI{1.6(0.08)}{\milli\V}$, es ergibt sich als Polarisationsgrad:
 \begin{align*}
 	PG = \num{0.970(0.002)}
 \end{align*}
 
-Dieser Wert liegt knapp unter 1, der Strahl ist also weitgehend aber nicht vollständig linear polarisiert. Das ist ein plausibler Wert für den genutzten Aufbau. Die Polarisationsrichtung wird bei dem Aufbau durch die ordentliche optische Achse der
+Dieser Wert liegt knapp unter 1, der Strahl ist also weitgehend aber nicht vollständig linear polarisiert. Das ist ein plausibler Wert für den genutzten Aufbau. Die Polarisationsrichtung wird bei dem Aufbau durch die Transmissionsachse der
 an den Enden der Entladungsröhre verbauten Brewsterfenster bestimmt, welche nur die dazu parallele Komponente des elektrischen Felds des Laserstrahls in Richtung der Strahlachse transmittieren
-(die außerordentliche Komponente wird aus der optischen Achse des Aufbaus heraus abgelenkt, wird also nicht weiter als Teil des Laserstrahls transmittiert).
+(die anderen Komponenten werden aus der optischen Achse des Aufbaus heraus abgelenkt, werden also nicht weiter als Teil des Laserstrahls transmittiert). \textcolor{blue}{factcheck notwendig hier, braucht eine CITATION}
 So entsteht theoretisch ideal linear polarisiertes Licht.
 Aufgrund von Abweichungen der Brewsterfenster von ihrer idealen Form oder Verschmutzungen auf diesen sowie
 weiteren Reflexionen des transmittierten Laserstrahls an den Spiegeln S1 und S2, die eventuell insgesamt nicht ideal polarisationserhaltend aufgebaut waren (also nicht genau in jeweils $45\%$ Winkeln zueinander und zur Einfallsachse des Strahls,
 ist es aber plausibel, dass der tatsächlich auf den Polarisator treffender Laserstrahl nicht komplett linear polarisiert war, sondern stattdessen (mit geringer Amplitude der zusätzlichen Komponente des elektrischen Felds) elliptisch polarisiert war.
 
 
-Bei der Einstellung der Winkel des Polarisators fiel auf, dass die Nullstellung der Skala im Gegensatz zur per Auge erkennbaren Parallelstellung der Polarisationfolie (ungefähr rechteckig) zur Strahlachse des Laserstrahls einen Versatz von ungefähr $\SI{5}{\degree}$ aufwies.
+Bei der Einstellung der Winkel des Polarisators fiel auf, dass die Nullstellung der Skala im Gegensatz zur per Auge erkennbaren Parallelstellung der Polarisationfolie (ungefähr rechteckig) zur Strahlachse des Laserstrahls einen Versatz von ungefähr $\SI{-10}{\degree}$ aufwies.
 Dieser relative Verdrehwinkel ist für die Betrachtung des Polarisationsgrads allerdings nicht wichtig, da hier nur die Maximal- und Minimalwerte der Transmission betrachtet werden, unabhängig davon, in welchem Winkel des Polarisators zur Strahlrichtung sie erreicht wurden.
 Bei der Betrachtung des Polarisationswinkels im Gesetz von Malus (Gl. \ref{eq:malus}) ist allerdings zu beachten, dass der Verdrehungswinkel zur Polarisationsachse des Polarisators betrachtet werden muss, nicht die relative Winkelstellung, wie sie in Tabelle \ref{tab:polarisation} als gemessener Wert aufgeführt ist.
 Daher ist wichtig, in der Anpassung der gemessenen Daten an das Gesetz von Malus einen zusätzlichen Winkelparameter im Kosinusargument zu betrachten.
@@ -98,11 +124,11 @@ Der Polarisatorwinkel $\phi$ wird dazu gegen die gemessene Spannung $U$ aufgetra
 \[(a \cdot \cos(b\phi+c)^2)+d\]
 an die gemessenen Daten angepasst.
 Die zusätzlichen Parameter dieser Funktion im Gegensatz zu Gl. \ref{eq:malus} ergeben sich daraus, dass wie oben erläutert, der abgelesene Polarisatorwinkel nicht notwendigerweise dem Verdrehungswinkel der optischen Achse des Polarisators gegen die Polarisationsrichtung des Laserstrahls entspricht, sowie möglicher
-Skalierungsfaktoren durch die Messung der Spannung statt der Intensität und einem eventuell gegebenen Achsenversatz aufgrund von Streulicht oder sonstigen Störeffekten, da das Gesetz von Malus nur für perfekt linear polarisiertes Licht in der in Gl. \ref{eq:malus} gegebenen Form.
+Skalierungsfaktoren durch die Messung der Spannung statt der Intensität und einem eventuell gegebenen Achsenversatz aufgrund von Streulicht oder sonstigen Störeffekten, da das Gesetz von Malus nur für perfekt linear polarisiertes Licht in der in Gl. \ref{eq:malus} gegebenen Form gilt.
 Dies wurde im Experiment zwar angestrebt, aber war nicht ganz gegeben (PG $<1$).
 Die aufgetragenen Daten sind in Abbildung \ref{fig:malus.pdf} dargestellt.
 
-\jafps{malus.pdf}{Messung der Spannung an der Photodiode (als Maß der transmittierten Strahlintensität) abhängig von der Winkelstellung des Polarisators. Das Bestimmtheitsmaß von $R^2=0,999$ als Güte der Übereinstimmung der Daten mit der Anpassungsfunktion zeigt eine sehr gute Übereinstimmung von Messung und Theorie.}{0.8}
+\jafps{malus.pdf}{Messung der Spannung an der Photodiode (als Maß der transmittierten Strahlintensität) abhängig von der Winkelstellung des Polarisators. Das Bestimmtheitsmaß von $R^2=0,999$ als Güte der Übereinstimmung der Daten mit der Anpassungsfunktion zeigt eine sehr gute Übereinstimmung von Messung und Theorie.}{0.6}
 Als Anpassungsparameter ergeben sich:
 % a: -0.10391549146665321 +- 0.0006065420857709416 -> a
 % b: 6.17087567532663 +- 0.006557350390016737 -> winkel (c)
@@ -113,8 +139,4 @@ Als Anpassungsparameter ergeben sich:
 \begin{align*}
 	a = \num{-1039(6)e-4}, \quad  b  = \num{1744(4)e-5}, \quad c = \num{6.171(0.007)}, \quad d = \num{1054(4)e-4}
 \end{align*}
-Der erwartete funktionale Zusammenhang von $I(\phi)\propto \cos(\phi+\alpha)^2$ ist also sehr gut zu beobachten, man kann schlussfolgern, dass das Gesetz von Malus das beobachtete Verhalten des Polarisators auf die Intensität des Laserstrahls beschreibt.
-
-% Für den Winkel des Werts der maximalen Transmission muss nach Gl. \ref{eq:malus} gelten: $\cos(\alpha)^2=1$. Dabei ist $\alpha$ dann der Verdrehungswinkel der optischen Achse gegen die Polarisationsrichtung.
-% Es gilt für $U_{\text{max}}$ tatsächlich:
-% $\cos(b\phi_\text{max}+c)^2 = \num{0.99(0.12)}$, die Polarisationsrichtung ist also
+Der erwartete funktionale Zusammenhang von $I(\phi)\propto \cos(\phi+\alpha)^2$ ist sehr gut zu beobachten, man kann schlussfolgern, dass das Gesetz von Malus den beobachteten Einfluss des Polarisators auf die Intensität des Laserstrahls beschreibt.
