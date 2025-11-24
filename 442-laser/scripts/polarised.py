@@ -1,12 +1,11 @@
 from sys import argv
 
 import numpy as np
+import propeller as p
 import scipy as sp
 import std
 from matplotlib import pyplot as plt
 from scipy.optimize import curve_fit
-
-# import propeller as p
 
 messcolor = "forestgreen"
 eb_defaults = {"fmt": " ", "elinewidth": 0.75, "capsize": 2, "color": messcolor}
@@ -28,8 +27,16 @@ def main():
     max_trans = max(voltages)
     min_trans = min(voltages)
 
-    dop = (max_trans - min_trans) / (max_trans + min_trans)
-    print("degree of polarisation: ", dop)
+    err_max_trans = p.ev(max_trans, max_trans * 0.05)
+    err_min_trans = p.ev(min_trans, min_trans * 0.05)
+
+    # print(err_max_trans.format())
+    # print((err_min_trans).format())
+
+    dop = (err_max_trans - err_min_trans) / (err_max_trans + err_min_trans)
+    dop_val, dop_err = p.ve(dop)
+
+    print("degree of polarisation:", dop_val, "+-", dop_err)
 
     # fitting cos^2 func to data
 
@@ -57,14 +64,22 @@ def main():
         f"a*cos(d*x+b)^2+c\n",
         "a:",
         fit_func[0],
+        "+-",
+        err[0],
         "I_0:",
         fit_func[0] + fit_func[2],
         "b:",
         fit_func[1],
+        "+-",
+        err[1],
         "c:",
         fit_func[2],
+        "+-",
+        err[2],
         "d:",
         fit_func[3],
+        "+-",
+        err[3],
     )
 
     # useful to use coeff. of determination R^2 for linear model fit

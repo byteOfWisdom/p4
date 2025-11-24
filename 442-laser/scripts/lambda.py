@@ -1,10 +1,11 @@
 #!python3
-import scipy
-import numpy as np
-from matplotlib import pyplot as plt
-import std
-import propeller as p
 from sys import argv
+
+import numpy as np
+import propeller as p
+import scipy
+import std
+from matplotlib import pyplot as plt
 
 # std.bullshit.this_is_fucking_stupid_no_one_actually_gives_a_fuck()
 
@@ -26,7 +27,9 @@ def main():
     plt.errorbar(order, angle_term_v, yerr=angle_term_e, **fmt)
     std.default.plt_pretty("Ordnung", r"$g \cdot \sin(\arctan(x / d))$ / $mm^{-1}$")
 
-    res, meta = std.fit_func(lambda x, a: a * x, order, angle_term_v, y_errors=angle_term_e)
+    res, meta = std.fit_func(
+        lambda x, a: a * x, order, angle_term_v, y_errors=angle_term_e
+    )
 
     x = np.linspace(0, 2, 100)
 
@@ -36,7 +39,10 @@ def main():
     print(f"{res[0]} +- {meta.sd_beta[0]}")
 
     plt.legend()
-    plt.show()
+    if len(argv) > 4:
+        plt.savefig(argv[4])
+    else:
+        plt.show()
 
 
 if __name__ == "__main__":

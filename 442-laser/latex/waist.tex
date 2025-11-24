@@ -1,0 +1,88 @@
+\chapter{Messung des Strahlprofils des Laserstrahls}
+
+\section{Theoretische Überlegungen}
+
+Ein reeller Laserstrahl in einem Resonator aus zwei Spiegeln kann als Gauß-Strahl beschrieben werden. Damit der Laser stabil ist, muss die Bedingung
+\begin{align} \label{eq:resonatorstabilitaet}
+	0 \leq g_1 g_2 \leq 1
+\end{align}
+erfüllt sein. Dabei ist definiert: $g_i = 1- \frac{L}{R_i}$ für die beiden Spiegel mit ihrem Krümmungsradius $R_i$ und der Resonatorlänge bzw. Spiegelabstand $L$ \cite[72-77]{Sigrist}.
+Dadurch ergibt sich ein Stabilitätsdiagramm der möglichen Konfigurationen für die Resonatorspiegel (Abbildung \ref{fig:stabilitaet.png}).
+
+\jafps{stabilitaet.png}{Stabilitätsdiagramm der möglichen Spiegelkonfigurationen. Grafik entnommen aus \cite[77]{Sigrist}.}{0.3}
+
+Der axiale Verlauf der Strahlbreite $\omega(z)$ bei Ausbreitung des Strahls in z-Richtung und $z$ als Abstand vom Ort des schmalsten Strahldurchmessers (Strahltaille) $\omega_0$
+kann beschrieben werden durch \cite[8]{Versuchsanleitung442}:
+
+\begin{align}
+	\label{eq:gauss}
+	\omega(z) = \omega_0 \cdot \sqrt{1+(\frac{z}{z_0})^2}
+\end{align}
+
+$z_0=\frac{\pi \omega_0^2}{\lambda}$ ist dabei die Rayleigh-Länge des Gaußstrahls, bei welcher der Strahldurchmesser auf den Faktor $\sqrt{2}\omega_0$ angewachsen ist \cite[277]{laserspektroskopie}.
+
+
+\section{Durchführung \& Messung}
+
+Der aufgebaute Laserresonator ist ein halbsymmetrischer Resonator aus einem sphärischen Resonatorspiegel (im Aufbaudiagramm: SRS) mit Krümmungsradius $R=\SI{1}{\meter}$ sowie einem ebenen Resonatorspiegel (im Diagramm ERS) mit $R_\text{ERS}=\infty$.
+Daher vereinfacht sich die Stabilitätsbedingung Gl. \ref{eq:resonatorstabilitaet} zu: $0 \leq 1-L \leq 1$. Die Resonatorlänge kann für einen stabilen Betrieb von $\SIrange{0}{1}{\meter}$ variiert werden,
+praktisch ist sie zudem nach unten noch limitiert durch die Länge des Entladungsrohrs. Als Resonatorlänge des Aufbaus wurde $L=\SI{51.3(0.5)e-2}{\meter}$ bei der Justage des Lasers eingestellt.
+Aus Zeitgründen war es im Verlauf des Experiments leider nicht möglich, weitere Resonatorlängen einzustellen und den Laserstrahl für diese Längen erneut zu vermessen.
+Im Fall des halbsymmetrischen Resonators, der einem symmetrischen Resonator aus zwei konfokalen Spiegeln mit betragsgleichen Krümmungsradien der doppelten Resonatorlänge ($L_\text{sym}=2L_\text{halbsym}$) entspricht,
+wird die Strahltaille durch die Funktion
+
+\begin{align}
+	\omega_0 = \sqrt{\frac{\lambda}{\pi}\sqrt{L(R-L)}}
+\end{align}
+beschrieben \cite[8]{Versuchsanleitung442}. Sie liegt dabei genau im ebenen Resonatorspiegel, die Koordinate $z$ ist also der Abstand zu diesem Spiegel.
+
+Zur Vermessung des Strahlprofils $\omega(z)$ des erzeugten Laserstrahls des Aufbaus wurde mit einem Messschieber mit verstellbarem Backenabstand
+für verschiedene eingestellte Backenabstände der Ort im Laserstrahl zwischen sphärischen Resonatorspiegel und Entladungsrohr gesucht, an dem gerade kein Laserstrahl mehr entstehen kann.
+Zur genaueren Methode der Bewegung des Messschiebers zur Bestimmung des genauen Ortes an dem gerade die Verluste aufgrund der Absorption des Messschiebers über den Querschnitt des Laserstrahls
+die Verstärkung des Laserlichts im Resonator überwiegt, wird auf die Versuchanleitung \cite[8]{Versuchsanleitung442} verwiesen.
+Auf der Seite des ebenen Spiegels auf der anderen Seite des Entladerohrs war im Versuchsaufbau kein Platz, um sinnvolle Messungen mit dem Messschieber durchzuführen, daher wurden nur Werte auf der Seite des sphärischen Spiegels gemessen.
+Die aufgenommenen Werte der Abstände im Resonator $z_\text{mess}$ für die verschiedenen Abstände der Messbacken $d$ sind in Tabelle \ref{tab:waist} dargestellt. Die gemessenen Abstände sind hierbei relativ zum Ende der Messschiene, auf welche
+der Messschieber montiert wurde. Der so entstehende Versatz zur Position des sphärischen Spiegels wurde gemessen als $z_\text{SRS}=\SI{14.8(0.5)e-2}{\meter}$.
+Die Werte können mit der Länge des Resonators dann in Abstände zum ebenen Spiegel $z$ umgerechnet werden. Die umgerechneten Werte sind in der Tabelle zusätzlich noch aufgeführt.
+
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}\hline
+		$d / \unit{mm}$  & $z_\text{mess} / \unit{m}$ & $z / \unit{m}$    \\ \hline
+		\num{1.05(0.01)} & \num{16.8(0.5)e-2}         & \num{4.9(0.1)e-1} \\
+		\num{1.02(0.01)} & \num{19.7(0.5)e-2}         & \num{4.6(0.1)e-1} \\
+		\num{1.07(0.01)} & \num{16.0(0.5)e-2}         & \num{5.0(0.1)e-1} \\
+		\num{1.06(0.01)} & \num{15.4(0.5)e-2}         & \num{5.1(0.1)e-1} \\
+		\num{1.03(0.01)} & \num{17.9(0.5)e-2}         & \num{4.8(0.1)e-1} \\
+		\num{1.01(0.01)} & \num{20.7(0.5)e-2}         & \num{4.5(0.1)e-1} \\ \hline
+	\end{tabular}
+	\caption{Gemessene Abstände der Messschieberbacken $d$ und Abstände der Strahlposition zum Ende der Schiene $z_\text{mess}$ sowie ausgerechnete Abstände zum ebenen Spiegel $z$. Die Fehler wurden aus der Ungenauigkeit der Positionsmessungen als $\SI{0.5}{\centi\meter}$ sowie die Skalenteilung des Messchiebers als $\SI{0.01}{\milli\meter}$ abgeschätzt.}
+	\label{tab:waist}
+\end{table}
+
+\section{Auswertung}
+
+
+Der gemessene Abstand der Messbacken des Schiebers an dem bestimmten Ort ist ein Maß für die Strahlbreite, entspricht aber nicht genau dieser.
+Es ist hier zu beachten, dass die Messschieberbacken nicht radial Intensitätverluste des Strahls durch Absorption von Laserphotonen verursachen, sondern halbkreisförmig Teile des Strahls blockieren.
+Der Punkt, bei dem tatsächlich für den vorhandenen Strahl die Verluste durch die Messbacken die Verstärkung des Laserlichts überwiegen, sodass sich kein stabiler Laserstrahl mehr einstellen kann, ist zudem auch
+abhängig von der konkreten Verstärkung der aufgebauten Laserkonfiguration. Daher ist zu erwarten, dass das gemessene Profil nicht ganz einem Gaußprofil nach Gl. \ref{eq:gauss} entspricht, sondern ein zusätzlicher
+Faktor der Strahlbreite zu beachten ist.
+
+Es wurden die gemessenen Strahlweiten $d$ gegen den Abstand zum ebenen Spiegel $z$ aufgetragen. Es wurde eine Funktion der Form
+$w \cdot \sqrt{1 + (\frac{(z - y)}{ x(w))})^2}$ an die Datenpunkte angepasst. Der Parameter $y$ wurde für eine Kompensation für mögliche bisher unbeachtete Messversätze für den Abstand eingeführt.
+%, was sinnvoll erscheint, da die Positionen der Elemente, die in Stativen auf der optischen Bank standen, nicht notwendigerweise
+%vollständig korrekt bestimmt werden konnten.
+Dabei ist zudem der Parameter für die Rayleighlänge des Strahls $x(w)=\pi  \frac{ w^2} { \lambda}$ abhängig vom ersten Parameter $w$.
+Auch die zu erwartende axiale Strahlbreite für die aufgebaute Konfiguration nach Gl. \ref{eq:gauss} aufgetragen. Es ist klar eine Abweichung des theoretischen Strahlprofils
+zu den gemessenen Werten zu erkennen.
+Bei einer Anpassung des theoretischen Modells mit dem oben genannten Faktor der Strahltaillengröße $w_0$, aber der theoretischen Rayleighlänge $z_0$ und ohne Versatz für den Abstand $z$, ergibt sich
+eine deutlich bessere Übereinstimmung mit den Messwerten. Die Vermutung, dass die Strahlbreite nur mit einem Proportionalitätsfaktor dem gemessenen "Durchmesser" des Strahls entspricht, scheint also
+der Realität zu entsprechen.
+Die Darstellungen sind in Abbildung \ref{fig:waist.pdf} zu sehen.
+
+
+\jafps{waist.pdf}{Darstellung der Strahlbreiten $\omega(z)$ abhängig vom Abstand vom ebenen Resonatorspiegel $z$, Anpassung der Messwerte an einen Gaußstrahl, sowie theoretisch zu erwartendes Profil eines Gaußstrahls und Anpassung des theoretischen Profils mit Vorfaktor an Messdaten. Als Maß der Anpassungsgüte der Daten an die Funktionen wurde das Bestimmtheitsmaß $R^2$ verwendet ($0\leq R^2 \leq 1$, wobei $R^2=1$ eine perfekte Anpassung ist).}{0.7}
+
+Die Parameter der Anpassungen wurden auf die folgenden Werte bestimmt:
