@@ -8,11 +8,113 @@
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|c|c|} \hline
-		$\phi / ^\circ $ & $U / \unit{V}$ \\ \hline
-
-		\hline
-	\end{tabular}
-	\caption{Gemessene Spannung an der Photodiode abhängig von Verdrehungswinkel des Polarisators. \textcolor{blue}{Diskussion Verdrehung vs Nullwinkel}}
+	\def\arraystretch{1.2}
+	\begin{minipage}{0.48\linewidth}\centering
+		\begin{tabular}{|c|c|} \hline
+			$\phi / ^\circ $ & $U / \unit{mV}$     \\ \hline
+			$\num{0(5)}$     & $\num{2.40(0.12)}$  \\
+			$\num{10(5)}$    & $\num{1.60(0.08)}$  \\
+			$\num{20(5)}$    & $\num{7.2(0.4)}$    \\
+			$\num{30(5)}$    & $\num{18.40(0.92)}$ \\
+			$\num{40(5)}$    & $\num{35.2(1.8)}$   \\
+			$\num{50(5)}$    & $\num{50(3)}$       \\
+			$\num{60(5)}$    & $\num{68(3)}$       \\
+			$\num{70(5)}$    & $\num{84(4)}$       \\
+			\num{80(5)}      & \num{95(5)}         \\
+			\num{90(5)}      & \num{102(5)}        \\
+			\num{100(5)}     & \num{105(5)}        \\
+			\num{110(5)}     & \num{99(5)}         \\
+			\num{120(5)}     & \num{88(4)}         \\
+			\num{130(5)}     & \num{76(4)}         \\
+			\num{140(5)}     & \num{57(3)}         \\
+			\num{150(5)}     & \num{37.6(1.9)}     \\
+			\num{160(5)}     & \num{21.6(1.1)}     \\
+			\num{170(5)}     & \num{9.6(0.5)}      \\
+			\num{180(5)}     & \num{1.60(0.08)}    \\
+			\hline
+		\end{tabular}
+	\end{minipage}
+	%
+	\begin{minipage}{0.48\linewidth}\centering
+		\begin{tabular}{|c|c|}
+			\hline
+			$\phi / ^\circ $ & $U / \unit{mV}$  \\ \hline
+			\num{190(5)}     & \num{1.60(0.08)} \\
+			\num{200(5)}     & \num{7.2(0.4)}   \\
+			\num{210(5)}     & \num{19.2(0.96)} \\
+			\num{220(5)}     & \num{30.4(1.5)}  \\
+			\num{230(5)}     & \num{54(3)}      \\
+			\num{240(5)}     & \num{69(3)}      \\
+			\num{250(5)}     & \num{84(4)}      \\
+			\num{260(5)}     & \num{98(5)}      \\
+			\num{270(5)}     & \num{103(5)}     \\
+			\num{280(5)}     & \num{105(5)}     \\
+			\num{290(5)}     & \num{102(5)}     \\
+			\num{300(5)}     & \num{89(4)}      \\
+			\num{310(5)}     & \num{76(4)}      \\
+			\num{320(5)}     & \num{56(3)}      \\
+			\num{330(5)}     & \num{37.6(1.9)}  \\
+			\num{340(5)}     & \num{23.2(1.2)}  \\
+			\num{350(5)}     & \num{9.6(0.5)}   \\
+			\num{360(5)}     & \num{2.40(0.12)} \\ \hline
+		\end{tabular}
+	\end{minipage}
+	\caption{Gemessene Spannung an der Photodiode abhängig von Verdrehungswinkel des Polarisators. Für die Spannungswerte wurde standardmäßig ein Fehler von $5\%$ des Messwerts angenommen, für die Winkel jeweils ein fester Fehler von $\SI{5}{\degree}$.}}
 	\label{tab:polarisation}
 \end{table}
+
+\section{Auswertung}
+
+Es wird zunächst der Grad der Polarisation des Laserstrahls bestimmt. Dabei gilt:
+\begin{align}
+	\label{eq:degreeofpol}
+	PG = \frac{I_\text{max}-I_\text{min}}{I_\text{max}+I_\text{min}} = \frac{U_\text{max}-U_\text{min}}{U_\text{max}+U_\text{min}}
+\end{align}
+Hier wird die direkte Proportionalität der Intensität und der an der Photodiode gemessenen Spannung genutzt. Es ist daher nicht relevant, welche Werte die Intensität des Strahls tatsächlich annahm,
+sondern es können die Spannungsmesswerte genutzt werden.
+Aus Tabelle \ref{tab:polarisation} wird bestimmt:\\
+$U_\text{max}=\SI{105(5)}{\milli\V}$ und $U_\text{min}=\SI{1.6(0.08)}{\milli\V}$, es ergibt sich als Polarisationsgrad so:
+\begin{align*}
+	PG = \num{0.970(0.002)}
+\end{align*}
+
+Dieser Wert liegt knapp unter 1, der Strahl ist also weitgehend aber nicht vollständig linear polarisiert. Das ist ein plausibler Wert für den genutzten Aufbau. Die Polarisationsrichtung wird bei dem Aufbau durch die ordentliche optische Achse der
+an den Enden der Entladungsröhre verbauten Brewsterfenster bestimmt, welche nur die dazu parallele Komponente des elektrischen Felds des Laserstrahls in Richtung der Strahlachse transmittieren
+(die außerordentliche Komponente wird aus der optischen Achse des Aufbaus heraus abgelenkt, wird also nicht weiter als Teil des Laserstrahls transmittiert).
+So entsteht theoretisch ideal linear polarisiertes Licht.
+Aufgrund von Abweichungen der Brewsterfenster von ihrer idealen Form oder Verschmutzungen auf diesen sowie
+weiteren Reflexionen des transmittierten Laserstrahls an den Spiegeln S1 und S2, die eventuell insgesamt nicht ideal polarisationserhaltend aufgebaut waren (also nicht genau in jeweils $45\%$ Winkeln zueinander und zur Einfallsachse des Strahls,
+ist es aber plausibel, dass der tatsächlich auf den Polarisator treffender Laserstrahl nicht komplett linear polarisiert war, sondern stattdessen (mit geringer Amplitude der zusätzlichen Komponente des elektrischen Felds) elliptisch polarisiert war.
+
+
+Bei der Einstellung der Winkel des Polarisators fiel auf, dass die Nullstellung der Skala im Gegensatz zur per Auge erkennbaren Parallelstellung der Polarisationfolie (ungefähr rechteckig) zur Strahlachse des Laserstrahls einen Versatz von ungefähr $\SI{5}{\degree}$ aufwies.
+Dieser relative Verdrehwinkel ist für die Betrachtung des Polarisationsgrads allerdings nicht wichtig, da hier nur die Maximal- und Minimalwerte der Transmission betrachtet werden, unabhängig davon, in welchem Winkel des Polarisators zur Strahlrichtung sie erreicht wurden.
+Bei der Betrachtung des Polarisationswinkels im Gesetz von Malus (Gl. \ref{eq:malus}) ist allerdings zu beachten, dass der Verdrehungswinkel zur Polarisationsachse des Polarisators betrachtet werden muss, nicht die relative Winkelstellung, wie sie in Tabelle \ref{tab:polarisation} als gemessener Wert aufgeführt ist.
+Daher ist wichtig, in der Anpassung der gemessenen Daten an das Gesetz von Malus einen zusätzlichen Winkelparameter im Kosinusargument zu betrachten.
+
+Es soll aus den aufgenommenen Daten nun bestätigt werden, dass der genutzte Polarisator die Intensität des Laserstrahls abhängig von der Verdrehungsrichtung der optischen Achse des Polarisators
+gegen die Richtung der Strahlpolarisation entsprechend dem Gesetz von Malus transmittiert. Die transmittierte Intensität ist dabei proportional zur gemessenen Spannung an der Photodiode.
+Der Polarisatorwinkel $\phi$ wird dazu gegen die gemessene Spannung $U$ aufgetragen und eine Funktion der Form
+\[(a \cdot \cos(b\phi+c)^2)+d\]
+an die gemessenen Daten angepasst.
+Die zusätzlichen Parameter dieser Funktion im Gegensatz zu Gl. \ref{eq:malus} ergeben sich daraus, dass wie oben erläutert, der abgelesene Polarisatorwinkel nicht notwendigerweise dem Verdrehungswinkel der optischen Achse des Polarisators gegen die Polarisationsrichtung des Laserstrahls entspricht, sowie möglicher
+Skalierungsfaktoren durch die Messung der Spannung statt der Intensität und einem eventuell gegebenen Achsenversatz aufgrund von Streulicht oder sonstigen Störeffekten, da das Gesetz von Malus nur für perfekt linear polarisiertes Licht in der in Gl. \ref{eq:malus} gegebenen Form.
+Dies wurde im Experiment zwar angestrebt, aber war nicht ganz gegeben (PG $<1$).
+Die aufgetragenen Daten sind in Abbildung \ref{fig:malus.pdf} dargestellt.
+
+\jafps{malus.pdf}{Messung der Spannung an der Photodiode (als Maß der transmittierten Strahlintensität) abhängig von der Winkelstellung des Polarisators. Das Bestimmtheitsmaß von $R^2=0,999$ als Güte der Übereinstimmung der Daten mit der Anpassungsfunktion zeigt eine sehr gute Übereinstimmung von Messung und Theorie.}{0.8}
+Als Anpassungsparameter ergeben sich:
+% a: -0.10391549146665321 +- 0.0006065420857709416 -> a
+% b: 6.17087567532663 +- 0.006557350390016737 -> winkel (c)
+% c: 0.10537627816311916 +- 0.0003805512941571462  -> offset d
+% d: 0.017443379848430866 +- 3.150290376947449e-05 -> d*phi = bx
+% a*cos(d*x+b)^2+c
+
+\begin{align*}
+	a = \num{-1039(6)e-4}, \quad  b  = \num{1744(4)e-5}, \quad c = \num{6.171(0.007)}, \quad d = \num{1054(4)e-4}
+\end{align*}
+Der erwartete funktionale Zusammenhang von $I(\phi)\propto \cos(\phi+\alpha)^2$ ist also sehr gut zu beobachten, man kann schlussfolgern, dass das Gesetz von Malus das beobachtete Verhalten des Polarisators auf die Intensität des Laserstrahls beschreibt.
+
+% Für den Winkel des Werts der maximalen Transmission muss nach Gl. \ref{eq:malus} gelten: $\cos(\alpha)^2=1$. Dabei ist $\alpha$ dann der Verdrehungswinkel der optischen Achse gegen die Polarisationsrichtung.
+% Es gilt für $U_{\text{max}}$ tatsächlich:
+% $\cos(b\phi_\text{max}+c)^2 = \num{0.99(0.12)}$, die Polarisationsrichtung ist also
