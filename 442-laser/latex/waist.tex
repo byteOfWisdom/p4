@@ -49,15 +49,15 @@ Die Werte können mit der Länge des Resonators dann in Abstände zum ebenen Spi
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|c|c|}\hline
-		$d / \unit{mm}$ & $z_\text{mess} / \unit{m}$ & $z / \unit{m}$    \\ \hline
-		                &                            & \num{4.9(0.1)e-1} \\
-		                &                            & \num{4.6(0.1)e-1} \\
-		                &                            & \num{5.0(0.1)e-1} \\
-		                &                            & \num{5.1(0.1)e-1} \\
-		                &                            & \num{4.8(0.1)e-1} \\
-		                &                            & \num{4.5(0.1)e-1} \\ \hline
+		$d / \unit{mm}$  & $z_\text{mess} / \unit{m}$ & $z / \unit{m}$    \\ \hline
+		\num{1.05(0.01)} & \num{16.8(0.5)e-2}         & \num{4.9(0.1)e-1} \\
+		\num{1.02(0.01)} & \num{19.7(0.5)e-2}         & \num{4.6(0.1)e-1} \\
+		\num{1.07(0.01)} & \num{16.0(0.5)e-2}         & \num{5.0(0.1)e-1} \\
+		\num{1.06(0.01)} & \num{15.4(0.5)e-2}         & \num{5.1(0.1)e-1} \\
+		\num{1.03(0.01)} & \num{17.9(0.5)e-2}         & \num{4.8(0.1)e-1} \\
+		\num{1.01(0.01)} & \num{20.7(0.5)e-2}         & \num{4.5(0.1)e-1} \\ \hline
 	\end{tabular}
-	\caption{}
+	\caption{Gemessene Abstände der Messschieberbacken $d$ und Abstände der Strahlposition zum Ende der Schiene $z_\text{mess}$ sowie ausgerechnete Abstände zum ebenen Spiegel $z$. Die Fehler wurden aus der Ungenauigkeit der Positionsmessungen als $\SI{0.5}{\centi\meter}$ sowie die Skalenteilung des Messchiebers als $\SI{0.01}{\milli\meter}$ abgeschätzt.}
 	\label{tab:waist}
 \end{table}
 
@@ -68,21 +68,21 @@ Der gemessene Abstand der Messbacken des Schiebers an dem bestimmten Ort ist ein
 Es ist hier zu beachten, dass die Messschieberbacken nicht radial Intensitätverluste des Strahls durch Absorption von Laserphotonen verursachen, sondern halbkreisförmig Teile des Strahls blockieren.
 Der Punkt, bei dem tatsächlich für den vorhandenen Strahl die Verluste durch die Messbacken die Verstärkung des Laserlichts überwiegen, sodass sich kein stabiler Laserstrahl mehr einstellen kann, ist zudem auch
 abhängig von der konkreten Verstärkung der aufgebauten Laserkonfiguration. Daher ist zu erwarten, dass das gemessene Profil nicht ganz einem Gaußprofil nach Gl. \ref{eq:gauss} entspricht, sondern ein zusätzlicher
-Faktor der Strahlbreite zu beachten ist. Die
+Faktor der Strahlbreite zu beachten ist.
 
 Es wurden die gemessenen Strahlweiten $d$ gegen den Abstand zum ebenen Spiegel $z$ aufgetragen. Es wurde eine Funktion der Form
-$w* \sqrt{1 + ((z - y) / x(w))^2}$ an die Datenpunkte angepasst. Der Parameter $y$ wurde für eine Kompensation für mögliche bisher unbeachtete Messversätze für den Abstand eingeführt.
+$w \cdot \sqrt{1 + (\frac{(z - y)}{ x(w))})^2}$ an die Datenpunkte angepasst. Der Parameter $y$ wurde für eine Kompensation für mögliche bisher unbeachtete Messversätze für den Abstand eingeführt.
 %, was sinnvoll erscheint, da die Positionen der Elemente, die in Stativen auf der optischen Bank standen, nicht notwendigerweise
 %vollständig korrekt bestimmt werden konnten.
-Dabei ist zudem der Parameter für die Rayleighlänge des Strahls $x(w)=\pi  \frac{ w^2)} { \lambda}$ abhängig vom ersten Parameter $w$.
+Dabei ist zudem der Parameter für die Rayleighlänge des Strahls $x(w)=\pi  \frac{ w^2} { \lambda}$ abhängig vom ersten Parameter $w$.
 Auch die zu erwartende axiale Strahlbreite für die aufgebaute Konfiguration nach Gl. \ref{eq:gauss} aufgetragen. Es ist klar eine Abweichung des theoretischen Strahlprofils
 zu den gemessenen Werten zu erkennen.
 Bei einer Anpassung des theoretischen Modells mit dem oben genannten Faktor der Strahltaillengröße $w_0$, aber der theoretischen Rayleighlänge $z_0$ und ohne Versatz für den Abstand $z$, ergibt sich
-eine deutlich bessere Übereinstimmung mit den Messwerten. Die Vermutung, dass die Strahltaille nur mit einem Proportionalitätsfaktor dem gemessenen \enquote{Durchmesser} des Strahls entspricht, scheint also
+eine deutlich bessere Übereinstimmung mit den Messwerten. Die Vermutung, dass die Strahlbreite nur mit einem Proportionalitätsfaktor dem gemessenen "Durchmesser" des Strahls entspricht, scheint also
 der Realität zu entsprechen.
 Die Darstellungen sind in Abbildung \ref{fig:waist.pdf} zu sehen.
 
 
-\jafps{waist.pdf}{Darstellung der Strahlbreiten $\omega(z)$ abhängig vom Abstand vom ebenen Resonatorspiegel $z$, Anpassung der Messwerte an einen Gaußstrahl, sowie theoretisch zu erwartendes Profil eines Gaußstrahls und Anpassung des theoretischen Profils mit Vorfaktor an Messdaten.}{0.8}
+\jafps{waist.pdf}{Darstellung der Strahlbreiten $\omega(z)$ abhängig vom Abstand vom ebenen Resonatorspiegel $z$, Anpassung der Messwerte an einen Gaußstrahl, sowie theoretisch zu erwartendes Profil eines Gaußstrahls und Anpassung des theoretischen Profils mit Vorfaktor an Messdaten. Als Maß der Anpassungsgüte der Daten an die Funktionen wurde das Bestimmtheitsmaß $R^2$ verwendet ($0\leq R^2 \leq 1$, wobei $R^2=1$ eine perfekte Anpassung ist).}{0.7}
 
 Die Parameter der Anpassungen wurden auf die folgenden Werte bestimmt:
