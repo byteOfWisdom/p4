@@ -65,7 +65,7 @@ def main():
         batch_1, batch_2 = batches(peaks)
 
         external_spacing = batch_2 - batch_1
-        external_spacing = np.average(external_spacing)
+        # external_spacing = np.average(external_spacing)
         internal_spacing = np.append(batch_1[1:] - batch_1[:-1], batch_2[1:] - batch_2[:-1])
 
         ext_spacings = np.append(ext_spacings, external_spacing)
@@ -77,37 +77,29 @@ def main():
         plt.cla()
 
     ids = np.array(list(range(len(internal_spacings))))
-    # params, meta = std.fit_func(lambda x, a, b: a * x + b, ids, internal_spacing, p0=[0, 1])
-    # meta.pprint()
-    res = scipy.stats.linregress(ids, internal_spacings)
-    params = [res.slope, res.intercept]
-    b = p.ev(res.intercept, res.intercept_stderr)
-    print(f"a = {res.slope} +- {res.stderr}")
-    print(f"b = {res.intercept} +- {res.intercept_stderr}")
-    print(f"ext index spacing = {np.average(ext_spacings)}")
 
-    q = b / np.average(ext_spacings)
+    b = p.ev(np.average(internal_spacings), np.sqrt(np.var(internal_spacings)))
+
+    a = p.ev(np.average(ext_spacings), np.sqrt(np.var(ext_spacings)))
+
+    print(f"b = {b.format()}")
+    print(f"ext index spacing = {a.format()}")
+
+    q = b / a
     print("q = ", q.format())
 
-    # laser_cavity = p.ev(51.3e-2, 1e-2)
     external_assumed = p.ev(5e-2, 1.5e-2)
-    # external_assumed = p.ev(1.5e-2, 1.5e-2)
 
-    # laser_mode_spacing = std.unit.c / (2 * laser_cavity)
     external_mode_spacing = std.unit.c / (4 * external_assumed)
-    # print(f"assuming LEM modes, external res len is {(laser_cavity * rel_spacing / 2).format()}")
-    # print(f"with {external_assumed.format()} external res len, relative mode spacing is {(2 * external_assumed / laser_cavity).format()}")
 
     print(f"external mode spacing = {external_mode_spacing.format()}")
     print(f"laser mode spacing = {(q * external_mode_spacing).format()}")
 
-    plt.errorbar(ids, internal_spacings, fmt="x")
-    plt.plot(ids, (lambda x: (x - x) + np.average(ext_spacings))(ids))
-    plt.plot(ids, params[0] * ids + params[1])
-    std.default.plt_pretty("Index", "relativer Modenabstand")
-    # plt.show()
-    plt.savefig("../figs/modespacing.pdf")
-    plt.cla()
+    tbl = lambda d: [print(f"{int(x)}\\\\") for x in d]
+
+    _ = tbl(ext_spacings)
+    print()
+    _ = tbl(internal_spacings)
 
 
 if __name__ == "__main__":
