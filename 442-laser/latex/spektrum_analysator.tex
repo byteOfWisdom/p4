@@ -20,7 +20,7 @@ Nach der Justage des Analysators erfolgt die Messung indem ein Dreiecksignal an 
 
 Eine kurze Überschlagsrechnung zeigt auf, dass der Modenabstand des Lasers ca. eine Größenordnung kleiner als bei dem Resonator zu erwarten ist. Somit kann davon ausgegangen werden, dass die näher aneinanderliegenden, feineren Maxima Lasermoden entsprechen und die größeren, weiter auseinanderliegenden Maxima entsprechen Analysatormoden sind.
 
-Die Länge der Laserkavität ließ sich gut Messen, mit $L = \SI{51.3(5)}{\centi\meter}$. Die Länge des Analysators hingegen ist schwer akkurat zu messen, da die genaue Position der Spiegel in den jeweiligen Bauteilen nicht eindeutig ist und die Bauteile durch ihre Größe und Form ein genaues Messen erschweren. Es ergibt sich eine Länge von $l = \SI{20(15)}{\milli\meter}$
+Die Länge der Laserkavität ließ sich gut Messen, mit $L = \SI{51.3(5)}{\centi\meter}$. Die Länge des Analysators hingegen ist schwer akkurat zu messen, da die genaue Position der Spiegel in den jeweiligen Bauteilen nicht eindeutig ist und die Bauteile durch ihre Größe und Form ein genaues Messen erschweren. Es ergibt sich eine Länge von $l = \SI{50(15)}{\milli\meter}$
 
 In den aufgenommenen Oszillogrammen werden die Abstände der Analysatormoden und die Abstände der Lasermoden vermessen.
 
@@ -59,4 +59,12 @@ Die angeregten Transversalmoden sprechen für eine relativ schlechte Justage des
 
 Nun wird der Modenabstand der Lasermoden mit einem Spektrumanalysator bestimmt. Hierzu wird ausgenutzt, dass die Lasermoden sich überlagern. Diese Überlagerung kann dargestellt werden als Summe von Cosinusfunktionen mit verschiedenen Frequenzen. Anwenden der hinlänglich bekannten Additionstheoreme zeigt, dass das gesamtsignal mit der Summe der Einzelfrequenzen, der Differenz der Einzelfrequenzen und mit den jeweiligen Einzelfrequenzen oszilliert. \cite{Versuchsanleitung442}
 
-Die Summe dieser 
+Die Summe der Frequenzen, sowie die einzelnen Frequenzen sind im $\unit{\tera\hertz}$ Bereich und somit nicht als elektronische Signale übertragbar oder darstellbar [CITE?].
+
+Somit verbleibt nur die Differenzfrequenz, welche dann genau der Differenz zwischen zwei Lasermoden entspricht. Diese wird mit einer schnellen Photodiode gemessen und auf einem Spektrumanalysator der Firma RIGOL, des Typs DSA 815 dargestellt.
+
+Hierbei musste der dargestellte Bereich recht klein um den Erwartungswert gewählt werden, um überhaupt eine Messung durchführen zu können. Der Messbereicht wurde auf eine Spanne von $\SI{10}{\mega\hertz}$ eingestellt, mit einer Mittelfrequenz von $\SI{290}{\mega\hertz}$. So wurde ein schmales Maximum bei $\SI{293.3(5)}{\mega\hertz}$ gefunden, wobei es eine FWHM von etwa $\SI{1}{\mega\hertz}$ aufweist, woraus sich die Unsicherheit ergibt.
+
+Dies deckt sich sowohl mit dem theoretisch erwarteten Modenabstand als auch der (weit weniger genauen) Messung mit dem optischen Analysator.
+
+Leider wurde nicht daran gedacht auch bei $\SI{145}{\mega\hertz}$ nach einer Differenzfrequenz zu suchen um die Hypothese der angeregten Transversalmoden zu prüfen.
