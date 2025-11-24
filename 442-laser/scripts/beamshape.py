@@ -31,6 +31,9 @@ def main():
     radii = widths / 2
     dist_rel = length - dists  # from plane mirror
 
+    for i in dist_rel:
+        print(rf"\num{ {i.format()} }")
+
     # print(~dist_rel)
     # print(~radii)
 
