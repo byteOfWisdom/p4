@@ -12,30 +12,29 @@ Außerdem werden die Moden des erzeugten Laserstrahls mithilfe eines externen Re
 
 \section{Funktionsweise von Lasern}\label{sec:theorielaser}
 
-Ein Laser braucht ein aktives Medium mit Besetzungsinversion, also einer höheren Besetzungszahldichte eines energetisch höheren Zustands als eines niedrigeren, sowie einen Rückkopplungsmechanismus für die emittierten Laserphotonen.
+Ein Laser braucht ein aktives Medium mit Besetzungsinversion, also einer höheren Besetzungszahldichte eines energetisch höheren Zustands als eines niedrigeren, welche durch einen Pumpmechanismus (Energiezufuhr von außen), sowie einen Rückkopplungsmechanismus für die emittierten Laserphotonen \cite[794-789]{gerthsen},\cite[35]{Sigrist}.
 Letzteres wird meist durch einen Spiegelresonator erreicht, der mit seinen Abmessungen (also Abstand der Spiegel/Resonatorlänge $L$ und Krümmungsradien der Spiegel $R_i$ ($i=\{1,2\}$) die angeregten Mode(n) des Laserstrahls bestimmt.
 Im Experiment wurde ein HeNe-Laser aufgebaut, dessen Energiezustandsschema wie folgt aussieht (Abbildung \ref{fig:lasertermschema.png}):
 
 \jafps{lasertermschema.png}{Termschema des aufgebauten HeNe-Lasers. Abbildung übernommen aus \cite[16]{Versuchsanleitung442}}{0.6}
 
 Durch eine Entladungsröhre, die mit Hochspannung betrieben wird, werden die Heliumatome über Elektronenstöße in Zustand $2^1S_0$ angeregt, der sehr nah am angeregten $3s$-Zustand von Neonatomen ist.
-Durch Kollisionen wird die Energie der $2^1S_0$-Heliumatome auf die Neonatome des Grundzustands übertragen, welche sich dann im $3s$-Zustand befinden.
+Durch Kollisionen wird die Energie der $2^1S_0$-Heliumatome auf die Neonatome des Grundzustands übertragen, welche sich dann im $3s$-Zustand befinden \cite[17-18]{Versuchsanleitung442}.
 Durch initial spontane Emission und darauf folgendde stimulierte Emission werden beim Übergang
 der Neonatome in den $2p$-Zustand die zueinander kohärenten, monochromatischen und phasengleichen Photonen des gesuchten Laserübergangs mit $\lambda_\text{Lit}=\SI{632.6}{\nano\meter}$ \cite[19]{Versuchsanleitung442} emittiert.
 Anschließend werden die Neonatome durch spontane Emission (inkohärentes Licht in zufällige Richtung, hat keinen Einfluss auf das Laserlicht) in den $1s$-Zustand und danach durch Kollisionen mit der Wand der Entladungsröhre, in dem sich das aktive Medium befindet, in den Grundzustand abgeregt
 (der Übergang in den Grundzustand kann nur so erfolgen, ein Übergang durch spontane Emission ist elektrisch verboten).
-Es können auch andere Laserübergänge erfolgen (siehe Termschema \ref{fig:lasertermschema.png}), durch dielektrische Beschichtungen der Resonatorspiegel werden diese im vorliegenden Aufbau jedoch von diesen absorbiert
-und entsprechend nicht im Laser verstärkt.
+Es können auch andere Laserübergänge erfolgen (siehe Termschema \ref{fig:lasertermschema.png}), durch dielektrische Beschichtungen der Resonatorspiegel werden diese im vorliegenden Aufbau jedoch von diesen absorbiert und entsprechend nicht (stark) im Laser verstärkt \cite[18-19,22]{Versuchsanleitung442}.
 Der Photonenstrahl wird durch die Spiegel des Resonators reflektiert und bei jedem Durchgang des aktiven Mediums, d.h. des HeNe-Gasgemischs (im Verhältnis 10:1), über stimulierte Emission verstärkt.
-An den Spiegeln wird ein großer Teil des Lichts reflektiert und ein geringer Teil aus dem Resonator ausgekoppelt.
-Die Moden eines konfokalen Resonators (also für zwei sphärische Spiegel mit $R_i=L$)) haben die Eigenfrequenzen:
+An den Spiegeln wird schließelich bei jedem Resonatordurchlauf des Lichts ein großer Teil der Intensität reflektiert und ein geringer Teil aus dem Resonator ausgekoppelt \cite[41-42]{Sigrist} \todo{}.
+Die Moden eines konfokalen Resonators (also für zwei sphärische Spiegel mit $R_i=L$)) haben die Eigenfrequenzen \cite[11]{Versuchsanleitung442}:
 \begin{align}\label{eq:modes_konfokal}
 	\nu_{qmn}=\left(
 	q + \frac{m+n+1}{2}\right)\cdot \frac{c}{2L}
 \end{align}
-$q$ entspricht der Modenzahl der longitudinalen (in Richtung der Strahlachse) Mode, $m,n$ der Modenzahl der transversalen Mode, die Kombination der drei Indizes charakterisiert die Eigenfrequenz einer Mode.
+$q$ entspricht dabei der Modenzahl der longitudinalen (in Richtung der Strahlachse) Mode, $m,n$ der Modenzahl der transversalen Mode, die Kombination der drei Indizes charakterisiert die Eigenfrequenz einer Mode.
 
-Neben den Resonatormoden hängt das Modenspektrum eines spezifischen Lasers auch vom Verstärkungsprofil des konkreten aktiven Mediums ab, welches durch die natürliche Linienbreite sowie die Dopplerverbreiterung der Emissionslinie des Laserübergangs gegeben ist. Die Dopplerbreite (als HWHM\footnote{\textit{Half Width at Half Maximum: halbe Breite des halben Maximums}} angebenen) aufgrund der Maxwell-Boltzmann-Geschwindigkeitsverteilung der Gasatome des aktiven Mediums ergibt sich als \cite[19]{Versuchsanleitung442}:
+Neben den Resonatormoden hängt das Modenspektrum eines spezifischen Lasers auch vom Verstärkungsprofil des konkreten aktiven Mediums ab, welches durch die natürliche Linienbreite sowie die Dopplerverbreiterung der Emissionslinie des Laserübergangs gegeben ist \cite[54-56,59]{Sigrist},\cite[19]{Versuchsanleitung442}. Die Dopplerbreite (als HWHM\footnote{\textit{Half Width at Half Maximum: halbe Breite des halben Maximums}} angebenen) aufgrund der Maxwell-Boltzmann-Geschwindigkeitsverteilung der Gasatome des aktiven Mediums ergibt sich als \cite[19]{Versuchsanleitung442}:
 \begin{align*}
 	\nu_D = \sqrt{\frac{2k_B \ln(2)}{c}} \cdot \nu_0 \cdot \sqrt{\frac{T}{m}}
 \end{align*}
