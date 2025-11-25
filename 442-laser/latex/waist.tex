@@ -67,8 +67,8 @@ Die Werte können mit der Länge des Resonators dann in Abstände zum ebenen Spi
 Der gemessene Abstand der Messbacken des Schiebers an dem bestimmten Ort ist ein Maß für die Strahlbreite, entspricht aber nicht genau dieser.
 Es ist hier zu beachten, dass die Messschieberbacken nicht radial Intensitätverluste des Strahls durch Absorption von Laserphotonen verursachen, sondern halbkreisförmig Teile des Strahls blockieren.
 Der Punkt, bei dem tatsächlich für den vorhandenen Strahl die Verluste durch die Messbacken die Verstärkung des Laserlichts überwiegen, sodass sich kein stabiler Laserstrahl mehr einstellen kann, ist zudem auch
-abhängig von der konkreten Verstärkung der aufgebauten Laserkonfiguration. Daher ist zu erwarten, dass das gemessene Profil nicht ganz einem Gaußprofil nach Gl. \ref{eq:gauss} entspricht, sondern ein zusätzlicher
-Faktor der Strahlbreite zu beachten ist.
+abhängig von der konkreten Verstärkung der aufgebauten Laserkonfiguration. Daher ist zu erwarten, dass das gemessene Profil nicht ganz einem Gaußprofil nach Gl. \ref{eq:gauss} mit der Strahltaille $w_0$ entspricht, sondern ein zusätzlicher
+Faktor $a$ dazukommt, so dass in der Anpassung der Wert $w_0 \cdot a$ bestimmt wird.
 
 Als theoretisch zu erwartende Rayleighlänge und Strahltaille wurden für den betrachteten Laserübergang der Wellenlänge $\lambda_\text{Lit}=\SI{632.8}{\nano\meter}$ berechnet:
 \begin{align*}
@@ -95,12 +95,12 @@ Die Darstellungen sind in Abbildung \ref{fig:waist.pdf} zu sehen.
 \jafps{waist.pdf}{Darstellung der Strahlbreiten $\omega(z)$ abhängig vom Abstand vom ebenen Resonatorspiegel $z$, Anpassung der Messwerte an einen Gaußstrahl, sowie theoretisch zu erwartendes Profil eines Gaußstrahls und Anpassung des theoretischen Profils mit Vorfaktor an Messdaten. Als Maß der Anpassungsgüte der Daten an die Funktionen wurde das Bestimmtheitsmaß $R^2$ verwendet ($0\leq R^2 \leq 1$, wobei $R^2=1$ eine perfekte Anpassung ist).}{0.6}
 
 Die Parameter der Anpassung des Gaußstrahls wurden auf die folgenden Werte bestimmt:
-\begin{align*}
-	x= \SI{30(3)e-5}{\meter}, \quad y = \SI{-0.15(0.03)}{\meter}
-\end{align*}
+\begin{align}
+	x= \SI{30(3)e-5}{\meter}, \quad y = \SI{-0.15(0.03)}{\meter} \label{eq:waist_regression}
+\end{align}
 Diese Anpassung an die Messdaten hat als Bestimmtheitsmaß den Wert $R^2_\text{mess}=0,919$, was einer guten Übereinstimmung entspricht. Das Strahlprofil entspricht also in seiner Form einem
 Gaußstrahl, hat aber einen anderen Proportionalitätsfaktor als die theoretisch errechnete Strahltaille $w_\text{0,theo}$ (wie die Abweichung zum theoretischen Profil in Abbildung \ref{fig:waist.pdf} zeigt).
 Der Anpassungsparameter für die Proportionalität zwischen Strahltaille und gemessenem Radius ergibt sich aus der Anpassung des theoretischen Gaußstrahls (
 mit $z_\text{0,theo}$ und $w_\text{0,theo}$) als $a=\num{1.173(0.003)}$. Die Anpassungsgüte errechnet sich hier zu $R^2_\text{theo}=0,918$, sie ist also ein wenig schlechter als die Anpassung der Form \ref{eq:gaussian_fit}, aber noch immer gut.
 Die Abweichung der Anpassungsgüte wird hier vermutlich daran liegen, dass in der theoretischen Gaußstrahlfunktion \ref{eq:gauss} kein zusätzlicher Versatzparameter für $z$ gegeben ist, wie in Gl. \ref{eq:gaussian_fit}.
-Insgesamt wird deutlich, dass der erzeugte Laserstrahl der Form eines Gaußstrahls sehr gut entsprach. Die Abweichung der Messwerte zur theoretischen Erwartung ist durch die Messmethode zu erklären, nicht durch Abweichungen der tatsächlichen Strahlform.
+Insgesamt wird deutlich, dass der erzeugte Laserstrahl der Form eines Gaußstrahls sehr gut entsprach. Der bestimmte Wert \eqref{eq:waist_regression} für $w_0 = x$ liegt in einer $1\sigma$ Umgebung zu dem theoretischen Erwartungswert. Hier liegt also auch eine gute Übereinstimmung vor.
