@@ -1,7 +1,54 @@
+\chapter{Einleitung}
+
+\section{Versuchsziel}
+
 Laser (\textbf{L}ight \textbf{A}mplification by \textbf{S}timulated \textbf{E}mission of \textbf{R}adiation)
 sind ein fundamentaler Bestandteil vieler moderner optischer Techniken.
 Sie sind die Quelle kohärenten, (annähernd) monochromatischen Lichts im infraroten über optischen bis ultravioletten Spektralbereich
 von elektromagnetischer Strahlung, welches hohe Strahlintensitäten bei einem sehr kleinen Durchmesser \cite[1-2]{Sigrist} erreicht.
 Im durchgeführten Experiment wurde als sehr typische Form eines eines Gaslasers mit einem kontinuierlich betriebenen Strahl (\textit{continuous wave, CW}, im Gegensatz zu gepulsten Lasern)
 der Helium-Neon(HeNe)-Laser aufgebaut und das resultierende Laserlicht auf seine Wellenlänge und den Polarisationszustand untersucht.
-Außerdem werden die Moden des erzeugten Laserstrahls mithilfe eines externen halbsymmetrischen Resonators und einem optischen Spektralanalysator untersucht.
+Außerdem werden die Moden des erzeugten Laserstrahls mithilfe eines externen Resonators und einem optischen Spektralanalysator untersucht.
+
+\section{Funktionsweise von Lasern}\label{sec:theorielaser}
+
+Ein Laser braucht ein aktives Medium mit Besetzungsinversion, also einer höheren Besetzungszahldichte eines energetisch höheren Zustands als eines niedrigeren, welche durch einen Pumpmechanismus (Energiezufuhr von außen), sowie einen Rückkopplungsmechanismus für die emittierten Laserphotonen \cite[794-789]{gerthsen},\cite[35]{Sigrist}.
+Letzteres wird meist durch einen Spiegelresonator erreicht, der mit seinen Abmessungen (also Abstand der Spiegel/Resonatorlänge $L$ und Krümmungsradien der Spiegel $R_i$ ($i=\{1,2\}$) die angeregten Mode(n) des Laserstrahls bestimmt.
+Im Experiment wurde ein HeNe-Laser aufgebaut, dessen Energiezustandsschema wie folgt aussieht (Abbildung \ref{fig:lasertermschema.png}):
+
+\jafps{lasertermschema.png}{Termschema des aufgebauten HeNe-Lasers. Abbildung übernommen aus \cite[16]{Versuchsanleitung442}}{0.6}
+
+Durch eine Entladungsröhre, die mit Hochspannung betrieben wird, werden die Heliumatome über Elektronenstöße in Zustand $2^1S_0$ angeregt, der sehr nah am angeregten $3s$-Zustand von Neonatomen ist.
+Durch Kollisionen wird die Energie der $2^1S_0$-Heliumatome auf die Neonatome des Grundzustands übertragen, welche sich dann im $3s$-Zustand befinden \cite[17-18]{Versuchsanleitung442}.
+Durch initial spontane Emission und darauf folgendde stimulierte Emission werden beim Übergang
+der Neonatome in den $2p$-Zustand die zueinander kohärenten, monochromatischen und phasengleichen Photonen des gesuchten Laserübergangs mit $\lambda_\text{Lit}=\SI{632.6}{\nano\meter}$ \cite[19]{Versuchsanleitung442} emittiert.
+Anschließend werden die Neonatome durch spontane Emission (inkohärentes Licht in zufällige Richtung, hat keinen Einfluss auf das Laserlicht) in den $1s$-Zustand und danach durch Kollisionen mit der Wand der Entladungsröhre, in dem sich das aktive Medium befindet, in den Grundzustand abgeregt
+(der Übergang in den Grundzustand kann nur so erfolgen, ein Übergang durch spontane Emission ist elektrisch verboten).
+Es können auch andere Laserübergänge erfolgen (siehe Termschema \ref{fig:lasertermschema.png}), durch dielektrische Beschichtungen der Resonatorspiegel werden diese im vorliegenden Aufbau jedoch von diesen absorbiert und entsprechend nicht (stark) im Laser verstärkt \cite[18-19,22]{Versuchsanleitung442}.
+Der Photonenstrahl wird durch die Spiegel des Resonators reflektiert und bei jedem Durchgang des aktiven Mediums, d.h. des HeNe-Gasgemischs (im Verhältnis 10:1), über stimulierte Emission verstärkt.
+An den Spiegeln wird schließelich bei jedem Resonatordurchlauf des Lichts ein großer Teil der Intensität reflektiert und ein geringer Teil aus dem Resonator ausgekoppelt \cite[41-42]{Sigrist}.
+Die Moden eines konfokalen Resonators (also für zwei sphärische Spiegel mit $R_i=L$)) haben die Eigenfrequenzen \cite[11]{Versuchsanleitung442}:
+\begin{align}\label{eq:modes_konfokal}
+	\nu_{qmn}=\left(
+	q + \frac{m+n+1}{2}\right)\cdot \frac{c}{2L}
+\end{align}
+$q$ entspricht dabei der Modenzahl der longitudinalen (in Richtung der Strahlachse) Mode, $m,n$ der Modenzahl der transversalen Mode, die Kombination der drei Indizes charakterisiert die Eigenfrequenz einer Mode.
+
+Neben den Resonatormoden hängt das Modenspektrum eines spezifischen Lasers auch vom Verstärkungsprofil des konkreten aktiven Mediums ab, welches durch die natürliche Linienbreite sowie die Dopplerverbreiterung der Emissionslinie des Laserübergangs gegeben ist \cite[54-56,59]{Sigrist},\cite[19]{Versuchsanleitung442}. Die für den aufgebauten Laser das Verstärkungsprofil dominierende Dopplerbreite (als HWHM\footnote{\textit{Half Width at Half Maximum: halbe Breite des halben Maximums}} angebenen) aufgrund der Maxwell-Boltzmann-Geschwindigkeitsverteilung der Gasatome des aktiven Mediums ergibt sich als \cite[19]{Versuchsanleitung442}:
+\begin{align*}
+	\nu_D = \sqrt{\frac{2k_B \ln(2)}{c}} \cdot \nu_0 \cdot \sqrt{\frac{T}{m}}
+\end{align*}
+Hierbei ist $k_B$ die Boltzmannkonstante, $\nu_0$ die zentrale Frequenz des Laserstrahlprofils, $T$ die Temperatur des Gases (hier in etwa Raumtemperatur für das Gas in der Entladungsröhre) und $m$ die (molare) Masse der Gasatome. Die Dopplerverbreiterung hat dabei die Form einer Gaußfunktion \cite[60]{Sigrist}. Es ergibt sich so eine Breite von $\Delta \nu = \SI{1.4}{\giga\hertz}$ für $\lambda_\text{Lit}=\SI{632.8}{\nano\meter}$ \cite[19]{Versuchsanleitung442}.
+
+
+\section{Aufbau des HeNe-Lasers}
+
+Um den HeNe-Laser aufzubauen, wurde zunächst ein Pilotlaser mit grünem, deutlich sichtbaren Laserlicht zur Justage der Strahlumlenkspiegel S1 und S2, sowie der Resonatorspiegel (sphärischer Spiegel (SRS) und planer Spiegel (ERS)),
+genutzt. Der Aufbau zur Justage ist in der Abbildung \ref{fig:aufbau_pilot.png} dargestellt. Das Prozedere der Justage ist in der Versuchsanleitung \cite[3-5]{Versuchsanleitung442} genau erläutert.
+
+\jafps{aufbau_pilot.png}{Aufbau zur Justage des Laserresonators mit Pilotlaser. Im Versuch wurde direkt vor dem Pilotlaser noch ein Abschwächungsfilter zur Reduktion der relativ hohen Intensität dessen und besseren Betrachtung der Laserreflexionen eingesetzt, welches aber die Methodik der Justage sonst nicht beeinflusst hat. Grafik entnommen aus \cite[5]{Versuchsanleitung442}.}{0.6}
+
+Nach Ausschalten des Pilotlasers wurde die Entladeröhre schließlich wieder eingesetzt und die Betriebsspannung angestellt. Nach weiterer Justage der Resonatorspiegel konnte dann ein Laserstrahl beobachtet werden, der HeNe-Laser wurde also erfolgreich aufgebaut.
+Die Laserleistung wurde über die Messung der Spannung an einer Photodiode, die eine dem auftreffenden Licht proportionale Spannung liefert, die hinter dem ERS aufgebaut wurde, optimiert -- die Spiegelstellung von SRS und ERS, bei der die Spannung maximal wurde, wurde für den weiteren Versuchsverlauf so fest gewählt.
+Die genaue Laserleistung kann nicht angegeben werden, da die Photodiode (aufgrund eines fehlenden durchgängig nutzbaren optischen Tisches) hinter dem Spiegel S2 aufgebaut wurde, also auf dem Weg zur Photodiode bereits Strahlintensität verloren ging.
+Als Maximalwert der Spannung konnte $U_{\text{PD}}=\SI{104(5)e-3}{\milli\V}$ gemessen werden, die Laserleistung beträgt also mindestens (wegen möglicher Verluste) $\SI{6}{\milli\W}$ (vgl. hierzu \cite[6]{Versuchsanleitung442}).

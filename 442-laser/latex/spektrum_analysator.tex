@@ -1,70 +1,88 @@
 \chapter{Modenabstand des Lasers}
-\section{Optischer Analysator}
+\section{Modenspektrum optischer Resonatoren}
+\label{sec:mode_spectrum}
 
-Es soll nun die Modenstruktur der Laserkavität mittels eines Spektrumanalysator untersucht werden.
-Bei dem Analysator handelt es sich um einen externen, konfokalen Resonator, dessen Länge mittels eines Piezo-Kristalls verstellt wird. \cite{Versuchsanleitung442}
+In optischen Resonatoren können verschiedene Lösungen für stehende Wellen, und somit stabile Oszillation, gefunden werden. Diese Lösungen haben verschiedene Frequenzen und werden Moden genannt. In unserem Fall handelt es sich um Gaußstrahlen in konfokalen- und halbsymetrischen Resonatoren.
 
-Der Modenabstand von TEM\footnote{Tranversalen elektrischen Moden} bei einem solchen Resonator ist gegeben als: \cite{Versuchsanleitung442}
+In diesem Fall werden die Moden durch drei Zahlen beschrieben - zwei transversale und eine longitudinale Modenzahl -.
+
+Der Abstand zweier transversaler Moden ist theoretisch gegeben durch \footnote{vgl: \eqref{eq:modes_konfokal}}\cite[11]{Versuchsanleitung442}
 
 \begin{align}
 	\Delta \nu_{TEM} = \frac{c}{4 l} \label{eq:mode_spacing_ext}
 \end{align}
 
-Bei der Laserkavität hingegen wird davon ausgegangen, dass in erster Linie Longitudinalmoden angeregt werden mit einem Modenabstand von:
+Bei der Laserkavität hingegen wird davon ausgegangen, dass in erster Linie Longitudinalmoden angeregt werden mit einem Modenabstand von:\cite[20]{Versuchsanleitung442}
 
 \begin{align}
 	\Delta \nu = \frac{c}{2L}
 \end{align}
 
-Nach der Justage des Analysators erfolgt die Messung indem ein Dreiecksignal an das Piezoelement angelegt wird, dessen Spannung so lange variiert wird, bis auf dem Oszilliskop eine periodische Struktur zu erkennen ist. Hierbei ist relevant, dass die Modenstruktur sowohl des Analysators als auch des Lasers überlagert beobachtet wird.
 
-Eine kurze Überschlagsrechnung zeigt auf, dass der Modenabstand des Lasers ca. eine Größenordnung kleiner als bei dem Resonator zu erwarten ist. Somit kann davon ausgegangen werden, dass die näher aneinanderliegenden, feineren Maxima Lasermoden entsprechen und die größeren, weiter auseinanderliegenden Maxima entsprechen Analysatormoden sind.
+Betrachet man das Verhältnis der Modenabstände von Laser und externem Resonator, dann kann man für die Modenabstände des Lasers leicht folgenden Zusammenhang finden;
+
+\begin{align}
+	q                       & = \frac{\nu_\text{Laser}}{\nu_\text{TEM}}     \\
+	\imply \nu_\text{Laser} & = \nu_\text{TEM} \cdot q \label{eq:mode_frac}
+\end{align}
+
+
+\section{Optischer Analysator}
+\label{sec:optical_analyzer}
+
+Es soll nun die Modenstruktur der Laserkavität mittels eines Spektrumanalysator untersucht werden.
+Bei dem Analysator handelt es sich um einen externen, konfokalen Resonator, dessen Länge mittels eines Piezo-Kristalls verstellt wird. \cite{Versuchsanleitung442}
+Dieser musste selbst aufgebaut werden, hat daher nicht unbedingt die in der Anleitung definierte Länge und musste auch in der Ausrichtung der Spiegel justiert werden.
+
+Nach der Justage des Analysators erfolgt die Messung indem ein Dreiecksignal mit 50Hz an das Piezoelement angelegt wird, dessen Spannung so lange variiert wird, bis auf dem Oszilliskop eine periodische Struktur zu erkennen ist. Hierbei ist relevant, dass die Modenstruktur sowohl des Analysators als auch des Lasers überlagert beobachtet wird.
+
+Der Strahl hinter dem externen Resonator wird auf eine Photodiode gelenkt, welche ohne Abschlusswiderstand\footnote{Dies dient dazu ein deutlicheres Signal zu erhalten, da die durchgelassene Intensität hinter dem externen Resonator recht gering ist.} an das Oszilloskop geschlossen ist. An einen weiteren Kanal des Oszilloskops wird das Dreiecksignal des Piezoelements gelegt, und an diesem auch das Oszilloskop getriggert.
+
+Der Modenabstand der Lasermoden ist dabei deutlich kleiner als der des externen Resonators. Somit können die weiter auseinanderliegenden, einhüllenden Maxima als Analysatormoden und die enger zusammenliegenden Maxima innerhalb dieser als Lasermoden zugeordnet werden.
 
 Die Länge der Laserkavität ließ sich gut Messen, mit $L = \SI{51.3(5)}{\centi\meter}$. Die Länge des Analysators hingegen ist schwer akkurat zu messen, da die genaue Position der Spiegel in den jeweiligen Bauteilen nicht eindeutig ist und die Bauteile durch ihre Größe und Form ein genaues Messen erschweren. Es ergibt sich eine Länge von $l = \SI{50(15)}{\milli\meter}$
 
 In den aufgenommenen Oszillogrammen werden die Abstände der Analysatormoden und die Abstände der Lasermoden vermessen.
 
-\jafpp{analysator_spectrum_0}{Oszillogramm des Spektrums}{analysator_spectrum_2}{zweite Messung des Selben}
+\jafpp{analysator_spectrum_0}{Oszillogramm des Spektrums}{analysator_spectrum_2}{zweite Messung des Selben, jeweils mit farblich markierten Maxima. Dabei wird jeweils allen Lasermoden in einer Analysatormode die gleiche Farbe zugewiesen}
 
-Aufgrund des Linearen Spannungsverlaufs an dem Piezoelement und der dazu proportionalen Längenänderung werden alle Abstände an den Indizes der Datenpunkte berechnet.
+Aufgrund des zeitlich linearen Spannungsverlaufs an dem Piezoelement und der dazu proportionalen Längenänderung des Resonators werden alle Abstände an den Indizes der zeitlich gleichmäßig verteilten Datenpunkte in den Oszilloskopkurven berechnet.
 
-Die lokalen Maxima der Kurven werden ermittelt. Der Abstand der Analysatormoden wird aus den Abständen der jeweils n-ten Maxima zueinander bestimmt. 
+Die lokalen Maxima der Kurven werden (graphisch) ermittelt. Der Abstand der Analysatormoden wird aus den Abständen der jeweils n-ten Maxima, welche jeweils zu Lasermoden korrespondieren, zueinander bestimmt und sind in Tabelle \ref{tab:external_spacing}. Dieser beträgt im Mittel $\num{14727(2)}$. Hierbei werden die Maxima jeweils ohne konkreten Fehler angenommen, der Fehler des Mittelwerts wird als die Wurzel der Varianz genommen. Dieser erscheint größenordnungsmäßig sehr plausibel.
 
-Die Abstände der nebeneinanderliegenden Moden wird berechnet und über lineare Regression der Achsenabschnitt bestimmt und dieser als mittlerer Abstand zweier Lasermoden gesehen. Bei dieser Regression kann eine Steigung nahe Null genutzt werden um Systemische Fehler auszuschließen.
+Die Abstände der nebeneinanderliegenden Moden wird berechnet und der mittlere Abstand bestimmt und sind in Tabelle \ref{tab:internal_spacing}. Der mittlere Abstand beträgt dann $\num{1.2(1)e3}$ Messpunkte.
 
-Es ergibt sich eine Steigung von $a=\num{-2(3)}$ und ein Achenabschnitt von $b=\num{1226}{49}$. Die Steigung ist klein genug um in guter Näherung als Null betrachtet zu werden. Es liegt kein relevanter Trend in den Daten vor. 
-Aus dem Mittelwert des  Analysatormodenabstands $\num{14724}$ wird das Verhältnis der Abstände bestimmt zu $q = 0.083(3)$.
-Aus dem Modenabstand des Resonators und dem Verhältnis zum kleineren Modenabstand (des Lasers) kann nun der Modenabstand der Lasermoden ermittelt werden;
-
-\begin{align}
-	q &= \frac{\nu_\text{Laser}}{\nu_\text{TEM}}\\
-	\imply \nu_\text{Laser} &= \nu_\text{TEM} \cdot q
-\end{align}
+Das Verhältnis dieser beiden Abstände ist dann $q = \num{8(1)e-2}$
 
 
-\jafps{modespacing}{Modenabstände}{0.75}
+Damit ergibt sich nach Gl. \eqref{eq:mode_frac} ein mittlerer Modenabstand der Lasermoden von $\Delta \nu_\text{Laser} = \SI{1.2(4)e8}{\hertz}$.
 
+Es ist hierbei wichtig, dass das Verstärkungsprofil von Neon nur eine Breite von ca. $\SI{1.4}{\giga\hertz}$ \cite[19]{Versuchsanleitung442} aufweist (siehe Abschnitt \ref{sec:theorielaser}. Bei einem transversalen Modenabstand von $\Delta\nu = \frac{c}{2 L} \approx \SI{290}{\mega\hertz}$ der Transversalmoden des Lasers mit unseren Kavitätsdimensionen können niemals mehr als 5 solcher Moden in dem Vestärkungsprofil liegen und somit emittieren.
 
-Damit ergibt sich ein mittlerer Modenabstand der Lasermoden von $\Delta \nu_\text{Laser} = \SI{1.2(4)}{\mega\hertz}$.
+Bei der Messung wurden hier allerdings 9 Lasermoden gefunden, wobei die erste vermutlich noch zu der vorherigen Periode gehört, was zu 8 tatsächlichen Lasermoden führt.
+Dies sind doppelt so viele wie maximal möglich sind, allerdings ist der Abstand der Moden erheblich kleiner als der Erwartungswert. Es muss insgesamt davon ausgeganen werden, dass in dem Laserresonator nicht nur Longitudinalmoden sondern auch Transversalmoden angeregt wurden. Dann wäre der Abstand zweier Longitudinalmoden der doppelt so groß wie der bestimmte Modenabstand, da zwischen jedem Paar von Longitudinalmoden eine Transversalmode liegt. Damit ergibt sich ein Wert von $\Delta \nu_\text{Laser} = \SI{2.4(8)}{\mega\hertz}$ als Modenabstand zweier Longitudinalmoden. Dieser Wert liegt in einer 1-$\sigma$ Umgebung zum erwarteten Modenabstandes von Longitudinalmoden für unsere Resonatorlänge.
 
-Es ist hierbei wichtig, dass das Verstärkungsprofil von Neon nur eine Breite von ca. $\SI{1.5}{\giga\hertz}$ [CITE!!!] aufweist. Bei einem Transversalen Modenabstand von $\Delta\nu = \frac{c}{2 L} \approx \SI{290}{\mega\hertz}$ der Transversalmoden des Lasers können niemals mehr als 5 solcher Moden in dem Vestärkungsprofil liegen und somit emittieren.
-
-Bei der Messung wurden hier allerdings 9 Lasermoden gefunden, wobei die erste vermutlich noch zu der vorherigen Periode gehört, was zu 8 tatsächlichen Lasermoden führt. Dies sind doppelt so viele wie maximal möglich sind, allerdings ist der Abstand der Moden erheblich kleiner als der Erwartungswert. Es muss insgesamt davon ausgeganen werden, dass in dem Laserresonator nicht nur Longitudinalmoden sondern auch Transversalmoden angeregt wurden. Dann wäre der Abstand zweier Longitudinalmoden der doppelt so groß wie der bestimmte. Damit ergibt sich ein Wert von $\Delta \nu_\text{Laser} = \SI{2.4(8)}{\mega\hertz}$. Dieser Wert liegt in einer 1-$\sigma$ Umgebung zum erwarteten Modenabstandes von Longitudinalmoden für unsere Resonatorlänge.
-
-Die angeregten Transversalmoden sprechen für eine relativ schlechte Justage des Lasers.
-
+Die angeregten Transversalmoden sprechen für eine relativ schlechte Justage des Lasers. \cite[14]{Versuchsanleitung442}
 
 
 \section{Spektrumanalysator}
+\label{sec:spectrumanalyzer}
 
-Nun wird der Modenabstand der Lasermoden mit einem Spektrumanalysator bestimmt. Hierzu wird ausgenutzt, dass die Lasermoden sich überlagern. Diese Überlagerung kann dargestellt werden als Summe von Cosinusfunktionen mit verschiedenen Frequenzen. Anwenden der hinlänglich bekannten Additionstheoreme zeigt, dass das gesamtsignal mit der Summe der Einzelfrequenzen, der Differenz der Einzelfrequenzen und mit den jeweiligen Einzelfrequenzen oszilliert. \cite{Versuchsanleitung442}
+Nun wird der Modenabstand der Lasermoden mit einem Spektrumanalysator bestimmt. Hierzu wird ausgenutzt, dass die Lasermoden sich überlagern. Diese Überlagerung kann dargestellt werden als Summe von Cosinusfunktionen mit verschiedenen Frequenzen. Anwenden der hinlänglich bekannten Additionstheoreme zeigt, dass das gesamtsignal mit der Summe der Einzelfrequenzen, der Differenz der Einzelfrequenzen und mit den jeweiligen Einzelfrequenzen oszilliert: \cite{Versuchsanleitung442}
 
-Die Summe der Frequenzen, sowie die einzelnen Frequenzen sind im $\unit{\tera\hertz}$ Bereich und somit nicht als elektronische Signale übertragbar oder darstellbar [CITE?].
+\begin{align}
+	E(t) &= E_1 \cdot \sin(\omega_1 t) + E_2 \cdot \sin(\omega_2 t)\\
+	\imply I(t) &\propto \frac12 E_1^2 (1 - \cos(2 \omega_1 t)) + \frac12 E_2^2 \cos(\omega_2 t) - E_1 E_2 (\cos((\omega_1 + \omega_2) t) - \cos((\omega_1 - \omega_2) t))
+\end{align}
 
-Somit verbleibt nur die Differenzfrequenz, welche dann genau der Differenz zwischen zwei Lasermoden entspricht. Diese wird mit einer schnellen Photodiode gemessen und auf einem Spektrumanalysator der Firma RIGOL, des Typs DSA 815 dargestellt.
+Die Summe der Frequenzen, sowie die einzelnen Frequenzen sind im $\unit{\tera\hertz}$ Bereich und somit nicht als elektronische Signale übertragbar oder darstellbar. \cite{Versuchsanleitung442}
 
-Hierbei musste der dargestellte Bereich recht klein um den Erwartungswert gewählt werden, um überhaupt eine Messung durchführen zu können. Der Messbereicht wurde auf eine Spanne von $\SI{10}{\mega\hertz}$ eingestellt, mit einer Mittelfrequenz von $\SI{290}{\mega\hertz}$. So wurde ein schmales Maximum bei $\SI{293.3(5)}{\mega\hertz}$ gefunden, wobei es eine FWHM von etwa $\SI{1}{\mega\hertz}$ aufweist, woraus sich die Unsicherheit ergibt.
+Somit verbleibt nur die Differenzfrequenz, welche dann genau der Differenz zwischen zwei Lasermoden entspricht. Diese wird mit einer schnellen Photodiode gemessen und auf einem Spektrumanalysator der Firma RIGOL des Typs DSA 815 dargestellt.
+
+Die verwendete Photodiode ist eine mit besonders schneller Reaktionszeit, was durch reduktion der parasitären Kapazität realisiert wird. Dadurch ist die empfindliche Fläche stark reduziert und es muss der Laser mit einer zusätzlichen Linse fokussiert werden um ein ausreichend starkes Signal zu erhalten.
+
+Hierbei musste der dargestellte Bereich recht klein um den Erwartungswert gewählt werden, um überhaupt eine Messung durchführen zu können. Der Messbereich wurde auf eine Spanne von $\SI{10}{\mega\hertz}$ eingestellt, mit einer Mittelfrequenz von $\SI{290}{\mega\hertz}$. So wurde ein schmales Maximum bei $\SI{293.3(5)}{\mega\hertz}$ gefunden, wobei es eine FWHM\footnote{\textit{Full width half maximum}, deutsch: Volle Breite des halben Maximums} von etwa $\SI{1}{\mega\hertz}$ aufweist, woraus sich die Unsicherheit ergibt.
+
 
 Dies deckt sich sowohl mit dem theoretisch erwarteten Modenabstand als auch der (weit weniger genauen) Messung mit dem optischen Analysator.
-
 Leider wurde nicht daran gedacht auch bei $\SI{145}{\mega\hertz}$ nach einer Differenzfrequenz zu suchen um die Hypothese der angeregten Transversalmoden zu prüfen.
