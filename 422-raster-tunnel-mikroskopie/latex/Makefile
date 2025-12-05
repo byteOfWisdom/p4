@@ -1,7 +1,7 @@
 all:
-	pdflatex main.tex -interaction=nonstopmode > /dev/null
+	pdflatex -interaction=nonstopmode main.tex > /dev/null
 	biber main > /dev/null
-	pdflatex main.tex -interaction=nonstopmode | tail
+	pdflatex -interaction=nonstopmode main.tex | tail
 
 clean:
 	rm *.log
