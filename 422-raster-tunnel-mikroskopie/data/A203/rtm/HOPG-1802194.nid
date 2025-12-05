@@ -1,0 +1,873 @@
+[DataSet]
+Version=2
+GroupCount=2
+Gr0-Name=Scan forward
+Gr0-ID=0
+Gr0-Count=8
+Gr1-Name=Scan backward
+Gr1-ID=0
+Gr1-Count=8
+Gr0-Ch0=DataSet-0:0
+Gr0-Ch1=DataSet-0:1
+Gr1-Ch0=DataSet-1:0
+Gr1-Ch1=DataSet-1:1
+SetInfos=DataSet-Info
+InfoSetCount=3
+InfoSet0=DataSetInfos
+InfoSet1=Calibration
+InfoSet2=Parameters
+
+[DataSet-Info]
+-- Scan --=--------
+Image size=2,09nm
+Scan direction=Up
+Time/Line=25,7ms
+Points=128 
+Lines=128 
+X-Slope=-16,7 ¬∞
+Y-Slope=9,07 ¬∞
+Rotation=0 ¬∞
+X-Pos=35,8nm
+Y-Pos=-88,1nm
+Z-Plane=4,42nm
+Overscan=20 %
+Line mode=Standard
+Date=02-12-2025
+Time=16:31:35
+-- Feedback --=--------
+Setpoint=1nA
+P-Gain=0 
+I-Gain=4 
+D-Gain=0 
+P-Gain2=0 
+I-Gain2=0 
+D-Gain2=0 
+Tip voltage=750mV
+Feedback mode=Free
+Feedback algo.=Adaptive PID
+Error range=200nA
+Ampl. Ctrl. mode=Const. Drive
+-- Global --=--------
+Op. mode=STM
+Head type=STM
+Scan head=61-24-313.hed
+Software ver.=3.10.0.36
+Firmware ver.=3.8.1.0
+Controller S/N=061-24-313
+-- Module --=--------
+Controller Board=2
+USB Module=4
+
+[DataSet\DataSetInfos]
+SubSectionCount=4
+SubSection0=Scan
+SubSection1=Feedback
+SubSection2=Global
+SubSection3=Module
+
+[DataSet\DataSetInfos\Scan]
+SubSectionCount=0
+Image size=2,09nm
+Scan direction=Up
+Time/Line=25,7ms
+Points=128 
+Lines=128 
+X-Slope=-16,7 ¬∞
+Y-Slope=9,07 ¬∞
+Rotation=0 ¬∞
+X-Pos=35,8nm
+Y-Pos=-88,1nm
+Z-Plane=4,42nm
+Overscan=20 %
+Line mode=Standard
+Date=02-12-2025
+Time=16:31:35
+
+[DataSet\DataSetInfos\Feedback]
+SubSectionCount=0
+Setpoint=1nA
+P-Gain=0 
+I-Gain=4 
+D-Gain=0 
+P-Gain2=0 
+I-Gain2=0 
+D-Gain2=0 
+Tip voltage=750mV
+Feedback mode=Free
+Feedback algo.=Adaptive PID
+Error range=200nA
+Ampl. Ctrl. mode=Const. Drive
+
+[DataSet\DataSetInfos\Global]
+SubSectionCount=0
+Op. mode=STM
+Head type=STM
+Scan head=61-24-313.hed
+Software ver.=3.10.0.36
+Firmware ver.=3.8.1.0
+Controller S/N=061-24-313
+
+[DataSet\DataSetInfos\Module]
+SubSectionCount=0
+Controller Board=2
+USB Module=4
+
+[DataSet\Calibration]
+SubSectionCount=2
+SubSection0=Scanhead
+SubSection1=Cantilever
+
+[DataSet\Calibration\Scanhead]
+SubSectionCount=0
+Version=6
+HeadTyp=STM
+SerialNo=uncal STM
+RevisionNo=1
+ScanFit=None
+CtrlInPol=Positiv
+Main1InPol=Positiv
+Main2InPol=Positiv
+SignalUserADC0Pol=Positiv
+SignalUserADC1Pol=Positiv
+SignalUserADC2Pol=Positiv
+AnalogOut2Pol=Positiv
+AnalogOut3Pol=Positiv
+XAxisPol=Positiv
+YAxisPol=Positiv
+ZAxisPol=Positiv
+ZAxisAnalogOut2Pol=Positiv
+ZAxisAnalogOut3Pol=Positiv
+Ch0Corr=Sub
+SetPointCheck=Equal
+InCount=24
+In0=0,Channel0,Tip Current,A,1e-07,0
+In1=1,Channel1,Z-Axis,m,1e-07,0
+In2=2,Channel2,Not defined,V,35,0
+In3=3,Channel3,Not defined 1,V,10,0
+In4=4,Channel4,Not defined,V,10,0
+In5=5,TipSignalDC,Tip Current,A,1e-07,0
+In6=6,TipSignalAC,Not defined,V,10,0
+In7=7,TipPhase,Not defined,V,90,0
+In8=8,Lever Current,Not defined,V,10,0
+In9=9,User Input0,User input 1,V,10,0
+In10=10,User Input1,User input 2,V,10,0
+In11=11,HeadSig2,Not defined 1,V,10,0
+In12=12,Channel5,User input 1,V,10,0
+In13=13,Channel6,User input 2,V,10,0
+In14=15,Dissipation,Dissipation,V,5,0
+In15=16,TipSignalDC1,Deflection,V,10,0
+In16=17,TipSignalDC2,Deflection,N,1,0
+In17=18,SensorSignal1,SensorSignal,W,0.005,0
+In18=19,SensorSignal2,SensorSignal,A,0.0005,0
+In19=20,Channel7,Z-Axis,m,1e-07,0
+In20=21,XAxisSensor,X-Axis Sensor,m,0.0001,0
+In21=22,YAxisSensor,Y-Axis Sensor,m,0.0001,0
+In22=23,ZAxisSensor,Z-Axis Sensor,m,1e-05,0
+In23=24,User Input2,User In A,V,10,0
+OutCount=9
+Out0=0,ScanAxis0,X-Axis,m,3.5e-07,0
+Out1=1,ScanAxis1,Y-Axis,m,2.55e-07,0
+Out2=2,ScanAxis2,Z-Axis,m,1e-07,0
+Out3=4,AnalogOut0,Tip voltage,V,10,0
+Out4=5,AnalogOut1,Not defined,V,10,0
+Out5=6,AnalogOut2,User Output 1,V,10,0
+Out6=7,AnalogOut3,User Output 2,V,10,0
+Out7=8,DriveAmp,Not defined,V,1,0
+Out8=9,MixedOut4,User Output C,V,10,0
+ScanCorrCount=1
+ScanCorrA=0
+ScanCorrB=0
+ScanCorrC=0
+ScanCorrD=0
+ScanCorrE=0
+ScanCorrF=0
+ScanCorrG=0
+ScanCorrH=0
+ScanCorrI=0
+ScanCorrJ=0
+ScanCorrK=0
+ScanCorrL=0
+ScanCorrM=0
+ScanCorrN=0
+ScanCorrO=0
+ScanCorrTableRot=0
+ScanCorrRotX=0
+ScanCorrRotY=0
+ScanScaleZ=3276.8
+ScanScaleXY=256
+ZRangeFit=None
+ZRangeCorrCount=1
+ZRangeCorrA=1
+ZRangeCorrB=0
+ZRangeCorrC=0
+ZRangeCorrD=0
+ApproachStartPos=-1
+MaxApproachSpeed=0.65
+ManualMoveSpeed=1
+DefaultDynRefAmp=0.05
+DefaultDynRefAmpLiquid=0.2
+DefaultDynRefAmpVacuum=0.005
+DefaultForceModRefAmp=1
+DetectorABGainAC=3.5
+CompDcSourceWithX=0
+CompDcWithX=0
+CompDcSourceWithY=0
+CompDcWithY=0
+CompDcSourceWithZ=0
+CompDcWithZ=0
+VideoSupport=1
+HasLaserOnOffCtrl=0
+XYCLPIDGainsX=1.000000;1.000000;1.000000
+XYCLPIDGainsY=1.000000;1.000000;1.000000
+XZeroVoltage=0
+YZeroVoltage=0
+ZZeroVoltage=0
+ScanAxis0FilterCoeff0=1.000000;0.000000;0.000000;0.000000;0.000000;1.000000
+ScanAxis0FilterCoeff1=1.000000;0.000000;0.000000;0.000000;0.000000;1.000000
+ScanAxis0FilterCoeff2=1.000000;0.000000;0.000000;0.000000;0.000000;1.000000
+ScanAxis0FilterCoeff3=1.000000;0.000000;0.000000;0.000000;0.000000;1.000000
+ScanAxis1FilterCoeff0=1.000000;0.000000;0.000000;0.000000;0.000000;1.000000
+ScanAxis1FilterCoeff1=1.000000;0.000000;0.000000;0.000000;0.000000;1.000000
+ScanAxis1FilterCoeff2=1.000000;0.000000;0.000000;0.000000;0.000000;1.000000
+ScanAxis1FilterCoeff3=1.000000;0.000000;0.000000;0.000000;0.000000;1.000000
+ScanAxis2FilterCoeff0=1.000000;0.000000;0.000000;0.000000;0.000000;1.000000
+ScanAxis2FilterCoeff1=1.000000;0.000000;0.000000;0.000000;0.000000;1.000000
+ScanAxis2FilterCoeff2=1.000000;0.000000;0.000000;0.000000;0.000000;1.000000
+ScanAxis2FilterCoeff3=1.000000;0.000000;0.000000;0.000000;0.000000;1.000000
+HasXPositionSensor=0
+XPositionSensorPol=Negativ
+HasYPositionSensor=0
+YPositionSensorPol=Negativ
+HasZPositionSensor=0
+ZPositionSensorPol=Negativ
+ApproachStatusMode=1
+ApproachStatusPol=Positiv
+ApproachStatusMeterRange=-1;-0.9;0.9;1
+SensorStatusMode=1
+SensorStatusPol=Negativ
+SensorStatusMeterRange=0.0866142;0.102362;0.102362;0.811024;0.811024;0.913386
+LaserWavelength=0
+
+[DataSet\Calibration\Cantilever]
+SubSectionCount=0
+Version=2
+GUID={7C725C17-AB98-465d-AADA-D6D453C769DA}
+Manufacturer=STM Tip
+PropCount=14
+Prop0=D[0]*[N/m]
+Prop1=D[0]*[Hz]
+Prop2=D[0]*[m]
+Prop3=D[0]*[m]
+Prop4=D[0]*[]
+Prop5=D[0]*[Hz]
+Prop6=D[0]*[]
+Prop7=D[0]*[]
+Prop8=D[0]*[¬∞]
+Prop9=D[0]*[m]
+Prop10=D[0]*[]
+Prop11=D[0]*[Hz]
+Prop12=D[0.3]*[]
+Prop13=D[1]*[]
+
+[DataSet\Parameters]
+SubSectionCount=8
+SubSection0=Approach
+SubSection1=ZFeedback
+SubSection2=Lithography
+SubSection3=Imaging
+SubSection4=SignalIO
+SubSection5=Spectroscopy
+SubSection6=SPMSystem
+SubSection7=Stage
+
+[DataSet\Parameters\Approach]
+SubSectionCount=0
+ApproachSteps=L[10000]*[]
+WithdrawSteps=L[20]*[]
+AutoPeriode=D[0]*[s]
+MovePeriode=D[0]*[s]
+StepSlope=L[6]*[]
+AutoStartScan=B[1]*[]
+ApproachSpeed=D[0.700122]*[%]
+AFMApproachMode=L[0]*[]
+AFMMotorSource=L[0]*[]
+AFMStepByStepSpeed=D[1]*[]
+AFMStepByStepSlope=D[1e-06]*[m/s]
+AFMStepByStepFineStepSizePercentage=D[5]*[%]
+AFMStepByStepCoarseStepSizePercentage=D[90]*[%]
+AFMStepByStepMode=D[0]*[]
+
+[DataSet\Parameters\ZFeedback]
+SubSectionCount=0
+PGain=L[0]*[]
+IGain=L[4]*[]
+DGain=L[0]*[]
+PGain2=L[0]*[]
+IGain2=L[0]*[]
+DGain2=L[0]*[]
+SetPoint=D[1.00101e-09]*[A]
+SetPointForce=D[2e-08]*[N]
+SetPointDC=D[1.00101e-09]*[A]
+SetPointAmp=D[50]*[%]
+SetPointPhase=D[1]*[V]
+SetPointForceUnitMode=L[2]*[]
+SetPointForce_V=D[2e-07]*[]
+SetPointForce_m=D[2e-15]*[]
+SetPointForce_N=D[2e-08]*[]
+SetPointDeltaF_Hz=D[0]*[Hz]
+SetPointUserDefined=D[0]*[A]
+ChGainRegError=L[0]*[]
+FeedbackMode=L[0]*[]
+Algorithm=L[1]*[]
+RefFrq=D[170000]*[Hz]
+RefAmplitude=D[0.0499893]*[V]
+RefPhase=D[90.022]*[¬∞]
+CoarseSweepStartFrq=D[350]*[Hz]
+CoarseSweepEndFrq=D[650]*[Hz]
+CoarseSweepStepFrq=D[100.002]*[Hz]
+FineSweepStartFrq=D[130000]*[Hz]
+FineSweepEndFrq=D[210000]*[Hz]
+FineSweepStepFrq=D[100]*[Hz]
+ManualSweepStartFrq=D[130000]*[Hz]
+ManualSweepEndFrq=D[210000]*[Hz]
+ManualSweepStepFrq=D[100]*[Hz]
+AutoCalFrqPeak=B[1]*[]
+AutoCalPhase=B[1]*[]
+DynamicAmp=D[0.199744]*[V]
+CalRefPlotGraph=B[0]*[]
+ForceModFrq=D[20000]*[Hz]
+ForceModAmp=D[0.800012]*[V]
+AutoFrqSweepRange=B[1]*[]
+AmpCtrlMode=L[0]*[]
+FrqPeakReduceAir=D[20]*[%]
+FrqPeakUpperSideAir=B[1]*[]
+FrqPeakReduceLiquid=D[5]*[%]
+FrqPeakUpperSideLiquid=B[0]*[]
+FrqPeakReduceVacuum=D[20]*[%]
+FrqPeakUpperSideVacuum=B[1]*[]
+RegMoveMode=L[0]*[]
+DynamicMeasureBW=L[6]*[]
+RegOutputSel=L[0]*[]
+FrequencyLockRange=L[1]*[]
+PhaseCtrlPGain=D[0.3]*[]
+PhaseCtrlIGain=D[2.5]*[]
+AmplCtrlPGain=D[2.5]*[]
+AmplCtrlIGain=D[20]*[]
+UserOpModeInputSel=L[3]*[]
+UserOpModeInputPol=L[0]*[]
+UserOpModePIDGainCorr=D[1]*[]
+UserOpModeDCOffsetMode=L[0]*[]
+UserOpModeDCOffsetAutoGain=D[10000]*[]
+CantileverExcitationMode=L[0]*[]
+
+[DataSet\Parameters\Lithography]
+SubSectionCount=0
+ModuleLevel=L[0]*[]
+OpMode=L[1]*[]
+InactivePenMode=L[0]*[]
+AutoChartSettings=B[1]*[]
+AutoCapture=B[1]*[]
+XYMoveSpeed=D[1e-05]*[m/s]
+ZMoveSpeed=D[1e-06]*[m/s]
+LiftTipAbsZPos=D[0]*[m]
+
+[DataSet\Parameters\Imaging]
+SubSectionCount=0
+ModuleLevel=L[1]*[]
+ScanRange=V[2.08867e-09,2.08867e-09,0]*[m,m,m]
+ScanOffset=V[3.58131e-08,-8.81082e-08,4.41834e-09]*[m,m,m]
+ScanRotation=V[9.0725,-16.7455,0]*[¬∞,¬∞,¬∞]
+ScanTime=V[0.025654,0.025654,0]*[s,s,s]
+Datapoints=V[128,128,0]*[,,]
+ScanMode=L[0]*[]
+OverScanSize=D[20]*[%]
+FirstScanlineRep=L[1]*[]
+SyncOutMode=L[0]*[]
+LineScanning=L[0]*[]
+RelTipPos=D[5e-09]*[m]
+ContourEnabled=B[0]*[]
+AutoReadjustProbeEnabled=B[0]*[]
+ReadjustLiftHeight=D[0]*[m]
+SndScanDynamicAmplitude=D[0]*[V]
+SndScanDynamicAmplitudeEnabled=B[0]*[]
+SndScanForceModulationAmplitude=D[0]*[V]
+SndScanForceModulationAmplitudeEnabled=B[0]*[]
+SndScanEnableDarkMode=B[0]*[]
+SndScanEnableKPFM=B[0]*[]
+SndScanSndLockInExcitationAmplitude=D[0]*[]
+SndScanSndLockInExcitationAmplitudeEnabled=B[0]*[]
+XYMoveSpeed=D[5e-05]*[m/s]
+AutoSlopeCorrection=B[0]*[]
+AutoDeleteBuffer=B[1]*[]
+AutoChartSettings=B[1]*[]
+AutoCapture=B[1]*[]
+SpikeGuardEnable=B[0]*[]
+PrescanSpeedup=L[0]*[]
+
+[DataSet\Parameters\SignalIO]
+SubSectionCount=0
+UserDAC0=D[0]*[V]
+UserDAC1=D[0]*[V]
+EnableUserADC0=B[0]*[]
+EnableUserADC1=B[0]*[]
+EnableUserADC2=B[0]*[]
+TipSignalMode=L[0]*[]
+ExcitationMode=L[0]*[]
+MonitorOut0=L[0]*[]
+MonitorOut1=L[0]*[]
+EnableUserADC1ZSensor=B[0]*[]
+User0CtrlMode=L[0]*[]
+User0InputPol=L[0]*[]
+User0OutputFlag=L[0]*[]
+User0SetPoint=D[0]*[V]
+User0IGain=L[1000]*[]
+
+[DataSet\Parameters\Spectroscopy]
+SubSectionCount=0
+ModuleLevel=L[0]*[]
+OutputType=L[0]*[]
+Repetition=L[1]*[]
+RepetitionMode=L[0]*[]
+FwModTime=D[12.7996]*[s]
+BwModTime=D[6.5532]*[s]
+ModRelValue=B[1]*[]
+FwModDatapoints=L[32767]*[]
+BwModDatapoints=L[256]*[]
+SyncOutMode=L[0]*[]
+FeedbackActive=B[0]*[]
+AutoChartSettings=B[1]*[]
+AutoCapture=B[1]*[]
+SpecEndMode=L[1]*[]
+FwModRange=D[1.27996e-07]*[m]
+BwModRange=D[-1e-08]*[m]
+XYMoveSpeed=D[2.5e-07]*[m/s]
+StartOffset=D[-1e-08]*[m]
+StartOffsetMoveSpeed=D[2e-08]*[m/s]
+FwModMode=L[0]*[]
+BwModMode=L[0]*[]
+FwModStopValue=D[5.00504e-09]*[A]
+BwModStopValue=D[0]*[A]
+FwModStopMode=L[1]*[]
+BwModStopMode=L[1]*[]
+FwPauseTime=D[0]*[s]
+BwPauseTime=D[0]*[s]
+FwPauseDatapoints=L[0]*[]
+BwPauseDatapoints=L[0]*[]
+FwPauseMode=L[0]*[]
+BwPauseMode=L[0]*[]
+AutoRecalibrateProbeInterval=L[0]*[]
+PressurePulseValue=D[0]*[bar]
+PressurePulseDuration=D[0]*[s]
+PressurePulseRelative=B[0]*[]
+PressurePulseActive=B[0]*[]
+PressureActionId=L[0]*[]
+ModulationStopValueBandwidth=L[0]*[]
+
+[DataSet\Parameters\SPMSystem]
+SubSectionCount=0
+AOut0=D[0.750145]*[V]
+AOut1=D[0]*[V]
+SPMMode=L[1]*[]
+VideoFPSControlValueMin=D[1.5]*[]
+VideoFPSControlWindowSize=L[5]*[]
+VideoTopLight=D[100]*[%]
+VideoSideLight=D[100]*[%]
+VideoTopBrightness=D[80]*[]
+VideoSideBrightness=D[80]*[]
+VideoTopContrast=D[70]*[]
+VideoSideContrast=D[70]*[]
+FlexVideoTopExpTime=L[60]*[]
+FlexVideoSideExpTime=L[60]*[]
+FlexVideoTopGain=L[8]*[]
+FlexVideoSideGain=L[8]*[]
+FlexVideoTopADCLevel=L[2]*[]
+FlexVideoSideADCLevel=L[2]*[]
+FlexVideoTopRatioR=D[1]*[]
+FlexVideoSideRatioR=D[1]*[]
+FlexVideoTopRatioG=D[1]*[]
+FlexVideoSideRatioG=D[1]*[]
+FlexVideoTopRatioB=D[1]*[]
+FlexVideoSideRatioB=D[1]*[]
+FlexVideoTopRatioGamma=D[1]*[]
+FlexVideoSideRatioGamma=D[1]*[]
+FlexVideoTopAutoLevels=B[1]*[]
+FlexVideoSideAutoLevels=B[1]*[]
+FlexVideoTopPositionMarkerX=D[0]*[]
+FlexVideoSidePositionMarkerX=D[0]*[]
+FlexVideoTopPositionMarkerY=D[0]*[]
+FlexVideoSidePositionMarkerY=D[0]*[]
+HighResVideoTopExpTime=L[60]*[]
+HighResVideoSideExpTime=L[60]*[]
+HighResVideoTopGain=L[25]*[]
+HighResVideoSideGain=L[8]*[]
+HighResVideoSideADCLevel=L[2]*[]
+HighResVideoTopRatioR=D[1]*[]
+HighResVideoSideRatioR=D[1]*[]
+HighResVideoTopRatioG=D[0.8]*[]
+HighResVideoSideRatioG=D[1]*[]
+HighResVideoTopRatioB=D[0.8]*[]
+HighResVideoSideRatioB=D[1]*[]
+HighResVideoTopRatioGamma=D[0.9]*[]
+HighResVideoSideRatioGamma=D[1]*[]
+HighResVideoTopAutoLevels=B[1]*[]
+HighResVideoSideAutoLevels=B[1]*[]
+HighResVideoTopADCLevel=L[2]*[]
+HighResVideoTopPositionMarkerX=D[0]*[]
+HighResVideoSidePositionMarkerX=D[0]*[]
+HighResVideoTopPositionMarkerY=D[0]*[]
+HighResVideoSidePositionMarkerY=D[0]*[]
+ImSoVideoTVConfiguration=S[]*[]
+ImSoVideoSVConfiguration=S[]*[]
+ActiveSensorByGUID=S[{7C725C17-AB98-465d-AADA-D6D453C769DA}]*[]
+MeasEnv=L[0]*[]
+SystemStateIdleZAxisMode=L[0]*[]
+SystemStateIdleMixOut4Mode=L[3]*[]
+SystemStateIdleXYAxisMode=L[0]*[]
+SystemStateIdleZAxisValue=D[0]*[m]
+SndOpModeEnabled=B[0]*[]
+SndOpMode=L[0]*[]
+ZClosedLoopMode=L[0]*[]
+ZClosedLoopSpeed=D[1000]*[]
+XYClosedLoopEnabled=B[0]*[]
+XYClosedLoopSpeed=D[1000]*[]
+
+[DataSet\Parameters\Stage]
+SubSectionCount=0
+
+[DataSet-0:0]
+Version=2
+Points=128
+Lines=128
+Frame=Scan forward
+CurLine=127
+Dim0Name=X*
+Dim0Unit=m
+Dim0Range=2.08867e-09
+Dim0Min=0
+Dim1Name=Y*
+Dim1Unit=m
+Dim1Range=2.08867e-09
+Dim1Min=0
+Dim2Name=Tip Current
+Dim2Unit=A
+Dim2Range=2e-07
+Dim2Min=-1e-07
+SaveMode=Binary
+SaveBits=16
+SaveSign=Signed
+SaveOrder=Intel
+
+[DataSet-0:1]
+Version=2
+Points=128
+Lines=128
+Frame=Scan forward
+CurLine=127
+Dim0Name=X*
+Dim0Unit=m
+Dim0Range=2.08867e-09
+Dim0Min=0
+Dim1Name=Y*
+Dim1Unit=m
+Dim1Range=2.08867e-09
+Dim1Min=0
+Dim2Name=Z-Axis
+Dim2Unit=m
+Dim2Range=2e-07
+Dim2Min=-1e-07
+SaveMode=Binary
+SaveBits=16
+SaveSign=Signed
+SaveOrder=Intel
+
+[DataSet-1:0]
+Version=2
+Points=128
+Lines=128
+Frame=Scan backward
+CurLine=127
+Dim0Unit=m
+Dim0Range=2.08867e-09
+Dim0Min=0
+Dim1Unit=m
+Dim1Range=2.08867e-09
+Dim1Min=0
+Dim2Name=Tip Current
+Dim2Unit=A
+Dim2Range=2e-07
+Dim2Min=-1e-07
+SaveMode=Binary
+SaveBits=16
+SaveSign=Signed
+SaveOrder=Intel
+
+[DataSet-1:1]
+Version=2
+Points=128
+Lines=128
+Frame=Scan backward
+CurLine=127
+Dim0Unit=m
+Dim0Range=2.08867e-09
+Dim0Min=0
+Dim1Unit=m
+Dim1Range=2.08867e-09
+Dim1Min=0
+Dim2Name=Z-Axis
+Dim2Unit=m
+Dim2Range=2e-07
+Dim2Min=-1e-07
+SaveMode=Binary
+SaveBits=16
+SaveSign=Signed
+SaveOrder=Intel
+
+[SetView]
+ViewWidth=638
+ViewHeight=526
+ViewCount=4
+View0=SetView-View0
+View1=SetView-View1
+View2=SetView-View2
+View3=SetView-View3
+
+[SetView-View0]
+ViewTyp=1
+LineOp=2
+Channel=1
+Frame=0
+ViewSize=256
+ViewMode=0
+GraphMode=1
+AspectRatio=0
+AutoZRange=1
+ZRange=-2,1
+ParCount=6
+Par0=1,Shading,0
+Par1=1,DeltaGain,5
+Par2=1,Smooth,0
+Par3=1,DriverInstanceNo,0
+Par4=1,RangeMin,0
+Par5=1,RangeMax,95
+
+[SetView-View1]
+ViewTyp=0
+LineOp=1
+Channel=1
+Frame=0
+ViewSize=256
+ViewMode=0
+GraphMode=1
+AspectRatio=0
+AutoZRange=1
+ZRange=-3,2
+ParCount=3
+Par0=0,ReverseLine,1
+Par1=0,XAxisMin,0
+Par2=0,XAxisMax,2.08867e-09
+
+[SetView-View2]
+ViewTyp=1
+LineOp=2
+Channel=0
+Frame=0
+ViewSize=256
+ViewMode=0
+GraphMode=1
+AspectRatio=0
+AutoZRange=1
+ZRange=-138,398
+ParCount=6
+Par0=1,Shading,0
+Par1=1,DeltaGain,5
+Par2=1,Smooth,0
+Par3=1,DriverInstanceNo,0
+Par4=1,RangeMin,0
+Par5=1,RangeMax,95
+
+[SetView-View3]
+ViewTyp=0
+LineOp=1
+Channel=0
+Frame=0
+ViewSize=256
+ViewMode=0
+GraphMode=1
+AspectRatio=0
+AutoZRange=1
+ZRange=-252,747
+ParCount=3
+Par0=0,ReverseLine,1
+Par1=0,XAxisMin,0
+Par2=0,XAxisMax,2.08867e-09
+
+[ProcessorSet]
+ProcessorCount=0
+
+
+#!®Œ”‹∆˚}ml{ôìq|£è0Ì ‰ Ê ﬁ ÷ ’ Ã æ ≥ æ ≥ ´ ≠ ≥ Ø ≥ ≤ Ø ¢ ù ö ö ñ ë ê ç Ü Å ~ ~ } Ç É Ü ã Ü â ã ã è à } { { w u r j g b ] [ V W \ r t r r q k k f e e U L K H G J A ; = = = ; < = : ; 7 4 3 3 0 / * , + + * * ) & & ' + . , - ) ) # !      dcX_d[Q+*?66>'	 ¯ Ò Ò Î ‚ ‹ ÿ ‘ — “ ‡ „ Ë ˘ „ Õ æ º ª ∫ ∏ µ Æ ´ ° ü õ ï è ì í ê ë ñ ò ú ñ ê ã Ü Å t v u { q s w s w q ~ Ä Ö É à | { p h e ^ \ X \ Z f g ^ R P l d O G H G I D H E B A > 7 8 = 6 5 5 5 5 5 8 6 5 1 3 4 . / 0 1 1 - õrgaeb_JCI8136:BHLDBGJIA><.˝ Ú Î Î Î Ú ˝  ‰ ÷ — œ « ∆ ¬ ∂ ≤ ≠ ¶ ™ ∑ ∏ º ¿ Õ æ ∫ ∂ § ® ® £ ö ò é Ü ä Ö ~ } z ~ w u y | } x q p o r t j o m i ` [ ] ^ ] _ _ Y a Z V T S M O M H E F > @ = > = < ; < : < 5 5 3 / 1 1 7 0 ' , ) ´´íñúñèvedAR\`gwâàr[VHF?61',&!(.˝ ˜ Î Í „ „ ‡ € Ÿ ” — Œ ‘ ◊ ÿ ı  Ë ‡ ⁄ — “ ¿ ª ◊ ¡ » ® ö õ ï õ ó ö î ñ ñ ë ê í Å w s s q m g e a a ^ a k a \ g e ` Y W U S Q P V Z Q J H F A B A B @ @ ? = @ = > : 4 1 . / / Ëƒº∂Ø∞¢ëÑÄlpvhÄçüõïî¨™†ôézsZ9+$!CWU>*˛ ˛ È ‹ –   ∆ Œ   œ ◊ › „ € – » ¬ ¥ ∂ º « ≈ Ω ≥ ´ • § õ í ó ï ã è ã Ü Ä Ç É u p p p n l k e b ` ] [ c _ \ ` e g f b [ X R X V R N Y ] [ U [ W Y N L K H G @ L K = 4 0 0 ÙÌﬁ⁄⁄ﬁŸ∏ôìîwlv|Ñ†ûòö†üùììÅ{_=%,..?=QRUA"˜ ˆ Û Ï Á ﬂ — » ¬ √ À — ’ € ’ ’ – ∆ ƒ ¡ ∫ ∑ ∑ ≥ ∞ ¶ ú î ì è ç ä Ö Ö Å Ç ~ } } Ä É Ñ Ä w l k e _ \ \ ^ Z ] ^ ` b _ ] X Y W R N P P H B @ ? ? = @ A A = = < = ; = 5 3 3 0 . 3 €”’”÷ƒ∏±íÇulbkyÇêúØµ≠¶üõòêãsZ=32+,0;DC<,(ˇ ˝ ı Â ﬁ ﬁ „ ‚ › Ì ˙ ˙ Î Â ﬂ ” – – “ Œ º ≥ ≠ ¢ ° ù õ î ï ó ö ú ö ñ ò ö Ñ Ä w n o j i g f c f e f c d b b d d _ [ \ V T S S Q P N M K H H G F G H E B A A > ; 8 6 3 4 Ô‰÷◊ŒŒ∆≠òzqxrp{ÅàéìãÇÇzvphaZG=,*#'/;@B2/&˝ ¯ Ù Ô È · ‘   Ã Ã – ⁄ · Û Î È ‡ ÿ ◊ ÿ — » « ∏ ± © § † õ ï î ï ñ ö û ü î ñ í Ñ Å x v z n n r j d c d l i c d k d i e ^ ] [ R S V W V O I H F B A A A D B D @ ? ? = < 5 5 ¸ˆÎÏÊ‘∆≤Ωõàèèó≠ùóòäÖÑ}laYJ=2A?VeccrbQTNJBEEB6ˇ Ú Ó Ï ¯ ı Ô ﬂ ‹ ﬂ ‹ ’ Ã ∆ ± ´ • ° ô ò ö • Æ Ø ® ù ó î ê ì é w s p l l h e j l k l k w x s p n d a ` ] \ Y ^ X R M R R K H K G H H L K F E M E A B G  ÛÙ÷Ã¿≠ûúªƒíyt{~xojaa[WRA./8"!""' ˛ ˚ ı Ì Ê ﬂ ﬂ Ÿ ◊ ÿ ⁄ ﬂ Ó Ú Î › ◊ – » ¡ ª Æ § ú î í è ï ó ò ö û ù î ç à â É w t q n h e e c c f d f d c e d d a _ Z X V T X U P L H G H F H D C B C B B A : 7 5 4 5 4 '¸‘«∑∏œ≈≠™ó¶ƒæ∞Æ§ùíìè{haH3-556247?4,$  Ê ‡ ﬁ › Á  ˆ  Ú ‚ ⁄ Ã ≈ ¬ π ∏ ≥ ≠ ¢ ù ü ¢ ° ® ¶ ≠ ™ • ô ñ î ç É Ä { x t r o h g g j l l o o m h f b a ] _ W O P N N J H G K L K K K H I F F A > ; ; : 7 !&)0-Í—ﬁ„Á·ƒ≠¶úëêíìÇzvÇÅvfM:7J]@˝ ¯ Î · ﬁ ‚ ‰ Ê Û ı Ô Ì Ì Ë · “   √ ¿ ∂ ∞ ¨ ® • § ¢ õ ö û ü † ü ú ê ä Ñ Ö Ö É { { Å | t k h e d f h k g f a [ ] \ [ Z Q P N I H D D D E F E D C G D B ? ; 7 8 ; 5 6  +$ˇ‚Ã√≈—Õ≠óèÉàëçíèç~~ugHFLIJF0,###
+Û Ï ‚ · € Ë  Û Î Û Ï Ê ﬂ ﬁ € ÿ — Œ   ø ∏ ∂ µ ≤ ≠ ± ± ¶ Ø ´ ∞ ∞ ü é Ö Ö Ö Ñ  x x r r n k k f e i k k g c a ` ` ^ ] ^ V T M G H L F H H K H G H D A D = ; < ; = 6 8=;1#ÚÍÎ·⁄–º§úíäéåöä{ÑöÉlU<5P_hG)%$"!˚ ˜ ˜ ı Ò Á € ‡ Õ √ ƒ ¬ ¬ ƒ Œ — ’ ⁄ ◊ ‘ ’ – Ã ¡ ∑ ¶ ì í ë î ï ó õ ¶ ¶ ´ § ò Ñ É   | w p r k f a c f m k n o p l g e d [ _ ] ^ R J G F E H K F E G D C A A A @ ; : ? 7 2 Yå[0‹’ÿÍ<_+‡Æ¶¢ïôïäìùîé|fQJHK.!
+
+
+˝ ı Ï ‡ Á ’ œ –   ƒ ¡ √ ¬ ƒ » « ¿ ø º ª ∏ ≥ Ø ™ û ó ó ö ô ñ ö ò ñ î Ü Ñ É } z | v p q k d a _ ` c a g o m p l g a _ ^ ` T T P M M J J P M M O K O J F C A > = @ = 6  7ZX›Õ “€÷”πßìäÅ}†ƒÀ–—Ãús]tÉa^dS6-˝ ˇ Ï ‹ ‘ ﬂ Ë Ê Á ∆ ∫ ª º ª æ Ω æ ª ∫ ∂ ∞ ™ ¶ ü î ç ê ì â Ñ á é ä Ü Ñ Å ~ { | s w u l f e _ _ ` a a j n t q o j ^ ^ \ W T Q M L I E D E G H G F C H F E B = = ; 6 5 5 ˝ ˘“ Œ …¡ø¥®öé~ursÉ±∂ø¿°oFCJJEA</ ¯ ˝ ˇ  ˝ Ù Ë ‚ Ù ˘ Ú ﬂ Œ ¡ ∏ ∫ π ∏ æ º µ ≤ ≤ ∞ Æ ® ™ £ ï á à Ö Ü Ö Ü Ö Ç  Ñ É ~ { } v w m k k e k m g l p t s u q m h d d ] Z Y V R L J E F G J L O W P S N H F E E D B A (=.BÌÍÚ ˚Á›’À§éäé≤∏π™ñpàzqre_SVP?6,'!$/0'˝ ı Ì Ë ‡ ÿ ” “ ’ — ’ ÿ ’ – Õ Ã   º ≤ ∞ ∂ ´ ö õ ö ï é ã ç î ë Ü á Ü à Ç Ç Ç | y t r s m n k n o k k g a ^ ] _ Z W T S Q L P R T T N M P S P I H F F D ? : 7 DGOK8‚‡„⁄∆≤§¶ôïéäÜÅêî¶îkUNNURRC8?-!  Û Î Î Â œ – – ∆ ø Ω ¡ ¬ ¬ ¿ ¡ ¡ º ª ∑ ± ° ï í ã à É Ç Å Ä  Ñ Å ã Ñ É É à ê õ ® ï z u p k m e b a a c b b \ ^ Y [ V W U S M I K L M N L M M P J E B @ B @ > 6 4 ,BggbG*˙ˆÊ⁄ƒ®úîêé£®«”É]NMX^VD4'#˜ ¯ Ú Ô Ë Ë ‰ ‡ › ” “ — Œ « √ √ √ Ω ª Ω æ ± ¢ ô ù ° û ù ö è ã à å Ü Ç Ç }  v w x t s n m o g f e e d _ [ ] _ U X c g [ [ S Q O N M J H H H G K K L J B @ = < = 9 Zx~ÅiE.%ÙÎÿ≈º¿¬Ÿﬁ÷ÊÀßxhÄå}yl^J@11+.30_b?E"-"˜ ˇ ˝ Ô ﬂ   ∆ ∏ ± ® ≠ ∞ ™ • ß † ó é å å ê ã Ö Ü à Ö É | w x v p o n m j h e e b ^ ` [ V U T Q N R O R O M H G D G G J C A A ? ; ; 5 7 5 7 8 5ChR`I ˙ÒÓ‰Ÿ–∑≠∞§ø –◊¡æ°|wsmmleWMD>2!<.ˇ ˘ ¯ ˚ ˘ Ú Í · ◊ ” Ã À … » » Â „ Ï Ô œ À ® • ¢ ° ú õ ï ò ó ó ò è å à á ç Ö Ü ~ z } ~ z w q p n l i j f ` b b ^ _ ` _ \ X S V Y W O N H D F F H H C E C = > A ? ; 7 js{Äg]NJÜò> Ã¿«∏ù°≤∞∏≈”µÇwoj`[NH=,##(*(+4& ˚ ˙ Ù  ‚ Ÿ Ã   Ã   « € 	 Â   ≤ Æ ≠ ¶ ° † ï ò ê å à ë ã â í è ¢ ó ã Å } | Ä | { w v r t r o k k d b _ ] ] X Z \ X W R N L K H F C E A @ = ? = < 9 ; 8 8 
+ˇ˚ıÁÂ‹„ƒ∫¿ùëä}qyustù∞ØétoefhSD2,/J_>6@C."¸ ˝ ˙ Ï Ê — ¬ π ∂ µ ≠ ¥ ¨ ¿ œ ” « ¬ § ü † ô ò ñ é â Ü Ç ~  | { | r n o p q k r o k n i g d f b c ] ^ [ X U R R R S M M O M I F E G C A @ A @ ? < : 8 6 3 2 4 ˇ¸˝ÒÓﬁ›—œ¬∑ùëásddkhgkmrxrf]N@;792/	˛ ˜ Ù Ú  Ô Ê € ◊ “ — Ã ¬ Ω ª Ω º ø Õ ¥ ≠ £ • ¢ † ù ö ì é Ü à Å Ç Ä } ë ò ñ Ü  Å Ä z { u r p p n h d e a _ a e k ] [ Z Y P M P R Q N Q K J K G F G D E E F G B A 5=HD;(&ı∏óÖ{dkmtÄÜãÖéåÜÇ~vn]:)/@>;.	¸ ˙ ı Ô „ ⁄ — ∆ ¡ ‡ ‚ Á ’ ÿ Œ ∑ ¨ ™ § § • ¶ ° õ ë ä á à Ü É á Ö ù † ç à Ö É Ç Ä { z s o m j f e c ] [ ] ^ [ Z Y \ d ` ^ X V O I F I F D ? A = ? > < : ; = < (˛ÍÏﬁ‡Á—µ§wfST[p^eiqwxslhce^PG#˚ ı  #,1¯  Ì Ê Ê ﬂ ⁄ — » ƒ √ æ ª ø ø Ã ” ¡ µ ® ß ¶ ¶ † õ ó ï é à Ö Å É Å ~ Ñ ë ï î  } z t s o q l f e ` a ` ] Z X X X S S W Z V W R Q L M K L H A A @ @ @ > ? @ @ @ A KSR?/04t£f(!ﬂŒªß®ü§àîúûéÑnnphgWSA3(&(/+"ˇ Ú Ÿ ≈ ¿ ≈ ƒ À Œ ” ‰ Ì ‡ ◊ æ Æ ± ∞ © ß ™ † ô ã Ñ É Ö á ç ç í ë é á  Ö z w u q l d a _ ] a a b c c ` [ [ [ Z [ ] X R Q P R M M J K J E E D ? > A = : : /*//2
+˘À≥°ìéç}osupldc^ZQLL=1#
+˛ ˛ ˛ ı ‡ ◊ À — Ã ‘ ÷ “ ◊ ◊ ‚ ﬂ ∆ º ∂ ¥ Ø ™ § ¢ † ü ° ú ù ñ ï ì ú † † è û ó ñ è ã  z v s o m j g f d e c a _ Z \ ] Z [ [ [ [ Z T P M I F E B B A A @ @ B P<;?Z[W\OZK?œµ´´Ø´™ã{{{zwstrrnnd[</$!&ˇ ı Ó Ô Ì Í ‰ ﬂ ‹ € Ã « æ ∏ µ ∫ Ω µ ¥ ≥ ± ® ß † ö ó ñ ë ê è à Ö á É ã é ü ú õ ì Ñ Å | t q o m j n l d ^ ] ] ^ ^ _ _ \ ` c \ X S U T T R M K E G A @ @ @ C @ @ @ ? ? )ˇ¯ÎÕØ™¢òìèÉe\WSSUWWYVSNG5 
+  Ô Ô Ó Ì Ê Á ‚ · · ⁄ ‘ Œ   ƒ ª ≥ Ø ¢ ò ú ù ° ¶ § £ ß ´ ´ ® • £ ü ö ã Ç x s s t x } ~ | w { { v v u r p g d _ \ V R Q T V W X U U X U Q M H H K L G E ? = : : = ? > ? ? = > = : H,˛È‰‹·”ø»∏ø¡∫≥ÆßôèzmkbWOHHA4!#'  ˙ ¯ Û Ô Î ‰ „ „ · ﬂ – … ¡ √ ø ø ¿ Æ Ø ≤ ™ ® £ † ü ú ò î ì ë è ê ä É } z v á á Ü Ñ Ä  { w s r m o m h ^ ^ ] b e ` ] ` a c a _ Y P Q N L I I E D A ; ; = @ A B A D B A Y8&"5 Í÷‘⁄◊”¡Æòå}sklidgwmqc6963("¸ ˆ Ú  Ú #˝ ‘ ¿ ∫ π π « ƒ æ ª µ Ø ™ § ° ü ú ó î è å ç à á Ö ~ { Ç  Ç { { x s n f g g l h d c b _ ] _ b W [ X Y R T U X L D C D C A @ > = : ; 7 7 7 8 6 8 5 6 8 3 ÔÓœ« ÷‚Î‚–¨úúùôèÇ}jXOGA<<;Wzq]a=˝ ˙ Ò Â ﬂ ‡ › ‹ Û  Ê « æ √ ≈ Œ ≈ ≈ — Ã ∫ ∂ ‘ ∆ ∂ µ À œ ¡ ª ö ï ü ö ë ä å Ü ê ë ï ì Ä { w t q f _ [ b h r k b \ V ^ u Ñ  ` S V f [ M C B F E @ 9 9 9 6 < D = @ = B B G > ,!¸˝˝/0Ê‹–∆º¡¥©òárh^]cgÜÖM<APHA:0!
+˙ ˜ Ú Ï !"Á ‘ — … ƒ ¿ æ º ∂ ∑ ≥ ¨ ¨ ™ ¶ æ Ω ≤ ¨ ® ® £ ç É } ä á é í Å z w u o l m g b ` d b d l g \ U T R P P Q R R O M M H D F F D B @ = > = ; 8 6 9 < ? @ E B @ ıÎﬁÕ∆∏ºœ‡ÚÌ“∆¥©®†ùòã{l[LHC@ES[D,#%" Ù Ô Í ‰ ﬂ Ú  Ú ¸ Ò Û Ï Î ‰ Í ≈ ‘ ∆ ¿ ¨ ¶ ≥ ª ≥ ® © ™ ≠ ´ ≠ ¶ û ò ê É Å x w q r j h d d f g j i ` ^ V R P L L K K L I F F D B A @ = : = @ = 8 8 : ; ; 6 5 8 6 7 6 3 ÍÂ€—‘‘‡Î¸˚Ù·—≈∞®†îåÆ∂üÉã}xwuu\I@>;95/ 
+˛ Ù  ¸ ˙ ¸ Ù Ì ‰ ‹ › ⁄ ‰ ﬁ ÿ – « æ ∫ ∂ ± Æ ´ ® ¶ • † ü ò õ ü õ õ ñ ó é Ü Ä v s o n l h h g d c b d ` [ X T R T O J H G K L L K H C C C A ? ? @ > < : 9 7 4 2 6 3 2 4 ¯€Jùï¶¿3Tóôz-¸Ì˚⁄¿ª•}onot{ñÖêÑw`NDMB7,.+˛ ˇ  Î Û ¸ ˙ ¯ Ú ‰ € ” « √ ª µ Ø ¨ ¶ £ ¶ ¢ õ ò ú ö ì è á Ç  | z x t p n j f c ^ ] ` ` \ ^ X Y R P P N M F E A D A B B B A > = ? @ < 8 8 4 1 5 5 0 - . 2 0 0 ¯Ë◊◊√∂∫∆›Ù‚÷÷ ¿±®öãzjH/!(>IPZebJ4/#	Ú ‰ Â Á Ê Í  Ò € ÷ ‘ — “ ‡ ‰ Ó Ï  „ › ¿ º ¿ ∫ Æ £ § ö ï í ê í § û å á Ä Ä x q p z v { x { z ~ ~ m o e b ` \ ] V T O L H H D C F B A B > @ > < 9 = < 9 7 9 : 7 4 5 0 0 jOC7/% #˝Â◊Œ¥ûõì{iZNP>:?JQQTRSPLC:5. Ì Ë Ë Â · Ó ¸ Ò Â ‹ ’ – » ƒ ¬ ∫ ≥ ≠ ß ¢ ¨ ® ´ ´ Ø § ö ò î å à É É { | z w z s n m k h h e j d ^ _ ] ] \ [ Y V U T O O T P M K K G E F C D D C A ? = < ? A A ? B 7 5 -˘Ò‰‡‡’ŒÃ Ω≤®ûîä~xsjZJHGB764.%˚ Û Ï Ë ﬁ Ÿ ‚ › ’ ‘ › › ﬁ ﬂ ‹ › “ ≈ º ª ∫ ¥ ≤ Æ ´ ¢ ü ò ó ö ô ü ° • õ ë ä Ä  { { r p p k g f e d a b e c ` ] W U T W T T T Q M K H E D B @ ? ? < = ? ? A D E ? ; ; 6 4 1 0 / 1 1 . 0 ¸Ù ˚”ﬁ∫≈≤¡¨èïÜô¢ú{ndaVUN965.,C"˜ Ô Â ‚ ◊ € „ € ⁄ ÿ ÷ ’ Œ √ ª ¥ ≤ ≠ ß ¶ ° ò ú ó î ì î ó ö ¢ ü £ õ ë É Ä | | s n l k m f a c c a a a ^ Z V V W V U R O N K G E E C C A @ A ? = > > @ > > = 8 6 4 2 . / - - . , Ì‚ﬂÊÁ‡»≤´¨∞•ß°ù¢úòïïÖbLJKDC7&$¯ Ù ı Ú  Á › À Ã Õ — — Œ œ – Œ œ œ Ã « ¬ ¿ ∑ ≥ ® ò ë ò ü ö ó † § • • ¶ † ä á Å | v t s q k ` _ ` c a f g l o m a Z Y V W U V S G B F A D E C E C B H E B B @ A A > : : < 6 6 7 5 3 ÙÔÏÂﬁ◊™ôò£°•™™§öêsXJLNIEDB1 
+˛ ˜ Ì Á Ê Ò · “ Ã À – Ã ¿ ¡ ∑ ¥ Ω ¡ æ ¥ ≤ ´ ù ì ë ì ó ú ü ü † ® ¶ ö ë Ü É ~ ~ z { t r p k f f f g h k q f a a \ X V V T S Q N F G D F D B @ ? ? ? = ; ; : 8 9 8 7 5 3 1 5 5 4 1 ˜Ó‰≤óõö™∞∑¡∆≈∂üwdffc\XTG( #+.-+%--5)˛ ¯ Ù Ï Ë ‹ Ã » » ≈ » Œ ≈ Ω º ª µ π º ∂ ∞ Ø ß ô î î ï ñ ô õ ò ñ í í ê ä Ñ ~ Å u p u l h j o s r u v q e \ Y W X S Q N J E B E D B G J J I G E C A = = ; 8 6 1 / . . . . - ˚ˇ˙¯Õ£ñâéú≤…¬ø∞™ßòz`[XSMRL* "&# Ò ‰ › ‡ · ﬂ „ Œ ≈ » ¿ ¿ ø º ∑ ∂ ≥ ∞ Æ ´ Ø ¨ £ ü ü ú í ï ê ï ò ó ï ï ê ê è ã É v o u r r s l o n k k m h d _ Z W V T U T S N L L L G E F G E G C > = 8 = = = < 7 ; 6 5 4 4 9 6 @L>/ÒÁ’¿∏∏¬≈¿≈ ÁµíÑèÖ~tqlWKF=:<[~vspaT&	Ù Ì ‰ › Ÿ ÷ – À ≈ ∆ Ã œ » ¡ ∂ Æ ∞ ß ¨ ö ò ï ò ê è è ê ã Ñ å É á á É Ä } w z } r n n n n n g i h f c e a ^ V P K J L J J Q R X T P L G B A ? : : 5 3 4 D S e U LB531%
+Ú›œø¬ƒ≈≈◊⁄≈§ùúéêäÑsqcL?799@`]^]V<˙ Ô ‡ ‘ – Ã ˙ Á ‹ € › ’ ≈   π » ‚  ◊ » œ ‘ æ £ £ ¡ ÿ ¡ ¨ ∑ § † ß ù á ã ö ò Ö é ò Ñ ~ w Ä ê £ ® ù ì x t s n m r d f X b d e w g _ l w á e ` _ R d K O A A H H U 	˛Ïÿ“«≤≠ßØµ¥ª≥úµÇÉÅzvnaaXOD40,+Eg`M>*#ˇ ı Ô ‰ · Ÿ œ … » ≈ ø µ π æ ∑ ∂ ≥ Ø ≤ ≤ ¶ ¢ û î ê í û é ã Ü Å w | Å  ~ z t t o n j f e c b ] [ X Y Z X U W T V S O M J Q J M N K I B A A R V L ? > < 7 < 9 ; ,
+˙ÒÂ’ºÆüûß©Õ”∂®êÖááÖ{pdUL>80" "IN9.42.˛ ¯ Ò Ê ﬁ “ « ∆ √ ø æ ﬂ ‡ ‹ ‚ € … ∂ ¥ ¨ ∞ ∞ ∞ ™ ¶ ü ò ô î ê é á É ~ | ~ { x Å Ñ  | | } s w m d ` c d c ] V S Q N Q N N K F G F E F H E C @ > = > : 5 7 4 5 9 6 9 : 8 7 6 ˇÌ‰Œ≥±Æ¡Ã˚‰¿∂•üÖåÑ|slXPG3*)6CEgF'
+ˇ ı Ê ﬁ ◊ ” ‘ œ  Ú ˙ ˛ Ù ‹   æ √ ∫ π ∏ ∂ ≤ Ø ¨ ¢ ú ò ñ ° • £ ù î â Ñ Ä Ä Ö á Ñ Ç  ~ u u q j d d ` \ Z V S V U V R S P M J J H H L H C B B < @ = ; : 6 7 4 1 4 3 2 A2 ˇÒÏ‹¡≥∞∏æ–ﬁﬂ‰Ï„≈Ø°öèÜ~qf\NDADHNmeO7,+0(% ˛  Ë ‡ ﬂ ﬁ ⁄ ˜ Â ˙ Û ‹ Œ ∆ Õ » √ ¡ æ ∏ ≤ ™ ° û ú ö ï ° • ° û ë Ö É á Ö â É Å à x m h d ` ` ] Z W Z V S W [ S Y T W V N M P O J H L J K E C F F E B B > ; 9 5 3 / B-˚ÒÂ”º¢õõ™Ø∫∫≈¬¿∂§ìâÇ{sgdWNB77CCDOVC,	˚ Í › ’ œ   » À À ‘ ›  ÷ ¡ ∫ µ µ ∫ ∑ µ ≠ £ û õ é è ê £ § £ û õ ê é é Ü {   u s t n h h a _ [ Y X T Q P O R R T P I G G D B ? = > ; : < : 8 6 7 6 7 6 5 5 0 4 / - '%˝Ì„÷Ω†îáÖåíùß≠∞Ø´¶¢óêé~sW<' (8BNX`XW?2,$¯ Ò „ ÷ ’ ‹ ﬂ ﬁ Â Ï Ù · Õ » » ∆ » ¬ ¥ ∞ ß ú õ ï ï ì ¢ ∂ ≤ ¡ ≥ † ó ò é Ä Å É ~ z q n k e c ` ] Z [ Z Y X [ X V N N M K L K G B C A @ ? ; < = > : 7 : 5 6 5 4 2 2 ( ˙ÛÈ›Ã¥¨éÜçõ®•∞Ø©£öëámL9("-9FHPVC31"	˝ Ù Ó Ó Í Ë Û Í „ ‘ À ≈ ∆ ≈ « ¬ ∫ ≤ ß £ û ô ó ñ í ¶ ¨ ± ≥ ™ ë ñ è à É É É | Ü Ö t m r s Ä  x h ] X [ b c _ X T W T S N L K E M K K B D E C A > > @ A ? < : 5 Ä~ÜÜqR2¯ÍﬁŸ“‹∫∏Ω¥ß¨üæƒπÅtwiP0+.4@IOSXXQH>HJ0)Í ‡ Â Â Í Ì ˆ ı „ ‡ € ⁄ ” ” Ã √ ¿ ¥ Ø ß § ß ™ ∞ Æ ± ¨ ü † ñ ó å å à Ö Ç { x r p m l j l o h g d ] ] _ [ Y V U Q O L M L H F F C D K C M L M K H E G A 9 XXRB9!¯Ó‡–À¬Ωæ∫∞§ûéÉyrh^TRLH4447=<:;/
+˙ ı Ó Ó Î ⁄ ’ ” ” ‘ ⁄ „ Ë Ë Ì Ë ‹ ‘ ∆ ¬ Ω º ∏ ∂ ∑ ´ § ¢ õ õ ï í ô ¶ ™ î ó ñ å Ü á Å } w u r n l h j e d q s q q m j ` \ V Q P P O P N L K D C A D > ; : : ; A > < = > ; 3 r\TBB5!˙ˆÌ›÷”Àƒª∏Æõïëïõzq`MNLM:8;@F*$(,2.(¸ ˙ Ï „ „ Ó Û Ú Ë € ÿ œ ∫ ¨ ß ™ ≠ ø ∏ √ » √ ≠ § ü £ ò ö ë í ê Ü Å u s p p p q t p l k j c e ` ] [ \ V Q O K G H G G H I G I F E E C A B A > = = ÄÜÜíâÉSˆË⁄⁄÷À¥ûûö†¨ù†õôìíájQIB=64)˝ Ù  Ô Á ﬁ ◊ — ﬁ ” Œ ” – “ ÷ ÿ – —   À « √ ¡ æ Ω ∞ ü ñ ñ £ ò ú £ § ú ë î ê ä Ü á Ä Å w t u p q k | • ù á s l d d f p a \ W Z X S O T O M F A @ E C > D B B B A D > = ; : Rfe}éh ÒÓ„æ≠¢ùúü±≥∞≤¥∂Æ•ôoRIORP\Q>AE;6'# ˚ ¯ Ú  È · È ‰ ‰ ÿ Õ   … √ √ ª ≥ ° † ¢ † ° ° § ´ ± ú õ ó î í å á } z y s m g f e c b c h e l g h ^ \ X U S R Q H G G G D G L I D D F E ? C A @ > ; 7 5 çú£æΩúQ8,¸ÎÀ¡º¿Œ€ÿﬂﬁ›”ÕÃæñÖ}zohNA@C><8/304.˙ Ï Ë Â ﬂ € ‘ –   … » ≈ æ º ∆ « æ π ß £ • ß • ß ¶ § ü ò ô ñ ê á É Ñ  u r o l h k t { Ä Å Ç z j c ^ \ W T P K E B @ @ E F F F D D C A ? = < : 7 8 5 PXZáòy5& Á’œ¡≥±≤µ∏–¢ëwtpb]WTQH><7fqj`RL=:˚ Ô Ô ˙ ˝ ˜ Ò Ò Ù Ì Ï Î › € — « Ω ¥ ∫ ∫ ∂ Æ ≠ ™ • © © ß • ¢ û ï ï ê í å É ~ t o r r s t p h h n n l j f ` Z X T S S Q M K F E B A C A A B C A > < 6 6 5 7 8 5 nyzjM0 ':9-$ ÚÓÓÎÁ‹—ƒ¬º™öóõêéèëëÄmaVOJB;30((!
+ˇ ˆ Ó Á ‚ ‚ ’ “ À √ º ø ø ≈ √ º ∑ ¨ ® • £ ° † ù ö ò ï è à ã ã Ñ ~ } { y o v o e i s t m k o q e ` Z U R P O L H E A G H E F J J K K L E ? ; : 6 7 6 ruç†ìc:/0*ˇÏ“¡¬∆Õ–”Ì·˚‚ØìäÅ~|sndYH?<=Hkkb]H=˙ ı Ô Ê ﬁ Ÿ Õ » ø   ¡ Ω ≈ π Æ • § • ß £ ° ó ñ ï í ñ ï î Ñ Ü à Å } z z | Ä x { v r r s o s j e ` ^ \ U X W T O C C ? B A @ C C H H H H A ; 7 6 6 5 3 àùâÑeD5!% ˘Â‹»¨Æ∏≈»”–·¬úíãéåÉylcWG>@BBNNomdA
+	ˇ ˆ Ú Ô Á „ › ◊ Â Ù Ú Ó Ê › ◊ — ∂ ¨ ± ∑ ≥ ≠ ¶ § ° ü õ ô î î â å á É Å Ñ Ü Å z { w x x q p m k j j d ^ Z X T O N J H F D B B E H F E G G C A ? ; 7 9 ; 7 áòõó†ú•wTB=0$˝ÎÁÛÔÛ˛ı‡÷√™£ñìîáug\]MGNXZZ~l_`:-,'# ˙ Ô Ë   ˝ ˇ ¸ ˚ Ù ‰ ‹ À Õ √ æ æ ø ª ∂ ± ¨ • ¶ £ ¢ £ ß ¶ ò ç ñ ö é á ~ ~ { y { v u n j h d b ] \ X W S R O N K F E E F H G C B A > < < 8 8 5 6 váì¶ß†ÑkN5,%¸Á⁄œœ’‚ıÔ„øØ¶£ùèÉxi]PIRX\Wb^[P/" ı  Î Ë Â ˜ ˛ Ì Ì ’ » « Ω ∂ ¥ ± Æ ® ¢ † † ü ñ ï ê è ê ã ç Ü Ü Ö Ü  Ä z w z y s r o f a ^ [ X V W V R P M L K I K H D C A A B ? ? @ = 9 7 6 vvÅwrbQG(Í“∆√∏≠´¡–”„‰ﬂÚı·µ¢ùèÜ{lbWH=BHFHPbX0" Ù Ï ‚ ‡ ‹ ÷ ÿ „ ı ‡ Ï  Ë “ – › ” √ Ø ∞ ® £ ü õ ò ê ï ¢ ô û î ã ã Å | à Ö Ç } t n k j d _ ` \ [ W X T R Q P O N L K J H F C B B A B B > < 7 7 5 4 6 6 ÄÑÑà}cP9(˝‰” ¿Ø™Æ≈⁄Ô˚ı˜˛ÂÕ∏≠§üàoecfQ>8J^osdf_G@:.-$ˇ ˜ Ò Í ‡ Â Í È Ó ‡ ÿ ÷ œ » √ « ƒ ≈ ø ¥ ® û ù ú ù ö ì ì î î î î û ó ã Ü Ñ É  y u o n n l g b ` ^ ^ [ T T R L G F F F E E @ @ ? A E @ < : : = ; 9 gonfeXWC0¸ÒÓ·Ãªºƒ‹Ë¯˜Ûˆ‹Œ∫ßùç|rme[M:5<BI^^e`VC)Ú Â Á ‰ ‹ ‘ ÷ € € Ê ‘ » ¡ ª Ω ø ¿ ¿ æ µ ¨ £ ö ï ó ò î ñ ë è à á Ñ Ñ Ñ å Ç  | z t n l g d ` ^ Z W V S R O M O M H E D E F C @ > : < : 8 7 4 2 1 / 3 O=0,,.-#
+ı„‘»∑∞®¶∞∑Ω≈Ã«∑Ø¶îÉq`VOC<0)0./5@FGGE>, ˚ ı Ì · ◊ ’ “ Œ “ ” ÷ ‡ ‰ ⁄ Ã ∆ √ ¡ º ø ∫ ≥ ≠ § ¢ ù í ó í í ç è î ë ä ä É É } { s l k h g c ^ ] W X Q Q R R T U U L H H H D C A @ > = = 7 5 5 3 7 3 4 2 9%'><*˚‰»§àéû∞¥≤¥Æ∞∑∏∞ùéÑnZIC101<:q®ÿæpb[NI/!ˆ Î Á › ÿ ‘ ‹ ‡ ‰ Û Ú Ë Ë · ’ » ø ∑ ¨ • û ú û ô † ú • ¶ ® ´ ≤ • ° û õ é Ñ w p j h d c a e i h e d c ` \ _ ] [ R K E B @ ? > > = > > > > @ A @ dL;+'#!5PbebTH(’œ¿ø∑≥π≤¨ßØ≥™ûëÉÄweM427?FHKFGJLL8- ˆ Ì ﬂ ÿ – Õ Õ – ‘ ﬁ Ê  ˘  ı Ï „ › ‘   ¬ ª ≥ ü ö õ ú õ ú ö £ † £ • § ü ò ì è Ü ~ x m f e b _ ` ` _ b e b c ` ] ] [ T R M E > ? < < 8 : ? > ; = ; 9 8 ="ˇ˘˙ .7="ˇ„æ°óööåâwrozÅ|rkf^SID(&-$/*,*+),& ˝ Ù Ë › ’ Ã ¬ æ √ ≈ — € ‡ Á Ì Â ‹ –   ¿ ∂ ¨ • ú ñ î ê ê é ë ñ ö ò û ¶ ü ù ù ï ã Ö Ñ ~ t i b \ \ X ^ ^ \ ] ` \ Z Y V V V T K F D A A ? > @ A @ > ? < 9 ; <+	˛ˇ"8=H>¸‡‹€Ÿ»∑¨¢òîñò•®≠¨®§íÖr]OPLLJGB;8>;3(ˇ ¸ Ì › € ‹ ◊ ﬁ ﬂ · ‰ Î Í ‰ € ‘ œ » ø ∑ ± ° § † † ì ó ñ ö õ û ¶ ¶ ® û ò í ã Ö Å x n e b a b ` _ a e i p p o j c c ] Y P K J D C C A A @ A B B ? = < J9'˛ˇ%-,:J/4&Ô“¿∞ßïèâêåñ¶≤∫∑¥¥¨ds^TOHFA=5/70*% 	˜ Ë ‚ „ · ﬁ € ◊ ﬁ ‹ ” Œ « ≈ º ∏ Ø ¨ ± Ø ´ û ú í ë ñ ù ö ù ù ñ ê å à Å ~ z s k c \ Y X Y ^ ^ d h m o h ^ Z \ X T M I C @ : ; 8 : < : : > = ; ; ;¯Û˛Òÿæ∂ûëÖtuvÄáåö¢§≠¢¶ïä`JF?A:3-%(8+*Ò Â ‚ ‡ € ◊ ’ — œ – ‘ Õ … ¿ µ ∑ Æ ∞ ® ¢ û î å è ã ç è ë ì è ã Ö Ç | { x u l c [ U W U U X c a g l e ` \ Y U P M K G C > > : ; < 8 8 7 ; < ; < F,ˆı˚˙*D]K-!Û“º°ó~}pwÑçñ•Ω¥Ø¨úïÑj]ED4*$!%(%Á ’ · › ” “ Õ – Ã « Õ ∆ ≈ √ º √ Æ ø ∂ ∞ Æ • ° õ ê è ã å Ñ Ü á Å Ä z t s q n k p n f c [ W Z ^ d f a _ Z T U P O J H D A ; 8 < : < : 5 8 : = > : %ÒÙ	=HR<+ÚÂÃµõä|wpr|ãçò®†ØúúêäwcQ>5,!!,2:5+"%'*#ı Â ‹ ‘ Õ Œ « ƒ À ¬ ø ∏ ø ∫ ≤ ™ ´ ≠ ® † í ê á Ç Å } | ~ z w s q q m g k k j f \ X W W T U [ \ X [ U P M K H H C A ? < = : 6 6 5 8 > = = ; &ˆ‰◊‚Ú2epf@% Ò‹Õ≤¶ñÜÅÅÖè†∆‚Ï◊À¿∂•ìwaQD92(*,15=LFE@<:4#˙ Ó „ › ⁄ ÷ ” € ‡ ÿ ÷ Ÿ – Õ √ ø ∫ ≤ ™ ° û õ í ë é å â à ã Ü Ç ~ { v t q g g f ` _ _ Z Z \ ^ _ Z Z W Q P K J J H A > ; ; 7 6 9 : = ; < 8 
+„«∑Ø∑◊ÍÛ"5(Ù‡ÕªßîÅg`caguç≥¡“¥¶éÄsfR<+('! ¸ Û Â ” » Ω Ω Ω ∑ ∑ ∏ Æ ¨ ´ Æ ≠ ≥ ≤ ® û õ î Ñ | z u r s q v p m k h d c ` ` _ T Q O K J G J J P P O M K H F A B A B A @ : 4 2 0 / . 4 2 4 3 4 ·µ¶µ∆œ”“◊›Ïﬁ‘ÀΩßí~wn\PbeuÅó°µ∫°âye[O<B2'  $2?XL?7/60Ú ‰ Í Ã ƒ Ω ¿ √ ∫ ¿ ∑ Ω ∏ π ¡ ≤ Æ ∞ • ú è Ö Ä | y x v v { | z v t m j q s o k k ` X T Q P M S X P L L P [ G C B ? ? 8 4 1 / 1 0 2 2 5 5 4 ‘∏à* ˙ÓˆıˆŸŒ—∂ßãojd^gryv|äéÜäÜn_4(˛ ˇ %2?3Ú ‹ œ √ ∏ ∏ Æ Æ ´ ® ≤ ∞ ≥ ∑ º ∫ ¨ ® § ° î â Ñ | v r k h g k m k j g f c ` ] b ^ [ Q M N K L K J J G H H E F A @ @ > < > < / , , , , + , - - ˝¬ß≤¿¿∂∑Æ¢•¢®¥¥´õöã~qfMI?ANUXXNRQQF6+$	¯ Ë · › Ÿ ⁄ ‚ Í Ò ˚ Ó Â ‹ ‘ √ º Ø £ ¨ ¢ • † ¶ ∞ ´ ∞ ∞ ∞ Æ ¨ • ü ó ï å á Å w m h e d c d c h g h i h i h c a ` _ S M N M N M E D L F B C D C F D C A > 6 / . , - / / , / Å<J0pÄz◊€ÕË˙Í‡ÈÊŸƒ≠ƒßöêàâÇÉäãi_]\WE<0(!(/5.4<.˝ ¯ Ô Â ‹ ‘   ‘ » » º æ À « ’ — Ã √ º ª Ø ≠ • ò ì à Å w p q o m o o s  Ç y s u p n o b [ W S O N N J J K K J H F F E E D C @ 8 2 1 0 . / . 0 1 3 ÇhS,!˚ÎŒ¡æΩƒÏı˙˝˝ÙÈ€Ã~oÑÇÖ~umkjdqrd[ZTQH@5 ''*/0-*&&˜ Ï ‰ € “ ¬ ≈ √ ∫ Æ ∞ ≥ ≤ ± ¥ ≥ ≤ ± ´ û ò ì á } v o h d ^ a _ b g m o p g d ` ` \ X W P J K H L I G H K K K J C F B ? > > 3 / . ) + + , * ( + 2!˝ÙÌ€ ¥´ß§¨æÀœÃÀæµ¨ömbedhdaQJMTTPKEA80'	
+ ı Ó Ë ﬂ ◊ Œ « ª ∞ ¥ ¥ ≥ µ π π ∑ ∏ ≥ ≠ ™ • ° ù ò í ã Å w s n i h h m r } | z r l k f c _ [ T V O N J L L J L N O O N K J H D C D E > 7 5 5 7 5 6 8 áW>(!˚Î⁄”‘ÿﬂÔ˝˚Ï—µ©òòóñäÉrrtv{Åznrg`WG<6%.6<<8(ˇ ı Û Á € Œ √ ≈ ≈   À ”   » ¡ ¡ º ∑ ± ¨ § õ í ã É z s r n r x Ö é ç è ã ~ | w t l e a ] W V S O P M P P T U R N K K I G D > 9 6 5 7 6 5 4 4 gmcS8˛Ê◊≈∂∂¥≥√œ⁄Ë‹“» ≤ùìÅ}l\VOJO[QRLJCE;93(( ˇ ¯  Â ‰ › ÿ ” — ∆ ª Æ ¶ © ™ ™ ® Æ ™ £ £ ü õ ñ í ç Ü Å { s k b ` ] \ ] _ f i n n h c ^ [ W S N K E B @ > < ; : < > > ? = ; 7 8 7 7 2 0 , , ( ( ( ' * ' reS>Q>(¯ı
+	",÷€∫™¢ììucXZVcuÇÅokgbX?*-1,*$ ¯ Ì Á € “ » ¬ ¿ ø ƒ æ ƒ ª ∑ Æ ® ¶ ¢ ú ñ í ç Ü ~ { s p n q r t z ~ } { t r m g d ] X Q P L K K H K M O S V U U N L J G F D @ : 6 2 0 . 1 1 ÙÎ“¥íqO7˜Ì 3G[R601%˜›ƒ≥õçwtrÑàñ§ûõíóîÜryld[[F:*,0+*&# 
+Û Ó Ì ﬁ ◊ Ã À ¬ ø Ω ∑ ≥ ® ¢ ° ö ú ü î é Ü z u w r s w z } x w z r o m k h b a ^ W P G B @ A E H H G B @ ? < < ; 9 5 4 - + ) + ) ( «≠ínO$Ì‘√µ≤∂€
+ˆﬁÃ¡∑öÑxlZPF<69\_YdbcXTUVM>.˙ Ù ˜ Ê ﬂ ’ ‘ » ≈ ¥ ´ ™ § † ú õ ó î ê å á Ü Ç Ä Ç } w q e b ` _ ` ` a c _ ] X W T S N L I H E C > : 6 4 5 ; < = ; : 8 6 3 2 . - , - ) ' % % ! " éseC ÎŸæ¨öääñ¨øÓ˛˜ﬁŒ¬≤úÖwdVB80$$(7HOXUMRQMG:3$ˇ ˚ ¸ ˝ 	˛ Ù Î Î ‡ › Ã ∫ ≥ ¨ ∞ ≥ ∞ ® § ß ™ ¢ † † ó ñ ç ç } { q o p o l k m j h b ` ] \ X U S Q Q Q K E A > > ? ? @ @ A = < : 5 6 6 3 1 2 0 - * ( ' % Ò·‘Ø£pG0˚”Œ»¬Ê%=4ˇÌ÷ƒÆòäsaVJOJSqÉüùíåÖÜÄoeSH7	˝ Í Á ÿ » √ ø Ω ∏ ∂ ≠ ® £ ¢ £ † ü ü ú ñ ã â Ñ Ä u r t o o n l l o k i a c _ ] ] Z Z Q O H A A ? > @ @ @ > ; 9 9 8 7 6 6 6 6 3 . + ( % çäü}]øçh·ÿ ŒÃ‚ -#ÁµòÇkI1*$&)6Mg{íúâj`X8. ˙ Ï ‰ ‡ ‚ ‡ Á Â Ë Â Í „ ‹ · ⁄ « æ ≥ ´ ¢ ù ö ñ è í î î ë î ç ä Ü Ñ } w v u m b ] Z W V T V X X T T U S U R M H H D ? ; 4 2 3 / 2 3 4 1 1 / / . . 0 / - + & " !   Bûì/<’ês;¨îêéì•ºÿ˚Êÿ√ìrZB$ ˜ ı ¸ %=EME:* ı Â ‹ – À ∆ ¿ ¿ ƒ ¡ «     « À   Ω ± ™ ¢ ò ê ç á Ñ Ç Ñ É Ç Ñ É É } s s o k g j ` ] Z X W W W \ ] U R P O M M J F E B D ; 5 6 5 5 2 5 7 6 8 6 5 3 / / 0 . - ) % " $ " K‡◊±èQ4‚gÚˆ¬¡…∆ ÿ‡˛8Î„Ã¥†ãj8 $/8EWiul`M786 ¸ Ú Ë ⁄ ‘ ⁄ “ È ‰ ‚ › ‡ ‹ ÷ — ≈ ø ∞ § ò î ê ã Ö Ç Ç Ç ì ñ ü ¢ ë å å É } x s r g a ] _ V W Z Y Z W T T Q L J N I B @ > : < : ; 7 : = < < ; 9 5 5 5 3 / / , % $ $ ¬ÃêamÖnnJÌŒΩ±∞∂ƒ»€ËÔ„–«≥∏®åzZ66+=?MUfo]]RF?&$%ı Ó Â ˇ ¯ ¸  ˆ ı Á Ê ﬁ ÷ Ã ª ± ™ ö ï ã à Ü Å Å à è õ ® ´ ü ó í ñ ï  k b _ W U R S O P O P N T T O K J E A ? ; 6 > < 5 1 2 2 3 3 2 0 1 0 . , , / * ) ( $ " "gxëûßyV,A“´éÑàçñ§ƒø∫±™ùé|^MH. .4/'%˛ ı Ï ﬂ ’ Ã ¬ √ √ √ ∆   ∆ À √ … Ω ¥ © ° ü ñ ç Ç | v r p r s y Ä í î ë ã ~ r p l d ` [ T R P N P K L J N N M N L J B B C = 5 4 2 . / / 1 . 0 1 1 1 0 . / / - - * ( * & -q˚À7„ç6‡”“–—’‰⁄”“∂¢àpXSWXTZ^`gbdWUOJ>.$
+˚ Ò  Ô ˙ ˇ ˙ Ó Ó Ò ‡ ‹ Œ √ º µ Ø ß õ ï à Ü â ã ñ ú § ¢ † ü ü õ ò ï ç ~ z q l f c _ \ \ [ ` k j g b ` ` Z R K G C A ; 9 ; ; > > : 6 8 ; ; 8 7 5 6 5 0 , ' òè“+/O3(’kH>ˆÓÙÔ·ﬁ¸„Ëﬂ’◊Õøàë~~wvsqèñá}[X\UUv5˙ Û ˆ ˙ ˛ Ù Î · “ ” « ø ∏ ß û † Ú ∆ õ ì î † ¶ © • ù û ¢ î í Ñ | y n j d a ^ \ \ ^ [ U U Z ] [ R N J G H F A @ = : 9 8 7 6 6 5 7 3 3 3 1 / / , . * & ∞∫◊ "h?Ô≤g=( Ú‚“”‘ﬂƒø⁄“÷≈¥ïuvwnlcheleTS_N@3<3%˛ Û  Ì Ï Î Á È Ê ÷ Õ « « ª Æ • ü ú ë é ﬁ › Ì ¨ ä ê ì ï é å á ~ x s k b ^ X S R O Q N O P X ^ X V W P K L E A > ? @ ; 5 4 / 0 / , - . 0 - , - * ( ( ( % ! msèœˇÏŸæÅQÙÔÁ·’Õ≈øÕ‘ﬂÊÓ„‹…ñàz}tjiba^bswqk\L\RJ9/*
+	ˇ ¸ ˜ ı Ó Ú · ÿ ” Œ » Ω æ © ≥ „ Ù Ù ˚ Æ ¢ § ® ¶ § † ñ Ö á Å x t m g c e _ ^ Z X Y Z \ ] f g ] V Q M J E ? = ; ; 7 5 4 6 9 ; = ; < 8 4 2 0 . 1 + ¢“ˇ^v4ÒøähP<+ÔÊ÷„Ê€	˝Ì‚÷ ªüóåÇxxx{~ÇÉn`snlbLB73	Ì È Í „ ‘ À ƒ ∂ Æ Ω Ì ¯ Ê — ± ´ Æ Ø Æ Æ ° ê é Ñ â Å x r w c ] Z V T V b e h j h b \ W U O M E B A < : < 8 9 ; : > D A = ; 5 7 5 4 / . R†„(<Áø§ÑO3ÙﬂÃ≥°§•°≥¨¥…øØ≠ûáp[XMEHHHGT?IRNM@8,"ˇ ¸ ˘ Û Ô Ó Ë ﬂ Ò ‰ Õ π ¡ ø Ø ¶ õ é å ã â é ê í ó ó í ç ä Ñ Ç ~ { s k c | \ V P N Q S X Z ` ] ` Y T [ R M J F A @ ; > 7 4 / 6 3 3 3 5 = < 4 2 1 1 1 . \|“Ôó˛Í±ìudK?)&&&*ÙÁ÷≈≥°Ö~tppov~äÄèéãÑvggZD6*&˜ ˜ Ù ˚ Ò ‚ ‹ ◊ Õ ƒ Ω µ § ® ¢ ü ° £ § † ° ü ó í é â Ñ Ä { á w m b ^ _ [ ] a d f g e c a ^ Y T O L G G B > < ; 7 ; ? ? E F G D A = 6 5 5 3 *Kúœ
+Ì¥Ö»¿Ãò]
+7Îı,V®^Ò”¡≠†ó~rkgennzè•Üwk`TVL9(¸ ˜  Ô Ô Ê „ ’ À “ « ø ∑ ≤ ± Ø † û û ó î î ì ê è ç á  { { w t m f c Y T S S O N P P R N K H F C A ? = 9 8 3 2 / / - / 0 2 3 2 4 . , + + + % $ $ ú§¿Ì$V_`4Î¨c5Cp=ÿÎ˙˚]ïc`5ÛøùÜ{kbQEC<>HWZ^m\K=/=84
+¯  Û Á ‡ ” “ ’ À ¡ ∂ µ ∞ ∞ ± ≠ ¢ ì î û ù ò í í å á Ö É Ä  v p n k j _ [ Z [ T R T S Q N L M H I E B A A @ ; 6 6 8 < > 9 7 : 5 2 2 1 2 0 1 0 ∑Â/XÇ}z]J⁄°Ú« ŸÕ÷›ˆ$>OE#Ìøú|sdbUKWorit{è°≥Ö`SF8"Ù  Í Í „ ˘ Ï · ﬂ È Ô œ ø º ∑ ¨ £ † û ö ï í í ç ã à à Ü Ö ~ { x q p o m ` ] [ W T Q S R P O Q N L G F E A > < < 6 1 / . / / / 3 2 0 0 . . - / , - ©»‚<`óèõq`7ˇt√-wpp˝$WwuoE÷¢ÅàÀ´ﬂ∂ä``^Äîõ«Â∆å]J.Ù  ı Ú Á Ì Ï ¯ ¸ ‰ › » ƒ ∆ æ ∑ ∞ • ° ö ì é ç è ç å à Ö Ç  x t t l j g _ Z V R Q S S S R P P N K F D A A B ? > 4 0 2 0 . , , / / 0 0 . - / , * oá°ƒﬁ˘%1.!˛œ»´x1Ìƒƒ»ŒﬁÍˆÚÕ¥{çŒ°˛eWRbvë••≤ò\B%¸ ¸  · ﬂ Ê ˜ Ô Ò  '⁄ ≈ ¡ ø ∏ ≠ ¢ ô ê ê à à à É á å ä  w t q q o j g b [ W Z V R O P P Q N L H E D D A A @ ? = 8 6 3 1 0 1 1 2 1 . . - * ( ( ±æ÷
+
+=J42%¯›¥ò^˜ﬁ‚ÿ◊„Ô˘ÊÕ «∫ón_W\cltuÖçü°ûçÅWA!+¸ ¯ %˙  ˜ ” ¿ ¥ ´ ¢ ú ï ì ë è ê è ä à á Ü å ê Ñ w u s r k g a ^ \ X X X Z Y \ V T S N J H E D ? 8 6 5 5 6 9 4 5 7 : 6 6 8 3 3 1 ÄOtâkgdY_ôº¿ñ§Ñq[ÏÍÚÔﬁ∆´íèéxxi``bfikb8--%" 
+ 
+Ù Ê È ﬂ ◊ “ Õ ≈ ¬ Ω ∫ ∫ ø ∫ µ π ≤ ® • ù ì é à Å w q l j m p y x t r p n h g ^ ] W U T M G H G A @ B @ C C F D F D A @ 7 2 1 / - , * ' ' ' * ' ' ) + 75<0˛˛˜4qíäeT<Èæ∫≤¶îèñìâàxyuhhgnjfZQ_a[WI2$ ı Í ﬂ ” “ “ – ≈ ¿ ∆ » ¬ ¡ ∫ ∂ ≤ © ° ö è å Ç y o n p t w s o t r v t u q o g e ` ` V T J C A B B @ A ? @ B G F F E B @ ? 9 3 2 1 . . , + , * ) + ( ' s_C& #^£ªºµîo^0˙‚œº´êÖ{òõû¨¨∑ª≥£ùõâp[KIAtpeO;$,ˇ 
+ˆ Ï ﬂ –   ¬ º ∏ ¥ ≠ ¶ ñ ì å å å ï ï î î ê ã á Ç | w s m d ` ^ Z Q M M Q N M M L L L L J I K J E ? < < 5 5 3 1 1 . - , , ( * + . i`OADf{ãúò≠≥≥∫Øük8Ò‰’÷Î÷◊˛@lã±µîç~dLª}`TLPXXRBVtjc`eX\ZHˆ  ‚ — … Ω ± ∞ ™ § û ù ì ë é ñ † û î ê è á Ü Å  y r o h e c a _ Z W T S S T R R T P R S R T M K G F F ? : 8 4 3 2 2 1 / 1 2 2 0 1 ¢ÑpiÜíóΩÕÛ',‡™lA.
+ÁÂÍÊ‚ÿ˙:Z`= ˆ‹¬≤úàxk[MG:BBCB>IAGL?$Ù Ú ‚ Ò #53/( √ ú ï ë ê è å Ü á á Ü à Ö Å z u o m d a [ V Z T V V O K I C F F F G F D A @ @ < 8 4 3 1 0 . , + ( ) ' % $ & ' % $ ˙ÍÌ5CQBIO>&*Õ÷œ∏ºÀºØ•¶≠∂π¨©ñá{gJ/*&ˇ ¸ 
+4Q@˙ Ê ÿ √ ∫ ¨ ß ° ° ù õ ñ ë å á Ö ~ ~ { w v r q o o l o h c a ] ^ b f Y Q V J G E C H G E B C E B ? < ; : 5 4 6 2 . - . ( ( ' ( ' ( + ( & ( ÑiGMguxñ¨øÃ‘ƒ∏≠ãdC&˚Á‡÷ÙÊÚÙˆııÍ‡»¶ìq\B041*+,>;AC@:=?:6,Ù Ê ‘ ª µ ≠ ´ • £ † õ ô ô ï ï é á Ö ~ } z } | { w r m k j m g b c [ \ S K I H H H J K G J H G A @ = < ; 5 4 4 3 3 3 - + - / 0 0 2 0 çvÅ\m`páö•πæææ≥®ìwM˘Ò≈÷‚≈øπ¿»“€‹Õ…ØïÇpZ?AC0% #35673/014&Ô Ì € ≤ § ü • ß ¶ £ ú õ ° £ ü ù ï ê Ö É Ç { { z s s l e ` _ ^ ^ U Q O J G G G E F G A ? ? > > : 5 6 5 0 0 / 1 . / + * & + + & + + - - ∫ã~ÉãÅÄêú∞π´ôëÖn`UA(˝‡Ó˜˝˝¯ÒÒÙÁ◊Ω´üè}gN66<#'&5<=AEKOMNG?;*!˛ ◊ ◊ ‚ ÷ ¡ ª æ ¡ ø µ ≤ ≤ ∞ © ° ú § ç Å { p k l k j i c \ [ Z \ ] Z W S U Q N N N L H F F H D @ ; ; 6 7 6 6 2 7 4 5 7 7 6 6 5 îxladhT]hmdKEB@4%˚ÚÂÃŒ‰„ƒΩº∫≤ØñèÄ|fb;$!""ˇ ˇ ˝ Ô „ — « ∑ ∞ Ø Æ ™ ´ ™ ¨ ´ ¨ • ö ò ê ç ã Ñ Ç ~  | o c [ X X V U T U T O P O Q T R N H B @ @ > = : 8 7 5 4 1 0 1 / . - . 0 , ( % $ % # # $ ! ∞ïhB83$-Q\`^TUPE>62!Ë–∑∏≥∞™¢¢úóåÅyl_PXOA:4+'/. %*-520("!˘ Â ‡ œ ø ¥ ∞ Ø ¨ ¨ ≠ © ß ® § ü õ ò ë ã Ö Ä | r m l c [ ^ ] \ ] ] ^ a \ ^ \ ^ \ ] Z U P K H D A C B C A > < < = ? ? < < : 7 5 2 1 / . * ( éf5 Ë”‘Í‹ÏˆÂ◊Õº™†âstéãsL820'!ı Ô Ò Ï  ı Ù Î · ‚ ‡ ⁄ ◊ ‘ “ “ Œ Œ » ¬ ª ¥ © † ï ç ê à Ö Å   ~ { { ~ z v t t t l h c _ U S R W U T Z \ X T R R X N I E C B ? = < ? > = C > < 9 = < > A < 9 6 9 3 - + ) + + % # FahF#ÒŒ¨ìåóÜï®™µ»’Ã—ÃŸ∆Ω©ä£nkWTZQZD.4,!" 7¯ ˙  ¸ Ï Ú ˆ Ó Ì Ê Ê Â ﬁ € ’ À √ Ø ® Æ ∞ • Ø ≠ † õ ë ì ë è â à Ö É Å Å | w o h a ] [ [ [ [ Z X W X Z V U P O J E F @ A E J G E E H D F E H G C @ A < 8 < 9 6 4 / , & G:(#Í∆±ßñî¨ΩªÕ‡ÙÁ‰Âﬁ”º®úéXG58E8.  ¯ Ó ﬂ Ÿ Ÿ ” À √ Ω º ∂ Æ ™ ® ® © Æ Æ ¢ ú ú ó è é ç ç ë ê é ç à Ü Ö Ñ y c \ ` e g c \ [ \ \ W [ a a e g T M N J G C C H K K A J N D G F D A A ? ? : 8 3 1 / , * ( G@#ˆ÷¡ÆïÉõ††©∫ª∆—Ã——÷œ√∫≤´í~pCVXX^XVXeqQGG<4)OeXF
+ˆ Ô Ê ﬁ ‘ « ¬ ∫ ß † ¢ ™ © © ß • ® • § ° ú ó î ì ì ã ç ê Ö w o n k j k f b _ _ ^ _ ^ ^ \ \ [ [ Z W Q L H M P V Q M N X j l T U U Z T T R T S M D ? < 5 êÑlpW6Ë÷€Á+   ˝‚•äpÄûπ£®Øù§§¢òêíucWN5˝ ˆ ‰ › ◊ Œ Ã ƒ Ã ¿ ö õ ï ê õ † í ò ¢ ü û ö ò ò ç É }  Ä Ä } t j g ` _ _ \ Z Z X U U T T U S U Z W R U L H E E D F E E J N L N L M G H H F B = ? < 6 5 0 , äıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáııııııııııııııııııııııııı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı{ı{ı{ı{ı{ı{ı{ıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıtıtıtıtıtıtıtıtıtıtıtıtıtıtıtıtıtıtıtıtıtıtıtıtıtısısısısısısınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımılılılılılılılılılılılılılılılılılılılılılılılılılıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıdıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıaıaıaıaıaıaıaıaıaıaıaıaıaıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaı`ı`ıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ıaıaıaıaıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı_ı_ı_ı_ı_ı_ı_ı_ıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıbıbıbıbıbıbıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıbıbıbıbıbıbıbıbıbıbıbıbıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıdıdıdıdıdıdıdıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıbıbıbıbıbıbıfıfıfıfıfıfıfıfıfıfıfıfıfıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıdıdıdıdıdıdıdıdıeıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıcıcıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıdıdıdıdıdıfıfıfıfıfıfıfıfıfıfıfıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıdıdıdıdıdıdıdıdıdıgıgıgıgıgıgıgıgıgıgıgıgıgıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıeıeıeıeıeıeıeıeıeıeıeıeıeıeıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıdıdıdıdıdıdıdıdıdıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıeıeıeıeıeıeıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıeıeıeıeıeıeıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıgıgıgıgıgıgıgıgıgıgıgıgıgıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıfıfıfıfıfıfıfıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıfıfıfıfıfıfıfıfıfıfıkıkıkıkıkıkıkıkıkıkılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıiıiıiıiıiıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoınınınınınınınınınınınınınınınınınınınınınınınınırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırırıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıoıwıwıwıwıwıwıwıwıwıwıwıwıwıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıuıuıuıuıuıuıuıuıuıuıuıxıxıxıxıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıvıvıvıvıvıvı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ızızızızızızızızızızızızızızızızızızızızızızızızızızıyıyıyıyıyıyıyıyıyı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıxıxıyızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıwı{ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ızızızızızızızızızızızızı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÖıÖıÖıÖıÖıÖıÖıÖıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÜıÜıÜıÜıÜıÜıÜıÜıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÉıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÇıÇıÇıÇıÇıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÑıÑıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıäıäıäıäıäıäıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıàıàıàıàıàıàıàıàıâıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıáıâıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıâıâıâıâıâıâıâıâıâıâıâıâıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıåıåıåıåıåıåıåıåıåıåıåıåıåıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıéıéıéıéıéıéıéıéıéıéıéıêıêıêıêıêıêıêıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıêıêıêıêıêıêıêıêıêıêıêıêıêıêıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıéıêıêıêıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıèıèıèıèıèıèıèıèıèıèıèıèıèıèıëıëıëıëıëıëıëıëıëıëıëıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıëıëıëıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıêıêıêıêıêıêıêıêıêıêıêıêıêıêıíıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıëıëıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıëıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıìıìıïıïıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıîıîıîıîıîıîıîıîıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıñıñıñıñıñıñıñıñıñıñıôıôıôıôıôıôıôıôıôıôıôıôıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıóıôıôıôıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıòıòıòıòıòıòıòıòıòıòıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıùıùıùıùıùıùıùıùıùıùıùıùıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıõıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûı°ı°ı°ı°ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¢ı¶ı¶ı¶ı¶ıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı©ı©ı©ı©ı©ı©ı©ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı©ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı´ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı™ı©ı©ı©ı©ı©ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπı∏ı∏ı∏ı∏ı∏ı∏ı∏ı∏ı∏ı∏ı∏ı∏ıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªı∫ı∫ı∫ı∫ı∫ıºıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıªıªıªıªıªıªıªıªıªıªıªıªıºıºıºıºıºıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ıπıπıπıπıπıπıπıπıπıπıπıøıøıøı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¡ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ı¿ıøıøıøıøıøıøıøıøıøıøıøıøıøıøıøıøıøıøıøıøıøıøıøıøıøıæıæı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ıƒıƒıƒıƒıƒı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ıƒıƒıƒı«ı«ı«ı«ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı“ı“ı“ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı‘ı‘ı‘ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı“ı“ı“ı“ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı”ı”ı”ı”ı’ı’ı’ı’ı’ı’ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı”ı”ı”ı”ı”ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı—ı—ı—ı—ı“ı“ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı—ı—ı—ı“ı“ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ıŒıŒıŒıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıÕıÕıÕıÕıÕıÕıÕıÕıœıœıœıœıœıœıœıœıœıœıœıœıœı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıÕıÕıÕıÕıÕıÕıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıÕıÕıÕıÕıÕıÕıÕıÕıÕı⁄ı⁄ı⁄ı⁄ı⁄ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı€ı€ı€ı€ı€ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı€ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı⁄ı›ı›ı›ı›ı›ıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı‡ı‡ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‚ı‚ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı‰ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı„ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ı‚ıÈıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıËıËıËıËıËıËıËıËıËıËıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÈıÈıÈıÈıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÏıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍııııııııÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÚıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıııııııııııııııııııııııııııııııııııııııııııııııııˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıııııııııııııııııııııııııııııııııııııııııııııııııÙıÙıÙıÙıÙıÙıÙıııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÛıÛıÛıÛıÛıÛıÛıÛıÛıÛıÛıÛıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÛıÛıÛıÛıÛıÛıÛıÛıÛıÛıÛıÛıÛıÛıÛıÛıÛıÛıııııııııııııııııııııˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıııııııııııııııııııııııııııııııııııııııııııııııııııÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙıÙı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˙ı˘ı˘ı˘ı˘ıˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ2 	¸ Û ‡ ’ “ “ ƒ √ ≈ ¡ æ   « ± ß ß ß Æ § • ì é å  | | x { | }  ~  ~ Ç Å } s j k c ] X W X W W X [ h h b ` ] U W P M F B B > = @ E F E A ; ; : = : ; B = A D < : 6 8 8 . - , ( * ( ( ' ( & ( ' ) ' % % $            G;%" (;AFIE5"'(011$˝ Ì · ÿ ’ ÷ – ◊ ÷ — À ¡ ƒ Ω ¥ ± Æ • ú ñ ë ï ì ñ í ê ï ó ö ô ù • ß õ î ë â | | É Ö | r t r n f f f e c ` a ` ^ ` W R T R Q H D E M S N H I O V F I S O G C > ? B ? = ? A E D G B 7 5 6 1 . + , - ) ( . ' % $ * & $ $ $   oTMBCLakfhS=>>GG:˛ Ò  Ú Î ‚ € ﬂ ﬁ ‚ ‚ ﬁ ⁄ ‘ ¬ À Õ ∫ ∑ Ø ¶ ù õ û ú † § Ø ¿ ∂ √ Ω ∂ À ’ — ∫ ≤ ® ¢ ü õ ë û î ñ ò ± ¨ ¨ Ñ Ç Ö à  ~ Ä é Ñ t ^ V S U W W U P [ c f k j h c ` e h b a U _ ` U : 6 5 7 < C E K A 8 6 = : @ 2 7 1 ( + , ' ( ' $ % ±x`ePVTjxwoSJQ^p{_%¯ ı Ú Ò Î Ô ˆ ˝ ˇ ˛ ˙  ˙ „ Ÿ Ã » ¡ ∏ ¥ Æ Æ ß ¢ ¶ ´ ´ ® ¨ ∞ ¨ ¥ ≥ ® ó ñ ï ç á É â á Ö Ñ Ñ { Ñ à É ã Ä z x q q t r m k f f ^ V [ g \ b \ _ ] U V ` Y U N J F E I J K I M Q J ? B C B A > < < @ B ; 2 1 - ( ( ) + . . . º∏¨®ßù∞¡∑≈≤„æÉëûè†élI:7.(#ˇ ˇ Ê ﬂ Ÿ ⁄ ÷ ’ Œ ∆   » ƒ ¡ ≈ ∆ ∆ ≈ ƒ     — ¬ ≠ ™ ¢ † ò í ê ã å à á ã ç è å å à { { ~ | z x s m _ ] a ] \ _ f h j j g g d a _ ` V T Q H F C G G K L G E F H L M H J E D B C A < = : 1 1 2 4 3 3 ïèÇÅutÅè±º¨ôsÇÜçíÇL2'
+
+˜ Á ‚ Ÿ › ’ Ã ¡ æ æ ª º ¿ ¡ «   » « ¡ ¿ Ω ™ ¶ • õ ì ê è ç ç Ü  Å Ä  ~ { } | ~ s u u o m j h f ` [ Z U V V Y U T S V X \ V N J K I F C D D E F C C H G G B @ ? @ A @ > 8 6 5 3 0 0 1 1 2 2 ¿±ìèìñ°≥¿‘ƒ»∂£¶¨¥Ø°ã|N70,%"!,1+ˇ ˙ ˙ ¸ Ê ‡ ÿ œ     À ∆ » ƒ — “ ﬂ ‰ › ‡ ⁄ ¿ µ ¥ ∑ ø ∫ µ û ò ó ì ï ú ó ñ î ö £ õ ï è ä á Å Å Ü á } w z o d c c h g a ` d d b \ Z W S M M I F D D C A C B @ = > @ > = ? A @ ? : 8 5 3 2 4 5 6 5 ÓÕ¶ëòÑÇäü•≥πòéëò•†Ü{lB<:.  05%˜ Ò ‚ Ÿ – – œ ∆ « ∆ Õ œ – œ « ƒ ¡ ∏ ≠ ¶ § § ° ó ì í ë ì ç é é ã ä å ë ó è Ö } x v n n m h k g ` \ [ ^ ^ g t a [ b _ [ W N Q N R f d e e \ R F E H G C B B E < : 9 8 7 8 8 E K L F A ≠óÇutvå≥´ªÀ·…∑ßû†ùë}jE-8@:"˜  ÿ ” Ã » « ƒ ∆ Ã ” ÿ ÿ “ › ›   ∑ ´ ™ £ ù ù û • ñ ì î è ç ä ã ç ä å á  w w w y p p o s p m g ` [ ] [ [ X W W Y Y T N M L H I F C C ? A B A @ @ > ? 8 9 9 7 3 3 3 3 2 2 / 0 0 2 + ·œ±≠ûü¢¥∞µØ≥Ωºæ≥≠†õçÉsdK:764;PVXH- &ˇ Û Á · ◊ ‘ Ÿ ﬂ Á Ì Ì Â ‹ „ – Ω ø º ¨ ™ £ ù ò ó ë ç é é ë ë ë ê å ä á  } { u p o m o p s n d h d d g k h f ] Y R N P O M J K G D C D A B B B F A @ @ C A : : 7 6 6 5 5 3 / 0 §òÖÅÜÅÉÇÅÜ}qoha\QE<30-@9($ ¯ ˆ ˆ ¸ Ô ‰ € Œ « ø ∫ º Ω ≈ Œ “ ﬂ ‚ – ∆ ¡ Ω Ω ∫ ∞ £ ü ñ ì ë é è í ë ñ ë î ê ä é Ö Ç ~ w s q m i j l h c [ \ ` [ \ ` ^ e h o c Y ^ c h k l e X a V W S S Q M O N Q ^ _ d U G G @ D > = A < 5 ˜›¢ÑÉÜÖÉÉÖÅÜ~xwutzqh]I,%'#$#+,#˝ ˜ Ù Ô Ê › ‡ · ﬁ ÿ Ì ı ¸ ˝ ˙ Ë € Ÿ ‹ ÿ — Ã √ ∑ ® † ¢ ú ö ô ï õ ú ü ò ó í é á Ç Ä Å { q m n q k _ ^ ] ^ _ a ` ^ _ ^ X ^ Z T R O L J D @ C B B ? ? @ > ? > ? B < 8 6 7 4 3 3 0 . / - Æ∞á}ttnlkqâ{hfmbZTIJA0˚ ¯  
+ˇ ˚ Ó ﬁ ∆ ª Ω √ Ω ¿ ¿ ¿ » “ ◊ ⁄ Õ À ∆ ¡ ¡ ø ± £ ñ å ç à Ñ Ç à ç ê ê ã à Ö } t r t q r j j k o s ` ` g g a ` ] ` \ c ` O L H M K F D > = @ @ A J ? > > B A ? 7 3 , . , / 0 - . - - , ÿ¥Ñ~z|wpneiqe`\XNLIIE@2˜ ¸ 	˙ Û Ï Á „ ⁄ € “ Œ ¡ ¬ ¬ ≈ «   Œ ‡ Î Á ﬁ ‰ Ì Ê Ì € « º Ø õ î å ã Ü ã ä ê î î á } } z | Å z y p l j k l j a ` a b ` ` ` Z W V M N N J H E B D A A D G G D E C H E D D @ < > : 7 6 4 0 0 0 0 ÈÌóÅuvrlh`]c_a\YOQJA@<3/0+$˛ ˚ ı Û Ó Á Â › ﬁ Ÿ ◊ À À ƒ ¬ ¿ ¡ ƒ ¿   Õ «   ∆ ¡ ¿ µ ø Ω π ∞ § ó ë é ç à à ç è é ã É É Å w p t m l g c f b b ] S V S Z ] \ W T M J K K F D C B G E A @ = @ B > @ A A ? @ < < = 6 7 5 3 0 . , - , Û‚∂•õØ™æòèõö•¶¨~|óÜsh=,*6*ˇ ˛ ¯ ˜ Ú Ú ¯ ˇ ˚ Ì Á Ï ‰ ” √ « ¿ ≤ ∂ Ω º ª æ ≈ «   ∆ ≈ ƒ Ω π ≥ ® ò è Ü à á â ç í ì ê ò é É Ñ Å x s u s p k k n g f ` ^ b c a a ^ _ X T O N N L G E C F C B B A @ ? A A @ = ; : 5 4 4 2 5 3 2 1 - / 1 Ó©¢•îäornhklfcb`^rh>˘ ˚ ˘ ı Ô Ô Û Ó Ì Ê Â Á Á ‰ Í Ï ‹ … Ω ¥ ≤ ¥ ± ∞ Æ ¨ ¢ ´ ∞ Æ º ª ∏ ∑ ¥ ≠ õ î Ü Ñ Ñ Ü Å É Ü Ñ É á Ü  | z u u r i n j i f f a ] a f k h ` V W T R N N L G E A @ @ B E > B C D @ > < 9 7 5 2 4 2 2 5 3 0 - . 0 ‡È‡†úíà|mge^[afbZXexoM¯ Ù Ò Ó Ô Ô Í È Ë Ê „ „ Â È — ∆ æ π ∑ µ ≤ Ø Ø Ø ≤ ≥ © ß ß ß • § ü õ ì ó é Ö Å É ~  Å } Ä | } ~ y s n l j g g f c f c ] X _ _ ` \ X T S U U L G E E C A @ A > A @ > ? @ > = = : 2 4 1 1 0 0 - / - , , - ~è´§{´ùÅzwtuvvÅzÉÅ~u>%ˇ ˙ Ù Ò Ì Í Û Ú  Î Ó Ò Ò Ï ’ ø ¿ π ∑ µ Ø ´ ® ® ® ¨ ¨ Ø Æ ¨ ¶ § ¢ † õ ò ã { x y | x { Å } { t r } r x t p k l k i b b a ] X W W ] \ ] \ S P P Q J G E C B E B C B C D B F F G A E 7 7 5 2 0 0 / / 0 . , œﬁ„Ìﬂ≠wc]fjpfjstvw~\VTG&˝ Ù Ó ı Ú Ô Û Ò Ô  Ù Ù Ú Ô ﬁ À « ª ¥ ∏ ∑ ∂ ∞ ∞ ¥ ≤ ™ ß ™ ¨ ´ ¨ ≠ © © ú í ä Ö É Ä ~ { v y } Å Ç  z y  z ç | p m o m l h a Y W Y ] d c [ \ \ Z T Q R J H E F H I H E E F J J F B ? : 6 3 4 2 0 2 2 1 3 4 Íæ≥ßõìêêöõîéç¨£|eWJPLB<2*˝ ¸ ˙ ˚ Ú Ù ˙ Ë ‡ „ ‚ ‚ Ï Ï Ó Ù ÷ ∂ ø ¿ ≤ ≠ ° ö ï í î ê ã à Ö Ü Ñ É  | z x u p r q m h e g i ` d b ] ] \ Z V U Q U U R [ T K D E C F F D D E G F F @ > ; 8 7 6 9 7 4 1 3 1 / œÀ‘—ø±™†¢éÜzr}ne^]KDU[N=,(¸ ˇ ˙ ˚ ¯ Ó Ë Â Ú „ € ‘ ” Œ À   √ ª µ ∂ ∂ ± ≥ ∏ ∆ » « ∂ ´ ß ¨ Æ √ √ ´ ≥ ï î ó • Æ Ø ü Ø £ ù î í ì ñ î Ñ Ñ Å Ç  w t l e k l e i e ^ ] Z X Y V V U V S S M I L L J K E C ? = ; : : : 9 8 6 6 9 8 #˛˛Ë’ø≤°ãáíúßºªßxa\bWNIB2(!#0C<=<3+'"6"˛ Ô Ë · ‹ ÿ À ¿ º Ω ≈ ≈ ƒ ø ¡ ª ∞ ∑ ≥ ® • ü ì î ç á Å Ä Å ~  ~ Ñ â  z u r t t p i h k g s k u g f d ^ W T V \ T T X [ Z V M H H N J I E B A A C A = @ > < 6 3 4 3 1 0 3/¯Ê»èàrfbj}l|{ÄÅjKBCE</ ˜ Ó Ê „ Ë Ú Ò Ú Ú Ô È ◊ ⁄ ﬂ ‹ ⁄ ÿ œ   ∆ ¿ º ¥ µ ∞ ∞ Æ ´ ® © ® ≠ Æ ¢ ó ë ê ã ã Ü Ü Ö Ñ ~  } { { {  Å ~ s o p j g g f e ` ^ ] Y X X V V V W V P R N S M H F H A B F E A > A B ? < 7 8 8 6 5 4 2 2 3 2 ÙÓ›⁄√õí{xù≥ô¬¢óípfffaV03ˆ ¯ Ú Ì Ó Û ˜ ˝ Ë Ì Ú Í ﬁ À √ ≥ Æ ™ • ™ ® ¢ ¢ ¿ “ “ ≥ ¥ ∫ ≤ £ ï ë ~ z w t q p p t o s n m m n k i j j e d ] \ ] a ] Y R S R P Q S S V S N K N M H K B A C B @ = ; ; @ 8 > : 7 9 ; : 6 2 2 0 0 / "Ù»õÑèÜÑÅááïüõãxzvqgcR/
+/75(	Ó ˚ ˛ Î Á Ã ∂ µ ∞ ≤ ∏ ø ¿ ƒ ª Æ ® ≤ ± • ñ å ã Ç ~ | ~ ~ ~ ~ } É  É Å  w t k m l g i m i c [ V V Y W U T S S R W U X P H H D @ > > > = > = ? A > > A ? ? = > : < ? 6 (˙ı÷™ñ}ghdwfm~ÜÖyhbbeaO9&˝ 
+)//%%ı ÷ Ÿ √ ƒ ƒ ø æ √ » œ Œ Ã √ π ∞ § ¨ ß í ë à É Ç É Ñ Ç à Ä ~ y |  ~ | x z r t t l p n e e ] \ X W V W T R U V \ V O L E B B ? @ @ = ? A A ? F F C C D A @ : : 7 8 6 ‰Ó‡…™s_TKW^jrw~odQB:0()$
+ $(	Ú € “ œ – ¿ ÿ Ë Ò ˚ Ú ﬁ … Ã ‘ ⁄ ⁄ ﬂ Õ ∂ ∞ ö ò ô é è è ç á ä ó ü ¶ ô ê è á Ä { w r p n n h d ^ ^ ^ [ [ Z Z ^ b ` \ O O M P N O K G J K I G E E E E ? @ E D B ? > > ÙÍ–Ã∂ãp<9?FMUY`hkV>0+ ˝ ˙ Û Ï Ó Ú ¸  ˚ ˜ Ù ¯ Ù Á ÿ ø ¨ ≠ ≤ ™ Æ Ø æ ƒ ¿ º ¥ • £ § ™ † é ä à Ä |  Ä  Ö Ç ~ Ñ Ç Ä } { ~ s p n j d k h h j b a ^ \ _ ] _ [ ` ] W R M J K H F F D E D D B C C A A ? ? A = 9 6 3 2 4 ˚ÛÙÏÊﬁ”—ªv`SPR\_[\Y\hhX4-(Ì  Ù ˜ ˛ ˙ ¯ Û Ë ‡   Ω µ ± ¨ ≠ Æ ¥ æ » Õ — ∏ ™ Æ µ ≠ † ñ ç ç Ñ  Å Ö Ç Ç Å Å } Å z t m k m j d c c _ _ W T S U U V T U Y c a Z S L M J H H F E > A ? A > ? > = > ? A = : 7 0 4 4 ”–”…ª¥¥ß∂xVKB>;5544<872,#
+¸ Ê Ÿ — “ ⁄ ﬁ Â Ë Ô  Ï € ⁄ ’ – » ¡ Ω π ≤ Æ ü ° † ü ¢ ° ß ∞ µ ± Ø ß • ¶ ¢ £ § ó ì à É { ~ ~ z { } Ä w o o p l h j d c _ V U V T T R U T T U U P L K J I E F B B ? = > = = > > = ? @ A E C A ? < 5 3 1 ®§££ùîííÉmA3&$!˛ ı Ù Ù Ì ‡ ’ ¡ ¬ ¬   Ã – ÷ Ÿ ÷ ÷ ◊ “ –   ƒ º ≠ ö ó ë ç Ü é è ñ ú ô ú ö ï ç è é ã à ã Ü z n f g g h k m n m j c d d _ \ [ X V P L J K K K L N L K M L J E C ? B ? = : ; 8 6 7 8 7 5 9 9 8 5 7 7 7 5 4 / / / .  ˛˙‹›Õº≤à~|zr\UTROP[V[UXkbPD0&Ù Ú Ô Ô Ó Ô Ò Ú Ë Ê ‰ Â ﬂ · ¡ ∂ ∏ Ø ® ¶ ¢ † • • ¢ † ° £ ô î ê ä à ã à Ñ Ä É u v x t x t s q n l g d b X V S N K H I H H J L L L N N L H F F F F B A < : 5 8 7 8 : : = = < < ? ; 9 4 3 0 0 øµ¨≥ß†§éÇ{tok`YEA<8-' ˛ ˙ Ú Ù Û Ó Ê Ê ‡ ﬁ ⁄ ◊ ÿ — — Ã « Ω ∑ ≥ Æ ≥ ≠ ¶ © ¢ ú ô ñ î é ê å Ü É  { { w u | { v { u s v t o l m k d h e c Z X X U T S N M I K O Q N R \ _ [ R O N F F E F H B > ; < 7 < @ L T N N I B < = @ > = ˇÚ≈±µƒΩ£°ümA;=56=:@HF>:A1(Û Ì Ë ‚ ÿ € € Ÿ ⁄ ÷ Ÿ ’ ” ” ÿ € ﬁ « Ω ≠ § ¢ † ò í ê ë é å é ã Ö É Ä  Ç  | { x u u o n k k h e e d b a ] T R Q N K N O K J H E F H F F E F D A = ; < 8 < > = 8 6 7 ; 7 7 8 = 8 5 : 6 5 3 3 0 / . Ù‘ ∆Õ€÷ ¿ØîbA8/'(-+5/?G0%#
+Í ‰ › ÷ œ ’ — œ Ã Ã Ã Õ œ Œ œ “ ≈ º ´ ° ú ñ î è ä à ã à á Ö Ñ Ñ Å ~ { É Ñ ~ { v y r p o q q j f a ` c ] ] T N M K J G E D B D B B C C A A ? @ < ; : 6 6 5 5 2 2 3 1 2 3 0 / 4 6 6 8 2 2 1 - 0 . 40C0¸ÒÈÀœ∫íãëpgVLLGPVbÇ}Än^R@#Ù  ‰ Á ˙ ¸ ˜ ı Ë Ÿ – ¡ ∫ Ø ≤ ≤ ™ £ ° ° † ù • ° ö § ú ì ñ ¢ ì É { v s s r m j l m l m r c ] \ Z R Q U Q N K G C B @ @ = = = @ A A ? = 9 7 7 4 4 1 / 0 1 3 / 1 3 4 7 = = 5 8 3 . * , ıË˜¸'ˆﬁ•Äf\\_lÅåÑn[:BVZlV(Û  Ï Î Ú Ô  Ó Ô Ú Ù Ó Ï ‰ ‹ ∆ ƒ ≥ ≠ Æ ß ° £ ¶ õ î î ï ò ú ó õ ≠ © £ î â Ö } u t s v r w k r m k h e \ Z Z \ [ N H G F E @ A @ @ ? < < = ; ? ; 7 ; < 8 < : 8 4 3 2 3 , . 2 / 0 0 0 / 0 + , –‹◊„ÍÊ‰—…Œ”ÿ¬´ÉJ6+045?TgPA3'0,%ı Ú Á ” “   » » œ “ ÿ ÿ ‹ ÷ À æ ¿ º ∑ • ¢ û ü õ ë ê ë ê é é ç ä å ë õ ¶ • ü Ñ u v m p m k f k f h g f d Z Y X T ] Z U L E H E D B @ @ A A D B A C ? > ? @ A ? ? < < 3 6 9 : 8 : 9 > ? ; 6 7 8 7 ≤∏¬¡¡ª∞üà~p]OE:+#&,/76:3˜ Ë ﬂ ’ Ã ¡ º Ω √   ÷ – — √ ∂ ¥ ≥ ∏ ª ª ∏ ± • ¢ ñ î ë ë å â å ã å à Ö { { x | v q p n m i e g _ d b Z R P Q Q T R N P K I H F E A @ @ B ? : : : 7 5 5 5 6 < < : 6 6 2 2 . / . - - - , + + ( ) % vÚ¨∑íVG\¯–Ï≤ãfZKAC.$&!˝ ˆ Ô Á „ ﬁ ’ » ≈ ≈ ≈ » ÷ ‹ · Î Ó Ê À « ¡ √ » æ ∞ ù ï é Ü é å ç í ì ë í ê é É É Ü ~ v n j e d d g e f [ W U U T U T [ X M H B D B ? = : = A ? < : ; : : : 9 @ > ; 6 6 5 2 1 3 5 2 0 . . 0 1 / / / + * ~xxÉÖÅÄáü†úìÉzmRA0
+$˘ Ì ÷ – √ ¿ √ ¡ » ” ‘ › Á ‘ ƒ « « ≈ ≈ æ ¥ † ì ã ç é ç ä é ê è ë ñ ê Ñ É Å } { s q p k o i o k h ^ _ ^ a k e [ T K H C C B B B A A ? @ < > : 9 : 8 > ? = < 9 6 7 5 2 0 / 0 0 2 . 0 , * , - ) zzÜàÇÇxwpgaZNJG2 
+¯ Ô ‚   ø ∫ ∫ √ Ã À « À ‘ ’ ÷ À √ ¿ æ º º µ ≠ û è ç ê è è ê î õ ¢ ü § ê É Å } x r m e h f c a e b a \ Z W X U P L K G F E B A @ ? @ B A B ? ? > > = C B = = 9 6 1 3 4 2 0 2 2 1 . - * * * ( + éÇyy~wwlkf`fo[9&	˛ ˚ ˛ ˛ ˜ ı ˜ Ï Â ﬁ Ÿ ” Ã ¡ ≠ ∫ √ — ≈ ¿ ¬ ƒ Ω º ∏ º ∏ ¥ Æ ® õ ê ã â Ü á é ç ï ë ô ó í å Ç É | { n l g g g c h g a ] \ [ Z Y U T O J J F C B A ? @ ? = = > = < ; = < 9 8 6 4 1 / 2 1 / 0 / 0 3 2 3 0 2 2 5 5 / úìúùõòûúöñìíèëè[7*"	
+ ˙ ¸ ˙  ¯ ˜ · Œ ¡ µ ∏ ø ¿ ¿ ¿ √ ≈     ∂ ≥ ± ≠ ∞ § • ü ü ñ ë î é è î ö ¨ ù ú ü † é Ö Ü É x n o j g h h m n d a c e e h c Z Z Z T T N M L F F > @ A @ @ = = > = = ; 7 6 4 3 1 , , - - / . - + , , , * , îáéîåíëèàÇÖâåàqA&ˇ ˝ ˙ Ù  Ò ¯ Ë ‘ ø ≈ ª º æ º æ √ « ∆ ª ≤ ≥ ™ ´ £ ù ô õ ú õ ó é î ì ç ê í å é ç à Ö Ñ Å É z q k m g a e i q k d ` g g k d X U P M K E G F ? A @ @ A ? @ @ A @ @ = ; 9 7 6 3 1 0 1 . 2 6 6 5 9 8 5 6 6 3 √∏»∆∫©≤∑µ∂´æÃµùúñeFO_MZjÇRmt4034>52-Ó „ ‹ Õ Ã — À ø ≈ ¿ æ ƒ ≈ º ª º º ¥ Æ © ¨ Ã ¬ … Ã Œ º ª ¿ ≤ ∞ ¥ ∂ ø µ ¡ ü £ ö Ä u q f g d k o t h ] ] ^ \ X R P G B C A ? B C E E D D C E E C > 7 9 7 5 4 1 4 8 3 4 : < < ? @ ? A Èœæ∂¨ß•ôóëèé±ìÑuh_SNLC3$#
+ ¸  Ï ‡ ‹ ÷ Ã « √ ø ¿ ø æ ∏ µ ∞ Ø ™ ® ´ ¶ ¶ ü ó ñ î ì ì î í î ê â Å Ç | v { u s l o l o f l d g h f f g b W T P O N L L E D B A ? A B @ B C @ = 9 9 8 8 7 6 7 6 4 4 / . 0 / . . . . / 0 —º©ßûûìíÉ~ÄîêÄ{pfc^Q<1'¸ Ù ˆ ˜ Ì Î Ë · ⁄ ’ À ≈ ¡ ¿ ∂ ≠ ® • † ö ö ô õ † ñ ì ê ä à ä à ä Ö Ä Ç ~ x v r m l p l j f o n h d a ^ _ Z \ [ W Q M L H H F C A A ? > ; > ; < : ; < ; 9 7 5 6 6 2 4 1 1 / 3 2 - 1 0 - , 0 - . - Â”µ´£¢°≠æ÷∫≤û£òñêíàO=7-,$$%Ô ﬁ ⁄ ” Ã √ æ √ ¬ º µ ¥ ∂ ¥ ≥ ≤ Æ µ π ¨ ° ú † ó î ê ó í î Ç å à Ñ ~ x x r p p n m k n u t t o p k m l f g e [ W T W T M F B @ > > @ > @ C D A > 7 6 7 6 6 3 2 2 1 / . - - . - + , + * ÁøîÜäçù°Ø≥¨ûÖstwne\5.
+Ù · Ê ‹ “ “ Ã ∆   » ƒ ∫ º ∏ ∂ ≠ ≠ • ü † ¨ § § § ° ù ü ù ñ ç É } } z x w w q s q p h h m j ` a _ \ ^ V Z V R O N N J G G B > ? ? A A = @ B A C A > < 8 6 7 6 6 5 4 3 3 / 0 1 1 3 3 2 4 0 ’ ¡≤°£º¿À’ﬁÀ´åäéÑwkUG4("+..,+Ï Ê ﬂ Ÿ Œ » √ ¡ ¿ Ω º Ω º ∫ ≤ Ø Ø ∫ ≥ ® ° ¢ ü ò ò ì ê å ä Ö Ñ Ç } z u v s x } t p j h g h f _ Z X T R Q N M J K D B F E C B A ? > > > ? ? = < ; 5 7 4 1 2 / 2 0 / . 2 0 . + + , / 1 . ÂøÖ{{Çå¨µÕª¶íÄ~ÖÑ{ga.''	Ë · › ‘ À ø º ¿ æ Ω ø æ ∫ ª º Ω √ º ∏ ≤ ∞ ≠ § ¢ † î ë è ä Ü Ö Ä } { y v w u s w ~ à Å Ç } w Ö } } o j o q f a Z V W Q Q P N L H K J I H E D C @ < : : 9 < 7 6 7 : 7 8 6 4 4 4 2 1 0 0 ‰œõ|j{åõü±≤Ø™≠ìÑãöÜxd9#/>QH13//Û ˜ Ò ¸ ¸ 96,85<"˝ Û È € ÿ — ” œ – Ã » ≈ Ω ∏ ≥ Æ • ° õ ö ù ö ß ú ë î å Ä Ç Å Ç w n g ^ b W [ V X \ U P L M K G G F E @ > < = < 7 8 7 6 3 6 5 7 6 7 5 2 2 3 3 1 1 ÷≤rq{å§•†´µ±ùäÇàèÅs\<!/2=,˙ ‡ ’ Õ » Ω ø æ ¬ ∆ ƒ Œ œ Ã “ ‹ Œ æ æ © £ û õ è ç à å ã á á Ñ Å É Ä Ç Ç á É Ä y v r p k k h e f ^ \ X W U T U X _ ] T M J G B D @ @ D E @ @ ? @ ? @ > < ; : ? @ ? < 6 6 5 2 / . 1 4 «ª®úäÇåüõúöùü°î~maPJC<.+#"1E@GK?)
+¸ ¯ Â ÿ – Œ À … Œ › ◊ › « « Õ ∏ ¥ µ ´ ß ° ù ô ö ò ö ñ ó ë ñ ì î ë Ü â é á É É à Ç } } z p k k f k f b c g p d ^ Z [ V M J J E F D A ? > @ @ ? ? : 9 < ; 8 8 6 6 0 0 . , - , - + ∏Æûâz{}~w~zÄ|ngN@2*$˜ ˚  !(	˜ „ — « æ ∂ π ∫ ∫ Ω ø   Õ ª µ ª Ω º ∫ § ü ® ó ç é è é à ã â å ê è å í é ~ } w p q k t ~ p g _ \ [ ] [ [ Z Z W X X P I G J H C C @ > @ A ? = = > ; < > ? B B A ? > < : 8 2 2 5 3 1 Õ¢êá~plnwtÑäÜÇ{rm_XI3˝ $%
+˙ Ù Ô ‘ æ ª ¿ ¿ ¬ » “ › ‚ ‘ À » ¿ Ω ¬ ø ∏ ≥ ¨ ö ñ à à à å ê ç ë è á ã á É ~ } x p l k j m j ^ ^ a ] \ Y S Z ` \ T P R Q Q O N I J J J H G C ? > D C < ; < C @ : 7 9 6 8 7 7 7 3 4 >!‰»®ëÜ}{{ÄÇ{mcWLLPf^K(˛ ˝ 	 ¸  ˆ Â ÷ ∆ ≈ ≈ » À — ‘ ÿ ⁄ ﬂ ⁄ ÷ “ ÿ Ù ¸ ˇ ¯ „ Ã ≈ ∆ ¿ ¿ ∞ £ ù • Æ ¨ • ü ¢ ò ò ö ï ï ° î ä á É É } { | y q p k e ] \ U T S R N P O M M L H G C B @ B C L J ? 8 3 4 4 6 4 6 8 8 5 ıŒ∑åxwxwqltÇum_TNKE@5
+
+ Ë „ ﬂ Ÿ ‘ “ » « ø ª ∏ æ ≈   » ∆ ∆ ≈ ¿ Ω µ ¥ ≤ µ Æ Æ † ô ã à à â å å ç ë ä ì å á } Ä z | u s x x v c ` ] e t s i \ \ [ \ Z P S H G F C E H G ? > F E E D E G H H C @ ? < 5 2 2 3 3 8 7 8 7 9!Î∆¶¢úëéíùñùêç~xwutTB@?<1+',1$˙ ¸  ˝ Û „ ﬁ ’ — ’ œ Õ – Œ ” ” — – Ã ∆ √ √ º ∫ ∑ ´ † ñ ë í ï ë è î ó õ ó ó å å Ç Ñ Ç } | w ~ o f e f c e b k e b f b c \ V R P M K H F I K J H I E D F D C @ A @ : 4 3 2 4 8 5 7 3 3 '&ıÏ€Ø£éÉóùù°óíäàÄ}wx]>,ı Ù ˘ ˆ Ú Ï Ì · ⁄ ’ À √ √ ø ø ø ¬ » ¬ ø ø ¥ ´ ´ © ¢ ú ô ê ê ç á Ü à ã å ã è ç ã â Å Å | z x r t m o ` V W Y [ \ _ ^ a f f [ T R N M H G A > > > = ; = : < < ; < = 8 6 4 3 3 1 0 / . 0 / , / #˜˜∂´°ïâÇÉïñïóãçâÉÄsUE+ 
+ˇ ¯ Û Ò Ô Ó Ó ‡ ÿ — Œ À   ≈ √ ¡ æ µ ∞ ≠ ¨ ¨ ® § ° ù û ö ò ï é å ñ ë ó å ê í ï ç ç Ö  ~ Ç  w y w r f c _ a d d c f h g _ \ Z V O Q P H D C B B A B C D E G C A ? 7 6 7 5 6 3 1 1 4 5 3 2 ˇ¬¶úéÅàêëëùíÑÇÜöãgU41#ˇ ˝ ˇ  ⁄ ‘ – Ã « ¡ º ∫ π ∏ ≤ Ø ™ ™ ® § § ± ± ¨ ¶ ô î ê ë é ñ â à å ã ã à Ö É Ö à Ç { x { v s h h d b c g h n h b _ ] X X U N K J G I G C E B D E F G K I B ? 7 6 6 3 4 3 4 7 7 5 ˇ˘ÌÍ⁄œøª¥πº∏Ø†éâèåz_POJHF@7-( ˚ ¯ ˚ Ò Î „ ﬂ ﬁ ﬁ ⁄ ÷ ‘ œ À ƒ º ∂ ∞ Ø ™ ß û û ¢ ¢ ¢ ù ñ ï ó ñ ë è ê å å â É Å } Å Å Ñ Ä x u r l i d a a b ` _ \ Z V Q N O M K M H F F G C E B B ? ? > = < : 6 3 1 3 2 2 0 1 1 0 . -  ˛ˇÓ‰ﬁ”∫¶†üóòîíåÜÅp\IKBA;887.! ˇ ˝ ˆ ¯ ˛ Ò Î · € € ÷ Ÿ ‘ — À √ ¬ æ ∏ ∞ ´ © £ ¢ † • ¶ ¶ £ ù ù û û õ ö ò ó ë ê ä é Ü Ä Ñ Ä t q r t s k e ^ c ^ _ \ [ W V P N P M K J F E ? ; : : : 8 : < < ? A A ; 6 6 7 < 6 3 0 1 0 , - 5-# Ù€Õ∂§ïèö∂ƒƒ∫¢ulslgecZKE7-(**%"$˚ ˆ Ò  Ó Ê ‡ ⁄ “   « ƒ ¡ ¿ ¥ ± ≤ ∂ ± ¨ ± ™ • ¢ § ° õ ô ê ä ä Ö Ñ Ç Å x | | t s p n i f ` ` \ ^ ] X X V S P N K I F F F C D A > A C = ? > ? < > ; 8 8 5 3 4 2 0 1 1 - / 0 0   ⁄»µ§ìëóÆΩ¡ΩØíufeke`XTG9480% !˜ ˚ Ò Ù Ò  Î Î Â ‡ ⁄ ’ ” – » ø æ ª µ ± ¥ ¬ ∫ Ø ≠ § ¢ • § ° ò î ñ ë å à Ñ Ü Ü Ö  z w u x s l g d a ` ^ ^ \ Y T T P P N M I M K H H A E > ? > @ < ? B E C > : 9 6 7 9 ; < ? 7 4 @1"#Ò‹∏äp|ó£Ø«◊Ï–ûÖÇãÖzn]5!#$/-,#˛ ˘ Â ‹ “ « ¿ ª º ∏ ¥ µ µ ∂ ¥ ∞ ≤ ª Ω Ø ß õ ï î ì é à Ö Å Ç ~  | { | ~ | x p l n n a ^ ] Z [ V U W U R P N M L J I K K J F A 9 6 4 6 8 8 8 8 9 < : < < = ? 8 8 : 7 6 6 4 "	Ú·◊ ø≤¶ñéåàî¶≠»À”Œ¶åàÜym_QF8*! ,25?0#	˛ Û Ï Ê › ‘ œ œ » « ¬ ¿ ª Ω ∑ ≥ ¥ ∂ ± Æ ® £ ° ú õ ñ ï í å ç à à å à Ö ~ v t o p m k k f f a [ [ \ Y R N J H H G F E C C A ? = > = < ; ; < 8 9 7 : 4 / . . / / 4 4 . ( ;*ˆﬁ ∞ôè{keci~é†≥√øªóåuwj\E1 
+	!1LXL5*!"˚ Í · ÷ Ã ø ∫ π ∫ ¿ ¬ « ≈ — – ‘ ÿ ⁄ “ ƒ ∫ ¨ û ú é á Ü É Ç Å Å Ç É á Å | r s  s g e X [ W W W W V Z Y V R S P S T T M B = ; 7 4 4 4 7 8 ; < 9 7 6 4 3 1 1 1 0 . + ( /*¯„Œ∫†ÇbYZ`oÄêñüØπ¥òÖlTE:,
+ -8NJ@/"¯ Ô ﬁ “ « ¿ æ æ º ¿ Ã ‘ › ” Õ   À « Ω µ ™ ù î ê ã Ö Ç Å É É Ö ~ ~ Ñ ~ u m n p g e ] Z V V R R P T T S S S R P Q Q L E @ ; : 7 7 7 7 : > ? = 6 5 5 4 2 2 2 0 / - * $  ¯Ì‰ﬁ®{tq{}ÖåäàîùòãtbWC2	˙ ¸ %0660(˛ Ú Á ﬁ — ¬ ª ≥ ± ∞ ∏ ≈ ” ﬂ „ › “ Ã À – « ∫ Ø § ü í é å ä å è é ç à Ü ~ u w Ö É u h e a _ \ [ Z X X \ V Y [ X V ] Z T F B @ @ ? < 8 7 ; < > = 9 7 7 6 6 6 6 : 7 3 1 + 
+˛˚˛ÙÎƒïÅtÜíéëèåíóñÉvfVJ>-(8:6@[^MP:ˇ  Í · › » ∆ ≈ Œ œ Â Î  ¸ Ò  ﬂ “ Œ ƒ Ω ¨ £ õ õ õ ü † î é ì è ë â Ö ò ú ì  r u o m g f a b _ \ ] a _ [ U U T W P D A ? = ; ; < = : = > ? < = > > ? A > : 4 - ‡ˆ¯˜Ùﬁÿ∆úudgqkebbdjg[MF;2)%˚ Ò Ù ˆ ˝ ˜ Ó ‰ ⁄ Õ √ ∏ ∂ ∞ ≠ Ø ± º À “ ‰ › – Õ ¬ ∏ ∑ ¥ ´ ¢ ñ ì á Ü Ü ä Ö Ñ   { w å è å ê Ö | r h d ` ` \ W U U Z Z X T S U U S D A B @ ; : 8 7 : 8 = < ; 9 : < < @ @ 9 : 7 + -  ”ÁﬁÎÒÓıÁ¡ÉndkbZWQE?GMNJEA:893+ˇ ˘ ˇ  ˛  ¸ ˆ Ì ‡ Ÿ “ Õ « ∆ º ∫ ∂ ¿ √ ∑ ∏ ¡ ∆ Õ Ã ƒ ∫ ± ≠ ¶ ú ï è â á Ü Ñ à á |  Ç É } É Ö } | v s q h ` ] T P M J K N R R V R S R Q M F A < ; ; : 9 5 5 7 7 : : 8 < > @ @ < 4 - / * —Á¯	ˇÓ¶åäÇÅsdab\`huhnjjyaT6 ¸ ı Ù Ô ˜ Ó Ô ﬁ Ã ¬ « Œ — Õ “ ◊ ‘ “ ’ Ã ¡ º π ¢ ¶ ° ï í è ñ í å Ö  Å Ç Ñ Å á Å { w r p j ` W V Q T R Q R P R T W Z S O Q J K B @ < : 7 7 7 5 : 5 5 8 : ; < 7 8 < < 7 - , €ÂÚ¸
+:&¯Ôﬁ»ªúÉtd[V]auãàáãûï~c9˚ ˜ ˜ ¯ ˝ Ù Ì Ÿ   ∆ ¿ æ ƒ ¬ ¡ ¿ æ ø ∫ ∏ Æ ¨ ¨ £ £ ù ° Æ ¶ £ î ï õ ì ê è è ë É Ö Ç { w p o h i f b c b ` \ a e h h l c X V S N J G @ < ; 8 5 6 7 < 9 < = > ; : 7 4 3 - + ¡—›ËÛ¸Û–¿•ëtbQF:CA?DU`b}sfW6'
+ ı Ú Ò Ó Ó ¯ ˆ ˆ Û Í Â Ê Ô Î ⁄ √ º ∑ µ µ ± Ø © Æ Ø ´ ™ ´ ß £ † ¢ ú í ò í ä Ö â ç ç z s s t r o k h e ` ] \ [ \ ^ [ T Q L N U V W X V P K H J H D ? < 9 4 5 9 6 5 4 3 4 8 8 8 5 2 0 / / * !/BW1
+˛Ó÷æ†àrfbaquÖâíìëáÄÑr`P;-ˇ ˙ ı ˜ 
+¸ Î ∆ » ƒ ¿ ∏ ¥ ∞ ¨ ≠ Æ ¨ ≠ ¨ ´ ¨ § ™ ù õ ì ê å à Ñ ç Ö Ä p p r o o n n j g g ` _ _ ^ [ U Q N L L R S S Q O M H H F C ? 9 8 4 4 2 . 1 0 3 8 ; = = 9 4 3 0 0 . π»Â˚/˙‡ ºüãwgWOKGPbÉùüúñ†ìèÉwuH:1-NJ.!>A=+2#$˜ ˇ € › ” À ¬ « ≈ ¿ ≥ µ Ø © ¢ ú ö ù ¢ ç å Ü Ç s o l g e g f d b ^ b k l g ^ U O N L N K K K L P P K H E E G @ ? > > : 8 4 2 0 / . 4 4 4 5 7 1 0 0 / / ™≠¬⁄Ûˇ˘‹»∏£êÄj]M?2*.7VbsxÜdWRL?1˘ Ó „ ‹ Ÿ ÿ › ﬂ ﬁ Â È Ë Â ﬁ ﬂ ‰ — ¬ º ∏ µ Æ ™ § † ù õ ú ù ò ï ê ã å é á Ç  } z k h b b a c a c _ ] ^ \ d h d a ^ W M J F H G E A C E H D @ > > = 7 4 7 5 3 / + + * ( , - . . , , ) ) ) ( + ¶ü¢ûú®∑≈æ®ëvbM=4!.6=HT]`QB/)ˇ Ó · ” — — À ∆ » ◊ Î ˙ ˚ ¸ ˜ Ì Á Ë · ÷ … ∫ ≥ Ø ¶ £ ö õ õ ú ô ¢ ú ï å Ö à Ö É z { n e h f a d ^ X Y V [ [ Z [ d a [ U Q G B @ > A > B C B @ ; 8 7 6 6 7 @ ; 5 / - + + - / . 0 2 / . , + * % & ÉÉ~Äâíõë{`F8+ˇ ˝ (>UPVaL>*˝ Ó „ ÷ Õ ≈ √ ¡ √ Õ ⁄ Ó Û ˚ ¸ ﬁ ’ “ Œ ∆ ø ¥ ¨ ¶ • ü ô ò ò ü ô ô í è à Ç Ç â Ç | x h h b b b [ \ X [ [ ^ \ X Y Y W ] [ P E D B B @ ? C D A C @ ? > = = < < A = 3 1 0 / , ) * - 0 . , + ' ( & % $ •†°óçíñúñävmaXP;#-587;BH@4)ˇ Ù „ ’ À ƒ ø º ≈ À ÷ Ï Û Ù Î ‚ — ≈ » √ º ≤ Ø • † ó ê é è ï ñ ì ï ì ã á Ñ É Ö Å r m l g _ [ Y X V U V V Z \ X U V S S F E C B = = : ; ; ? ? = < 6 7 8 7 8 < : 6 - - - * ' & % % ( & ' % % #   # µ¥§ùùòú™•¢óçÉyzlà^L?83@NKXAA?6(
+˛ ˜ ‰ ﬂ ◊ Œ Œ — ◊ ‚ Á ˙ ˆ ‘ ” ⁄   ∫ Æ ® ü ò ï î õ ü ¶ ú † ú ì ê è ñ ó ö ó ä { p g a b ` \ Z [ Y ] c a _ a ` _ Z U H E A A A A @ @ B B C B ? A < > ? > = 9 5 - * ) ' & ( - + ( & ' ' $ % ≥¢óò§üúùß≠•òéà}Z=#-8=EA:<<@A93$
+˙  ‹ — Õ » ≈ Õ ÿ ‡ „ Ì ¯ ¯ ˆ Ë „ ’ Ã ≈ ø ∑ ∞ ™ ü ó î ë í î ú ù ö ï é ä å à î è  x t j e c b \ ] ] ` d e _ ^ ` Z Z W M K G E E B A C C B B B @ < < = : : ; 8 7 / * + * + * ( ) ' * ( ' ( $ $ Â”Ω¥Øßß∂æ¡ª¥≥ø©sWORWWTNKA>BA=5& 
+Ò Á ‡ ﬂ Ê Ó Ì Ô  ı ¯ Û Ô ‰ € ÿ À ø ∂ ¥ £ ü ó ï í é ì ö ¶ ú ú ° õ † ~ ~ { u n p q e ] \ V T T U V Z [ W U Q R O M B @ = < : 8 7 7 : 6 8 8 4 5 2 3 4 3 ) & $ $ $ $ # "   ! # " " "   !   Î◊«º≥ΩΩº’ÍÔÛ‰µàgghb^ZSULQW\U`O==6,Û ˜  ˛ ¯ Ô Ê › ” œ Œ ª ∂ Ø Ø © ™ ∞ ¿ º « ∏ ¥ ∏ ß ü ° § ï é É x m h b d ` _ c l w } | v q l g f c ] W P M H H H H H G F F J K H D D C C @ 6 5 6 5 6 3 3 3 6 4 6 4 3 1 2 ∑©êåàò©§´∏∆Ω‹⁄ásVZ>=77=CA"
+Ú È ﬂ › ÷ € › ﬁ € › È Á ” » ∆ æ Ω ≤ ß ¶ ° î ç ä ç è ì ñ î ï ë ç ã å Ä | ~ } s l c _ Z W U T V \ c h g e a \ V T S O L E B ? > ; 8 ; ? ? ? ? B A < = 9 5 2 1 0 , + * ( * * - / / / + - . Â—¿Ω´ú£∏˚6?ﬁ´ñÜmeSOQROE34B6CPOV:¸ Û ˆ ı ¯ ˜ Ò Ó Á ﬂ ⁄ ‘ œ » ≈ « æ ª ∏ ≤ Æ © ¢ ¢ ¶ ® û í ï í ó é ã Ö Ä | x t o f _ X U T P Q S [ Z \ Z W R P N K H D ? < 8 6 7 4 2 0 2 4 6 8 ; 7 3 2 1 . . ' ) & $ $ " " # # " " # # " ≈∫ßúäzsèﬂ„ﬁ ºófS@:558><VY_]nbgXEˇ ˝ ¯ Ù Ô Ï Í Ì Ì Í „ Á Î Î ﬂ ‡ ‡ Œ ¬ ∫ ≈ µ ¢ û û ™ õ ô ñ è ã á Ü Ç Å Ä z p g ` ^ ^ _ \ \ _ b _ _ [ W U S Q P L K H F B ? < = < < A @ C A @ : 6 5 3 2 2 0 , - + ( ' & % & & * * * ≥¢ÅwdW`hxÉô†ßåàxg6*!¸ ˙ ˜ ˛ &3'Ê ‹ ‹ › ÿ ” ‘ – ◊ ’ — ◊ ‹ ÷ ‘ Ÿ Ÿ “ Ω ∑ ≠ ≠ ü ó ê î ì ë á Å Ä { w { u r m n j a Z W S S Q Q R T T T Q Q N J J E D C A = ; 8 6 4 2 7 ; = = < = : 5 4 1 3 1 0 + ' % % & %   # % + ) , „øûçÄÜá°Ÿ'
+‹∑™ûÇsW;"&4)$ Ë Â › ÿ – ≈ ø ∫ ∏ ¿ º ª ∫ ª ∑ ≥ ¥ ∑ ß § ü î é è å ä à ~ s t r o n i a ] b _ S N K K K K H I K I K G D B @ @ < < : 8 6 3 2 - - - . 1 5 5 5 2 0 0 / 0 . . , ) & # " " !      # # $ tJ¸„»™û©∏ﬂ0-˙›ΩötW>0˚ ˙ @~ZK1,  ‚ ’ Œ » √ ¡ ø ƒ ¬ ƒ ¬ ¡ ∂ ´ ¶ Æ ¶ † û õ ó Ü | z { | } Å Å | { x w u o g a \ P O N K I H K L L N K H H G E C E C ? : 4 1 0 . / 1 2 0 0 - , + * ' ( & & ' & # # !            ! V#—ßéÇÇ`ZeÉ≤‘·…∑¶êwV;ˆ Ì „ · ‹ ⁄ Â ¯ *%ˇ ı ˆ Ì € À ¬ µ ± ∞ ≠ ≠ ∞ § ß £ § û ó ó § ß § ë í å É Ö | w r r s p q p f a ^ [ ] \ U S X N K J G H H H I G G F D B > > B 8 5 2 , - + , * ( . 0 2 1 . , - - * ) ' * * '           _5ˆ…¨{tu{äÆÃ›‹ƒójO"˙ Ò Â › ‹ ﬂ „ Ú ¸ ,"˜ Ë € “   ¡ √ Ø ¨ ™ ® ® ¨ ¨ £ £ ¢ † ü õ ê ë ã Ñ Ü w t s o k d h g b j j j h c c \ V M M K K J F F F K H F G F B C ? = < < > 5 6 ; A 3 5 0 2 4 - . - 1 - 0 ) + ( & $            Íë2˚öÅr|~Çù±∫≠§¶ä^F4¸ Ô ‰ ﬂ Í Ó Ò '+,.'ˇ ˆ Ï Ÿ Õ ∆ æ ª ∂ ≤ ∞ ≤ ∂ ∂ ¡ µ ® ® © § ¢ ó î ñ Ñ z u p k h h f i j m k j l h c _ \ \ W N M H G G L J J H H E D D @ < > ; 2 . . , * * ' ' * , + + , , + + , & & ' ' !          @©+Íõ}hgsÉú∏¡¬∫ßwzjGÛ Û  Û Ó ¸ %01#¯ Í › ” « ¬ ª ∂ µ ≥ µ ø ¡ Œ « ¿ Æ • ü ¢ ú ó ì å à t p l g g l k p u w r l k c ^ Z Z V U S R O N J J J M L J I K I H E > 5 5 2 2 / 1 . / 0 4 6 2 . . 2 4 1 / - / + $ # #  !     # -Êå‡–√ƒµπøæ–ﬁ≈ÆúëÄtZ>6$"(-( È Ù € ‘ æ Ã ⁄ ﬂ Á ı Ó Á Õ ´ ù ¶ Ø ò í í ç u } o m q k q | ñ ñ Ä w w } t o h ^ [ W P L L M N U T X \ ] R J @ 8 4 2 0 4 0 / / 1 . . 1 2 0 / - , * * * % # ! !   ! ! ! " $ Ë Ê∆∂ùúüïìúûü≠†¢ûïáx`H2
+%-<G>+/!ˆ ⁄ ’ Õ ¡ √ À Õ ‘ “ Ï ‚ ◊ À Ω Æ ´ ¥ Æ † õ ò í y t y p r w Ñ á ï ñ ä Ä s n g ` \ U Q R O O K M M Q R T R N M J B @ @ A 8 5 0 2 0 0 1 0 0 0 / 0 1 . 0 / 0 . , & $ & & " $ # ! $ }a4˚´äxuqwx{ÄzÅã~zpWT?1¸  $ Ò Î Ô ˝ :U0Ω æ ƒ «   – ‘ ◊ ” ≈ æ ∂ ´ Æ Æ Æ ù ° õ ó Ç t q q q Ç à Ü å à à p k h e a ] \ U W U X Q N R W [ Z U S L H E E B > ? : 5 3 8 4 7 : 6 3 2 0 2 0 . , + & % % % " # "  # " Ï¶ˆ»ƒæ¥´°ú†ú§•≠ü{ñàÉaH&!*&0+$Ú ı Í – ∆ »   À — ’ ÿ € ’ œ ∆ ∫ ∂ ≤ Æ £ ∫ ≥ £ ∞ ß † Ö â ñ ù ¢ ¢ ¶ ü ã | q n i a _ ^ V U Q T V R R R V T R O C D E E @ 6 7 8 7 5 6 9 4 7 6 5 2 2 2 / . / 0 . , - + * ' $ % & * Í“å@„ò[%‚œ‹◊›Óƒ¬»∫†á~mRQ46>?DMKMJNG=+"˙ Ò · · · ‰ „ Á ‡ ‚ ‡ ‹ ÷ “ » ø ∑ ¨ ® ® £ ô ® ù ï t { Ü Ü è è ç ç á | s p j e ] Y V Q Q Q O P U ` e h b b V P M F F @ ? A < : 7 6 5 6 6 3 6 7 5 5 2 1 , & % & ( % % ' $ $ •âJ"Â’¬∏±ùòëëçåû¶¶ûç|mbD5B&&-+%&&.8/˛ ˙ È „ Ê Í „ ﬁ € € ‹ ” ” ◊ À ø ∂ ≥ ≠ Æ ≠ • ô © £ ò Å ~ Ç à ç å à Ñ Ä z v n f a _ [ [ Q M O N N R V V [ X Q N I F E B @ ; : : 7 5 4 4 3 4 4 5 : 9 6 4 0 , + + + ) ' ) ( ) ( ¥ûjjE˝÷«’ µ®øêû†ãzm`U<* &%&'+.530%˝ ˚ ı ı œ Õ œ — Œ   » « ¬ ø ∫ ∑ ® ™ ¢ ñ ö î ë é í é ä x v Ç ~ Ä  | x r k o e a ] W R O K G G G L P R W Y V L F B @ > : 6 3 0 0 1 0 0 / / - 2 5 6 5 2 + , ' $ & & & & % % % # +‚é]9˚‡√π§ôäè§ÃÏÈ˜®ëÜwk]M>7($  &+/:5ı „ ‚ ﬂ ⁄ ‘ Õ »   ƒ « Ω ¬ Œ º © ´ ° † è É s n p n p q q o o m k f c c \ \ W T N I J F B G E @ B G D F G D E ? > < < 8 6 2 0 . , , , . . 0 1 / 0 - * , , + & ) % % !   !  ’|=Ó‘∫ßúçt]kå±‘”“ê]^T>7-˛ ˝ -˜ Û Ó ‰ ﬂ ÿ ÷ – Œ … Œ Œ Õ ¿   “ À ∑ ¨ Ø • î ç à à Ç Å Ä ~ ~  y x u p n l l g ` \ W R R O K J H L L K L J K H F E A A @ ; 9 < B > . - , . 0 5 2 3 3 3 2 1 - + + , ' $ ( & $ ! q]Ì†I˜Èﬂ∆ø¶íÉ°≈ ÀÑxi[K>3+&%%,+-	˛ Ú „ „ › ’ — Œ ƒ ¿ « ¬ Õ … ≈ ∂ ¢ ô ù ó ã Ç ~ w u s q p p n o j l p o k h f ` V Q P M E F F D J K I P K F K B ? B ? @ : 7 2 2 - , / + 0 5 5 3 0 1 , * + ) & & " " ! ! !  vzX*Ï∂p©äe6˚a·˘(>3πòÜfRGB<*"!&3C]s≥zQ& ˆ Â ‚ ﬁ “ » « œ « √ √ ≈ π Ø ß ∞ ï ê è é è É | v u r q o m m n k o o i ` Z X R M R Q F E D F C C H G F A ? = < : : 6 1 . . + + ' ( - / 0 . , - + - . / / * * * * 1 1 / M3&
+¿Sv#8%˝çòñãó¿‚"$ı¨u]TC5.)-$,N9HqñàcI6 ˜ Ô ‡ ⁄ — Œ ” ≈ ∆ ¬ ¿ ∂ µ ¨ Ø ¢ ò ë ç Ü Ö Ä } { u s q o l k m n j g b ` _ ] R P T R M M L L H I H G D A @ A > ; ; 8 7 4 2 1 / 0 - - / 0 + + - ( ( ' ( ' & % $ " " #   ∆∞ìÑr\D5_«∂ëèÄÄÇõ¬ÿ¯ ¯€±ÑW:#8,%@p&4^sÉÅyH/!ˆ Ì ﬁ ‹ — Õ « ¬ º ≈ √ ª ≤ ª — ∏ ∞ ó ï è ç à Å | v q o k k e e b _ _ Z U T T S R O L H H F C A ? = = = > < 8 7 9 6 2 / 0 / / , - - , , & % & ' & % ( ' % # $ # "     ! :@5;632DC?KV‡ òà}Årp^QXJ665>85#˛ ˇ ˝ ˇ ˛ ¸ ¸ ˆ Í  Û ˛ ¯  ⁄ ‹ € Ó ‰ ‘ ˆ „ Ã ò ú ù ß Æ ∫ ¡ √ ∑ ∂ ® û ì å Å y m a _ ^ b c f h f e c a ^ [ Q M J I D B > < ? > ; 7 : 6 5 4 5 3 / 2 0 + - , - - - ' & $ & % $ $ & " !   ! ! ! " ˛ÓËﬂ/(Ó‘†óîëxSH>4&##˚ Û ˆ Ì — Õ – Õ À Œ « ≠ ≥ ´ £ ë ë ë è è â ä ã á Ü  s n h c c ] ^ X [ Y Z V U Q R S Q R M P N G F E ? @ < = < : 3 1 1 0 0 0 3 2 / , ( ( % % & ' $ $ % % $ " # # # " " # & & $ erÉu{wû»¡ãHÁ—ÿá≥äªáèÇàÑ¢æ≥¿Æù}wgMMLSK=760*	¯ ¸  ¸ Ú ˝ Ù Ô — « ø √ À ƒ ¡ ∏ ± Ø † í ã É Å z u q v q s t z | t u r o m h a ` \ T S N L O J J K L O Q R N C E D A ? = 5 3 0 1 3 2 / - + * * , * - - * - , * , ı˝ˇ˜‡Ã≥™ûª+€omcnº·‰„“º≠ÇgA4.((,%ˇ Î Í Â ‡ ƒ ¬ » ™ ∏ ≤ ´ ø ø √ √ ¬ » ™ ¢ ù ó í É } r o o } ã  x v o n m k d a \ T O L H E A < = = = = ? > B A ? < ; : : 4 3 1 / , / , , ( & & * ) ' & & ( , * + ( »Ω∑æ≈√Õ—œ æ¿œ»ûÖx™—∫≥Ø•©¶´¶Æµ¢ñwOA3$˚ Û  Û ı ¸ Ó Ì ‰ Á ª ¥ ∏ ≤ ™ § ∑ ¿ Ω ± ™ ° ü õ ï ë å Ö Å x q l f i k n l h g d b ^ W V P P M J H F > = < 7 6 8 7 9 8 8 : 4 3 4 0 . . , + ( ' % # $ "   ! ! " ! # # # % # # # & ¥≠Æ¨ü´≥≠ïuqcWRH=@9RZSo|gNQVPPHAC)Ô Ì Á ‚ ⁄ ◊ — Õ — … Œ – Õ Ω ¿ ∫ µ ö í é ã É É   x v v u q m h h j e c ] V R U S P P L O O L M K I G E B C A ? = < 5 4 5 3 2 2 1 4 3 3 2 1 3 - . - - , , , + ) ( & % # " # & & ( * ( ( ) ( ¯Î‚‰Á˚Ú›√µóÖt{¨™ñãäéåäîãÖÄvpU-$˝ Ó „ › ‚ Ê Î È Â Ì „ ‘ Õ À Œ ¥ ß ú ì è ñ í å ä Ç ~ | x w t t q l d _ \ X W U [ ^ [ [ V R R P P K H E D A ? = : 8 8 7 4 7 6 5 3 4 3 4 5 2 2 1 / . , * + % ' $ # " # & ( ( + * * * + ) ˇ˚˙ıÁ‘µ°Él]báÉ~tsv}{~Å{uuqcF5*Û · › Ë Ê Û Ì Î Ó Ê € “ Ã – ’ … ∏ Æ ô ì é é ã Ü Å  ~ y u p r m l j g c b c a ] [ Z W T S R O P M M J J G B @ = ; = ? > = @ < ; ; : 8 8 7 5 5 3 4 1 . + * & ( ) * + . 2 2 1 1 1 4 1 ÎÒ "1/(
+Òﬁ’≥òÅomàêÜ}ÇÖàÉ{woWJ5$Ó „ Î Í Á  Ï ⁄ ‹ ’ Â ’ — ‘ À √ Ω ≤ ¢ ú è á } z Ç Ç z u  } v r q o h b X T R S Q Q L J H J I E A ? ? @ > 6 6 4 7 6 4 3 2 2 . . - + * ' * * + ) ( & " ! " # ! !   ! $ " # # & % $ $ .-N[RNM<-Î–±°ëÅsÖüèó°ùèààvlTI;'!˛ ˆ ˇ Ë Ù „ Í Ó ﬂ › ﬁ ” “ œ ƒ ∫ ∞ ¨ ß ¢ ê {  { ~ Ñ Å É Ç  Ä  ~ } } v u k [ W R M L K G G E G E B A B E @ < ; 7 7 5 4 3 2 2 . - 0 0 / . - ) ' * ( $ # " ! !   ! ! !  # "   !   ! UkeeådNJQ:(C„·ˇ–ﬁÚ@UX%¬∞ùìÉvdH2/ "Ë 	Ï Ù ˆ ˘ Û Ë ’ À ∆ ø º µ ß ò ç à â ã è à Ç  | z s u p m g e _ ^ \ X T K F F G E C > > A ? @ > ; 7 3 1 4 / / 3 / - , * , * , ) % $ ! # # " " ! " ! !          æ ÷ÿÊ›¿∂§§ôÜxo_tbavl[cab[H:1($,Ó ◊ « œ ÷ ‹ ÿ ÷ ’ ‡ È Â Á „ Ì Ì ‡ – Ø ± Æ ¨ • ≠ ® ç é ä á å ç • § ó Ü Ç â ì è Ç } x z o W K E L E C G F H F E D G I I O E B ? 9 ; 6 6 3 3 5 3 6 5 3 5 0 2 1 2 0 2 1 / ) % % $ "  !      fktyvuvâü§~vXRNA.(+*&Ó Ò ‰ „ ∫ ≤ ß ° £ ™ ¶ ¢ • ¢ § ß ¨ • ® ù û ¶ ™ ö û é Ü  z j k k k k n m o l k h g a [ X W V S P J B @ @ ? = < > = : 8 7 7 8 5 5 2 3 1 0 / , + + , - - * . , + , - ( ( ' ( ) $ ! ! !         /GNnibVJIDHRKNWRQF@80(˝ Ú ¯ ˘ ˇ ˜ ¬ ≈ » º ≤ ≠ ™ ® ¨ ´ ® © ® ´ ¶ £ † ò ê é É | |  Å Ä { Å • ¢ í å é É á á Ñ z s r m f h v u _ ^ W T S U Q L K H I L F G E @ < 8 4 4 5 4 4 5 5 7 5 5 5 5 3 0 4 0 , , . * & % % $ ! "       Îœ∏ü|hbswwçôüíïóézURJH?GC:518?8& ø ∏ ∏ ∫ æ æ ¡ æ º ∏ π µ ™ § ® ¶ ß ¢ ü ï ë Ñ u o q p q n n l j l o k k f g h h d ` \ V W T S R M J I I H E C A A ? = < : : = : 8 : 6 8 5 3 4 5 9 6 6 7 6 5 5 3 3 3 . , - ( #  !      óÑhSB5@HNYvÇÄóéÄusqeZJ<4,(!(=4!!˛ Â – —   ‹ ◊ … – ∫ ´ ¨ ¶ ¶ µ ≥ û ö ï y r k n u q n j o q Ç é v p n q Å x o d W P L K H H G I G E H K O M L J O Q T S M D @ < 9 ; < ; > > D G E E D C C A B > : < 9 5 1 . . ) * * * + , zızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqırırırırırırırırırırırırırırırırırırırırırırırırısısısısıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıhıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıiıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıkıkıkıkıkıkıkıkı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ıZıZıZıZıZıZıZıZı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı^ıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıYıYıYıYıYıYıYıYıVıVıVıVıVıVıVıVıVıVıVıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıXıXıXıXıXıXıXıXıXıXıXıXıUıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıTıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıUıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıVıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıZıZıZıZıZıZıZıZıZıZıZıZıZıZıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıZıZıZıZıZıZıXıXıXıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıWıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıZıZıZıZıZıZıZıZıZıZıZıZıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıXıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı\ı\ı\ı\ı\ı\ı\ı\ı\ıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıYıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı[ı[ı[ı[ı[ıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZıZı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı_ı_ı_ı_ı_ı_ı_ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı\ı\ı\ı\ı\ı\ı\ı\ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı[ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı\ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı]ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı^ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı_ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ı`ıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıaıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıbıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıcıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıdıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıeıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıfıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıgıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıjıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkılılılılılılılılılılılılılılılılılılılılılılılılılımımımımımımımımıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkıkılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılımımımımımımımımımımımımımımımımımımımımımımımımımımınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıqıqıqıqıqıqıqıqıqıqıqıqımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınınıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpımımımımılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılılımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımımınınınınınınınınınınınınınınınınınınınınınınınınıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıoıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqırırırıqıqıqıqıqıqıqıqıqıqıqıqıqıpıpıpıpıpıpıpıpıpıpıpıpıpıpıpıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqıqırırırırırırırırırırırırırırırırırırırırırırırırırırısısısısısısısısısısısısısısısısısısısısısısısısısıtıtıtıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıuıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıvıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıyıyıyıxıxıxıxıxıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyızızızızızızızızızızızızızızızızızızızızızızızızıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyızızızızızızızızızızızızızızızızızızızızızıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyızızızızızızızızızızızızızızızızızızızızızızızızızı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyızızızızızızızızızızızızızızızızızızızızızızızızızızızı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı|ı|ıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyızızızızızızızızızızızızızızızızızızızızızızızızızı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyızızızızızızızızızızızızızızızızıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıwıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyızızızızızızızızıyıyıyıyıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıxıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyızızızızızızızızızızızızızızızızızızızızızızızızızızızı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı}ı}ıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyıyızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızızı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı{ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı~ı~ı~ı~ı~ı~ı~ı~ı~ı}ı}ı}ı}ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı|ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ııııııııııııııııııııııı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ııııııııııııııııııııııııııÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ıııııııııııııııııııı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı|ı|ı|ı|ı|ı|ı|ı|ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı}ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ııııııııııııııııııııııııı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ı~ıııııııııııııııııııııııııııııııııÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÅıÅıÅıÅıÅıÅıÅıÅııııııııııııııııııııııııııııııııııÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÄıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÅıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÇıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÜıÜıÜıÜıÜıÜıÜıÑıÑıÑıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÉıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÑıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıáıáıáıáıáıáıáıáıáıáıáıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıàıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÖıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıàıàıàıàıàıàıàıàıáıáıáıáıáıáıáıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıÜıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıáıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıàıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıäıäıäıäıäıäıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıâıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıäıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıãıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıéıéıéıéıéıéıéıéıéıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıåıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıçıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıéıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıêıêıêıêıêıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıèıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıêıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıëıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıíıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıìıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıîıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıïıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıñıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıòıòıòıòıòıòıòıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıóıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıòıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıôıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıöıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıõıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıúıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıùıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıûıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüıüı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı†ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı°ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı£ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı§ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı•ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ı¶ıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßıßı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı®ı©ı©ı©ı©ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØı∞ı∞ıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı≤ı≤ı≤ı≤ı≤ı≤ı≤ıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≥ıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ı≤ıÆıÆıÆıÆıÆı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ı≠ıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı±ı≤ıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıÆıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØıØı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı∞ı±ı±ı±ı±ı±ı±ı±ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı≥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ı¥ıµıµıµıµıµıµıµıµıµıµıµıµıµıµıµıµıµıµıµıµıµıµıµıµı∂ı∂ı∂ı∂ı∂ı∂ı∂ı∂ı∂ı∂ı∂ıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıºıºıºıºıºıºıºıºıºıºıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπıπı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıºıºıºıºıºıºıºıºıºıºıºıªıªıªıªıªıªıªıªı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ı∫ıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıªıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıºıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıΩıæı∆ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı«ı«ı«ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı ı ı ı ı ı ı»ı»ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ıÀıÀıÀıÀıÀıÀı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı…ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ı ıÀıÀıÀıÀıÀıÀıÀıÀıÀıÀıÀıÀı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı…ı…ı…ı…ı…ı…ı…ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı…ı…ı…ı…ı…ı…ı…ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı»ı…ı…ı…ı…ı…ı…ı…ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı∆ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı«ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı√ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı¬ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ı√ıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒıƒı≈ı≈ı≈ı≈ı≈ı≈ı≈ı≈ıœıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıŒıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı“ı“ı“ı“ı“ı“ı“ı“ı“ıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœıœı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı–ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı—ı“ı“ı“ı”ı”ı”ı”ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı“ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı”ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı‘ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı’ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı÷ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ı◊ıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıÿıŸıŸıŸıŸıŸıŸıŸıŸıŸıŸıŸıŸıŸıŸıŸıŸıŸıŸıŸıŸıŸıŸıŸı⁄ı⁄ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı‹ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ı›ıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂı‡ıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬁıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı‡ı‡ı‡ıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂıﬂı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı‡ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ı·ıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂı‰ı‰ı‰ıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÂıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÊıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÏıÏıÏıÏıÏıÏıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÎıÎıÎıÎıËıËıËıËıËıËıËıËıËıËıËıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıÁıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıËıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÈıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÍıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÎıÏıÏıÏıÏıÏıÏıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÓıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔıÔııııııııııııııııııııııııÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıÒıˆıˆıˆıııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııııˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆıˆı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı˜ı¯ı¯ı¯ı¯ı¯ı¯ı¯ı¯ı¯ı¯ı¯ı¯ı¯ı¯ı¯ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı˚ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı¸ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˝ı˛ı˛ı˛ı˛ı˛ı˛ı˛ı˛ı˛ı˛ı˛ı˛ıˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆˆˆˆˆˆˆˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ	ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆ
+ˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆˆ
