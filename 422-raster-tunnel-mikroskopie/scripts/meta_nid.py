@@ -20,6 +20,13 @@ def print_metadata(blob):
     print(blob[23])
     print(blob[21])
 
+    print("".join([
+                  "$v_R = \\SI{",
+                  str(speed),
+                  "}{\\nano\\meter\\per\\second}$, $I_\\text{Setpoint} = \\SI{",
+                  str(setpoint[:-3]),
+                  "}{\\nano\\ampere}$, $P=", str(p), "$, $I=", str(i), "$"]))
+
 
 def main():
     handle = open(argv[1], "r")
