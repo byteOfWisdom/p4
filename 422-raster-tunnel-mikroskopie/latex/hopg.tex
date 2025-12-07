@@ -1,6 +1,8 @@
 \chapter{Highly Ordered Pyrolitic Graphite (HOPG)}
 
-Highly ordered Pyrolitic Graphite (HOPG) ist ein Kristall, bestehend aus Schichten von jeweils hexagonal angeordneten Kohlenstoffatomen. Die Schichten sind zueinander verschoben, so dass jeweils die Hälfte der Kohlenstoffatome über solchen aus der nächsten Lage liegen und die andere Hälfte über entsprechenden Hohlstellen. Dies ist skizziert in Abbildung \todo{abbildung} \todo{cite}.
+Highly ordered Pyrolitic Graphite (HOPG) ist ein Kristall, bestehend aus Schichten von jeweils hexagonal angeordneten Kohlenstoffatomen. Die Schichten sind zueinander verschoben, so dass jeweils die Hälfte der Kohlenstoffatome über solchen aus der nächsten Lage liegen und die andere Hälfte über entsprechenden Hohlstellen. Dies ist skizziert in Abbildung \ref{fig:graphit_gitter} \todo{maybe cite this}.
+
+\jafps{graphit_gitter}{Schematische Darstellung der Kristallstruktur von HOPG\cite{hopg_sketch}}{0.4}
 
 Die Schichten zueinander sind nur schwach über Van-der-Vaals Kräfte gebunden, innerhalb der Brücken sind die Kohlenstoffatome kovalent, also deutlich stärker gebunden \todo{cite}. Dies wird beim Vorbereiten der Probe ausgenutzt, da es erlaubt, ganze schichten relativ leicht abzulösen während diese in sich in Takt bleiben.
 
@@ -9,8 +11,9 @@ Die Verschiebung der Schichten zueinander führt dazu, dass jedes zweite Elektro
 
 \section{Durchführung}
 \label{sec:hopg_messung}
-Die HOPG Probe wird zunächst unter dem USB Mikroskop dokumentiert (siehe \ref{fig:HOPG_optisch})
-\todo{bild mit skala}
+Die HOPG Probe wird zunächst unter dem USB Mikroskop dokumentiert (siehe \ref{fig:hopg_scaled})
+
+\jafps{hopg_scaled}{Aufnahme der genutzten HOPG Probe}{0.4}
 
 Anschließend wird die Probe vorbereitet in dem ein Stück Tesa Film auf die Probe geklebt und dann abgezogen wurde. Dies sorgt dafür, dass eine Frische, unverschmutzte Graphitschicht freigelegt wird.
 Es wird zunächst im CCM ein $\SI{200}{\nano\meter} \times \SI{200}{\nano\meter}$ STM Bild \ref{fig:res/hopg_131} aufgenommen und eine geeignete Flache Stelle gesucht.
@@ -34,24 +37,22 @@ Zum besseren Mitteln wurde jeweils der Abstand von fünf Maxima bestimmt. Außer
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
-Index & $\varphi / \unit{\degree}$ & Länge $L / \unit{\pico\meter}$ \\
+Index & $\varphi / \unit{\degree}$ & Länge $L / \unit{\nano\meter}$ \\
 \hline
-1 & $\num{161.1(5)}$ & $\num{1236.0(5)}$ \\
-2 & $\num{161.8(5)}$ & $\num{1261.7(5)}$ \\
-6 & $\num{160.3(5)}$ & $\num{1257.3(5)}$ \\
+1 & $\num{161(1)}$ & $\num{1.24(3)}$ \\
+2 & $\num{162(1)}$ & $\num{1.26(3)}$ \\
+6 & $\num{160(1)}$ & $\num{1.26(3)}$ \\
 \hline
-3 & $\num{39.5(5)}$ & $\num{1256.8(5)}$ \\
-4 & $\num{40.2(5)}$ & $\num{1260.6(5)}$ \\
-5 & $\num{39.4(5)}$ & $\num{1293.7(5)}$ \\
+3 & $\num{40(1)}$ & $\num{1.26(3)}$ \\
+4 & $\num{40(1)}$ & $\num{1.26(3)}$ \\
+5 & $\num{39(1)}$ & $\num{1.29(3)}$ \\
 \hline
 \end{tabular}
 \caption{Längen und Winkel relativ zur horizontalen der in \ref{fig:res/hopg_166_with_lines} markierten Linien. Die Unsicherheiten ergeben sich aus der Ausdehnung der Maxima.}
 \label{tab:hopg_measure}
 \end{table}
 
-Die Werte in Tabelle \ref{tab:hopg_measure} lassen sich in zwei Gruppen aufspalten, die den zwei Richtungen entsprechen, in denen die Kohlenstoffatome in Reihen liegen. Für jede Richtung wird jetzt der Mittelwert des Abstands zwischen je zwei Maxima berechnet, die Unsicherheit wird mittels Gaußscher Fehlerfortpflanzung berechnet\cite[8-9]{gerthsen}. Es ergibt sich für die erste Richtung (repräsentiert durch die Linien 1, 2, 6) ein Mittlerer Winkel von $\varphi_1 = \SI{161.1(3)}{\degree}$ und ein Abstand von $L_1 = \SI{250.3(1)}{\pico\meter}$. Die selben Berechnungen für die zweite Gruppe (aus Linie 3, 4 und 5) ergeben $\varphi_2 = \SI{39.7(3)}{\degree}$ und $L_2 = \SI{254.1(1)}{\pico\meter}$.
-Die beiden Abstände $L_1$ und $L_2$ liegen jeweils einige $\unit{\pico\meter}$ über dem Erwartungswert. Hierbei liegt $L_1$ um $1.7\%$ und $L_2$ um $3.3\%$ vom Erwartungswert ab. 
-Der Winkelunterschied ist mit $\Delta\varphi = |\varphi_2 - \varphi_1 | = \SI{121.4(4)}{\degree}$ bis auf ein Grad an dem erwarteten Winkel von $\SI{120}{\degree}$ und weicht um weniger als $1\%$ von dem erwarteten Wert ab.
-
-Die elektronische Struktur von HOPG ließ sich visuell gut darstellen. Die erwarteten Atomabstände konnten nicht exakt gefunden werden, wobei in beide Richtungen Abweichungen um wenige Prozent über dem Erwartungswert. Dies deutet auf eine leichte Fehlkalibration des STM hin, beispielsweise hervorgerufen durch Hysterese oder thermische dekalibration der Piezoelemente. \todo{mehr labern; maybe thermische expansion vom hopg} \todo{labern über winkel. gut aber bla}
+Die Werte in Tabelle \ref{tab:hopg_measure} lassen sich in zwei Gruppen aufspalten, die den zwei Richtungen entsprechen, in denen die Kohlenstoffatome in Reihen liegen. Für jede Richtung wird jetzt der Mittelwert des Abstands zwischen je zwei Maxima berechnet, die Unsicherheit wird mittels Gaußscher Fehlerfortpflanzung berechnet\cite[8-9]{gerthsen}. Es ergibt sich für die erste Richtung (repräsentiert durch die Linien 1, 2, 6) ein Mittlerer Winkel von $\varphi_1 = \SI{161(1)}{\degree}$ und ein Abstand von $L_1 = \SI{0.251(4)}{\nano\meter}$. Die selben Berechnungen für die zweite Gruppe (aus Linie 3, 4 und 5) ergeben $\varphi_2 = \SI{40(1)}{\degree}$ und $L_2 = \SI{0.254(4)}{\pico\meter}$.
+Die Gitterabstände $L_1$ und $L_2$ sind zueinander konsisten und liegen innerhalb einer Standardabweichung zueinander. Der Erwartete Gitterabstand $d=\SI{0.246}{\nano\meter}$ liegt in einer $2-\sigma$-Umgebung zu dem Messwert. Der Winkelunterschied beträgt $\Delta\varphi = \SI{121(1)}{\degree}$, was dem erwarteten Außenwinkel eines gleichseitigen Dreiecks ($\SI{120}{\degree}$) gut entspricht. Somit konnte sowohl die Winkel als auch Abstände des HOPG Kristallgitters gemessen werden, wenngleich bei den Gitterabständen nur eine übereinstimmung innerhalb einer $2-\sigma$ Umgebung zu vorliegt.
+Visuell ließ sich die elektronische Struktur von HOPG gut darstellen. Insgesamt lässt dies auf ein recht gut kalibriertes RTM schließen. Die leichten Abweichungen bei den gemessenen Längen lassen sich nicht eindeutig zuordnen, vorstellbar sind aber Hysterese der Piezoelemente oder Temperaturunterschiede zur Temperatur bei der Kalibration und dadurch veränderte elektrische oder Mechanische Eigentschaften des Regelkreises oder der Piezoelemente.
 
