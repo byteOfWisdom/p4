@@ -2,7 +2,7 @@
 
 Um die Funktionsweise des RTM im Bereich größer der atomaren Auflösung von Graphit-Gittern zu überprüfen, wird zunächst die Oberflächentopologie einer mit Gold bedampften Silizium- oder Saphir-Probe untersucht. Welche der beiden Probenarten untersucht wurde, kann anhand des erhaltenden RTM-Bilds festgestellt werden, die Proben waren jedoch nicht beschriftet. Es werden die beiden Goldproben (Probe 1: Nummer 16, Probe 2: Nummer 14) nacheinander mit dem RTM untersucht.
 
-\section{Theoretische Überlegungen}\label{sec:theoriegold}
+\section{Theoretische Überlegungen} \label{sec:theoriegold}
 Es wird nicht direkt Gold untersucht, welches aufgrund seiner elektrisch relativ flachen kristallinen Struktur isoliert zu nur wenige kontrastreichen Aufnahmen führen würde \cite[59-60]{STMrohrer}. Stattdessen werden Proben von Silizium bzw. Saphir verwendet, auf welche Gold aufgedampft wurde \cite[13]{Versuchsanleitung422}.
 Auf der glatten Si- oder Saphir-Oberfläche sind daher kleine Goldkügelchen ohne festes Muster angeordnet. Sie sollten so bei supra-atomaren Auflösungen des Mikroskops gut sichtbar sein. Durch das  Erhitzen muss damit gerechnet werden, dass die Goldkügelchen in ihrer Oberfläche stufenförmige Strukturen aufweisen anstatt vollständig glatt zu sein. Die Ausprägung der Stufen ist stark von der erreichten Temperatur während des Erhitzens abhängig \cite[59]{STMrohrer}. Die vermessenen Proben bestehen aus jeweils zwei verschiedenen Atomsorten (Gold und Silizium bzw. Gold und Saphir). Die Austrittsarbeiten der Elemente unterscheiden sich\cite[Anhang A]{crystalworkfuncs}, weshalb nicht unbedingt direkt auf ein räumliches Höhenprofil geschlossen werden kann\cite[3]{Versuchsanleitung422}. Es wird davon ausgegangen, dass die Oberfläche im wesentlichen komplett mit Goldkugeln bedeckt ist oder deren Höhe (in der Größenordnung von $\mathcal{O}(\unit{\nano\meter})$) zumindest so groß ist, dass die Messung in guter Näherung die Topologie der Oberfläche widerspiegelt.
 
@@ -29,6 +29,14 @@ Die korrespondierenden Aufnahmen für die zweite Goldprobe sind in Abbildungen \
 Da die Goldproben durch die relativ großen Goldkügelchen auf den flachen Basismaterialien hohe Korrugation aufweisen (siehe Abschnitt \ref{sec:theoriegold}), wird im Folgenden das RTM immer im CCM betrieben. Die Parameter des Regelkreises waren dabei auf $P=1000, I=2000$ eingestellt. Eine genauere Auflösung, wie sie durch den CHM erreicht hätte werden können, hätte zu keinen zusätzlichen Informationen geführt. Es ist zu beachten, dass für die beiden Proben, die sich in den Basismaterialien unterscheiden, verschiedene Goldkügelchen-Verteilungen zu erwarten sind, was auch in unterschiedlichen Strukturen auf dem RTM-Aufnahmen sichtbar werden sollte \cite[13]{Versuchsanleitung422}.
 
 \section{Messergebnisse}
+
+Zur Darstellung und nachträglichen Bearbeitung der Daten wird das Programm gwyddion \cite{gwyddion} genutzt. Da die Proben teilweise noch eine Restverkippung gegenüber der x-y-Ebene der Spitzenrasterung sowie eine sichtbare Streifencharakteristik der Rohdaten aufwiesen, wird für alle hiernach aufgeführten RTM-Aufnahmen (außer explizit anders angegeben) standardmäßig die folgende Bildarbeitung mithilfe der Funktionalitäten von gwyddion durchgeführt \cite{docs}:
+
+1. \textit{Plane Level}-Funktionalität: Die Datenpunkte werden analysiert, eine gemeinsame Ebene wird aus ihnen berechnet und von den Datenpunkten einzeln subtrahiert. Dies führt zu einem Ausgleich einer möglichen Verkippung der Probe.
+
+2. \textit{Remove Scars}-Funktionalität: Automatisches Finden und Ausgleich von Liniendefekten in den Datenpunkten, die parallel zur x-Rasterachse auftreten. Sie sind in der Regel durch lokale Regelkreisfehler verursacht und werden durch Interpolation benachbarter, defektfreier Linien ausgeglichen.
+
+Die so erhaltenen RTM-Aufnahmen zeigten besseren Kontrast und weniger Bildfehler (Linienfehler), ohne dass sich die zu untersuchenden Strukturen (in diesem Abschnitt Verteilung der hellen und dunklen Stellen, in Abschnitten zu den Proben mit HOPG und \moszwei die geometrischen Abmessungen der atomaren Aufnahmen) verändern, wodurch die genaue Analyse dieser Strukturen einfacher wurde.
 
 In den Abbildungen \ref{fig:res/gold_126_s4.pdf},\ref{fig:res/gold_127_s4_z.pdf} und \ref{fig:res/gold_129_s4.pdf} sind die RTM-Aufnahmen der ersten Goldprobe (Nummer 16) dargestellt. In Abbildung \ref{fig:res/gold2_130_s4.pdf} ist zusätzlich noch eine RTM-Aufnahme der zweiten Goldprobe (Nummer 14) dargestellt.
 Zur besseren Übersichtlichkeit ist von der ersten Probe nur eins der Bilder hier dargestellt, die anderen beiden sind im Anhang (Abschnitt \ref{sec:anhanggoldrtm}) zu finden.
