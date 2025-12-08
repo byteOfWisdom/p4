@@ -7,7 +7,9 @@ In dem Versuch wird ein Rastertunnelmikroskop (RTM) genutzt, um die Oberflächen
 
 \section{Funktionsweise eines RTM}
 
-Rastertunnelmikroskopie nutzt das Phänomen des messbaren, ortsabhängigen Elektronenstroms (Tunnelstrom)zwischen einer elektrisch leitfähigen Oberfläche einer Probe und einer feiner Metallspitze, wenn diese in einem kleinen Abstand $z$ über die Oberfläche bewegt wird. Dabei wird die Bewegung der Spitze über die Probe als fein über Piezokristalle gesteuerte Rasterbewegung in der x-y-Ebene vorgenommen und die Höhe $z>0$ und der Tunnelstrom $I$ für jeden Rasterpunkt (Pixel des entstehenden Bildes) gemessen. So können Strukturen der Probenoberfläche untersucht werden.
+Rastertunnelmikroskopie nutzt das Phänomen des messbaren, ortsabhängigen Elektronenstroms (Tunnelstrom)zwischen einer elektrisch leitfähigen Oberfläche einer Probe und einer feiner Metallspitze, wenn diese in einem kleinen Abstand $z$ über die Oberfläche bewegt wird. Dabei wird die Bewegung der Spitze über die Probe als fein über Piezokristalle gesteuerte Rasterbewegung in der x-y-Ebene vorgenommen und die Höhe $z>0$ und der Tunnelstrom $I$ für jeden Rasterpunkt (Pixel des entstehenden Bildes) gemessen. So können Strukturen der Probenoberfläche untersucht werden. Eine Skizze des Gesamtaufbaus ist in Abbildung \ref{fig:stm_scheme}zu sehen. Die einzelnen Komponenten werden noch Detailierter erläutert.
+
+\input{skizze_rtm.tikz}
 
 \subsection{Tunnelstrom}
 
@@ -43,13 +45,23 @@ Dieser Zusammenhang ist näherungsweise linear;
 Dieser Effekt ist in der Größenordnung von $10^{-11} - 10^{-9} \unit{\meter\per\volt}$ und erlaubt somit relativ einfach Positionsregelung auf atomaren Größenskalen. \cite[339-341]{gerthsen}
 
 
-\input{skizze_rtm.tikz}
 
 \subsection{Regelkreis}
 Der Abstand der Spitze über der Probe muss geregelt werden, damit der Abstand stets klein genug ist, damit ein messbarer Tunnelstrom fließt ohne jedoch die Probe zu berühren und so potentiell die Spitze zu zerstören.
 
-Zu diesem Zweck wird eine PID-Schleife verwendet. Dies ist eine in der Regelungstechnik übliche Art, ein System zu regeln, so dass es sich möglichst effizient einem Sollpunkt annährt. \todo{cite}
+Zu diesem Zweck wird eine PID-Schleife verwendet. Dies ist eine in der Regelungstechnik übliche Art, ein System zu regeln, so dass es sich möglichst effizient einem Sollpunkt annährt und diesen auch bei äußeren Störungen stabil beibehält. \cite{PID_tutorial}
 
-\todo{macht es Sinn hier die Standardform der PID Regelgleichung hinzupacken und zu erläutern??}
+Eine übliche Darstellung für das Regelsignal ist gegeben durch \cite{ieee_pid}:
+\begin{align}
+	u(t) = K_P e(t) + K_I \int_0^t e(\tau) \d{\tau} - K_D \diff{y(t)}{t} \label{eq:pid_normal}
+\end{align}
 
-Wird der Proportionalfakor auf Null gesetzt und die Integrationszeit sehr lang gewählt, folgt die Spitze nur noch der generellen Tendenz oder Schieflage der Oberfläche, nicht mehr aber Unebenheiten. Dies entspricht dem Wechsel vom konstanten Strom Modus (CCM) zum konstanten Höhen Modus (CHM). \cite{Versuchsanleitung422}
+Die Konstanten müssen so gewählt und eingestellt werden, dass der gewünschte Effekt (meist stabilität um den Sollpunkt) erzielt wird. Dabei dient $K_P$ dazu, proportional zur Abweichung vom Sollwert zu regeln, $K_I$ integriert die Abweichung, reagiert also auf langfristigere Auslenkungen und wirkt diesen entgegen. Der Differentialterm dient der Dämpfung des Systems, insbesondere gegen äußere Störung. Letzterer ist bei dem genutzten RTM stets null, da eine Mechanische abschirmung gegen Erschütterung erfolgt.
+
+Dabei ist $e(t)$ die Abweichung vom Sollpunkt und $y(t)$ der aktuelle Punkt. Im weiteren wird die Konvention genutzt, dass $I = K_I$, $P=K_P$ und $D = K_D$.
+
+Es besteht die Möglichkeit dem Integralterm eine Integrationsuntergrenze, $t - 1 / I$ hinzuzufügen. In der Praxis kann die konkrete Implementierung der Steuersoftware nicht nachvollzogen werden.
+
+Im konstanten Höhen Modus (CHM) werden die Parameter so gewählt, dass der Sollpunkt möglichst exakt und stabil eingehalten wird, also dem Höhenprofil in gleichmäßigem Abstand gefolgt wird.
+
+Wird der Proportionalfakor auf Null gesetzt und die Integrationszeit sehr lang gewählt, folgt die Spitze nur noch der generellen Tendenz oder Schieflage der Oberfläche, nicht mehr aber Unebenheiten. Dies entspricht dem Wechsel vom konstanten Strom Modus (CCM) zum CHM. \cite{Versuchsanleitung422}
