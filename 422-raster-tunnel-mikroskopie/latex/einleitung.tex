@@ -54,12 +54,10 @@ Eine übliche Darstellung für das Regelsignal ist gegeben durch \cite{ieee_pid}
 	u(t) = K_P e(t) + K_I \int_0^t e(\tau) \d{\tau} - K_D \diff{y(t)}{t} \label{eq:pid_normal}
 \end{align}
 
-Die Konstanten müssen so gewählt und eingestellt werden, dass der gewünschte Effekt (meist stabilität um den Sollpunkt) erzielt wird. Dabei dient $K_P$ dazu, proportional zur Abweichung vom Sollwert zu regeln, $K_I$ integriert die Abweichung, reagiert also auf langfristigere Auslenkungen und wirkt diesen entgegen. Der Differentialterm dient der Dämpfung des Systems, insbesondere gegen äußere Störung. Letzterer ist bei dem genutzten RTM stets null, da eine Mechanische abschirmung gegen Erschütterung erfolgt.
+Die Konstanten müssen so gewählt und eingestellt werden, dass der gewünschte Effekt (meist Stabilität um den Sollpunkt) erzielt wird. Dabei dient $K_P$ dazu, proportional zur Abweichung vom Sollwert zu regeln, $K_I$ integriert die Abweichung, reagiert also auf langfristigere Auslenkungen und wirkt diesen entgegen. Der Differentialterm mit $K_D$ dient der Dämpfung des Systems, insbesondere gegen äußere Störung. Letzterer ist bei dem genutzten RTM stets null, da eine mechanische Abschirmung gegen Erschütterung durch Gummifüße erfolgt.
+Dabei ist $e(t)$ die Abweichung vom Sollpunkt und $y(t)$ der aktuelle Punkt. Im weiteren wird die Konvention $I = K_I$, $P=K_P$ und $D = K_D$ genutzt.
 
-Dabei ist $e(t)$ die Abweichung vom Sollpunkt und $y(t)$ der aktuelle Punkt. Im weiteren wird die Konvention genutzt, dass $I = K_I$, $P=K_P$ und $D = K_D$.
+Es besteht die Möglichkeit dem Integralterm eine Integrationsuntergrenze, $t - \frac{1}{I}$ hinzuzufügen. In der Praxis kann die konkrete Implementierung der Steuersoftware nicht nachvollzogen werden.
 
-Es besteht die Möglichkeit dem Integralterm eine Integrationsuntergrenze, $t - 1 / I$ hinzuzufügen. In der Praxis kann die konkrete Implementierung der Steuersoftware nicht nachvollzogen werden.
-
-Im konstanten Höhen Modus (CHM) werden die Parameter so gewählt, dass der Sollpunkt möglichst exakt und stabil eingehalten wird, also dem Höhenprofil in gleichmäßigem Abstand gefolgt wird.
-
-Wird der Proportionalfakor auf Null gesetzt und die Integrationszeit sehr lang gewählt, folgt die Spitze nur noch der generellen Tendenz oder Schieflage der Oberfläche, nicht mehr aber Unebenheiten. Dies entspricht dem Wechsel vom konstanten Strom Modus (CCM) zum CHM. \cite{Versuchsanleitung422}
+Im konstanten Strom-Modus (CCM) werden die Parameter so gewählt, dass der Sollpunkt $I_\text{Setpoint}$ möglichst exakt und stabil eingehalten wird, also dem Höhenprofil in gleichmäßigem Abstand gefolgt wird.
+Wird der Proportionalfakor auf Null gesetzt und die Integrationszeit sehr lang gewählt, folgt die Spitze nur noch der generellen Tendenz oder Schieflage der Oberfläche, nicht mehr aber Unebenheiten. Dies entspricht dem Wechsel vom konstanten Strom-Modus (CCM) zum konstanten Höhen-Modus (CHM) \cite{Versuchsanleitung422}.
