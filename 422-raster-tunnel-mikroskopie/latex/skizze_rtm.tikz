@@ -1,0 +1,39 @@
+\begin{figure}[!ht]
+\centering
+\resizebox{0.4\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\LARGE]
+\draw  (14.5,14) rectangle  node {\LARGE PID-Regler} (18.25,12.75);
+\draw  (21.75,15.25) rectangle  node {\LARGE Z-Achsen-Piezo} (26.75,14);
+\draw [short] (14,13) -- (14,13);
+\draw  (19.75,12.375) -- (23,11.625) -- (26.25,12.375) -- (23,13.125) -- cycle;
+\node [font=\LARGE] at (23,12.5) {Spitze};
+\draw  (25.5,6.875) -- (25.5,6.875) -- (25.5,6.875) -- (25.5,6.875) -- cycle;
+\draw  (26.25,12.125) -- (26.25,12.125) -- (26.25,12.125) -- (26.25,12.125) -- cycle;
+\draw (19.75,8.5) to[battery1] (28.75,8.5);
+\draw [ dashed] (26.75,15.5) rectangle  node {\LARGE Probe}  (30.5,10.75);
+\draw (28.75,8.5) to[short] (28.75,10.75);
+\draw (16.25,10.25) to[short] (16.25,12.75);
+\draw (19.75,9.75) node[ieeestd buffer port, anchor=in, rotate=-270](port){} (port.out) to[short] (19.75,12.5);
+\draw (port.in) to[short] (19.75,8.5);
+\draw [->, >=Stealth, dashed] (15,8.25) -- (18.75,9.5);
+\node [font=\LARGE] at (14.75,7.75) {Transimpedanzverstärker};
+\draw  (25,14.75) rectangle (25,14.75);
+\draw  (31,15.5) rectangle  node {\LARGE X-Y-Piezos} (26.25,17);
+\draw  (22.25,16) rectangle (22.25,16);
+\draw  (14.5,16.5) rectangle  node {\LARGE Steuereinheit} (18.25,15.25);
+\draw (18.25,16) to[short] (26.25,16);
+\draw (13.25,10.25) to[short] (13.25,16);
+\draw (13.25,16) to[short] (14.5,16);
+\draw (16.5,15.25) to[short] (16.5,14);
+\node at (16.25,10.25) [circ] {};
+\draw (21.75,14.5) to[short] (19.5,14.5);
+\node [font=\LARGE] at (24.25,7.5) {Tunnelspannung};
+\draw (18.25,13.25) to[short] (19.5,13.25);
+\draw (19.5,13.25) to[short] (19.5,14.5);
+\draw (13.25,10.25) to[short] (19.275,10.25);
+\end{circuitikz}
+}%
+\caption{Schematische Funktionsweise des RTM}
+\label{fig:stm_scheme}
+\end{figure}
