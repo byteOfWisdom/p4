@@ -16,10 +16,16 @@ def make_n_gaussian(n):
 
 
 def fit_multi_gauss(x, y):
-    peak_ids, _ = scipy.signal.find_peaks(y, width=5, prominence=0.01, distance=20)
-    print(peak_ids)
+    x, xid = np.unique(x, return_index=True)
+    y = y[xid]
+
+    peak_ids, _ = scipy.signal.find_peaks(y, width=5, prominence=0.05, distance=20)
+
+    if x[peak_ids[-1]] < max(x) - 3.:
+        peak_ids = np.append(peak_ids, len(x) - 1)
+
+
     peak_x = x[peak_ids]
-    print(peak_x)
 
     delta_x = np.abs(0.4 * np.average(peak_x[1:] - peak_x[:-1]))
 
@@ -30,10 +36,15 @@ def fit_multi_gauss(x, y):
         x_slice = x[mask]
         y_slice = y[mask]
 
-        p0=[max(y_slice), x_slice[y_slice == max(y_slice)][0], 0.1 * (x_slice[-1] - x_slice[0])]
+        p0=[max(y_slice), x_slice[y_slice == max(y_slice)][0], 0.5 * (x_slice[-1] - x_slice[0])]
 
-        if p0[1] == x_slice[-1]:
+        # this handles the case where the last peak lies outside the measured range
+        if i == len(peak_ids) - 1:
             p0[1] = µ[-1] + (µ[-1] - µ[-2])
+            p0[0] = 1.7 * a[-1]
+            # p0 = np.interp()
+
+        print(p0[1])
 
         params, _ = std.fit_func(std.gaussian, x_slice, y_slice, p0=p0)
 
@@ -47,6 +58,7 @@ def fit_multi_gauss(x, y):
         # plt.show()
 
     p0 = []
+    print(f"prelim µ: {µ}")
     for i in range(len(peak_ids)):
         p0.append(a[i])
         p0.append(µ[i])
