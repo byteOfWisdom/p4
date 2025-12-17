@@ -16,8 +16,8 @@ def make_n_gaussian(n):
 
 
 def fit_multi_gauss(x, y):
-    x, xid = np.unique(x, return_index=True)
-    y = y[xid]
+    # x, xid = np.unique(x, return_index=True)
+    # y = y[xid]
 
     peak_ids, _ = scipy.signal.find_peaks(y, width=5, prominence=0.05, distance=20)
 
@@ -44,7 +44,7 @@ def fit_multi_gauss(x, y):
             p0[0] = 1.7 * a[-1]
             # p0 = np.interp()
 
-        print(p0[1])
+        # print(p0[1])
 
         params, _ = std.fit_func(std.gaussian, x_slice, y_slice, p0=p0)
 
@@ -58,23 +58,23 @@ def fit_multi_gauss(x, y):
         # plt.show()
 
     p0 = []
-    print(f"prelim µ: {µ}")
+    # print(f"prelim µ: {µ}")
     for i in range(len(peak_ids)):
         p0.append(a[i])
         p0.append(µ[i])
         p0.append(sigma[i])
 
     f = make_n_gaussian(len(peak_ids))
-    params, meta = std.fit_func(f, x, y, p0=p0)
+    params, (std_devs, r_sq) = std.fit_func(f, x, y, p0=p0)
 
-    return params
+    return params, std_devs, r_sq
 
 
 def main():
     global µ_bound
     U_acc, U_I = load(argv[1])
 
-    params = fit_multi_gauss(U_acc, U_I)
+    params, std_devs, r_sq = fit_multi_gauss(U_acc, U_I)
     µ = params[1::3]
     sort_key = np.argsort(µ)
     sigma = params[2::3][sort_key]
@@ -92,11 +92,12 @@ def main():
 
     multi_gauss = make_n_gaussian(len(µ))
     xrange = np.linspace(min(U_acc), max(U_acc), 10000)
-    plt.plot(xrange, [multi_gauss(x, *params) for x in xrange])
+    plt.plot(xrange, [multi_gauss(x, *params) for x in xrange], label=f"$R^2 = {round(r_sq, 3)}$")
     for i in range(len(µ)):
         plt.plot(xrange, std.gaussian(xrange,  amp[i], µ[i], sigma[i]), linestyle="dashdot")
 
     std.default.plt_pretty("Beschleunigungsspannung / V", "Strom / Einheit")
+    plt.legend()
     plt.show()
 
 
