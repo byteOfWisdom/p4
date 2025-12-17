@@ -1,3 +1,4 @@
+from itertools import filterfalse
 from sys import argv
 
 import numpy as np
@@ -87,14 +88,15 @@ def calibration_curve(to_print=False,to_plot=True):
     # for x in range(len(diff_xrange)):
     #     diff_cubic[x] = cubic_1[x] - cubic_2[x]
     #plt.plot(diff_xrange, diff_cubic, label="Differenz der Fitfunktionen")
-def average_field():
+def average_field(print=False):
     params,errs = calibration_curve(to_plot=False)
     params_1 = p.ev(params[0],errs[0])
     params_2 = p.ev(params[1],errs[1])
     p_1, _ = p.ve(params_1)
     p_2, _ = p.ve(params_2)
-    print("Parameterset 1:", p_1)
-    print("Parameterset 2:", p_2)
+    if print is True:
+        print("Parameterset 1:", p_1)
+        print("Parameterset 2:", p_2)
     av_params = (params_1+params_2) / 2
     av_vals, av_errs = p.ve(av_params)
     cubic = lambda x: (av_params[0] * (x**3)) + (av_params[1] * (x**2)) + (av_params[2] * x) + av_params[3]
@@ -106,7 +108,7 @@ def average_field():
 
 def main():
     calibration_curve()
-    average_field()
+    average_field(print=True)
     if len(argv) >= 4:
         plt.savefig(argv[3])
     else:
