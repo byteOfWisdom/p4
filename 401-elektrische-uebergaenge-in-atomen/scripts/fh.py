@@ -7,7 +7,6 @@ import std
 from dataclasses import dataclass
 from uncertainties import ufloat
 
-
 def load(file):
     data = np.transpose(np.loadtxt(file, delimiter="\t", skiprows=5))
     return data[2], data[1]
