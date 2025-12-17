@@ -70,9 +70,8 @@ def fit_multi_gauss(x, y):
     return params, std_devs, r_sq
 
 
-def main():
-    global µ_bound
-    U_acc, U_I = load(argv[1])
+def process_file(file, save=False, show=False):
+    U_acc, U_I = load(file)
 
     params, std_devs, r_sq = fit_multi_gauss(U_acc, U_I)
     µ = params[1::3]
@@ -81,23 +80,78 @@ def main():
     amp = params[0::3][sort_key]
     µ = µ[sort_key]
 
-    delta_µ = µ[1:] - µ[:-1]
+    if show or save:
+        delta_µ = µ[1:] - µ[:-1]
+        print(f"fittet µ are : {np.vectorize(lambda x: round(x, 2))(µ)}")
+        print(f"delta µ is : {delta_µ}")
+        print(f"average delta µ is : {np.sum(delta_µ[:-1]) / len(delta_µ[:-1])}")
 
-    print(f"fittet µ are : {np.vectorize(lambda x: round(x, 2))(µ)}")
-    print(f"delta µ is : {delta_µ}")
-    print(f"average delta µ is : {np.sum(delta_µ) / len(delta_µ)}")
+        eb_param = std.default.error_bar_def
+        plt.errorbar(U_acc, U_I, xerr=0.1, yerr=0.1, **eb_param)
 
-    eb_param = std.default.error_bar_def
-    plt.errorbar(U_acc, U_I, xerr=0.1, yerr=0.1, **eb_param)
+        multi_gauss = make_n_gaussian(len(µ))
+        xrange = np.linspace(min(U_acc), max(U_acc), 10000)
+        plt.plot(xrange, [multi_gauss(x, *params) for x in xrange], label=f"$R^2 = {round(r_sq, 3)}$")
+        for i in range(len(µ)):
+            plt.plot(xrange, std.gaussian(xrange,  amp[i], µ[i], sigma[i]), linestyle="dashdot")
 
-    multi_gauss = make_n_gaussian(len(µ))
-    xrange = np.linspace(min(U_acc), max(U_acc), 10000)
-    plt.plot(xrange, [multi_gauss(x, *params) for x in xrange], label=f"$R^2 = {round(r_sq, 3)}$")
-    for i in range(len(µ)):
-        plt.plot(xrange, std.gaussian(xrange,  amp[i], µ[i], sigma[i]), linestyle="dashdot")
+        std.default.plt_pretty("Beschleunigungsspannung / V", "Strom / Einheit")
+        plt.legend()
+        plt.show()
 
-    std.default.plt_pretty("Beschleunigungsspannung / V", "Strom / Einheit")
-    plt.legend()
+    return µ
+
+
+def main():
+    list_file = std.readfile(argv[1])
+
+    temps = [float(x.split(",")[0]) for x in list_file]
+    u_max = [float(x.split(",")[1]) for x in list_file]
+    u_2 = [float(x.split(",")[2]) for x in list_file]
+    file = ["/".join(argv[1].split("/")[:-1]) + "/" + x.split(",")[3].strip() for x in list_file]
+
+    save = argv[-1] == "save"
+
+    id = [0]
+    if "a" in argv[2]:
+        id = range(len(file))
+    elif "-" in argv[2]:
+        id = range(int(argv[2].split("-")[0]), int(argv[2].split("-")[1]) + 1)
+
+
+    filter = np.ones(len(temps))
+    if len(argv) > 3:
+        T = np.array(temps)
+        U = np.array(u_2)
+        filter = eval(argv[3])
+        _ = T
+        _ = U
+
+    peak_pos, peak_num = [], []
+    progress = std.pbar(len(id), msg="running fits ")
+    progress.next()
+
+    for i in id:
+        progress.next()
+        if not filter[i]:
+            continue
+        # print(f"running for: T = {temps[i]}C; U_max = {u_max[i]}V; U_2 = {u_2[i]}V")
+        µ = process_file(file[i], save)[:-1]
+        µ = µ # - µ[0]
+        peak_ids = np.array(range(len(µ)))
+        peak_ids += 0 if µ[0] < 10 else 1
+        peak_pos = np.append(peak_pos, µ)
+        peak_num = np.append(peak_num, peak_ids)
+
+    peak_pos = peak_pos[peak_num > 0]
+    peak_num = peak_num[peak_num > 0]
+    params, (err, r_sq) = std.fit_func(lambda x, a, b: a * x + b, peak_num, peak_pos)
+
+    print(params)
+    plt.scatter(peak_num, peak_pos, marker="x")
+    xrange = np.linspace(0, max(peak_num) + 0.5)
+    plt.plot(xrange, (lambda x, a, b: a * x + b)(xrange, *params), label=f"$R^2 = {r_sq}$")
+    std.default.plt_pretty("Nummer", "Position")
     plt.show()
 
 
