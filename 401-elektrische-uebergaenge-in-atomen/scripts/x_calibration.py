@@ -19,34 +19,36 @@ def square(x, a, b, c, d):
     return a-d
 
 def main():
-    #fit_params = calibration.average_field()
+
     position_err = 5e-4
-    field_err = 8e-3
+    field_err = 10e-3
 
     data = np.transpose(np.loadtxt(argv[1],delimiter=",",skiprows=1))
     positions = p.ev(data[0], position_err)
     fields = p.ev(data[1], field_err)
 
-    middle_pos = p.ev(data[0][5:-5], position_err)
-    middle_fields = p.ev(data[1][5:-5], field_err)
+    # middle_pos = p.ev(data[0][5:-5], position_err)
+    # middle_fields = p.ev(data[1][5:-5], field_err)
 
     std.bullshit.ger()
     std.default.plt_pretty("Position / m", "Magnetfeld B / T")
     eb_param = std.default.error_bar_def
 
-    guesses = [0.5,0.195,0.204,0.005]
+    #guesses = [0.5,0.195,0.204,0.005]
 
    #
-    params, cov = scipy.optimize.curve_fit(square, ~positions, ~fields, maxfev=9999,p0=guesses)
+   # params, cov = scipy.optimize.curve_fit(square, ~positions, ~fields, maxfev=9999,p0=guesses)
 
-    print(params)
+    #print(params)
 
-    xrange = np.linspace(min(~positions),max(~positions),1000)
-    plt.plot(xrange,square(xrange,*params))
+    #xrange = np.linspace(min(~positions),max(~positions),1000)
+    #plt.plot(xrange,square(xrange,*params))
 
-
-    plt.errorbar(positions, fields,xerr=position_err,yerr=field_err,**eb_param)
-    plt.show()
+    plt.errorbar(positions, fields, xerr=position_err, yerr=field_err, **eb_param)
+    if len(argv) >= 3:
+        plt.savefig(argv[2])
+    else:
+        plt.show()
 
 
 if __name__ == "__main__":

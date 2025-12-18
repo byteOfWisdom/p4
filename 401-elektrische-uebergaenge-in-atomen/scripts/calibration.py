@@ -1,4 +1,3 @@
-from itertools import filterfalse
 from sys import argv
 
 import numpy as np
@@ -16,15 +15,17 @@ def get_curve(file):
 
 
 def calibration_curve(to_print=False,to_plot=True):
+    files = ["data/zeeman/a203/Kalibration_01.txt", "data/zeeman/a203/Kalibration_02.txt"]
     std.bullshit.ger()
     std.default.plt_pretty("Spulenstrom I / A", "Magnetfeld B / T")
     cubic = lambda x, a, b, c, d: (a * (x**3)) + (b * (x**2)) + (c * x) + d
     plot_color = iter(["crimson","forestgreen"])
     func_params = []
     func_errs = []
-    for i in range(1,3):
+    for i in range(0,2):
+        messung = i + 1
         this_color = next(plot_color)
-        currents, fields = get_curve(argv[i])
+        currents, fields = get_curve(files[i])
         params, cov = scipy.optimize.curve_fit(cubic, ~currents, ~fields)
         errs = np.sqrt(np.diag(cov))
         func_params.append(params)
@@ -70,7 +71,7 @@ def calibration_curve(to_print=False,to_plot=True):
                 xerr=curr_err,
                 yerr=field_err,
                 **eb_param,
-                label=f"Messung {i}",
+                label=f"Messung {messung}",
                 color = this_color,
             )
             plt.legend(loc="best")
@@ -78,7 +79,7 @@ def calibration_curve(to_print=False,to_plot=True):
         #     params_1 = params
         # if i == 2:
         #     params_2 = params
-    return func_params,func_errs
+    return func_params, func_errs
 
     # just to evaluate differences, dont include in final graph
     # diff_xrange = np.linspace(-10, 10, 1000)
@@ -88,29 +89,34 @@ def calibration_curve(to_print=False,to_plot=True):
     # for x in range(len(diff_xrange)):
     #     diff_cubic[x] = cubic_1[x] - cubic_2[x]
     #plt.plot(diff_xrange, diff_cubic, label="Differenz der Fitfunktionen")
-def average_field(print=False):
-    params,errs = calibration_curve(to_plot=False)
-    params_1 = p.ev(params[0],errs[0])
-    params_2 = p.ev(params[1],errs[1])
+
+def average_field(verbal=False):
+    params, errs = calibration_curve(to_plot=False, to_print=False)
+    params_1 = p.ev(params[0], errs[0])
+    params_2 = p.ev(params[1], errs[1])
     p_1, _ = p.ve(params_1)
     p_2, _ = p.ve(params_2)
-    if print is True:
+    if verbal is True:
         print("Parameterset 1:", p_1)
         print("Parameterset 2:", p_2)
     av_params = (params_1+params_2) / 2
     av_vals, av_errs = p.ve(av_params)
     cubic = lambda x: (av_params[0] * (x**3)) + (av_params[1] * (x**2)) + (av_params[2] * x) + av_params[3]
-    temp,_ = p.ve(np.vectorize(cubic)(np.linspace(-10, 10, 100)))
-   # plt.plot(np.linspace(-10, 10, 100), temp, color="black")
-    return cubic
+    #temp,_ = p.ve(np.vectorize(cubic)(np.linspace(-10, 10, 100)))
+    #plt.plot(np.linspace(-10, 10, 100), temp, color="black")
+    return av_vals, av_errs
 
+def field_function(x):
+    cubic_params, cubic_errs = average_field()
+    cubic = (cubic_params[0] * (x**3)) + (cubic_params[1] * (x**2)) + (cubic_params[2] * x) + cubic_params[3]
+    return cubic
 
 
 def main():
     calibration_curve()
-    average_field(print=True)
-    if len(argv) >= 4:
-        plt.savefig(argv[3])
+    #average_field(verbal=True)
+    if len(argv) >= 2:
+        plt.savefig(argv[1])
     else:
         plt.show()
 
