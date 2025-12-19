@@ -14,7 +14,6 @@ def get_currents(file):
     currents = p.ev(data[1], 0.2)
     return indices, currents
 
-
 def calibration_func(x):
     return calibration.field_function(x)
 

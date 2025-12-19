@@ -96,11 +96,13 @@ def average_field(verbal=False):
     params_2 = p.ev(params[1], errs[1])
     p_1, _ = p.ve(params_1)
     p_2, _ = p.ve(params_2)
+    av_params = (params_1+params_2) / 2
+    av_vals, av_errs = p.ve(av_params)
     if verbal is True:
         print("Parameterset 1:", p_1)
         print("Parameterset 2:", p_2)
-    av_params = (params_1+params_2) / 2
-    av_vals, av_errs = p.ve(av_params)
+        print("Average Parameter:",av_vals)
+        print("Average Fehler:", av_errs)
     cubic = lambda x: (av_params[0] * (x**3)) + (av_params[1] * (x**2)) + (av_params[2] * x) + av_params[3]
     #temp,_ = p.ve(np.vectorize(cubic)(np.linspace(-10, 10, 100)))
     #plt.plot(np.linspace(-10, 10, 100), temp, color="black")
@@ -113,8 +115,8 @@ def field_function(x):
 
 
 def main():
-    calibration_curve()
-    #average_field(verbal=True)
+    #calibration_curve()
+    average_field(verbal=True)
     if len(argv) >= 2:
         plt.savefig(argv[1])
     else:
