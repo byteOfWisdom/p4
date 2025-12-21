@@ -15,10 +15,13 @@ def calib_curve(cv):
     return a * cv + b * cv ** 2 + c * cv ** 3
 
 
-def load_file(fname):
+def load_file(fname, lens_dist):
     data = np.transpose(np.loadtxt(fname, delimiter=";", skiprows=5))
     current = float(std.readfile(fname)[0].split()[2])
-    return data[0], data[1], current
+
+    pixel_spacing = 9.6e-6
+    x = data[0] * pixel_spacing
+    return x, data[1], current
 
 
 def sections(arr, min_lenght=5):
@@ -40,11 +43,40 @@ def isolate_orders(x, y):
     secs = sections(y > cutoff)
     x_chunks = [x[a:b] for a, b in secs]
     y_chunks = [y[a:b] for a, b in secs]
-    return list(zip(x_chunks, y_chunks))
+    from_middle = np.array([np.average(c) - np.average(x) for c in x_chunks])
+    central = np.argsort(np.abs(from_middle))[0]
+    order = np.abs(np.arange(0, len(x_chunks)) - central)
+
+    return list(zip(x_chunks, y_chunks, order))
  
 
 def make_n_gaussian(n):
-    return lambda x, *args: args[-1] + sum([std.gaussian(x, np.abs(args[i]), args[i + 1], args[i + 2]) for i in range(0, 3 * n, 3)])
+    return lambda x, *args: args[-1] + sum([std.gaussian(x, args[i], args[i + 1], args[i + 2]) for i in range(0, 3 * n, 3)])
+
+
+def diff_find_maxima(y, smoothing=2):
+    # smooth_grad = np.roll(0.2 * np.convolve(np.gradient(y), np.ones(2 * smoothing), mode="same"), 0)
+    smooth_grad = np.gradient(np.convolve(y, np.ones(2 * smoothing), mode="same"))
+    # plt.cla()
+    # plt.plot(np.gradient(y))
+    # plt.plot(smooth_grad)
+    # plt.plot(y)
+    # plt.show()
+
+    peaks = []
+
+    before, after = np.zeros(len(y), dtype=np.bool), np.zeros(len(y), dtype=np.bool)
+    for i in range(smoothing):
+        before[i] = 1
+        after[i + smoothing] = 1
+
+    for i in range(smoothing, len(y) - smoothing):
+        if np.all(smooth_grad[before] > 0) and np.all(smooth_grad[after] < 0):
+            peaks.append(i - 1)
+        before = np.roll(before, 1)
+        after = np.roll(after, 1)
+
+    return peaks
 
 
 @dataclass
@@ -53,18 +85,17 @@ class peak_descriptor:
     sigma: ufloat
     fwhm: ufloat
     position: ufloat
+    valid: bool
+    order: int
 
 
-def fit_order(x, y):
-    # plt.cla()
-    # plt.plot(x, y)
-    # plt.show()
-    kernel = np.ones(int(len(x) / 10))
-    peaks, _ = scipy.signal.find_peaks(scipy.signal.convolve(y, kernel), width=5, height=(min(y) + 0.3 * (max(y) - min(y))))
-    peaks -= len(kernel)
+def fit_order(x, y, order):
+    peaks = diff_find_maxima(y, smoothing=len(y) // 25)
+    # peaks -= len(kernel)
     print(len(peaks), x[peaks])
+    
     func = make_n_gaussian(len(peaks))
-    print([y[max(0, peak-5):peak+5] for peak in peaks])
+    # print([y[max(0, peak - 5):peak+5] for peak in peaks])
     amp_initial = [max(y[max(0, peak - 5):peak + 5]) for peak in peaks]
     µ_initial = [(x[max(0, peak - 5):peak + 5])[y[max(0, peak - 5):peak + 5] == max(y[max(0, peak - 5):peak + 5])][0] for peak in peaks]
     sigma_initial = (max(x) - min(x)) / 10
@@ -79,38 +110,59 @@ def fit_order(x, y):
 
     res = []
     for i in range(len(peaks)):
+        valid = (params[3 * i] + params[-1] < 1.1 * max(y)) and (min(x) < params[3 * i + 1] < max(x))
         peak = peak_descriptor(
                                height=ufloat(params[3 * i], errors[3 * i]) + ufloat(params[-1], errors[-1]),
                                sigma=ufloat(params[3 * i + 2], errors[3 * i + 2]),
                                fwhm=ufloat(params[3 * i + 2], errors[3 * i + 2]) * 2.355,
-                               position=ufloat(params[3 * i + 1], errors[3 * i + 1]))
-        res.append(peak)
+                               position=ufloat(params[3 * i + 1], errors[3 * i + 1]),
+                               valid=valid, order=order)
+        if peak.valid:
+            res.append(peak)
+        else:
+            print("rececting implausible fit")
 
     # _ = [print(r) for r in res]
+    # print(params)
     # plt.cla()
     # plt.plot(x, y)
     # xrange = np.linspace(min(x), max(x), 1000)
     # plt.plot(xrange, func(xrange, *params))
+    # plt.plot(xrange, std.gaussian(xrange, *params[0:3]) + params[-1], linestyle="dotted")
+    # plt.plot(xrange, std.gaussian(xrange, *params[3:6]) + params[-1], linestyle="dotted")
+    # plt.plot(xrange, std.gaussian(xrange, *params[6:9]) + params[-1], linestyle="dotted")
     # plt.scatter([p.position.nominal_value for p in res], [p.height.nominal_value for p in res], marker="x")
     # plt.show()
 
     return res
     
 
+def wavelenght(x, m):
+    refraction_index = 1.457
+    etalon_thickness = 0.004
+    distance = 0.145
+    alpha = x / distance
+    return 2 * etalon_thickness * np.sqrt(refraction_index ** 2 - np.sin(alpha) ** 2)
+
+
 def main():
-    x, y, I = load_file(argv[1])
+    x, y, I = load_file(argv[1], 0.145)
     peaks = []
-    for x, y in isolate_orders(x, y)[1:-1]:
-        peaks += fit_order(x, y)
+    for x, y, n in isolate_orders(x, y)[1:-1]:
+        peaks += fit_order(x, y, n)
         plt.plot(x, y)
 
-    _ = [print(f"{'{:.2uS}'.format(p.position)}, {'{:.2uS}'.format(p.height)}") for p in peaks]
+    zero_pos = list(filter(lambda p: p.order == 0, peaks))[1].position
+    for i in range(len(peaks)):
+        peaks[i].position -= zero_pos
 
-    px = [p.position.nominal_value for p in peaks]
+    _ = [print(f"{'{:.2uS}'.format(p.position)}, {'{:.2uS}'.format(p.height)}, {wavelenght(p.position, p.order)}") for p in peaks]
+
+    px = np.array([p.position.nominal_value for p in peaks])
     py = [p.height.nominal_value for p in peaks]
-    plt.scatter(px, py, marker="x", color="purple")
+    plt.scatter(px + zero_pos.nominal_value, py, marker="x", color="purple")
 
-    std.default.plt_pretty("Ort", "Intentsität")
+    std.default.plt_pretty("Winkel / rad", "Intentsität / Beliebige Einheit")
     plt.show()
 
 
