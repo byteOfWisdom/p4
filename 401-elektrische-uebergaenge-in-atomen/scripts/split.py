@@ -20,8 +20,8 @@ def load_file(fname, lens_dist):
     current = float(std.readfile(fname)[0].split()[2])
 
     pixel_spacing = 9.6e-6
-    angle = data[0] * pixel_spacing / lens_dist
-    return data[0], data[1], current
+    x = data[0] * pixel_spacing
+    return x, data[1], current
 
 
 def sections(arr, min_lenght=5):
@@ -43,7 +43,11 @@ def isolate_orders(x, y):
     secs = sections(y > cutoff)
     x_chunks = [x[a:b] for a, b in secs]
     y_chunks = [y[a:b] for a, b in secs]
-    return list(zip(x_chunks, y_chunks))
+    from_middle = np.array([np.average(c) - np.average(x) for c in x_chunks])
+    central = np.argsort(np.abs(from_middle))[0]
+    order = np.abs(np.arange(0, len(x_chunks)) - central)
+
+    return list(zip(x_chunks, y_chunks, order))
  
 
 def make_n_gaussian(n):
@@ -82,9 +86,10 @@ class peak_descriptor:
     fwhm: ufloat
     position: ufloat
     valid: bool
+    order: int
 
 
-def fit_order(x, y):
+def fit_order(x, y, order):
     peaks = diff_find_maxima(y, smoothing=len(y) // 25)
     # peaks -= len(kernel)
     print(len(peaks), x[peaks])
@@ -111,7 +116,7 @@ def fit_order(x, y):
                                sigma=ufloat(params[3 * i + 2], errors[3 * i + 2]),
                                fwhm=ufloat(params[3 * i + 2], errors[3 * i + 2]) * 2.355,
                                position=ufloat(params[3 * i + 1], errors[3 * i + 1]),
-                               valid=valid)
+                               valid=valid, order=order)
         if peak.valid:
             res.append(peak)
         else:
@@ -132,18 +137,28 @@ def fit_order(x, y):
     return res
     
 
+def wavelenght(x, m):
+    refraction_index = 1.457
+    etalon_thickness = 0.004
+    return 2 * refraction_index * etalon_thickness * np.cos(x.nominal_value / 0.145) / m
+
+
 def main():
     x, y, I = load_file(argv[1], 0.145)
     peaks = []
-    for x, y in isolate_orders(x, y)[1:-1]:
-        peaks += fit_order(x, y)
+    for x, y, n in isolate_orders(x, y)[1:-1]:
+        peaks += fit_order(x, y, n)
         plt.plot(x, y)
 
-    _ = [print(f"{'{:.2uS}'.format(p.position)}, {'{:.2uS}'.format(p.height)}") for p in peaks]
+    zero_pos = list(filter(lambda p: p.order == 0, peaks))[1].position
+    for i in range(len(peaks)):
+        peaks[i].position -= zero_pos
 
-    px = [p.position.nominal_value for p in peaks]
+    _ = [print(f"{'{:.2uS}'.format(p.position)}, {'{:.2uS}'.format(p.height)}, {wavelenght(p.position, p.order)}") for p in peaks]
+
+    px = np.array([p.position.nominal_value for p in peaks])
     py = [p.height.nominal_value for p in peaks]
-    plt.scatter(px, py, marker="x", color="purple")
+    plt.scatter(px + zero_pos.nominal_value, py, marker="x", color="purple")
 
     std.default.plt_pretty("Winkel / rad", "Intentsität / Beliebige Einheit")
     plt.show()
