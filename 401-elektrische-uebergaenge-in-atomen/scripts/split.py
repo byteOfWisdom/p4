@@ -55,13 +55,7 @@ def make_n_gaussian(n):
 
 
 def diff_find_maxima(y, smoothing=2):
-    # smooth_grad = np.roll(0.2 * np.convolve(np.gradient(y), np.ones(2 * smoothing), mode="same"), 0)
     smooth_grad = np.gradient(np.convolve(y, np.ones(2 * smoothing), mode="same"))
-    # plt.cla()
-    # plt.plot(np.gradient(y))
-    # plt.plot(smooth_grad)
-    # plt.plot(y)
-    # plt.show()
 
     peaks = []
 
@@ -122,18 +116,6 @@ def fit_order(x, y, order):
         else:
             print("rececting implausible fit")
 
-    # _ = [print(r) for r in res]
-    # print(params)
-    # plt.cla()
-    # plt.plot(x, y)
-    # xrange = np.linspace(min(x), max(x), 1000)
-    # plt.plot(xrange, func(xrange, *params))
-    # plt.plot(xrange, std.gaussian(xrange, *params[0:3]) + params[-1], linestyle="dotted")
-    # plt.plot(xrange, std.gaussian(xrange, *params[3:6]) + params[-1], linestyle="dotted")
-    # plt.plot(xrange, std.gaussian(xrange, *params[6:9]) + params[-1], linestyle="dotted")
-    # plt.scatter([p.position.nominal_value for p in res], [p.height.nominal_value for p in res], marker="x")
-    # plt.show()
-
     return res
     
 
@@ -141,8 +123,15 @@ def wavelenght(x, m):
     refraction_index = 1.457
     etalon_thickness = 0.004
     distance = 0.145
-    alpha = x / distance
+    alpha = x.nominal_value / distance
     return 2 * etalon_thickness * np.sqrt(refraction_index ** 2 - np.sin(alpha) ** 2)
+
+
+def energy_split(alpha_pi, alpha_sigma):
+    wavelength_pi_sigma = 644e-9
+    h_ev = 6.6e-16
+    return (std.unit.c * h_ev / wavelength_pi_sigma) * (1 - (wavelenght(alpha_pi, 1) / wavelenght(alpha_sigma, 1)))
+    # return wavelength_pi_sigma * (1 - (wavelenght(alpha_pi, 1) / wavelenght(alpha_sigma, 1)))
 
 
 def main():
@@ -151,8 +140,10 @@ def main():
     for x, y, n in isolate_orders(x, y)[1:-1]:
         peaks += fit_order(x, y, n)
         plt.plot(x, y)
+        print(energy_split(peaks[1].position, peaks[0].position))
 
     zero_pos = list(filter(lambda p: p.order == 0, peaks))[1].position
+    print(zero_pos)
     for i in range(len(peaks)):
         peaks[i].position -= zero_pos
 
@@ -162,7 +153,7 @@ def main():
     py = [p.height.nominal_value for p in peaks]
     plt.scatter(px + zero_pos.nominal_value, py, marker="x", color="purple")
 
-    std.default.plt_pretty("Winkel / rad", "Intentsität / Beliebige Einheit")
+    std.default.plt_pretty("Position / m", "Intentsität / Beliebige Einheit")
     plt.show()
 
 
