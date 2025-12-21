@@ -140,7 +140,9 @@ def fit_order(x, y, order):
 def wavelenght(x, m):
     refraction_index = 1.457
     etalon_thickness = 0.004
-    return 2 * refraction_index * etalon_thickness * np.cos(x.nominal_value / 0.145) / m
+    distance = 0.145
+    alpha = x / distance
+    return 2 * etalon_thickness * np.sqrt(refraction_index ** 2 - np.sin(alpha) ** 2)
 
 
 def main():
