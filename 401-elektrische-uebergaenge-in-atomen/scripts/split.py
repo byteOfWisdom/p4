@@ -55,13 +55,7 @@ def make_n_gaussian(n):
 
 
 def diff_find_maxima(y, smoothing=2):
-    # smooth_grad = np.roll(0.2 * np.convolve(np.gradient(y), np.ones(2 * smoothing), mode="same"), 0)
     smooth_grad = np.gradient(np.convolve(y, np.ones(2 * smoothing), mode="same"))
-    # plt.cla()
-    # plt.plot(np.gradient(y))
-    # plt.plot(smooth_grad)
-    # plt.plot(y)
-    # plt.show()
 
     peaks = []
 
@@ -133,12 +127,20 @@ def wavelenght(x, m):
     return 2 * etalon_thickness * np.sqrt(refraction_index ** 2 - np.sin(alpha) ** 2)
 
 
+def energy_split(alpha_pi, alpha_sigma):
+    wavelength_pi_sigma = 644e-9
+    h_ev = 6.6e-16
+    return (std.unit.c * h_ev / wavelength_pi_sigma) * (1 - (wavelenght(alpha_pi, 1) / wavelenght(alpha_sigma, 1)))
+    # return wavelength_pi_sigma * (1 - (wavelenght(alpha_pi, 1) / wavelenght(alpha_sigma, 1)))
+
+
 def main():
     x, y, I = load_file(argv[1], 0.145)
     peaks = []
     for x, y, n in isolate_orders(x, y)[1:-1]:
         peaks += fit_order(x, y, n)
         plt.plot(x, y)
+        print(energy_split(peaks[1].position, peaks[0].position))
 
     zero_pos = list(filter(lambda p: p.order == 0, peaks))[1].position
     print(zero_pos)
