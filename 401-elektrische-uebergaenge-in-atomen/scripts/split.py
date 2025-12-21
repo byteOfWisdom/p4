@@ -122,18 +122,6 @@ def fit_order(x, y, order):
         else:
             print("rececting implausible fit")
 
-    # _ = [print(r) for r in res]
-    # print(params)
-    # plt.cla()
-    # plt.plot(x, y)
-    # xrange = np.linspace(min(x), max(x), 1000)
-    # plt.plot(xrange, func(xrange, *params))
-    # plt.plot(xrange, std.gaussian(xrange, *params[0:3]) + params[-1], linestyle="dotted")
-    # plt.plot(xrange, std.gaussian(xrange, *params[3:6]) + params[-1], linestyle="dotted")
-    # plt.plot(xrange, std.gaussian(xrange, *params[6:9]) + params[-1], linestyle="dotted")
-    # plt.scatter([p.position.nominal_value for p in res], [p.height.nominal_value for p in res], marker="x")
-    # plt.show()
-
     return res
     
 
@@ -141,7 +129,7 @@ def wavelenght(x, m):
     refraction_index = 1.457
     etalon_thickness = 0.004
     distance = 0.145
-    alpha = x / distance
+    alpha = x.nominal_value / distance
     return 2 * etalon_thickness * np.sqrt(refraction_index ** 2 - np.sin(alpha) ** 2)
 
 
@@ -153,6 +141,7 @@ def main():
         plt.plot(x, y)
 
     zero_pos = list(filter(lambda p: p.order == 0, peaks))[1].position
+    print(zero_pos)
     for i in range(len(peaks)):
         peaks[i].position -= zero_pos
 
@@ -162,7 +151,7 @@ def main():
     py = [p.height.nominal_value for p in peaks]
     plt.scatter(px + zero_pos.nominal_value, py, marker="x", color="purple")
 
-    std.default.plt_pretty("Winkel / rad", "Intentsität / Beliebige Einheit")
+    std.default.plt_pretty("Position / m", "Intentsität / Beliebige Einheit")
     plt.show()
 
 
