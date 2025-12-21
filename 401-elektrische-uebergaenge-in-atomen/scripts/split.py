@@ -15,9 +15,12 @@ def calib_curve(cv):
     return a * cv + b * cv ** 2 + c * cv ** 3
 
 
-def load_file(fname):
+def load_file(fname, lens_dist):
     data = np.transpose(np.loadtxt(fname, delimiter=";", skiprows=5))
     current = float(std.readfile(fname)[0].split()[2])
+
+    pixel_spacing = 9.6e-6
+    angle = data[0] * pixel_spacing / lens_dist
     return data[0], data[1], current
 
 
@@ -130,7 +133,7 @@ def fit_order(x, y):
     
 
 def main():
-    x, y, I = load_file(argv[1])
+    x, y, I = load_file(argv[1], 0.145)
     peaks = []
     for x, y in isolate_orders(x, y)[1:-1]:
         peaks += fit_order(x, y)
@@ -142,7 +145,7 @@ def main():
     py = [p.height.nominal_value for p in peaks]
     plt.scatter(px, py, marker="x", color="purple")
 
-    std.default.plt_pretty("Ort", "Intentsität")
+    std.default.plt_pretty("Winkel / rad", "Intentsität / Beliebige Einheit")
     plt.show()
 
 
