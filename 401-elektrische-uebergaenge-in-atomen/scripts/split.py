@@ -19,7 +19,7 @@ def load_file(fname, lens_dist):
     data = np.transpose(np.loadtxt(fname, delimiter=";", skiprows=5))
     current = float(std.readfile(fname)[0].split()[2])
 
-    pixel_spacing = 9.6e-6
+    pixel_spacing = 9.6e-7
     x = data[0] * pixel_spacing
     return x, data[1], current
 
@@ -48,7 +48,7 @@ def isolate_orders(x, y):
     order = np.abs(np.arange(0, len(x_chunks)) - central)
 
     return list(zip(x_chunks, y_chunks, order))
- 
+
 
 def make_n_gaussian(n):
     return lambda x, *args: args[-1] + sum([std.gaussian(x, args[i], args[i + 1], args[i + 2]) for i in range(0, 3 * n, 3)])
@@ -85,11 +85,9 @@ class peak_descriptor:
 
 def fit_order(x, y, order):
     peaks = diff_find_maxima(y, smoothing=len(y) // 25)
-    # peaks -= len(kernel)
     print(len(peaks), x[peaks])
-    
+
     func = make_n_gaussian(len(peaks))
-    # print([y[max(0, peak - 5):peak+5] for peak in peaks])
     amp_initial = [max(y[max(0, peak - 5):peak + 5]) for peak in peaks]
     µ_initial = [(x[max(0, peak - 5):peak + 5])[y[max(0, peak - 5):peak + 5] == max(y[max(0, peak - 5):peak + 5])][0] for peak in peaks]
     sigma_initial = (max(x) - min(x)) / 10
@@ -117,14 +115,13 @@ def fit_order(x, y, order):
             print("rececting implausible fit")
 
     return res
-    
+
 
 def wavelenght(x, m):
     refraction_index = 1.457
-    etalon_thickness = 0.004
+    etalon_thickness = 4e-3
     distance = 0.145
-    alpha = x.nominal_value / distance
-    return 2 * etalon_thickness * np.sqrt(refraction_index ** 2 - np.sin(alpha) ** 2)
+    return 2 * etalon_thickness * np.sqrt(refraction_index ** 2 - np.sin(x.nominal_value / distance) ** 2) / m
 
 
 def energy_split(alpha_pi, alpha_sigma):
@@ -133,6 +130,7 @@ def energy_split(alpha_pi, alpha_sigma):
     return (std.unit.c * h_ev / wavelength_pi_sigma) * (1 - (wavelenght(alpha_pi, 1) / wavelenght(alpha_sigma, 1)))
     # return wavelength_pi_sigma * (1 - (wavelenght(alpha_pi, 1) / wavelenght(alpha_sigma, 1)))
 
+# %%
 
 def main():
     x, y, I = load_file(argv[1], 0.145)
@@ -148,6 +146,12 @@ def main():
         peaks[i].position -= zero_pos
 
     _ = [print(f"{'{:.2uS}'.format(p.position)}, {'{:.2uS}'.format(p.height)}, {wavelenght(p.position, p.order)}") for p in peaks]
+    for p in peaks:
+        print()
+        print(p.position)
+        print(wavelenght(p.position, p.order))
+        # print(wavelenght(p.position, p.order + 1))
+
 
     px = np.array([p.position.nominal_value for p in peaks])
     py = [p.height.nominal_value for p in peaks]
