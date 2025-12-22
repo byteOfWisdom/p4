@@ -19,7 +19,7 @@ def load_file(fname, lens_dist):
     data = np.transpose(np.loadtxt(fname, delimiter=";", skiprows=5))
     current = float(std.readfile(fname)[0].split()[2])
 
-    pixel_spacing = 9.6e-7
+    pixel_spacing = 9.6e-6
     x = data[0] * pixel_spacing
     return x, data[1], current
 
@@ -55,6 +55,7 @@ def make_n_gaussian(n):
 
 
 def diff_find_maxima(y, smoothing=2):
+    smoothing = 1 if smoothing < 1 else smoothing
     smooth_grad = np.gradient(np.convolve(y, np.ones(2 * smoothing), mode="same"))
 
     peaks = []
@@ -85,7 +86,7 @@ class peak_descriptor:
 
 def fit_order(x, y, order):
     peaks = diff_find_maxima(y, smoothing=len(y) // 25)
-    print(len(peaks), x[peaks])
+    # print(len(peaks), x[peaks])
 
     func = make_n_gaussian(len(peaks))
     amp_initial = [max(y[max(0, peak - 5):peak + 5]) for peak in peaks]
@@ -117,45 +118,45 @@ def fit_order(x, y, order):
     return res
 
 
-def wavelenght(x, m):
+def etalon_term(x):
     refraction_index = 1.457
-    etalon_thickness = 4e-3
+    # etalon_thickness = 4e-3
     distance = 0.145
-    return 2 * etalon_thickness * np.sqrt(refraction_index ** 2 - np.sin(x.nominal_value / distance) ** 2) / m
+    return np.sqrt(refraction_index ** 2 - np.sin(x.nominal_value / distance) ** 2)
 
 
-def energy_split(alpha_pi, alpha_sigma):
-    wavelength_pi_sigma = 644e-9
-    h_ev = 6.6e-16
-    return (std.unit.c * h_ev / wavelength_pi_sigma) * (1 - (wavelenght(alpha_pi, 1) / wavelenght(alpha_sigma, 1)))
-    # return wavelength_pi_sigma * (1 - (wavelenght(alpha_pi, 1) / wavelenght(alpha_sigma, 1)))
+def energy_split(x_pi, x_sigma):
+    wavelength_pi_sigma = 643.8e-9
+    h_ev = std.unit.planck_const_eV
+    return (h_ev * std.unit.c / wavelength_pi_sigma) * (1 - (etalon_term(x_pi) /etalon_term(x_sigma)))
 
-# %%
 
 def main():
     x, y, I = load_file(argv[1], 0.145)
     peaks = []
+    orders = isolate_orders(x, y)[1:-1]
+    middle = np.average(next(filter(lambda o: o[2] == 0, orders))[0])
+    x -= middle
+    peaks_of_order = []
     for x, y, n in isolate_orders(x, y)[1:-1]:
-        peaks += fit_order(x, y, n)
+        fit_res = fit_order(x, y, n)
+        peaks += fit_res
+        peaks_of_order.append((n, fit_res))
         plt.plot(x, y)
-        print(energy_split(peaks[1].position, peaks[0].position))
 
-    zero_pos = list(filter(lambda p: p.order == 0, peaks))[1].position
-    print(zero_pos)
-    for i in range(len(peaks)):
-        peaks[i].position -= zero_pos
-
-    _ = [print(f"{'{:.2uS}'.format(p.position)}, {'{:.2uS}'.format(p.height)}, {wavelenght(p.position, p.order)}") for p in peaks]
-    for p in peaks:
-        print()
-        print(p.position)
-        print(wavelenght(p.position, p.order))
-        # print(wavelenght(p.position, p.order + 1))
+    for order, ps in peaks_of_order:
+        if order not in [1, 2, 3, 4] or len(ps) != 3:
+            continue
+        x_pi = ps[1].position
+        x_sigma = ps[0].position
+        x_sigma_2 = ps[2].position
+        print(energy_split(x_pi, x_sigma))
+        print(energy_split(x_pi, x_sigma_2))
 
 
     px = np.array([p.position.nominal_value for p in peaks])
     py = [p.height.nominal_value for p in peaks]
-    plt.scatter(px + zero_pos.nominal_value, py, marker="x", color="purple")
+    plt.scatter(px, py, marker="x", color="purple")
 
     std.default.plt_pretty("Position / m", "Intentsität / Beliebige Einheit")
     plt.show()
