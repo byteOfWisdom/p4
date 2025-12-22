@@ -25,7 +25,7 @@ def calibration_curve(to_print=False,to_plot=True):
     for i in range(0,2):
         messung = i + 1
         this_color = next(plot_color)
-        currents, fields = get_curve(files[i])
+        currents, fields = get_curve("/".join(argv[0].split("/")[:-1]) + "../" + files[i])
         params, cov = scipy.optimize.curve_fit(cubic, ~currents, ~fields)
         errs = np.sqrt(np.diag(cov))
         func_params.append(params)
@@ -108,14 +108,14 @@ def average_field(verbal=False):
     #plt.plot(np.linspace(-10, 10, 100), temp, color="black")
     return av_vals, av_errs
 
-def field_function(x):
+def field_function(current):
     cubic_params, cubic_errs = average_field()
-    cubic = (cubic_params[0] * (x**3)) + (cubic_params[1] * (x**2)) + (cubic_params[2] * x) + cubic_params[3]
+    cubic = (cubic_params[0] * (current**3)) + (cubic_params[1] * (current**2)) + (cubic_params[2] * current) + cubic_params[3]
     return cubic
 
 
 def main():
-    #calibration_curve()
+    calibration_curve()
     average_field(verbal=True)
     if len(argv) >= 2:
         plt.savefig(argv[1])

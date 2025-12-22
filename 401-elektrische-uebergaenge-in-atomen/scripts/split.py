@@ -1,18 +1,21 @@
 #!python3
 import numpy as np
 import std
-import scipy
 from matplotlib import pyplot as plt
 from sys import argv
 from dataclasses import dataclass
 from uncertainties import ufloat
+from glob import glob
+from functools import reduce
 
 
-def calib_curve(cv):
-    a = 0.1 # todo: use the real values
-    b = 0.1
-    c = 0.1
-    return a * cv + b * cv ** 2 + c * cv ** 3
+def calib_curve(current):
+    a = ufloat(-0.00032017, 3.79889947e-06)
+    b = ufloat(0.00014896, 1.51311471e-05)
+    c = ufloat(0.093403, 2.61723881e-04)
+    d = ufloat(0.0011227, 7.53829814e-04)
+    cubic = (a * (current**3)) + (b * (current**2)) + (c * current) + d
+    return cubic
 
 
 def load_file(fname, lens_dist):
@@ -39,7 +42,7 @@ def sections(arr, min_lenght=5):
 
 
 def isolate_orders(x, y):
-    cutoff = min(y) + 150  # 150 kinda be heuristic
+    cutoff = min(y) + 200  # 150 kinda be heuristic
     secs = sections(y > cutoff)
     x_chunks = [x[a:b] for a, b in secs]
     y_chunks = [y[a:b] for a, b in secs]
@@ -54,26 +57,6 @@ def make_n_gaussian(n):
     return lambda x, *args: args[-1] + sum([std.gaussian(x, args[i], args[i + 1], args[i + 2]) for i in range(0, 3 * n, 3)])
 
 
-def diff_find_maxima(y, smoothing=2):
-    smoothing = 1 if smoothing < 1 else smoothing
-    smooth_grad = np.gradient(np.convolve(y, np.ones(2 * smoothing), mode="same"))
-
-    peaks = []
-
-    before, after = np.zeros(len(y), dtype=np.bool), np.zeros(len(y), dtype=np.bool)
-    for i in range(smoothing):
-        before[i] = 1
-        after[i + smoothing] = 1
-
-    for i in range(smoothing, len(y) - smoothing):
-        if np.all(smooth_grad[before] > 0) and np.all(smooth_grad[after] < 0):
-            peaks.append(i - 1)
-        before = np.roll(before, 1)
-        after = np.roll(after, 1)
-
-    return peaks
-
-
 @dataclass
 class peak_descriptor:
     height: ufloat
@@ -85,7 +68,7 @@ class peak_descriptor:
 
 
 def fit_order(x, y, order):
-    peaks = diff_find_maxima(y, smoothing=len(y) // 25)
+    peaks = std.diff_find_maxima(y, smoothing=len(y) // 30)
     # print(len(peaks), x[peaks])
 
     func = make_n_gaussian(len(peaks))
@@ -131,8 +114,11 @@ def energy_split(x_pi, x_sigma):
     return (h_ev * std.unit.c / wavelength_pi_sigma) * (1 - (etalon_term(x_pi) /etalon_term(x_sigma)))
 
 
-def main():
-    x, y, I = load_file(argv[1], 0.145)
+def process_file(fname, preview=False):
+    x, y, I = load_file(fname, 0.145)
+    if preview:
+        plt.ylim(min(y) - 100, max(y) + 100)
+    b_field = calib_curve(I)
     peaks = []
     orders = isolate_orders(x, y)[1:-1]
     middle = np.average(next(filter(lambda o: o[2] == 0, orders))[0])
@@ -144,23 +130,49 @@ def main():
         peaks_of_order.append((n, fit_res))
         plt.plot(x, y)
 
+    energies = []
+
     for order, ps in peaks_of_order:
-        if order not in [1, 2, 3, 4] or len(ps) != 3:
+        if order not in [1, 2, 3, 4] or len(ps) == 1:
             continue
-        x_pi = ps[1].position
-        x_sigma = ps[0].position
-        x_sigma_2 = ps[2].position
-        print(energy_split(x_pi, x_sigma))
-        print(energy_split(x_pi, x_sigma_2))
+        if len(ps) == 3:
+            x_pi = ps[1].position
+            x_sigma = ps[0].position
+            x_sigma_2 = ps[2].position
+        else:
+            x_sigma = ps[0].position
+            x_sigma_2 = ps[1].position
+            x_pi = 0.5 * (x_sigma + x_sigma_2)
+        energies.append(energy_split(x_pi, x_sigma))
+        energies.append(energy_split(x_pi, x_sigma_2))
+
+    if preview:
+        px = np.array([p.position.nominal_value for p in peaks])
+        py = [p.height.nominal_value for p in peaks]
+        plt.scatter(px, py, marker="x", color="purple")
+
+        plt.title(fname)
+        std.default.plt_pretty("Position / m", "Intentsität / Beliebige Einheit")
+        plt.show()
+
+    return reduce(lambda a, b: a + b, [p for _, p in peaks_of_order], []), energies
 
 
-    px = np.array([p.position.nominal_value for p in peaks])
-    py = [p.height.nominal_value for p in peaks]
-    plt.scatter(px, py, marker="x", color="purple")
-
-    std.default.plt_pretty("Position / m", "Intentsität / Beliebige Einheit")
-    plt.show()
-
+def main():
+    # 14 - 26, 32, 31? 33?
+    for i in [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32, 31, 33]:
+        try:
+            f = argv[1] + f"ZeemanX_0{i}.txt"
+            process_file(f, preview=True)
+            print(f"parsed {i} X")
+        except Exception as e:
+            print(e)
+        try:
+            f = argv[1] + f"ZeemanY_0{i}.txt"
+            process_file(f, preview=True)
+            print(f"parsed {i} Y")
+        except Exception as e:
+            print(e)
 
 if __name__ == "__main__":
     main()
