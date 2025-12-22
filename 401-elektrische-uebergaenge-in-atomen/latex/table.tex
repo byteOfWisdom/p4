@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage{array}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage[all]{hypcap}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage[german]{babel}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage[version=4]{mhchem}
+
+\sisetup{
+	separate-uncertainty = true,
+	multi-part-units=brackets,
+	number-unit-product = \text{ },
+	mode=math,
+	exponent-product = \cdot,
+	output-product = \cdot,
+	output-decimal-marker = {,}
+}
+
+\begin{document}
+
+\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+\input{zeeman_table.txt}
+\end{tabular}
+\end{document}

@@ -256,7 +256,7 @@ def main():
     dataset["$\\sigma$"] = list(map(lambda x: x.sigma, all_peaks))
     dataset["$A$"] = list(map(lambda x: x.height, all_peaks))
     dataset["$I / \\unit{\\ampere}$"] = all_currents
-    dataset["$B / \\unit{\tesla}"] = all_bs
+    dataset["$B / \\unit{\\tesla}$"] = all_bs
 
     if len(argv) > 2:
         std.print_tex_table(dataset, argv[2])
