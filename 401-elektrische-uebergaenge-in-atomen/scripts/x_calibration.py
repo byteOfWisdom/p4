@@ -21,7 +21,7 @@ def square(x, a, b, c, d):
 def main():
 
     position_err = 5e-4
-    field_err = 10e-3
+    field_err = 10e-2
 
     data = np.transpose(np.loadtxt(argv[1],delimiter=",",skiprows=1))
     positions = p.ev(data[0], position_err)

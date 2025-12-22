@@ -1,0 +1,39 @@
+\chapter{Energieaufspaltung durch den Zeeman-Effekt an Cd}
+
+\section{Theoretische Überlegungen}
+
+
+Im Versuch wird mithilfe eines Fabry-Perot-Etalons als präziser Spektralapparat die Wellenlinienaufspaltung (und damit die Energieaufspaltung) der Cd-Linie mit der unverschobenen Wellenlänge $\lambda_0=\SI{643.847}{\nano\meter}$ gemessen. Ein Fabry-Perot-Etalon besteht aus zwei planparallelen, ebenen Spiegeln (Reflexionsgrad $R<1$), in dem eintretendes Licht mehrfach reflektiert wird, wobei bei jeder Reflexion ein Teil transmittiert wird. Die Teilstrahlen haben daher verschiedene Gangunterschiede und interferieren hinter dem Etalon miteinander. Der Strahlengang im Etalon ist in Abbildung \ref{fig:etalon} dargestellt.
+\jafps{etalon}{Strahlengang in einem Fabry-Perot-Etalon. Abbildung entnommen aus \cite[12]{Versuchsanleitung401}}{0.4}
+Es ergibt sich ein Interferenzmuster aus Ringen (aufgrund der ausgedehnten Lichtquelle der Cd-Lampe), welches durch eine Sammellinse auf eine CCD-Kamera fokussiert wird. Die Interferenzbedingung des Etalons für Transmissionsmaxima ergibt sich geometrisch und aus dem Brechungsgesetz von \uppercase{Snellius} mit der Wellenlänge einer Spektrallinie $\lambda$, Brechnungsindex des Etalon-Materials $n$, dem Beugungswinkel bzw. Austrittswinkel der Teilstrahlen aus dem Etalon $\alpha$ für die Maximumsordnung $m$ und der Etalondicke $d$ als \cite{LDzeeman}:
+\begin{align} \label{eq:interferenz}
+	m\lambda = 2d \sqrt{n^2-\sin^2(\alpha)}
+\end{align}
+
+\todo{Rest theorie}
+
+\section{Versuchsaufbau}
+
+Der Versuchsaufbau besteht aus einer Cd-Lampe, die zwischen zwei drehbaren Polschuhen mit jeweils einem kleinen Loch in der Mitte, die im Bereich zwischen ihnen ein annähernd homogenes Magnetfeld der Stärke $B$ liefern, aufgehängt wird, einer Kondensorlinse, die das dahinter platzierte Fabry-Perot-Etalon ($R=0,85, n=1,457$) mit parallelem Licht ausleuchtet, sowie hinter dem Etalon eine Sammellinse mit $f=\SI{150}{\milli\meter}$, einen Interferenzfilter der Mittelwellenlänge $\lambda_\text{Filter}=\SI{643.8(20)}{\nano\meter}$ (um nur die rote, unverschobene Cd-Linie sowie die nur geringfügig verschobenen $\sigma_\pm$-Komponenten des Übergangs-Tripletts aus dem aus vielen Spektrallinien bestehenden Licht der Lampe zu selektieren) sowie an letzter Stelle ein Okular mit Strichskala oder alternativ an der gleichen Stelle eine CCD-Kamera zur Beobachtung des Interferenzmusters. Der Aufbau ist in Abbildung \ref{fig:aufbau_zeeman} dargestellt. Die Polschuhe sind mit einem Netzgerät verbunden, über welches der Strom und dadurch auch die Magnetfeldstärke variiert werden kann. Zwischen Netzgerät und Polschuhen ist noch ein Arduino Microcontroller mit eingebautem Analog-zu-Digital-Konvertierer eingebaut, welcher dem Aufnahmeprogramm \textit{Zeeman-Effekt} die Werte des Stroms und auch des Magnetfelds liefert. Die Kamera ist auch mit diesem verbunden, sodass für einen gegebenen Wert des Stroms und damit des Magnetfelds die Intensität des auf den CCD-Chip fallenden Lichts für jeden den Kamerapixel aufgenommen wird.
+
+\jafps{aufbau_zeeman}{Versuchsaufbau für die Messung der Zeeman-Energieaufspaltung. In der Skizze stehen die Polschuhe in der Konfiguration für Beobachtung transversal zum Magnetfeld. Abbildung entnommen aus \cite{LDzeeman}.}{0.4}
+
+\subsection{Justage mit dem Okular}
+
+\todo{description Justage, aus Anleitung. we totally did this}
+
+\section{Kalibrationsmessungen}
+
+Es ist sinnvoll, für den verwendeten Versuchsaufbau die Form und Stromabhängigkeit des Magnetfelds zu untersuchen. Der Aufbau der Polschuhe sollte theoretisch im Bereich zwischen ihnen ein homogenes Magnetfeld erzeugen, wie es für die theoretische Behandlung der Zeeman-Aufspaltung des beobachteten Cd-Energieübergangs benötigt wird \todo{citation für homogen}. Dies kann mithilfe einer Messung der Magnetfeldstärke (bei festem Strom) abhängig vom Ort im Bereich zwischen den Polschuhen überprüft werden. Weiter weisen Ferromagnete wie die Polschuhe eine Hysterese auf, das Magnetfeld variiert also nicht linear mit dem angelegten Strom sondern muss als ein funktionaler Zusammenhang als Kalibrationskurve für alle weiteren Messungen bestimmt werden \todo{citation Hysterese}.
+
+
+\subsection{Ortskalibration des Magnetfelds mit Hallsonde}
+
+Es wurde eine Hallsonde bei fester Stromstärke (eingestellt als $I=\SI{5.47(0.01)}{\ampere}$) zwischen den Polschuhen platziert (an den Ort, wo sich sonst die Cd-Lampe befindet). Eine Hallsonde liefert eine Spannung proportional zum auf sie wirkenden Magnetfeld, wodurch durch die Messung der Hallspannung einer bekannten Sonde die Magnetfeldstärke bestimmt werden kann. Ihre Position wurde in kleinen Schritten um den Ort der maximalen Magnetfeldstärke variiert und mithilfe der Funktion \textit{Magnetfeldkalibrierung} der Aufnahmesoftware jeweils die Magnetfeldstärke aufgenommen. Die Ergebnisse sind in Tabelle \ref{tab:ortskalibration} aufgeführt und in Abbildung \ref{fig:x_calibration} als Auftragung der Magnetfeldstärke gegen den Ort (Positionsangaben abgelesen als Position auf der optischen Bank, auf welcher die Versuchskomponenten fixiert wurden \cite[6]{Versuchsanleitung401} dargestellt.
+
+\jafpsh{x_calibration}{Messung der Ortsabhängigkeit des Magnetfelds bei $I=\SI{5.47(0.01)}{\ampere}$ und variabler Position der Hallsonde. Die Unsicherheit der Position wurde aufgrund der verwendeten Skala der optischen Bank als $\Delta x=\SI{0.5}{\milli\meter}$ abgeschätzt, die Stromunsicherheit aus der Einstellungenauigkeit des Netzgeräts.}{0.4}
+
+\subsection{Kalibrationskurve in transversaler Konfiguration}
+
+Um aus den am Netzgerät eingestellten Werten des Stroms trotz der Hysterese der Polschuhe die Stärke des Magnetfelds berechnen zu können, wird eine Kalibrationsmessung durchgeführt.
+Dazu wird mithilfe der Software-Funktionalität \textit{Magnetfeldkalibrierung} für variablen Strom mit der Hallsonde die Magnetfeldstärke an der späteren Position der Cd-Lampe aufgenommen.
