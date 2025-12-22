@@ -1,3 +1,5 @@
+# this is pretty much not necessary and handled by the splits.py file
+
 from sys import argv
 
 import calibration
