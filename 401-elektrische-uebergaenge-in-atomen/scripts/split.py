@@ -115,10 +115,10 @@ def energy_split(x_pi, x_sigma):
 
 
 def process_file(fname, preview=False):
-    x, y, I = load_file(fname, 0.145)
+    x, y, current = load_file(fname, 0.145)
     if preview:
         plt.ylim(min(y) - 100, max(y) + 100)
-    b_field = calib_curve(I)
+    b_field = calib_curve(current)
     peaks = []
     orders = isolate_orders(x, y)[1:-1]
     middle = np.average(next(filter(lambda o: o[2] == 0, orders))[0])
@@ -130,7 +130,7 @@ def process_file(fname, preview=False):
         peaks_of_order.append((n, fit_res))
         plt.plot(x, y)
 
-    energies = []
+    energies, bfields = [], []
 
     for order, ps in peaks_of_order:
         if order not in [1, 2, 3, 4] or len(ps) == 1:
@@ -145,6 +145,8 @@ def process_file(fname, preview=False):
             x_pi = 0.5 * (x_sigma + x_sigma_2)
         energies.append(energy_split(x_pi, x_sigma))
         energies.append(energy_split(x_pi, x_sigma_2))
+        bfields.append(b_field)
+        bfields.append(b_field)
 
     if preview:
         px = np.array([p.position.nominal_value for p in peaks])
@@ -155,24 +157,37 @@ def process_file(fname, preview=False):
         std.default.plt_pretty("Position / m", "Intentsität / Beliebige Einheit")
         plt.show()
 
-    return reduce(lambda a, b: a + b, [p for _, p in peaks_of_order], []), energies
+    return reduce(lambda a, b: a + b, [p for _, p in peaks_of_order], []), energies, bfields
 
 
 def main():
     # 14 - 26, 32, 31? 33?
+    all_peaks = []
+    all_es = []
+    all_bs = []
     for i in [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32, 31, 33]:
         try:
             f = argv[1] + f"ZeemanX_0{i}.txt"
-            process_file(f, preview=True)
+            p, e, b = process_file(f, preview=True)
+            all_peaks += p
+            all_es += e
+            all_bs += b
             print(f"parsed {i} X")
         except Exception as e:
             print(e)
         try:
             f = argv[1] + f"ZeemanY_0{i}.txt"
-            process_file(f, preview=True)
+            p, e, b = process_file(f, preview=True)
+            all_peaks += p
+            all_es += e
+            all_bs += b
             print(f"parsed {i} Y")
         except Exception as e:
             print(e)
+
+        plt.plot(all_bs, all_es)
+        plt.show()
+        # std.print_tex_table()
 
 if __name__ == "__main__":
     main()
