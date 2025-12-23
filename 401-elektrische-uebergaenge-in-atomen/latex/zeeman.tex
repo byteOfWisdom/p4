@@ -12,7 +12,7 @@ Es ergibt sich ein Interferenzmuster aus Ringen (aufgrund der ausgedehnten Licht
 	m\lambda = 2d \sqrt{n^2-\sin^2(\alpha)}
 \end{align}
 
-\todo{Rest theorie}
+\todo{fehlt hier noch weitere theorie?}
 
 \section{Versuchsaufbau}
 
@@ -101,7 +101,7 @@ Es gilt dabei mit dem Planckschen Wirkungsquantum $h=\SI{6.62607015e-34}{\joule\
 \end{align}
 Hierbei bezeichnet $\lambda_\pi^0$ die unverschobene durch den Wellenlängenfilter herausgefilterte Cd-Emissionslinie mit Wellenlänge $\SI{643.847}{\nano\meter}$.
 
-Es werden für die mit der CCD-Kamera in jeweils der x- und y-Richtung aufgenommenen Lichtintensitätsdaten gegen die Position auf dem CCD-Sensor (Pixelgröße $\SI{9.6}{\micro\meter}\times\SI{9.6}{\micro\meter}$, Pixelanzahl $N=1368$\cite[5]{Versuchsanleitung401}) aufgetragen. Aufgrund der nicht vernachlässigbaren Linienbreite der Transmissionsmaxima ergeben sich gaußförmige Transmissionsspektra. Um zu veranschaulichen, dass die Spektren aller Aufnahmen in transversaler Konfiguration diese Struktur aufweisen, wurden die gemessenen Intensitäten in der x-Achse und der y-Achse jeweils gegen die Pixel aufgetragen und für alle Messungen gemeinsam dargestellt (Abbildungen \ref{zeeman_pixel_x} und \ref{zeeman_pixel_y}).
+Es werden für die mit der CCD-Kamera in jeweils der x- und y-Richtung aufgenommenen Lichtintensitätsdaten gegen die Position auf dem CCD-Sensor (Pixelgröße $\SI{9.6}{\micro\meter}\times\SI{9.6}{\micro\meter}$, Pixelanzahl $N=1368$\cite[5]{Versuchsanleitung401}) aufgetragen. Aufgrund der nicht vernachlässigbaren Linienbreite der Transmissionsmaxima ergeben sich gaußförmige Transmissionsspektra. Um zu veranschaulichen, dass die Spektren aller Aufnahmen in transversaler Konfiguration diese Struktur aufweisen, wurden die gemessenen Intensitäten in der x-Achse und der y-Achse jeweils gegen die Pixel aufgetragen und für alle Messungen gemeinsam dargestellt (Abbildungen \ref{fig:zeeman_pixel_x} und \ref{fig:zeeman_pixel_y}).
 
 \jafps{zeeman_pixel_x}{Auftragung der Intensitätsmessungen in x-Richtung für alle eingestellten Stromstärken.}{0.4}
 \jafps{zeeman_pixel_y}{Auftragung der Intensitätsmessungen in y-Richtung für alle eingestellten Stromstärken.}{0.4}
@@ -125,7 +125,7 @@ Die so berechneten Winkel der Maxima, Parameter der jeweiligen Gaußfunktion-Anp
 
 \jafps{ZeemanX_026}{Auftragung der Intensitätsdaten gegen die nach Gl. \ref{eq:winkel} in Ortskoordinaten umgerechneten Pixelkoordinaten. Man beachte, dass bei dieser Auftragung zur Datenverarbeitung (Anpassung der Gaußfunktionen an die einzelnen Spitzen der aufgespaltenen Ringe) die sehr niedrigeren Intensitäten aus den Daten abgeschnitten wurden. Dies hat keine Auswirkungen auf die restlichen Daten und kompensiert auch ein gegebenfalls vorhandenes niedrigintensives Untergrundrauschen auf den CCD-Sensor durch trotz Abschirmung evt. vorhandenes Streulicht.}{0.4}
 
-Ein Beispiel für eine Anpassung zu einer der Messungen ist in Abbildung \ref{ZeemanX_026} dargestellt.
+Ein Beispiel für eine Anpassung zu einer der Messungen ist in Abbildung \ref{fig:ZeemanX_026} dargestellt.
 
 \subsection{Bestimmung des Bohrschen Magnetons}
 
@@ -134,4 +134,14 @@ Es ist hier zu beachten, dass nur Energieaufspaltungen in die Auftragung einbezo
 
 \jafps{magneton}{Auftragung von bestimmten Energieaufspaltungen gegen die Magnetfeldstärke. Es wurde ein linearer Zusammenhang der Form $\Delta E (B)=aB$ angepasst. Als Güte der Anpassung ergibt das Bestimmtheitsmaß den noch guten Wert $R^2=0,877$}{0.4}
 
-Aus der Anpassung ergibt sich als Parameter für die Steigung und damit für den Wert des Bohrschen Magnetons $a=\mu_B=\SI{6.140(33)e-5}{\eV\per\tesla}$. Der Literaturwert für diese Größe beträgt $\mu_{\text{B,Lit}=\SI{5.7883817982(18)e-5}{\eV\per\tesla}}$ \cite{NISTmagneton}, was nicht mit dem im Versuch bestimmten Wert übereinstimmt. Die Abweichung des bestimmten Werts $\mu_B$ vom Literaturwert beträgt jedoch lediglich $6.1\%$ (bei Beachtung des Fehlers respektive maximal $6.6\%$ und minimal $5.5\%$). Da der Wert des Bohrschen Magnetons sich in der Größenordnung $\mathcal{O}\left(10^{-5}\unit{ \frac{eV}{T}}\right)=\mathcal{O}\left(10^{-24}\unit{ \frac{J}{T}}\right)$ \cite{NISTmagneton2} befindet, ist dies trotz der fehlenden Übereinstimmung des bestimmten Werts mit dem Literaturwert noch eine gute Näherung an den tatsächlich bekannten Wert der Größe des Bohrschen Magnetons. Die Proportionalität des Zusammenhangs zwischen Magnetfeldstärke und Energieaufspaltung der Zeeman-Komponenten wird sehr gut deutlich und auch der oben zunächst als nur aus der Quantenmechanik theoretisch folgende Wert für den Landé-Faktor $g_J=1$ für den betrachteten Übergang kann so gut empirisch bestätigt werden.
+Aus der Anpassung ergibt sich als Parameter für die Steigung und damit für den Wert des Bohrschen Magnetons $a=\mu_B=\SI{6.140(33)e-5}{\eV\per\tesla}$. Der Literaturwert für diese Größe beträgt \cite{NISTmagneton}:
+\[\mu_{\text{B,Lit}=\SI{5.7883817982(18)e-5}{\eV\per\tesla}}\]
+Dies stimmt nicht mit dem im Versuch bestimmten Wert überein. Die Abweichung des bestimmten Werts $\mu_B$ vom Literaturwert beträgt jedoch lediglich $6.1\%$ (bei Beachtung des Fehlers respektive maximal $6.6\%$ und minimal $5.5\%$). Da der Wert des Bohrschen Magnetons sich in der Größenordnung $\mathcal{O}\left(10^{-5}\unit{ \frac{eV}{T}}\right)=\mathcal{O}\left(10^{-24}\unit{ \frac{J}{T}}\right)$ \cite{NISTmagneton2} befindet, ist dies trotz der fehlenden Übereinstimmung des bestimmten Werts mit dem Literaturwert noch eine gute Näherung an den tatsächlich bekannten Wert der Größe des Bohrschen Magnetons. Die Proportionalität des Zusammenhangs zwischen Magnetfeldstärke und Energieaufspaltung der Zeeman-Komponenten wird sehr gut deutlich und auch der oben zunächst als nur aus der Quantenmechanik theoretisch folgende Wert für den Landé-Faktor $g_J=1$ für den betrachteten Übergang bei normalem Zeeman-Effekt kann so gut empirisch bestätigt werden.
+
+
+\section{Weitergehende Überlegungen}
+
+Es soll nun noch die Finesse und das Auflösungsvermögen des Fabry-Perot-Etalons untersucht werden um zu überprüfen, ob die betrachteten Energieaufspaltungen überhaupt aufgelöst werden können.
+
+Theoretisch berechnet sich die Finesse als Maß der Zahl der interferierenden Teilbündel durch $F=\frac{\Delta \lambda_{\text{FSR}}}{\Delta \lambda}=\frac{\pi \sqrt{R}}{1-R}$ mit $R$ als Reflexionsgrad des Etalons. Aus $R=0,85$ ergibt sich so für die theoretische Finesse:
+$F_\{\text{theo}}=19,3$. Das Auflösungsvermögen errechnet sich theoretisch dann als $A=\frac{\lambda}{\Delta \lambda}=\lambda \frac{F}{\delta \lambda_{\text{FSR}}}$ mit $\lambda_{\text{FSR}}$ als freie Spektralbreite. Es gilt weiter $\lambda_{\text{FSR}}=\frac{\lambda^2}{2nd}$.
