@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 import scipy
 import std
 from dataclasses import dataclass
-from uncertainties import ufloat
+
 
 def load(file):
     data = np.transpose(np.loadtxt(file, delimiter="\t", skiprows=5))
