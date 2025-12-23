@@ -4,10 +4,8 @@ import std
 from matplotlib import pyplot as plt
 from sys import argv
 from dataclasses import dataclass
-# from uncertainties import ufloat
 import propeller as p
 from functools import reduce
-# from uncertainties.umath import sin, sqrt
 
 
 def calib_curve(current):
