@@ -69,6 +69,7 @@ class peak_descriptor:
     valid: bool
     order: int
     goodness: float
+    offset: p.ErrVal
 
 
 def fit_order(x, y, order, pvalue=0.05):
@@ -83,16 +84,24 @@ def fit_order(x, y, order, pvalue=0.05):
     µ_initial = [(x[max(0, peak - 5):peak + 5])[y[max(0, peak - 5):peak + 5] == max(y[max(0, peak - 5):peak + 5])][0] for peak in peaks]
     sigma_initial = (max(x) - min(x)) / 10
     p0 = []
+
+    if len(peaks) > 1:
+        µ_initial[0] -= (0.1 * µ_initial[0])
+        µ_initial[-1] -= (0.1 * µ_initial[-1])
+    
     for i in range(len(peaks)):
         p0.append(amp_initial[i])
         p0.append(µ_initial[i])
         p0.append(sigma_initial)
-    p0.append(min(y))
+    p0.append(0.5 * min(y))
 
     params, (errors, goodness) = std.fit_func(func, x, y, p0=p0, force_cf=False)
 
     xrange = np.linspace(min(x), max(x), 1000)
+    print(params)
     plt.plot(xrange, np.vectorize(func)(xrange, *params), linestyle="dotted")
+    plt.plot(xrange, std.gaussian(xrange, params[0], params[1], params[2]) + params[-1])
+    plt.plot(xrange, std.gaussian(xrange, params[3], params[4], params[5]) + params[-1])
 
     res = []
     for i in range(len(peaks)):
@@ -103,7 +112,7 @@ def fit_order(x, y, order, pvalue=0.05):
                                sigma=p.ev(params[3 * i + 2], errors[3 * i + 2]),
                                fwhm=p.ev(params[3 * i + 2], errors[3 * i + 2]) * 2.355,
                                position=p.ev(params[3 * i + 1], errors[3 * i + 1]),
-                               valid=valid, order=order, goodness=goodness)
+                               valid=valid, order=order, goodness=goodness, offset=params[-1])
         # if peak.valid:
         res.append(peak)
         # else:
@@ -125,7 +134,7 @@ def energy_split(x_pi, x_sigma):
     return (h_ev * std.unit.c / wavelength_pi_sigma) * (1 - (etalon_term(x_pi) /etalon_term(x_sigma)))
 
 
-def process_file(fname, pvalue=0.05, preview=False, save=True):
+def process_file(fname, pvalue=0.05, preview=False, save=False):
     x, y, current = load_file(fname, 0.145)
     if preview or save:
         plt.ylim(min(y) - 100, max(y) + 100)
