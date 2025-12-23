@@ -29,7 +29,7 @@ def gen_table(data, file):
         "Maximum": list(map(lambda x: str(int(x)), ids)),
         "µ / $\\unit{\\volt}$": µ,
         "A / $\\unit{\\volt}$": amp,
-        "$\\sigma / \\unit{\\volt}": sigma
+        "$\\sigma / \\unit{\\volt}$": sigma
     }
     std.print_tex_table(dataset, file)
 
