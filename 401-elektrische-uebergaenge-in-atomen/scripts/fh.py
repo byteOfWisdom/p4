@@ -5,11 +5,33 @@ from matplotlib import pyplot as plt
 import scipy
 import std
 from dataclasses import dataclass
+import propeller as p
 
 
 def load(file):
     data = np.transpose(np.loadtxt(file, delimiter="\t", skiprows=5))
     return data[2], data[1]
+
+
+all_files = []
+
+def gen_table(data, file):
+    µ, amp, sigma, ids, source_file = [], [], [], [], []
+    for result in data:
+        µ = np.append(µ, result.µ)
+        amp = np.append(amp, result.amp)
+        sigma = np.append(sigma, result.sigma)
+        peak_ids = np.array(range(len(result.µ)))
+        ids = np.append(ids, peak_ids)
+        source_file = np.append(source_file, [str(all_files.index(result.file))] * len(result.µ))
+    dataset = {
+        "Messung": source_file,
+        "Maximum": list(map(lambda x: str(int(x)), ids)),
+        "µ / $\\unit{\\volt}$": µ,
+        "A / $\\unit{\\volt}$": amp,
+        "$\\sigma / \\unit{\\volt}": sigma
+    }
+    std.print_tex_table(dataset, file)
 
 
 def make_n_gaussian(n):
@@ -74,11 +96,12 @@ def fit_multi_gauss(x, y):
 @dataclass
 class fit_res:
     µ: np.ndarray
-    err_µ: np.ndarray
+    # err_µ: np.ndarray
     sigma: np.ndarray
-    err_sigma: np.ndarray
+    # err_sigma: np.ndarray
     amp: np.ndarray
-    err_amp: np.ndarray
+    # err_amp: np.ndarray
+    file: str
 
 
 def process_file(file, save=False, show=False):
@@ -92,6 +115,7 @@ def process_file(file, save=False, show=False):
     µ = µ[sort_key]
 
     if show or save:
+        plt.cla()
         delta_µ = µ[1:] - µ[:-1]
         print(f"fittet µ are : {np.vectorize(lambda x: round(x, 2))(µ)}")
         print(f"delta µ is : {delta_µ}")
@@ -103,14 +127,19 @@ def process_file(file, save=False, show=False):
         multi_gauss = make_n_gaussian(len(µ))
         xrange = np.linspace(min(U_acc), max(U_acc), 10000)
         plt.plot(xrange, [multi_gauss(x, *params) for x in xrange], label=f"$R^2 = {round(r_sq, 3)}$")
-        for i in range(len(µ)):
-            plt.plot(xrange, std.gaussian(xrange,  amp[i], µ[i], sigma[i]), linestyle="dashdot")
+        # for i in range(len(µ)):
+            # plt.plot(xrange, std.gaussian(xrange,  amp[i], µ[i], sigma[i]), linestyle="dashdot")
 
-        std.default.plt_pretty("Beschleunigungsspannung / V", "Strom / Einheit")
+        std.default.plt_pretty("U_B / V", "U_I / V")
         plt.legend()
-        plt.show()
+        if save and len(argv) > 5 and argv[-1] == "save":
+            print("saving figure")
+            plt.savefig(argv[4] + file.split("/")[-1][:-3] + "pdf")
+            plt.cla()
+        else:
+            plt.show()
 
-    return fit_res(µ, err_µ, sigma, err_sigma, amp, err_amp)
+    return fit_res(p.ev(µ, err_µ), p.ev(sigma, err_sigma), p.ev(amp, err_amp), file)
 
 
 def write_table(data, to_file):
@@ -124,6 +153,8 @@ def main():
     u_max = [float(x.split(",")[1]) for x in list_file]
     u_2 = [float(x.split(",")[2]) for x in list_file]
     file = ["/".join(argv[1].split("/")[:-1]) + "/" + x.split(",")[3].strip() for x in list_file]
+    global all_files
+    all_files = file
 
     save = argv[-1] == "save"
 
@@ -141,7 +172,7 @@ def main():
         _ = T
         _ = U
 
-    peak_pos, peak_num, all_res = [], [], []
+    peak_pos, peak_num, all_res = [], [], [] 
     if not save:
         progress = std.pbar(len(id), msg="running fits ")
         progress.next()
@@ -162,15 +193,35 @@ def main():
 
     peak_pos = peak_pos[peak_num > 0]
     peak_num = peak_num[peak_num > 0]
-    params, (err, r_sq) = std.fit_func(lambda x, a, b: a * x + b, peak_num, peak_pos)
+    x = np.array(peak_num)
+    y = np.array(~peak_pos, dtype=float)
+    params, (err, r_sq) = std.fit_func(lambda x, a, b: a * x + b, x, y)
 
     print(params)
-    plt.scatter(peak_num, peak_pos, marker="x")
+    plt.errorbar(peak_num, ~peak_pos, p.error(peak_pos), **std.default.error_bar_def)
     xrange = np.linspace(0, max(peak_num) + 0.5)
     plt.plot(xrange, (lambda x, a, b: a * x + b)(xrange, *params), label=f"$R^2 = {r_sq}$")
-    std.default.plt_pretty("Nummer des Maximums", "$U_B$ / V")
-    plt.show()
+    std.default.plt_pretty("Nummer des Maximums", "$U_B$ (der Maxima) / V")
+
+    if len(argv) > 5 and argv[-1] == "save":
+        print("saving figure")
+        plt.savefig(argv[4] + "FH_res.pdf")
+    else:
+        plt.show()
+
+    if len(argv) > 6 and argv[-1] == "save":
+        table_file = argv[5]
+        gen_table(all_res, table_file)
+        dataset = {
+            "Messung": list(map(lambda t: str(all_files.index(t)), file)),
+            "T / $\\unit{\\degree\\celsius}$": temps,
+            "$U_G / \\unit{\\volt}$": u_2,
+            "$U_\\text{B, max} / \\unit{\\volt}$": u_max            
+        }
+        std.print_tex_table(dataset, table_file[:-4] + "_parameter.txt")
+
 
 
 if __name__ == "__main__":
+    # example call: ./fh.py ../data/fh_list.txt a "(T < 180)" ../figs/ ../latex/FH_res_table.txt save
     main()
