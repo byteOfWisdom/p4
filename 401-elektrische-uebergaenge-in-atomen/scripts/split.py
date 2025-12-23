@@ -89,7 +89,7 @@ def fit_order(x, y, order, pvalue=0.05):
         p0.append(sigma_initial)
     p0.append(min(y))
 
-    params, (errors, goodness) = std.fit_func(func, x, y, p0=p0, force_cf=True)
+    params, (errors, goodness) = std.fit_func(func, x, y, p0=p0, force_cf=False)
 
     xrange = np.linspace(min(x), max(x), 1000)
     plt.plot(xrange, np.vectorize(func)(xrange, *params), linestyle="dotted")

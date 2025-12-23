@@ -32,9 +32,13 @@ Dieser Abstand ist etwas kleiner als die Energiedifferenz des Übergangs $\ce{^1
 Trägt man die Messkurven bei verschiedenen Temperaturen gegeneinander auf (siehe \ref{fig:fh_temp}) so wird bei steigender Temperatur ein Abfallen des Anodenstroms aufgrund der sinkenden mittleren Freien Weglänge und der somit wachsenden mittleren Stoßzahl pro Elektron. \todo{quantifizieren}
 
 \jafps{hg_vapor}{Dampfdruckkurve von Quecksibler nach \cite[12]{Versuchsanleitung401}}{0.45}
-Die mittlere freie Weglänge muss in einem Bereich sein, in welchem Elektronen im mittel einige wenige male stoßen
+Die mittlere freie Weglänge muss in einem Bereich sein, in welchem Elektronen im mittel einige wenige male stoßen. Die mittlere Freie Weglänge hängt vom Druck ab. Damit der Versuch funktioniert muss ein Elektron im Mittel einige wenige Male stoßen ($\mathcal{O}(10)$ mal). Wie man in \ref{fig:hg_vapor} erkennen kann, verändert sich der Druck sehr empfindlich mit der Temperatur, weshalb der nutzbare Bereich der mittleren Freien Weglänge bei Temperaturänderung schnell verlassen wird.
+
+\begin{align}
+	\lambda = \frac{1}{\sqrt{2} n \sigma} \text{ und } n \propto P  \imply \lambda \propto 1 / P \label{eq:mfp}
+\end{align}
 
 \section{Einfluss der Gegenspannung}
 \jafpsw{fh_ug}{Messungen bei verschiedenen Gegenspannungen und $T=\SI{165}{\celsius}$}{0.85}
 
-Trägt man die Messungen für verschiedene Gegenspannungen auf (siehe \ref{fig:fh_ug}), zeigt sich, dass die Gegenspannung sowohl einen Einfluss auf die Höhe des Anodenstroms hat als auch, wie weit der Strom im Minimum abfällt. Dies erklärt sich darüber, dass Elektronen mit einer Restenergie $<\SI{4.67}{\electronvolt}$ keine Stoßanregungen mehr auslößen und somit nur noch wenig energie abgeben. Die Gegenspannung sorgt nun dafür, dass Elektronen mit Energien $< e U_G$ nicht als Anodenstrom gemessen werden können.
+Trägt man die Messungen für verschiedene Gegenspannungen auf (siehe \ref{fig:fh_ug}), zeigt sich, dass die Gegenspannung sowohl einen Einfluss auf die Höhe des Anodenstroms hat als auch, wie weit der Strom im Minimum abfällt. Dies erklärt sich darüber, dass Elektronen mit einer Restenergie $<\SI{4.67}{\electronvolt}$ keine Stoßanregungen mehr auslößen und somit nur noch wenig energie abgeben. Die Gegenspannung sorgt nun dafür, dass Elektronen mit Energien $< e U_G$ nicht als Anodenstrom gemessen werden können. Die Einbrüche des Anodenstroms bei ganzen vielfachen der Anregungsenergie sind nicht scharf, da die Elektronen zusätzlich zu der Energie durch die Beschleunigungsspannung mit einer gewissen menge kinetischer Energie aus der Glühkathode austreten und durch elastische Stöße zwar wenig Energie abgegeben wird, sich die Flugrichtung der Elektronen relativ zu den Feldlinien jedoch verändern kann. Dies sorgt dafür, dass nicht alle Elektronen bei Beschleunigung mit einem Vielfachen der Anregungsenergie am Ende genau all ihre Energie abgeben können. Um diese Effekte zu kompensieren wird die Gegenspannung verwendet.
