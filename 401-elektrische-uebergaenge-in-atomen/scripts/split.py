@@ -193,10 +193,11 @@ def main():
     all_currents = []
     e_bs = []
     pvalue = 0.05
+    save = argv[-1] == "save"
     for i in ["05", 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32, 31, 33]:
         try:
             f = argv[1] + f"ZeemanX_0{i}.txt"
-            peaks, e, b, current = process_file(f, pvalue=pvalue, preview=False)
+            peaks, e, b, current = process_file(f, pvalue=pvalue, preview=False, save=save)
             # if - b[0].nominal_value > 0.58:
             #     print(f)
             #     p, e, b = process_file(f, pvalue=pvalue, preview=True)
@@ -213,7 +214,7 @@ def main():
             raise e
         try:
             f = argv[1] + f"ZeemanY_0{i}.txt"
-            peaks, e, b, current = process_file(f, pvalue=pvalue, preview=False)
+            peaks, e, b, current = process_file(f, pvalue=pvalue, preview=False, save=save)
             file_ids += [str(i) + " Y"] * len(peaks)
             all_peaks += peaks
             all_es += e
@@ -242,7 +243,10 @@ def main():
     std.default.plt_pretty("Magnetfeld / T", "Energieaufspaltung / eV")
     # plt.show()
     dir = "/".join(argv[0].split("/")[:-1]) + "/../figs/"
-    plt.savefig(dir + "magneton.pdf")
+    if save:
+        plt.savefig(dir + "magneton.pdf")
+    else:
+        plt.show()
 
 
     # print(len(all_peaks))
