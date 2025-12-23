@@ -239,8 +239,9 @@ def main():
 
     plt.cla()
     plt.errorbar(b_arr, e_arr, xerr=b_err, yerr=e_err, **std.default.error_bar_def)
-    plt.plot(xrange, std.linear(xrange, params[0], 0))
+    plt.plot(xrange, std.linear(xrange, params[0], 0), label=f"$R^2 = {round(r_sq, 3)}$")
     std.default.plt_pretty("Magnetfeld / T", "Energieaufspaltung / eV")
+    plt.legend()
     # plt.show()
     dir = "/".join(argv[0].split("/")[:-1]) + "/../figs/"
     if save:
