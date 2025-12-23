@@ -12,8 +12,6 @@ Es ergibt sich ein Interferenzmuster aus Ringen (aufgrund der ausgedehnten Licht
 	m\lambda = 2d \sqrt{n^2-\sin^2(\alpha)}
 \end{align}
 
-\todo{fehlt hier noch weitere theorie?}
-
 \section{Versuchsaufbau}
 
 Der Versuchsaufbau besteht aus einer Cd-Lampe, die zwischen zwei drehbaren Polschuhen mit jeweils einem kleinen Loch in der Mitte, die im Bereich zwischen ihnen ein annähernd homogenes Magnetfeld der Stärke $B$ liefern, aufgehängt wird, einer Kondensorlinse, die das dahinter platzierte Fabry-Perot-Etalon ($R=0,85, n=1,457$) mit parallelem Licht ausleuchtet, sowie hinter dem Etalon eine Sammellinse mit $f=\SI{150}{\milli\meter}$, einen Interferenzfilter der Mittelwellenlänge $\lambda_\text{Filter}=\SI{643.8(20)}{\nano\meter}$ (um nur die rote, unverschobene Cd-Linie sowie die nur geringfügig verschobenen $\sigma_\pm$-Komponenten des Übergangs-Tripletts aus dem aus vielen Spektrallinien bestehenden Licht der Lampe zu selektieren) sowie an letzter Stelle ein Okular mit Strichskala oder alternativ an der gleichen Stelle eine CCD-Kamera zur Beobachtung des Interferenzmusters. Der Aufbau ist in Abbildung \ref{fig:aufbau_zeeman} dargestellt. Die Polschuhe sind mit einem Netzgerät verbunden, über welches der Strom und dadurch auch die Magnetfeldstärke variiert werden kann. Zwischen Netzgerät und Polschuhen ist noch ein Arduino Microcontroller mit eingebautem Analog-zu-Digital-Konvertierer eingebaut, welcher dem Aufnahmeprogramm \textit{Zeeman-Effekt} die Werte des Stroms und auch des Magnetfelds liefert. Die Kamera ist auch mit diesem verbunden, sodass für einen gegebenen Wert des Stroms und damit des Magnetfelds die Intensität des auf den CCD-Chip fallenden Lichts für jeden den Kamerapixel aufgenommen wird. Um von der transversalen in die longitudinale Konfiguration zu wechseln, werden die Polschuhe um $\SI{90}{\degree}$ gedreht. Das Licht der Cd-Lampe kann dann durch die kleinen Löcher in den Seiten der Polschuhen entlang der optischen Bank strahlen.
@@ -26,7 +24,7 @@ Zunächst wird der Versuchsaufbau mit dem Okular aufgebaut. Die Cd-Lampe wird ei
 
 \section{Kalibrationsmessungen}
 
-Es ist sinnvoll, für den verwendeten Versuchsaufbau die Form und Stromabhängigkeit des Magnetfelds zu untersuchen. Der Aufbau der Polschuhe sollte theoretisch im Bereich zwischen ihnen ein homogenes Magnetfeld erzeugen, wie es für die theoretische Behandlung der Zeeman-Aufspaltung des beobachteten Cd-Energieübergangs benötigt wird \todo{citation für homogen}. Dies kann mithilfe einer Messung der Magnetfeldstärke (bei festem Strom) abhängig vom Ort im Bereich zwischen den Polschuhen überprüft werden. Weiter weisen Ferromagnete wie die Polschuhe eine Hysterese auf, das Magnetfeld variiert also nicht linear mit dem angelegten Strom sondern muss als ein funktionaler Zusammenhang als Kalibrationskurve für alle weiteren Messungen bestimmt werden \todo{citation Hysterese}.
+Es ist sinnvoll, für den verwendeten Versuchsaufbau die Form und Stromabhängigkeit des Magnetfelds zu untersuchen. Der Aufbau der Polschuhe sollte theoretisch im Bereich zwischen ihnen ein homogenes Magnetfeld erzeugen, wie es für die theoretische Behandlung der Zeeman-Aufspaltung des beobachteten Cd-Energieübergangs benötigt wird. Dies kann mithilfe einer Messung der Magnetfeldstärke (bei festem Strom) abhängig vom Ort im Bereich zwischen den Polschuhen überprüft werden. Weiter weisen Ferromagnete wie die Polschuhe eine Hysterese auf, das Magnetfeld variiert also nicht linear mit dem angelegten Strom sondern muss als ein funktionaler Zusammenhang als Kalibrationskurve für alle weiteren Messungen bestimmt werden.
 
 
 \subsection{Ortskalibration des Magnetfelds mit Hallsonde}
@@ -36,11 +34,6 @@ Es wurde eine Hallsonde bei fester Stromstärke (eingestellt als $I=\SI{5.5(0.1)
 \jafpsh{x_calibration}{Messung der Ortsabhängigkeit des Magnetfelds bei $I=\SI{5.5(1)}{\ampere}$ und variabler Position der Hallsonde. Die Unsicherheit der Position wurde aufgrund der verwendeten Skala der optischen Bank als $\Delta x=\SI{0.5}{\milli\meter}$ abgeschätzt, die Stromunsicherheit aus der Einstellungenauigkeit des Netzgeräts.}{0.45}
 
 Aus der graphischen Auftragung der Feldstärkemessungen ist abzulesen, dass die annäherende Homogenität des Magnetfelds im Bereich zwischen den Polschuhen für einen Bereich von ca.  $\SI{1}{\centi\meter}$ gegeben ist, was den Abmessungen der Cd-Lampe grob entspricht. Das Feld, welches auf die Cd-Lampe wirkt, kann also über die gesamte Ausdehnung der Lampe annäherend als homogen angesehen werden, solange sie an der gleichen Stelle wie das Maximum aus der Kalibrationsmessung platziert wird. Darauf wurde in der Durchführung geachtet. Der Abfall in der Mitte in der Kalibrationsmessung ist dadurch zu erklären, dass das wirkende Feld die Überlagerung der beiden einzelnen Magnetfelder der beiden Polschuhe darstellt. Wenn diese zu weit auseinanderstehen, sinken die beiden Felder in der Mitte des Abstand bereits wieder ab und überlagern sich so nicht mehr zu einem durchgehenden Plateau. Da das Absinken aber nur eine geringfügig kleinere Feldstärke liefert, kann über die gesamte Breite der Cd-Lampe (die an den Ort des Plateaus platziert wird im restlichen Versuch) das Magnetfeld als homogen angesehen werden.
-Allgemein ist außerdem zu erwarten, dass das Magnetfeld der Polschuhe am Rand mit der Proportionalität $B\propto \frac{1}{r^2}$ ($r$ ist hier der Abstand von der Mitte des Plateaus) absinkt \todo{citation}.
-
-Diese Abhängigkeit ist in den Daten gegeben (siehe Anpassung in Abbildung \todo{magnetfeldkalib fit hier evt noch rein}).
-
-Die Form des Magnetfelds erfüllt also die Erwartungen.
 
 \subsection{Kalibrationskurve in transversaler Konfiguration}
 
