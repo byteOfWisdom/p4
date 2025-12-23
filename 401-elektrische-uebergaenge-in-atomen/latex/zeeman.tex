@@ -1,10 +1,12 @@
-\chapter{Energieaufspaltung durch den Zeeman-Effekt an Cd}
+\chapter{Zeeman-Effekt an Cd}
 
 \section{Theoretische Überlegungen}
 
 
 Im Versuch wird mithilfe eines Fabry-Perot-Etalons als präziser Spektralapparat die Wellenlinienaufspaltung (und damit die Energieaufspaltung) der Cd-Linie mit der unverschobenen Wellenlänge $\lambda_0=\SI{643.847}{\nano\meter}$ gemessen. Ein Fabry-Perot-Etalon besteht aus zwei planparallelen, ebenen Spiegeln (Reflexionsgrad $R<1$), in dem eintretendes Licht mehrfach reflektiert wird, wobei bei jeder Reflexion ein Teil transmittiert wird. Die Teilstrahlen haben daher verschiedene Gangunterschiede und interferieren hinter dem Etalon miteinander. Der Strahlengang im Etalon ist in Abbildung \ref{fig:etalon} dargestellt.
+
 \jafps{etalon}{Strahlengang in einem Fabry-Perot-Etalon. Abbildung entnommen aus \cite[12]{Versuchsanleitung401}}{0.4}
+
 Es ergibt sich ein Interferenzmuster aus Ringen (aufgrund der ausgedehnten Lichtquelle der Cd-Lampe), welches durch eine Sammellinse auf eine CCD-Kamera fokussiert wird. Die Interferenzbedingung des Etalons für Transmissionsmaxima ergibt sich geometrisch und aus dem Brechungsgesetz von \uppercase{Snellius} mit der Wellenlänge einer Spektrallinie $\lambda$, Brechnungsindex des Etalon-Materials $n$, dem Beugungswinkel bzw. Austrittswinkel der Teilstrahlen aus dem Etalon $\alpha$ für die Maximumsordnung $m$ und der Etalondicke $d$ als \cite{LDzeeman}:
 \begin{align} \label{eq:interferenz}
 	m\lambda = 2d \sqrt{n^2-\sin^2(\alpha)}
@@ -14,7 +16,7 @@ Es ergibt sich ein Interferenzmuster aus Ringen (aufgrund der ausgedehnten Licht
 
 \section{Versuchsaufbau}
 
-Der Versuchsaufbau besteht aus einer Cd-Lampe, die zwischen zwei drehbaren Polschuhen mit jeweils einem kleinen Loch in der Mitte, die im Bereich zwischen ihnen ein annähernd homogenes Magnetfeld der Stärke $B$ liefern, aufgehängt wird, einer Kondensorlinse, die das dahinter platzierte Fabry-Perot-Etalon ($R=0,85, n=1,457$) mit parallelem Licht ausleuchtet, sowie hinter dem Etalon eine Sammellinse mit $f=\SI{150}{\milli\meter}$, einen Interferenzfilter der Mittelwellenlänge $\lambda_\text{Filter}=\SI{643.8(20)}{\nano\meter}$ (um nur die rote, unverschobene Cd-Linie sowie die nur geringfügig verschobenen $\sigma_\pm$-Komponenten des Übergangs-Tripletts aus dem aus vielen Spektrallinien bestehenden Licht der Lampe zu selektieren) sowie an letzter Stelle ein Okular mit Strichskala oder alternativ an der gleichen Stelle eine CCD-Kamera zur Beobachtung des Interferenzmusters. Der Aufbau ist in Abbildung \ref{fig:aufbau_zeeman} dargestellt. Die Polschuhe sind mit einem Netzgerät verbunden, über welches der Strom und dadurch auch die Magnetfeldstärke variiert werden kann. Zwischen Netzgerät und Polschuhen ist noch ein Arduino Microcontroller mit eingebautem Analog-zu-Digital-Konvertierer eingebaut, welcher dem Aufnahmeprogramm \textit{Zeeman-Effekt} die Werte des Stroms und auch des Magnetfelds liefert. Die Kamera ist auch mit diesem verbunden, sodass für einen gegebenen Wert des Stroms und damit des Magnetfelds die Intensität des auf den CCD-Chip fallenden Lichts für jeden den Kamerapixel aufgenommen wird.
+Der Versuchsaufbau besteht aus einer Cd-Lampe, die zwischen zwei drehbaren Polschuhen mit jeweils einem kleinen Loch in der Mitte, die im Bereich zwischen ihnen ein annähernd homogenes Magnetfeld der Stärke $B$ liefern, aufgehängt wird, einer Kondensorlinse, die das dahinter platzierte Fabry-Perot-Etalon ($R=0,85, n=1,457$) mit parallelem Licht ausleuchtet, sowie hinter dem Etalon eine Sammellinse mit $f=\SI{150}{\milli\meter}$, einen Interferenzfilter der Mittelwellenlänge $\lambda_\text{Filter}=\SI{643.8(20)}{\nano\meter}$ (um nur die rote, unverschobene Cd-Linie sowie die nur geringfügig verschobenen $\sigma_\pm$-Komponenten des Übergangs-Tripletts aus dem aus vielen Spektrallinien bestehenden Licht der Lampe zu selektieren) sowie an letzter Stelle ein Okular mit Strichskala oder alternativ an der gleichen Stelle eine CCD-Kamera zur Beobachtung des Interferenzmusters. Der Aufbau ist in Abbildung \ref{fig:aufbau_zeeman} dargestellt. Die Polschuhe sind mit einem Netzgerät verbunden, über welches der Strom und dadurch auch die Magnetfeldstärke variiert werden kann. Zwischen Netzgerät und Polschuhen ist noch ein Arduino Microcontroller mit eingebautem Analog-zu-Digital-Konvertierer eingebaut, welcher dem Aufnahmeprogramm \textit{Zeeman-Effekt} die Werte des Stroms und auch des Magnetfelds liefert. Die Kamera ist auch mit diesem verbunden, sodass für einen gegebenen Wert des Stroms und damit des Magnetfelds die Intensität des auf den CCD-Chip fallenden Lichts für jeden den Kamerapixel aufgenommen wird. Um von der transversalen in die longitudinale Konfiguration zu wechseln, werden die Polschuhe um $\SI{90}{\degree}$ gedreht. Das Licht der Cd-Lampe kann dann durch die kleinen Löcher in den Seiten der Polschuhen entlang der optischen Bank strahlen.
 
 \jafps{aufbau_zeeman}{Versuchsaufbau für die Messung der Zeeman-Energieaufspaltung. In der Skizze stehen die Polschuhe in der Konfiguration für Beobachtung transversal zum Magnetfeld. Abbildung entnommen aus \cite{LDzeeman}.}{0.45}
 
@@ -44,9 +46,75 @@ Dazu wurde mithilfe der Software-Funktionalität \textit{Magnetfeldkalibrierung}
 	B(I)=aI^3+bI^2+cI+d
 \end{align*}
 
-an die Daten angepasst. Dies ist in Abbildung \ref{fig:calibration} dargestellt. Es ist tatsächlich ein Unterschied der Magnetfeldstärken besonders für große Ströme zwischen den beiden Messreihen zu sehen. Um die thermischen Effekte für die weiteren Messungen, die sich ungefähr zeitlich gleichmäßig zwischen den beiden Kalibrationsmessungen verteilt haben, zu kompensieren, werden für die weiteren Betrachtungen die Anpassungsparameter jeweils arithmetisch gemittelt, sodass als Kalibrationskurve der folgende funktionale Zusammenhang bestimmt wurde:
+an die Daten angepasst. Dies ist in Abbildung \ref{fig:calibration} dargestellt. Es ist tatsächlich ein Unterschied der Magnetfeldstärken besonders für große Ströme zwischen den beiden Messreihen zu sehen.
+Für die erste Messung vor Beginn der weiteren Messungene ergaben sich die Parameter: $a=\num{-3.23(0.06)e-4}$, $b=\num{8(2)e-5}$, $c=\num{9.32(0.04)e-2}$ und $d=\num{0(1)e-3}$, wobei die Kurve als Maß der Anpassungsgüte das Bestimmtheitsmaß (mit $0\leq R^2\leq 1$) $R^2_1=0,9999$ und damit eine sehr gute Übereinstimmung der Anpassungsfunktion mit den Daten aufweist. Für die zweite Messung nach den weiteren Messungen im Versuch ergaben sich die Parameter: $a=\num{-3.18(0.05)e-4}$, $b=\num{2.2(0.2)e-4}$, $c=\num{9.36(0.03)e-2}$, $d=\num{0(10)e-4}$ mit dem ebenfalls guten Bestimmtheitsmaß $R^2_1=0,9998$.
+
+Um die thermischen Effekte für die weiteren Messungen, die sich ungefähr zeitlich gleichmäßig zwischen den beiden Kalibrationsmessungen verteilt haben, zu kompensieren, werden für die weiteren Betrachtungen die Anpassungsparameter jeweils arithmetisch gemittelt, sodass als Kalibrationskurve der folgende funktionale Zusammenhang bestimmt wurde:
 \begin{align} \label{eq:kalibration}
-	\todo{parameter hier}
+	a = \num{-3.20(0.04)e-4}, \quad b = \num{1.5(0.2)e-4}, \\ \nonumber
+	c = \num{9.34(0.03)e-2}, \quad d=\num{1.1(0.8)e-2}
+\end{align}
+Dieser Zusammenhang wird für die Berechnung des Magnetfelds aus den aufgenommenen Stromwerten für alle weiteren Messungen genutzt.
+
+\jafps{calibration}{Aufgenommene Kalibrationskurven für das Magnetfeld der Polschuhe am Ort des maximalen Felds abhängig vom Strom. Es wurden Polynome dritten Grads an die beiden Datensätze angepasst. }{0.45}
+
+\section{Polarisation der Linien des Interferenzmusters}
+
+Es werden die Polarisationszustände der aufgespaltenen Linien untersucht. In transversaler Konfiguration werden drei Linien mit äquidistantem Abstand zueinander erwartet, alle drei Komponenten können beobachtet werden (Abschnitt \ref{sec:zeeman_intro}). In longitudinaler Konfiguration werden nur die beiden $\sigma$-Komponenten erwartet, die $\pi$-Komponente in der Mitte zwischen ihnen sollte nicht beobachtet werden.
+Zunächst wird bei ausgeschaltetem Magnetfeld das Interferenzmuster der roten Cd-Linie betrachtet. Es wird sowohl bei der Beobachtung via Okular mit dem Auge als auch bei der Aufnahme mit der CCD-Kamera für sowohl transversale als auch longitudinale Konfiguration wie erwartet ein Ringsystem mit jeweils einer deutlich sichtbaren roten Linie pro Ring sichtbar. Die Aufnahmen sind in Abbildungen \ref{fig:ZeemanFoto_004} und \ref{fig:ZeemanFoto_027} dargestellt.
+
+
+
+\jafps{ZeemanFoto_004}{Aufnahme des Interferenzmusters aufgrund des Fabry-Perot-Etalons mit der CCD-Kamera in transversaler Konfiguration mit ausgeschaltetem Magnetfeld ($I=\SI{0}{\ampere}, B=\SI{0}{\tesla}$). Es ist nur die rote, unverschobene Cd-Linie mit $\lambda_0=\SI{643.847}{\nano\meter}$ zu sehen.}{0.35}
+
+\jafps{ZeemanFoto_027}{CCD-Aufnahme des Interferenzmusters in longitudinaler Konfiguration mit ausgeschaltetem Magnetfeld. Es ist nur die unverschobene rote Cd-Linie zu sehen.}{0.35}
+
+Zunächst wird die Polarisation der drei Linienkomponenten in transversaler Konfiguration betrachtet. Dazu wird der Magnetstrom erhöht, bis die drei aufgespaltenen Komponenten eines Rings deutlich trennbar erkennbar sind. Dies ist in Abbildung \ref{fig:ZeemanFoto_005} als Messung der CCD-Kamera abgebildet und konnte auch mit dem Okular beobachtet werden. Die drei Ringkomponenten konnten den Erwartungen entsprechend beobachtet werden.
+Dann wird ein Polarisationsfilter vor das Etalon eingesetzt. Der Polarisationsfilter haben eine Polarisationsachse und transmittieren nur die Komponente des einfallenden Lichts, welche parallel zu ihrer Polarisationsachse polarisiert ist \cite[564-565]{gerthsen}. Der Filter wird dann verdreht, bis jeweils entweder die beiden $\sigma$-Komponenten oder die $\pi$-Komponente verschwinden. Dies funktioniert, da diese jeweils senkrecht zueinander linear polarisiert sind. Nur die Komponente(n), die parallel zur Polarisationsachse des Filters polarisiert ist, wird transmittiert. Die Messungen mit der CCD-Kamera (das gleiche Verhalten wurde mit dem Okular ebenfalls beobachtet) sind in Abbildungen \ref{fig:ZeemanFoto_011} und \ref{fig:ZeemanFoto_008} dargestellt. Die Winkel haben den Unterschied $\Delta \phi = \SI{90(7)}{\degree}$ zueinander (die jeweilige Ableseunsicherheit der Winkel von $\Delta \phi_i= \SI{5}{\degree}$ wurde daraus abgeschätzt, dass subjektiv entschieden werden musste, wann genau die Kompenten nicht mehr deutlich sichtbar waren). Es kann so deutlich demonstriert werden, dass die Polarisationen der $\sigma_\pm$ und $\pi$-Komponenten jeweils linear und dabei zueinander genau senkrecht polarisiert sind.
+
+\jafps{ZeemanFoto_005}{Interferenzmuster in transversaler Konfiguration mit deutlich erkennbarer Trennung der drei Komponenten bei Strom $I=\SI{5.2(0.1)}{\ampere}$ und $B=\SI{0.448(0.002)}{\tesla}$.}{0.35}
+\jafps{ZeemanFoto_011}{Interferenzmuster mit der CCD-Kamera (transversale Konfig.) aufgenommen bei Winkel des Polarisationsfilters $\phi_1=\SI{90(5)}{\degree}$. Es ist nur die mittige, im Vergleich zum ausgeschalteten Magnetfeld unverschobene Komponente, also die $\pi$-Komponente sichtbar.}{0.35}
+\jafps{ZeemanFoto_008}{Interferenzmuster mit der CCD-Kamera (transversale Konfig.) aufgenommen bei Winkel des Polarisationsfilters $\phi_2=\SI{0(5)}{\degree}$. Es sind die beiden verschobenen Komponenten $\sigma_+$ und $\sigma_-$ zu sehen, die $\pi$-Komponente wurde nicht durch den Filter transmittiert.}{0.35}
+
+Es wird auch in longitudinaler Konfiguration die Polarisation betrachtet. Es können auch hier deutlich voneinander getrennte Ringe beobachtet werden (mit Okular und CCD-Kamera). Für die Stromstärke $I=\SI{8.9(0.1)}{\ampere}$ (Magnetfeld dann $\SI{0.618(0.004)}{\tesla}$) ist die erwartete Aufspaltung in zwei Komponenten, also die $\sigma_\pm$-Komponenten, deutlich zu erkennen. Dies ist in Abbildung \ref{fig:ZeemanFoto_028} dargestellt.
+
+\jafps{ZeemanFoto_028}{Beobachtung der Aufspaltung in die beiden $\sigma$-Komponenten in longitudinaler Konfiguration bei $I=\SI{8.9(0.1)}{\ampere}, B=\SI{0.618(0.004)}{\tesla}$.}{0.35}
+
+Es wurden nun eine $\lambda/4$-Platte, die bei der Einstellung auf $\phi_{\lambda/4}=\SI{0}{\degree}$ zirkuläre Polarisation in lineare Polarisation umwandelt \cite[238-239]{Demtroeder2} sowie dahinter der Polarisationsfilter vor das Etalon eingesetzt. Die beiden $\sigma$-Komponenten sind danach jeweils linear polarisiert, aufgrund der unterschiedlichen Drehsinne ihrer ursprünglichen zirkulären Polarisationen jedoch zueinander senkrecht. Bei paralleler Ausrichtung der Transmissionsachse des Filters jeweils zur x- und y-Achse des Lichtfeldkoordinatensystems kann so jeweils eine der beiden Komponenten durch den Filter transmittiert bzw. absorbiert werden. Der Filter wird nun erneut gedreht, sodass nur eine der beiden Komponenten transmittiert wird, was durch Beobachtung der CCD-Kameramessung bestätigt wurde. Die beiden Messungen sind in Abbildungen \ref{fig:ZeemanFoto_029} und \ref{fig:ZeemanFoto_030} dargestellt. Auch hier beträgt der Unterschied der Winkeleinstellungen des Polarisationsfilters $\Delta \phi = \SI{90(7)}{\degree}$, die Polarisationen der beiden Komponenten stehen also auch hier wie erwartet genau senkrecht zueinander.
+
+\jafps{ZeemanFoto_029}{Beobachtung der aufgespalteten Ringe in longitudinaler Konfiguration. Der Polarisationsfilter ist auf $\phi_1=\SI{-45(5)}{\degree}$ eingestellt, es ist nur die rechte Komponente zu sehen, die der $\sigma_+$-Komponente entspricht.}{0.35}
+\jafps{ZeemanFoto_030}{Beobachtung der aufgespalteten Ringe in longitudinaler Konfiguration. Der Polarisationsfilter ist auf $\phi_2=\SI{45(5)}{\degree}$ eingestellt, es ist nur die linke Komponente zu sehen, die der $\sigma_-$-Komponente entspricht.}{0.35}
+
+
+\section{Messung der Zeeman-Aufspaltung}
+
+Wie in \ref{sec:zeeman_intro} erläutert, ist für die einzelnen Linien der Aufspaltung ein konstanter Abstand zur nächsten von $\Delta E = \mu_B B$ (Gl. \ref{eq:energieabstand}) zu erwarten.
+Es soll nun zunächst die Größe der Energieaufspaltung und dann der Wert des Bohrschen Magnetons $\mu_B$ bestimmt werden. Dafür werden für verschiedene Strom- und daher auch Magnetfeldstärken das Interferenzmuster in transversaler Konfiguration mit der CCD-Kamera aufgenommen. Es werden auch für einige Ströme in longitudinaler Konfiguration das Interferenzmuster aufgenommen, da hier die Aufspaltung der Komponenten gleich ist, wenn beachtet wird, dass jeweils relativ zur unverschobenen Linie (entspricht der in der dieser Beobachtungskonfiguration nicht sichtbaren $\pi$-Komponente).
+
+Es gilt dabei mit dem Planckschen Wirkungsquantum $h=\SI{6.62607015e-34}{\joule\per\hertz}$ und der Lichtgeschwindigkeit $c=\SI{2.99792458e8}{\meter\per\second}$ \cite{KonstantenNIST} für die Energieaufspaltung aus der relativen Wellenlängenverschiebung $\frac{\Delta \lambda}{\lambda_{\sigma_\pm}}$\cite[9]{Versuchsanleitung401}:
+\begin{align}\label{eq:energieformel}
+	\Delta E = -\frac{h c}{\lambda_\pi}\frac{\lambda_{\sigma_\pm}-\lambda_\pi}{\lambda_{\sigma_\pm}} \approx \frac{h c}{\lambda_\pi^0}\frac{\lambda_{\sigma_\pm}-\lambda_\pi}{\lambda_{\sigma_\pm}}
+\end{align}
+Hierbei bezeichnet $\lambda_\pi^0$ die unverschobene durch den Wellenlängenfilter herausgefilterte Cd-Emissionslinie mit Wellenlänge $\SI{643.847}{\nano\meter}$.
+
+Es werden für die mit der CCD-Kamera in jeweils der x- und y-Richtung aufgenommenen Lichtintensitätsdaten gegen die Position auf dem CCD-Sensor (Pixelgröße $\SI{9.6}{\micro\meter}\times\SI{9.6}{\micro\meter}$, Pixelanzahl $N=1368$\cite[5]{Versuchsanleitung401}) aufgetragen. Aufgrund der nicht vernachlässigbaren Linienbreite der Transmissionsmaxima ergeben sich gaußförmige Transmissionsspektra. Um zu veranschaulichen, dass die Spektren aller Aufnahmen in transversaler Konfiguration diese Struktur aufweisen, wurden die gemessenen Intensitäten in der x-Achse und der y-Achse jeweils gegen die Pixel aufgetragen und für alle Messungen gemeinsam dargestellt (Abbildungen \ref{zeeman_pixel_x} und \ref{zeeman_pixel_y}).
+
+\jafps{zeeman_pixel_x}{Auftragung der Intensitätsmessungen in x-Richtung für alle eingestellten Stromstärken.}{0.34}
+\jafps{zeeman_pixel_y}{Auftragung der Intensitätsmessungen in y-Richtung für alle eingestellten Stromstärken.}{0.35}
+
+Für die Ablenkungswinkel eines Orts auf dem Kamerasensor gilt dabei aus der Geometrie der Kamera in der Brennebene der fokussierenden Sammellinse die geometrische Überlegung mit Kleinwinkelnäherung für $\tan(\gamma)\approx \gamma$ für $\gamma \ll 1$  mit der Pixelposition der Mitte des Ringinterferenzbilds auf einer Aufnahme $x_0$, der Pixelposition der betrachteten Orte (es interessieren hier vor allem die Spitzenschwerpunkte der einzelnen Gaußkurven) $x$, der Breite eines Pixels $\Delta x = \SI{9.6}{\micro\meter}$ sowie der Linsenbrennweite $f=\SI{150}{\milli\meter}$:
+\begin{align} \label{eq:winkel}
+	\alpha = \frac{(x_0-x)\cdot \Delta x}{f}
 \end{align}
 
-\jafps{calibration.pdf}{\todo{Hier Fitparameter noch rein.}}{0.45}
+Es werden für alle aufgespaltenen Ringe jeweils eine Überlagerung von Gaußkurven an die Daten angepasst. Die Anpassungen für die einzelnen Transmissionsmaxima-Gruppen (aus den drei bzw. zwei Komponenten) haben die Form (mit $I$ als Intensität, $n$ der Anzahl der sichtbaren Aufspaltungskomponenten, $A$ der Amplitude, $\sigma$ Standardabweichung, $\mu$ der Maximumsposition und dem y-Achsenabschnittversatz $c$):
+\begin{align}\label{eq:supergaussian}
+	I(\alpha) = \sum_{i=1}^{n} A_i \exp{-\frac{(\alpha-\mu_i)^2}{2\sigma_i^2}}+c
+\end{align}
+
+Die Energieaufspaltung ergibt sich dann durch Einsetzen der Interferenzbedingung für das Fabry-Perot-Etalon (Gl. \ref{eq:interferenz}) für mit den Winkelablenkungen der Intensitätsmaxima $\alpha_{\pi/\sigma_\pm}$ (aus Pixelkoordinate nach Gl. \ref{eq:winkel}) für jede der aufgespaltenen Ringe für gegebene Strom- und Magnetfeldstärke (bei Nichtbeachtung der Maximumsordnung $n$, die für jede der Komponenten eines Rings identisch sein sollte und sich so kürzt) als:
+\begin{align}\label{eq:energieaufspaltung_formel}
+	\Delta E = \frac{hc}{\lambda_\pi^0} \left( 1 - \sqrt{ \frac{n^2-\sin^2(\alpha_\pi)}{n^2-\sin^2(\alpha_{}\sigma_\pm})}\right)
+\end{align}
+
+Die so berechneten Winkel der Maxima, Parameter der jeweiligen Gaußfunktion-Anpassung sowie die darauf bestimmten Energieaufspaltungen der Ringe sind im Anhang in der großen Tabelle (\ref{sec:grossetab}) dargestellt.
