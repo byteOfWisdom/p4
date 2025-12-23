@@ -1,0 +1,39 @@
+\chapter{Franck-Hertz-Versuch}
+
+\section{Durchführung}
+Die Franck-Hertz-Röhre ist ein abgeschlossener Aufbau, bei welchem lediglich die Parameter eingestellt werden müssen. Es wird zunächst eine Tempereatur von $\SI{165}{\celsius}$ gewählt und auf das Aufheizen gewartet.
+
+Damit wird eine Sinnvolle gegenspannung bestimmt, so dass der Messbereich des Cassy gut ausgenutzt ist ohne das Maximum zu erreichen. Als sinnvoller Wert werden $\SI{2.5}{\volt}$ für alle weiteren Messungen genutzt. 
+
+Es werden insgesamt diverse Messungen bei verschiedenen Temperaturen durchgeführt. Eine Tabelle mit den Parametern aller Messungen ist Angehangen als Tabelle \ref{tab:fh_params}.
+
+
+\section{Stoßanregung von Hg}
+Beim beschleunigen der Elektronen wächst ihre kinetische Energie an. Der erste übergang, den sie im Hg Atom anregen können ist bei $E = \SI{4.67}{\electronvolt}$ der $\ce{^1S_0} \rightarrow \ce{^3P_0}$ Übergang, welcher allerdings einen recht kleinen Wirkungsquerschnitt hat ($Q_max \approx \SI{1}{\pi \angstrom^2}$). Kurz darauf können Elektronen auch den $\ce{^1S_0} \rightarrow \ce{^3P_1}$ Übergang anregen (mit $E = \SI{4.89}{\electronvolt}$), welcher einen etwa drei mal größeren Wirkungsquerschnitt hat. Falls die Elektronen weiter beschleunigen können kommt noch der  $\ce{^1S_0} \rightarrow \ce{^3P_2}$ Übergang hinzu. Es ist allerdings nicht davon auszugehen, dass eine relevante Menge an Elektronen ohne zu Stoßen bis auf die hierzu nötige Energie beschleunigt wird. Falls längere Beschleunigung möglich ist, wird ab etwa $\SI{7}{\electronvolt}$ der  $\ce{^1S_0} \rightarrow \ce{^1P_1}$ Übergang dominieren. Aufgrund der mittleren freien Weglänge \todo{überschlagswert} und des ausreichend großen Wirkungsquerschnitts des  $\ce{^1S_0} \rightarrow \ce{^3P_1}$ Übergangs ist nicht davon auszugehen, dass Übergänge außer  $\ce{^1S_0} \rightarrow \ce{^3P_0}$, $\ce{^1S_0} \rightarrow \ce{^3P_1}$ und ggf. $\ce{^1S_0} \rightarrow \ce{^3P_2}$ in relevantem Maße vorkommen.
+
+Die Messunsicherheiten der Spannugen als $\Delta U = \SI{0.1}{\volt}$. Da die Kalibration der Cassys und der Innere Aufbau der Franck-Hertz-Röhre nicht eingesehen werden können ist dies eine Schätzung basieren auf der größe zufälliger Fluktuationen ohne Beschleunigungsspannung.
+
+An die gemessenen Kurven aus Beschleunigungsspannung $U_B$ und zum Strom proportionaler Spannung $U_I$ werden nun Gaußkurven angepasst. Hierbei wird auch das letzte, unvollständige Maximum mit angepasst, jedoch für die weitere Auswertung nicht verwendet, da es nicht vollständig gemessen wurde und somit nicht zuverlässig aussagekräftig ist. Alle Regressionsergebnisse finden sich im Anhang \ref{sec:franck-hertz-anhang}. Die Maxima werden pro Messung durchnumeriert. Zur Regression wird das Verfahren der "orthogonal distance regression" \cite{odr} verwendet. Als Maß der Anpassungsgüte wird das Bestimmtheitsmaß verwendet\todo{cite}. Dieses ist für alle Regressionen $R^2 \in [0.98, 1)$, was für gute Anpassungen spricht. Ein Beispiel dieser Anpassung ist in \ref{fig:165_u1_355_u2_025} sowie dem Anhang zu finden.
+
+\jafps{165_u1_355_u2_025}{Beispielhafte Messkurve bei $T = \SI{165(2)}{\celsius}$ und $U_G = \SI{2.5(1)}{\volt}$ mit eingezeichneten Gaussfunktionen aus der Anpassung.}{0.45}
+
+Die Erwartung ist, dass die Maxima bei ganzzahligen Vielfachen der Anregungsenergie (mit einem Konstanten Versatz zu Null) zu finden sind. Daher wird Nummer des Maximums gegen Position aufgetragen und daran eine Grade der Form $f(x) = a x + b$ angepasst, siehe \ref{fig:FH_res}. Man findet für die Regressionsparameter $a = \SI{4.816(20)}{\volt}$ und $b = \SI{6.966(65)}{\volt}$.
+Da mit Elektronen gearbeitet wird, welche eine Ladung von $e$ haben, ist die Energie einfach $E = U_B * e$. Somit ergibt sich aus der Steigung $\Delta E = \SI{4.816(20)}{\electronvolt}$ als Abstand der Maxima.
+
+Dieser Abstand ist etwas kleiner als die Energiedifferenz des Übergangs $\ce{^1S_0} \rightarrow \ce{^3P_1}$ und entspricht damit der Erwartung, dass fast ausschließlich $\ce{^1S_0} \rightarrow \ce{^3P_1}$ und $\ce{^1S_0} \rightarrow \ce{^3P_0}$ angeregt werden.
+
+\jafps{FH_res}{Auftragung der Daten aus \ref{sec:franck-hertz-anhang} mit Anpassung einer Graden. Die Unsicherheiten ergeben sich aus den Standardabweichungen der Anpassungsergebnisse.}{0.4}
+
+
+\section{Einfluss der Temperatur}
+
+\jafps{fh_temp}{Messungen bei verschiedenen Temperaturen und $U_G=\SI{2.5}{\volt}$.}{0.45}
+
+Trägt man die Messkurven bei verschiedenen Temperaturen gegeneinander auf (siehe \ref{fig:fh_temp}) so wird bei steigender Temperatur ein Abfallen des Anodenstroms aufgrund der sinkenden mittleren Freien Weglänge und der somit wachsenden mittleren Stoßzahl pro Elektron. \todo{quantifizieren}
+
+Die mittlere freie Weglänge muss in einem Bereich sein, in welchem Elektronen im mittel einige wenige male stoßen
+
+\section{Einfluss der Gegenspannung}
+\jafps{fh_ug}{Messungen bei verschiedenen Gegenspannungen und $T=\SI{165}{\celsius}$}{0.45}
+
+Trägt man die Messungen für verschiedene Gegenspannungen auf (siehe \ref{fig:fh_ug}), zeigt sich, dass die Gegenspannung sowohl einen Einfluss auf die Höhe des Anodenstroms hat als auch, wie weit der Strom im Minimum abfällt. Dies erklärt sich darüber, dass Elektronen mit einer Restenergie $<\SI{4.67}{\electronvolt}$ keine Stoßanregungen mehr auslößen und somit nur noch wenig energie abgeben. Die Gegenspannung sorgt nun dafür, dass Elektronen mit Energien $< e U_G$ nicht als Anodenstrom gemessen werden können.

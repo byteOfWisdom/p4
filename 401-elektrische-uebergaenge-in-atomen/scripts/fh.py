@@ -197,11 +197,12 @@ def main():
     y = np.array(~peak_pos, dtype=float)
     params, (err, r_sq) = std.fit_func(lambda x, a, b: a * x + b, x, y)
 
-    print(params)
+    print(p.ev(params, err))
     plt.errorbar(peak_num, ~peak_pos, p.error(peak_pos), **std.default.error_bar_def)
     xrange = np.linspace(0, max(peak_num) + 0.5)
     plt.plot(xrange, (lambda x, a, b: a * x + b)(xrange, *params), label=f"$R^2 = {r_sq}$")
     std.default.plt_pretty("Nummer des Maximums", "$U_B$ (der Maxima) / V")
+    plt.legend()
 
     if len(argv) > 5 and argv[-1] == "save":
         print("saving figure")
