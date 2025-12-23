@@ -234,7 +234,7 @@ def main():
     params, (err, r_sq) = std.fit_func(lambda x, a: std.linear(x, a, 0), b_arr, e_arr)
     xrange = np.linspace(min(b_arr), max(b_arr), 1000)
 
-    # print(params[0])
+    print("params: ", p.ev(params, err))
 
     plt.cla()
     plt.errorbar(b_arr, e_arr, xerr=b_err, yerr=e_err, **std.default.error_bar_def)
