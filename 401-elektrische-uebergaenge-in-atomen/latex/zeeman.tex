@@ -99,8 +99,8 @@ Hierbei bezeichnet $\lambda_\pi^0$ die unverschobene durch den Wellenlängenfilt
 
 Es werden für die mit der CCD-Kamera in jeweils der x- und y-Richtung aufgenommenen Lichtintensitätsdaten gegen die Position auf dem CCD-Sensor (Pixelgröße $\SI{9.6}{\micro\meter}\times\SI{9.6}{\micro\meter}$, Pixelanzahl $N=1368$\cite[5]{Versuchsanleitung401}) aufgetragen. Aufgrund der nicht vernachlässigbaren Linienbreite der Transmissionsmaxima ergeben sich gaußförmige Transmissionsspektra. Um zu veranschaulichen, dass die Spektren aller Aufnahmen in transversaler Konfiguration diese Struktur aufweisen, wurden die gemessenen Intensitäten in der x-Achse und der y-Achse jeweils gegen die Pixel aufgetragen und für alle Messungen gemeinsam dargestellt (Abbildungen \ref{zeeman_pixel_x} und \ref{zeeman_pixel_y}).
 
-\jafps{zeeman_pixel_x}{Auftragung der Intensitätsmessungen in x-Richtung für alle eingestellten Stromstärken.}{0.34}
-\jafps{zeeman_pixel_y}{Auftragung der Intensitätsmessungen in y-Richtung für alle eingestellten Stromstärken.}{0.35}
+\jafps{zeeman_pixel_x}{Auftragung der Intensitätsmessungen in x-Richtung für alle eingestellten Stromstärken.}{0.4}
+\jafps{zeeman_pixel_y}{Auftragung der Intensitätsmessungen in y-Richtung für alle eingestellten Stromstärken.}{0.4}
 
 Für die Ablenkungswinkel eines Orts auf dem Kamerasensor gilt dabei aus der Geometrie der Kamera in der Brennebene der fokussierenden Sammellinse die geometrische Überlegung mit Kleinwinkelnäherung für $\tan(\gamma)\approx \gamma$ für $\gamma \ll 1$  mit der Pixelposition der Mitte des Ringinterferenzbilds auf einer Aufnahme $x_0$, der Pixelposition der betrachteten Orte (es interessieren hier vor allem die Spitzenschwerpunkte der einzelnen Gaußkurven) $x$, der Breite eines Pixels $\Delta x = \SI{9.6}{\micro\meter}$ sowie der Linsenbrennweite $f=\SI{150}{\milli\meter}$:
 \begin{align} \label{eq:winkel}
@@ -114,7 +114,16 @@ Es werden für alle aufgespaltenen Ringe jeweils eine Überlagerung von Gaußkur
 
 Die Energieaufspaltung ergibt sich dann durch Einsetzen der Interferenzbedingung für das Fabry-Perot-Etalon (Gl. \ref{eq:interferenz}) für mit den Winkelablenkungen der Intensitätsmaxima $\alpha_{\pi/\sigma_\pm}$ (aus Pixelkoordinate nach Gl. \ref{eq:winkel}) für jede der aufgespaltenen Ringe für gegebene Strom- und Magnetfeldstärke (bei Nichtbeachtung der Maximumsordnung $n$, die für jede der Komponenten eines Rings identisch sein sollte und sich so kürzt) als:
 \begin{align}\label{eq:energieaufspaltung_formel}
-	\Delta E = \frac{hc}{\lambda_\pi^0} \left( 1 - \sqrt{ \frac{n^2-\sin^2(\alpha_\pi)}{n^2-\sin^2(\alpha_{}\sigma_\pm})}\right)
+	\Delta E = \frac{hc}{\lambda_\pi^0} \left( 1 - \sqrt{ \frac{n^2-\sin^2(\alpha_\pi)}{n^2-\sin^2(\alpha_{\sigma_\pm})}}\right)
 \end{align}
 
-Die so berechneten Winkel der Maxima, Parameter der jeweiligen Gaußfunktion-Anpassung sowie die darauf bestimmten Energieaufspaltungen der Ringe sind im Anhang in der großen Tabelle (\ref{sec:grossetab}) dargestellt.
+Die so berechneten Winkel der Maxima, Parameter der jeweiligen Gaußfunktion-Anpassung sowie die darauf bestimmten Energieaufspaltungen der Ringe sind im Anhang in der großen Tabelle (\ref{sec:grossetab}) dargestellt. Auch die Breite der Maxima in Full Width Half Maximum (FWHM) ist angegeben, welches definiert ist als $\text{FWHM} = 2 \sqrt{2 \ln2\sigma}$
+Ein Beispiel für eine Anpassung zu einer der Messungen ist in Abbildung \ref{ZeemanX_026} dargestellt.
+\jafps{ZeemanX_026}{Auftragung der Intensitätsdaten gegen die nach Gl. \ref{eq:winkel} in Ortskoordinaten umgerechneten Pixelkoordinaten. Man beachte, dass bei dieser Auftragung zur Datenverarbeitung (Anpassung der Gaußfunktionen an die einzelnen Spitzen der aufgespaltenen Ringe) die sehr niedrigeren Intensitäten aus den Daten abgeschnitten wurden. Dies hat keine Auswirkungen auf die restlichen Daten und kompensiert auch ein gegebenfalls vorhandenes niedrigintensives Untergrundrauschen auf den CCD-Sensor durch trotz Abschirmung evt. vorhandenes Streulicht.}{0.4}
+
+\subsection{Bestimmung des Bohrschen Magnetons}
+
+In Gl. (\ref{eq:energieabstand}) wird deutlich, dass zwischen der Energieaufspaltung der drei Komponenten und der Magnetfeldstärke eine lineare Proportionalität mit dem Proportionalitätsfaktor zu erwarten ist. Es werden für alle Messungen mit Aufspaltung die berechneten Energieaufspaltungen gegen die Magnetfeldstärke $B$ (aus dem Strom $I$ mit Kalibrationsfunktion \ref{eq:kalibration}) aufgetragen. Es wird an die Daten eine lineare Funktion der Form $\Delta E (B)=aB$ angepasst. Es ist physikalisch nicht sinnvoll, dass ein y-Achsenabschnitt ungleich 0 vorhanden ist (da die Energieaufspaltung des Zeeman-Effekts erst bei $B\not=\SI{0}{\tesla}$ überhaupt auftritt), daher wurde dieser hier nicht beachtet in der Anpassung.
+Es ist hier zu beachten, dass nur Energieaufspaltungen in die Auftragung einbezogen wurden, wenn bei der Anpassung der Gaußfunktion als Anpassungsgüte das Bestimmtheitsmaß die mindestens $R^2=0,95$ betrug, da so aufgrund von Rauschen oder nicht gut trennbaren Linien bei geringem Magnetfeld stark fehlerbehaftete Daten nicht in die Anpassung miteinfließen. Die Auftragung ist in \ref{fig:magneton} dargestellt. Der erwartete lineare Zusammenhang ist deutlich sichtbar.
+
+\jafps{magneton}{Auftragung von bestimmten Energieaufspaltungen gegen die Magnetfeldstärke. Es wurde ein linearer Zusammenhang der Form $\Delta E (B)=aB$ angepasst. Als Güte der Anpassung ergibt das Bestimmtheitsmaß den guten Wert $R^2=$}{0.4}
