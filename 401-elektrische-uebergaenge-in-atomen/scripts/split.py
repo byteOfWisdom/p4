@@ -84,24 +84,19 @@ def fit_order(x, y, order, pvalue=0.05):
     µ_initial = [(x[max(0, peak - 5):peak + 5])[y[max(0, peak - 5):peak + 5] == max(y[max(0, peak - 5):peak + 5])][0] for peak in peaks]
     sigma_initial = (max(x) - min(x)) / 10
     p0 = []
-
-    if len(peaks) > 1:
-        µ_initial[0] -= (0.1 * µ_initial[0])
-        µ_initial[-1] -= (0.1 * µ_initial[-1])
-    
     for i in range(len(peaks)):
         p0.append(amp_initial[i])
         p0.append(µ_initial[i])
         p0.append(sigma_initial)
     p0.append(0.5 * min(y))
 
-    params, (errors, goodness) = std.fit_func(func, x, y, p0=p0, force_cf=False)
+    params, (errors, goodness) = std.fit_func(func, x, y, p0=p0, force_cf=True)
 
     xrange = np.linspace(min(x), max(x), 1000)
     print(params)
     plt.plot(xrange, np.vectorize(func)(xrange, *params), linestyle="dotted")
-    plt.plot(xrange, std.gaussian(xrange, params[0], params[1], params[2]) + params[-1])
-    plt.plot(xrange, std.gaussian(xrange, params[3], params[4], params[5]) + params[-1])
+    # plt.plot(xrange, std.gaussian(xrange, params[0], params[1], params[2]) + params[-1])
+    # plt.plot(xrange, std.gaussian(xrange, params[3], params[4], params[5]) + params[-1])
 
     res = []
     for i in range(len(peaks)):
