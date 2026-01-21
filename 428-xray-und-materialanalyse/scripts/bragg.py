@@ -64,7 +64,7 @@ def spectrum_func(n: int):
             gaussian(x, params[i], params[i + 1], params[i + 2])
             for i in range(0, 3 * n, 3)
         ]
-    ) + linear_background(x, params[3 * n + 3], params[3 * n + 4])
+    ) + linear_background(x, params[3 * n], params[3 * n + 1])
     return multigaussian
 
 
@@ -75,6 +75,7 @@ def fit_peaks(file: str):
     gauss_easy = [1, 1, 1]
     init_guess = (gauss_easy * 6) + linear_fit
     print(init_guess)
+    print(len(init_guess))
 
     energies_ev, counts = convert(file)
     # TO DO: data slicing
