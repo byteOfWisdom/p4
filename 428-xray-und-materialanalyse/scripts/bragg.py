@@ -9,7 +9,7 @@ h = scipy.constants.h
 c = scipy.constants.c
 
 
-def get_data(file):
+def get_data(file: str):
     data = np.transpose(
         np.loadtxt(
             file,
@@ -21,7 +21,7 @@ def get_data(file):
     return data[0], data[1]
 
 
-def convert(file, order=1):
+def convert(file: str, order: int = 1):
     angles, counts = get_data(file)
     std.default.plt_pretty(r"Winkel $\beta$", "Intensität")
     order = order
@@ -54,32 +54,35 @@ def gaussian(x, a, mu, sigma):
     return a * np.exp(((x - mu) / sigma) ** 2)
 
 
-def supergauss(n):  # i dont understand how the parameters work here
+def linear_background(x, a, b):
+    return a * x + b
+
+
+def spectrum_func(n: int):
     multigaussian = lambda x, *params: sum(
         [
             gaussian(x, params[i], params[i + 1], params[i + 2])
             for i in range(0, 3 * n, 3)
         ]
-    )
+    ) + linear_background(x, params[3 * n + 3], params[3 * n + 4])
     return multigaussian
 
 
-def linear_background(x, a, b):
-    return a * x + b
-
-
-def bragg_spectrum(n, x, a, b):
-    bragg = supergauss(n) + linear_background(x, a, b)
-    return bragg
-    # does this actually return a useful function??? what do i give curvefit??
-
-
-def fit_peaks(file):
+def fit_peaks(file: str):
     init_guess = []  # for gaussian params
+
+    linear_fit = [160, -50]
+    gauss_easy = [1, 1, 1]
+    init_guess = (gauss_easy * 6) + linear_fit
+    print(init_guess)
+
     energies_ev, counts = convert(file)
     # TO DO: data slicing
     #
-    fit, cov = scipy.optimize.curve_fit(supergauss(5), energies_ev, counts)
+    fit, cov = scipy.optimize.curve_fit(
+        spectrum_func(6), energies_ev, counts, p0=init_guess
+    )
+
     # fit parameter error here -> issue with fitting func
 
     err = np.sqrt(np.diag(cov))
