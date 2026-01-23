@@ -7,40 +7,21 @@ from sys import argv
 import std
 
 
-def binary_constrast(data, cutoff=None):
-    if not std.some(cutoff):
-        cutoff = 128
-    high = data > cutoff
-    data[high] = 255
-    data[~high] = 0
-    return data
-
-
-def to_bw(data):
-    return np.average(data, axis=2)
-
-
-def crop_sqaure(data, offset=0):
-    dim = np.shape(data)
-    width = min(dim[0], dim[1])
-    height = max(dim[0], dim[1])
-    middle = int(0.5 * height) - offset
-    hw = int(0.5 * width)
-    return data[...][middle - hw:middle + hw]
-
+def is_pink(rgb):
+    # return np.all(rgb == [255, 0, 255, 255])
+    return (rgb[0] > 200) & (rgb[1] < 95) & (rgb[2] > 200) & (rgb[3] == 255)
 
 
 def main():
     im_data = np.array(image.imread(argv[1]))
-    im_data = to_bw(im_data)
-    im_data = crop_sqaure(im_data)
-    # plt.imshow(im_data)
-    # plt.show()
 
-    high_contrast = binary_constrast(im_data, 200)
-    plt.imshow(high_contrast)
+    is_point = np.apply_along_axis(is_pink, 2, im_data)
+    y, x = np.where(is_point)
+    # print(points)
+
+    plt.imshow(im_data)
+    plt.scatter(x, y, marker="x")
     plt.show()
-
     
 
 if __name__ == "__main__":
