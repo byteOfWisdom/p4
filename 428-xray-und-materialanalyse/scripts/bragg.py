@@ -27,7 +27,7 @@ def spectrum_func(n):
             for i in range(0, 3 * n, 3)
         ]
     ) + background(x, params[3 * n], params[3 * n + 1])
-    return multigaussian
+    return np.vectorize(multigaussian)
 
 
 def get_data(file: str):
@@ -141,15 +141,8 @@ def fit_peaks(file: str, number):
     print("b:", fit[-1], "+-", err[-1])
 
     # goodness of fit:
-    er = np.array(~energies_range_kev)
-    print(er)
-    fit_range = np.linspace(7, 12, 5000)
-
-    print("spectrum func values with xrange: ", spectrum_func(number)(fit_range, *fit))
-    temp = spectrum_func(number)(er, *fit)
-    print("temp func values with energies range:", temp)
     goodness = round(
-        std.goodness_of_fit(~counts_range, temp),
+        std.goodness_of_fit(~counts_range, spectrum_func(number)(~energies_range_kev, *fit)),
         3,
     )
     print("R^2:", goodness)
