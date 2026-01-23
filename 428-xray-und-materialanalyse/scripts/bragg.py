@@ -11,6 +11,25 @@ h = scipy.constants.h
 c = scipy.constants.c
 
 
+def gaussian(x, a, mu, sigma):
+    return a * np.exp(-(((x - mu) / sigma) ** 2))
+
+
+def background(x, a, b):
+    #    return -a * ((x - 15) ** 2) + b
+    return a * x + b
+
+
+def spectrum_func(n):
+    multigaussian = lambda x, *params: sum(
+        [
+            gaussian(x, params[i], params[i + 1], params[i + 2])
+            for i in range(0, 3 * n, 3)
+        ]
+    ) + background(x, params[3 * n], params[3 * n + 1])
+    return multigaussian
+
+
 def get_data(file: str):
     data = np.transpose(
         np.loadtxt(
@@ -52,25 +71,6 @@ def convert(file: str, order: int = 1):
     return energies_ev, counts
 
 
-def gaussian(x, a, mu, sigma):
-    return a * np.exp(-(((x - mu) / sigma) ** 2))
-
-
-def background(x, a, b):
-    #    return -a * ((x - 15) ** 2) + b
-    return a * x + b
-
-
-def spectrum_func(n):
-    multigaussian = lambda x, *params: sum(
-        [
-            gaussian(x, params[i], params[i + 1], params[i + 2])
-            for i in range(0, 3 * n, 3)
-        ]
-    ) + background(x, params[3 * n], params[3 * n + 1])
-    return multigaussian
-
-
 # def fitted_spectrum(x, n, *params):
 #     return sum(
 #         [
@@ -108,6 +108,7 @@ def fit_peaks(file: str, number):
 
     print("init. guesses:", init_guess)
 
+    # get relevant data
     energies_ev, counts = convert(file)
 
     energies_range = energies_ev[(7e3 <= energies_ev) & (12e3 >= energies_ev)]
@@ -144,9 +145,9 @@ def fit_peaks(file: str, number):
     print(er)
     fit_range = np.linspace(7, 12, 5000)
 
-    print(spectrum_func(number)(fit_range, *fit))
+    print("spectrum func values with xrange: ", spectrum_func(number)(fit_range, *fit))
     temp = spectrum_func(number)(er, *fit)
-    print(temp)
+    print("temp func values with energies range:", temp)
     goodness = round(
         std.goodness_of_fit(~counts_range, temp),
         3,
