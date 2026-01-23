@@ -65,11 +65,7 @@ def spectrum_func(n):
             gaussian(x, params[i], params[i + 1], params[i + 2])
             for i in range(0, 3 * n, 3)
         ]
-<<<<<<< HEAD
     ) + background(x, params[3 * n], params[3 * n + 1])
-=======
-    ) + linear_background(x, params[3 * n], params[3 * n + 1])
->>>>>>> origin/code
     return multigaussian
 
 
@@ -85,14 +81,15 @@ def fitted_spectrum(x, n, *params):
 def fit_peaks(file: str):
     init_guess = []  # for gaussian params
 
-    xrange = np.linspace(0, 50, 500)
+    xrange = np.linspace(7, 19, 500)
     linear_fit = [8, 1000]
-    gauss0 = [100, 5.5, 0.06]
-    gauss1 = [100, 7, 0.06]
+    gauss0 = [100, 7, 0.06]
+    gauss1 = [100, 7.5, 0.06]
     gauss2 = [600, 8, 0.1]
     gauss3 = [1000, 9.5, 0.1]
     gauss4 = [800, 12, 0.15]
 
+    # i think the issue is just bad guesses????
     manual = (
         gaussian(xrange, *gauss0)
         + gaussian(xrange, *gauss1)
@@ -101,26 +98,29 @@ def fit_peaks(file: str):
         + gaussian(xrange, *gauss4)
         + background(xrange, *linear_fit)
     )
-    plt.plot(xrange, manual)
-    energies_ev, counts = convert(file)
+    _ = plt.plot(xrange, manual)
 
     init_guess = gauss0 + gauss1 + gauss2 + gauss3 + gauss4 + linear_fit
     print(init_guess)
     print(len(init_guess))
 
     energies_ev, counts = convert(file)
+
     # TO DO: data slicing
     energies_range = []
     counts_range = []
     for i in range(len(energies_ev)):
-        if energies_ev[i] <= 35e3:
+        if energies_ev[i] <= 19e3 or energies_ev[i] <= 7e3:
             energies_range.append(energies_ev[i])
             counts_range.append(counts[i])
-    plt.plot(energies_range, counts_range)
+    # plot sliced data
+    plt.plot(energies_range, counts_range, label="sliced data")
+
+    # fit data to spectrum func
     fit, cov = scipy.optimize.curve_fit(
         spectrum_func(5),
-        energies_ev,
-        counts,
+        energies_range,
+        counts_range,
         p0=init_guess,
         maxfev=9999,
     )
@@ -129,10 +129,10 @@ def fit_peaks(file: str):
     err = np.sqrt(np.diag(cov))
     print(fit)
 
-    fit_range = np.linspace(0, 35e3, len(energies_range))
-    fitted_func = fitted_spectrum(fit_range, 5, init_guess)
+    fit_range = np.linspace(0, 19e3, len(energies_range))
+    # fitted_func = fitted_spectrum(fit_range, 5, init_guess)
 
-    plt.plot(fit_range, fitted_spectrum(fit_range, 5, *init_guess), label="fitted")
+    # plt.plot(fit_range, fitted_spectrum(fit_range, 5, *init_guess), label="fitted")
     plt.legend()
     plt.show()
     return
