@@ -47,7 +47,7 @@ def degtorad(deg_angle):
     return rad_angle
 
 
-def convert(file: str, order: int = 1):
+def convert(file: str, order: int = 1, saving=False):
     angles, counts = get_data(file)
     angles = p.ev(angles, 0.05)  # fehler aus winkelschritt/2
     counts = p.ev(counts, counts * 0.03)
@@ -67,6 +67,7 @@ def convert(file: str, order: int = 1):
     #     linewidth=1.2,
     # )
     # plt.show()
+    #
 
     return energies_ev, counts
 
@@ -80,7 +81,7 @@ def convert(file: str, order: int = 1):
 #     ) + background(x, params[3 * n], params[3 * n + 1])
 
 
-def fit_peaks(file: str, number):
+def fit_peaks(file: str, number, pure=False):
     init_guess = []  # for gaussian params
 
     xrange = np.linspace(7, 19, 5000)
@@ -91,6 +92,7 @@ def fit_peaks(file: str, number):
     gauss3 = [1600, 9.7, 0.3]
     gauss4 = [800, 11.3, 0.15]
     gauss0 = [80, 11.8, 0.15]
+    gauss5 = [500, 9.9, 0.2]
 
     if number == 5:
         manual = (
@@ -104,12 +106,25 @@ def fit_peaks(file: str, number):
     # other peak number options go here
     # _ = plt.plot(xrange, manual)
 
-    init_guess = gauss0 + gauss1 + gauss2 + gauss3 + gauss4 + linear_fit
+    init_guess = gauss0 + gauss1 + gauss2 + gauss3 + gauss4 + gauss5 + linear_fit
 
     print("init. guesses:", init_guess)
 
     # get relevant data
     energies_ev, counts = convert(file)
+    _, e_ev_err = p.ve(energies_ev)
+    _, c_err = p.ve(counts)
+    std.default.plt_pretty(f"Energie [eV]", "Intensität [1/s]")
+    plt.errorbar(
+        ~energies_ev,
+        ~counts,
+        xerr=e_ev_err,
+        yerr=c_err,
+        label="Messdaten der unbekannten Anode",
+    )
+    plt.legend(loc="best")
+    plt.savefig("../latex/figs/bragg_alldata.pdf")
+    plt.show()
 
     energies_range = energies_ev[(7e3 <= energies_ev) & (12e3 >= energies_ev)]
     counts_range = counts[(7e3 <= energies_ev) & (12e3 >= energies_ev)]
@@ -119,7 +134,15 @@ def fit_peaks(file: str, number):
     _, e_err = p.ve(energies_range_kev)
     _, c_err = p.ve(counts_range)
 
-    plt.plot(~energies_range_kev, ~counts_range, label="Messdaten")
+    std.default.plt_pretty("Energie [keV]", "Intensität [1/s]")
+    plt.errorbar(
+        ~energies_range_kev,
+        ~counts_range,
+        xerr=e_err,
+        yerr=c_err,
+        **std.default.error_bar_def,
+        label="Messdaten",
+    )
 
     # fit data to spectrum func
     fit, cov = scipy.optimize.curve_fit(
@@ -142,7 +165,9 @@ def fit_peaks(file: str, number):
 
     # goodness of fit:
     goodness = round(
-        std.goodness_of_fit(~counts_range, spectrum_func(number)(~energies_range_kev, *fit)),
+        std.goodness_of_fit(
+            ~counts_range, spectrum_func(number)(~energies_range_kev, *fit)
+        ),
         3,
     )
     print("R^2:", goodness)
@@ -153,56 +178,74 @@ def fit_peaks(file: str, number):
     # fitted_func = fitted_spectrum(fit_range, 5, *init_guess)
 
     # plot individual fitted gaussians + background
+
     plt.plot(
         fit_range,
         spectrum_func(number)(fit_range, *fit),
-        label="Fitgerade",
-        linewidth=0.9,
+        label=rf"Anpassungsfunktion, $R^2$={goodness}",
+        linestyle="solid",
     )
+    if pure is True:
+        plt.legend(loc="best")
+
+        plt.savefig("bragg_fitting_data.pdf")
+        return
+
     plt.plot(
         fit_range,
         gaussian(fit_range, fit[0], fit[1], fit[2]),
         linestyle="--",
-        linewidth=0.6,
+        linewidth=0.8,
     )
     plt.plot(
         fit_range,
         gaussian(fit_range, fit[3], fit[4], fit[5]),
         linestyle="--",
-        linewidth=0.6,
+        linewidth=0.8,
     )
     plt.plot(
         fit_range,
         gaussian(fit_range, fit[6], fit[7], fit[8]),
         linestyle="--",
-        linewidth=0.6,
+        linewidth=0.8,
     )
     plt.plot(
         fit_range,
         gaussian(fit_range, fit[9], fit[10], fit[11]),
         linestyle="--",
-        linewidth=0.6,
+        linewidth=0.8,
     )
     plt.plot(
         fit_range,
         gaussian(fit_range, fit[12], fit[13], fit[14]),
         linestyle="--",
-        linewidth=0.6,
+        linewidth=0.8,
+    )
+    plt.plot(
+        fit_range,
+        gaussian(fit_range, fit[15], fit[16], fit[17]),
+        linestyle="--",
+        linewidth=0.8,
     )
     plt.plot(
         fit_range,
         background(fit_range, fit[-2], fit[-1]),
-        linestyle="--",
-        linewidth=0.6,
+        linestyle="solid",
+        linewidth=0.8,
+        label="Untergrund",
     )
 
-    plt.legend()
-    plt.show()
+    plt.legend(loc="best", fontsize="x-small")
+    if len(argv) > 2:
+        plt.savefig(argv[2])
+    else:
+        plt.show()
     return
 
 
 def main():
-    fit_peaks(argv[1], 5)
+    convert(argv[1])
+    fit_peaks(argv[1], 6)
     return
 
 
