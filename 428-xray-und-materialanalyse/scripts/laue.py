@@ -43,6 +43,22 @@ def dedup_double_markings(points):
     return points
 
 
+def possible_lattice_vectors(limit):
+    if limit % 2:
+        limit -= 1
+    evens = np.arange(0, limit, 2)
+    odds = np.arange(1, limit + 1, 2)
+    return np.append(np.meshgrid(evens), np.meshgrid(odds))
+
+
+def assign_miller_indices(points):
+    l = 15e-3 # 15mm distance
+    zq = np.sqrt(np.sum(points ** 2, 1) + l) - l
+
+    print(possible_lattice_vectors(3))
+
+
+
 def main():
     im_data = np.array(image.imread(argv[1]))
 
@@ -56,6 +72,8 @@ def main():
     plt.show()
 
     print(points)
+
+    assign_miller_indices(points)
     
 
 if __name__ == "__main__":
