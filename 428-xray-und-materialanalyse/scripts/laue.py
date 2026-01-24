@@ -68,12 +68,12 @@ def assign_miller_indices(points):
     res = []
 
     for p in norm_points:
-        deviation = np.sum(np.cross(p, norm_candidates) ** 2, -1)
-        id = np.where(deviation == np.min(deviation))[0][0]
+        deviation = np.sum(np.cross(p, norm_candidates) ** 2, -1) * np.sum(np.abs(candidates), -1)
+        id = np.where(np.isclose(deviation, np.min(deviation)))[0][0]
         grating_vec = candidates[id]
         res.append(grating_vec)
 
-    return res
+    return np.array(res)
 
 
 def scale_points(points, im_data):
@@ -86,7 +86,8 @@ def scale_points(points, im_data):
 
 
 def angle(miller_vec):
-    return 0
+    h, k, l = np.transpose(miller_vec)
+    return np.arctan(l / np.sqrt(h * h + k * k))
 
 
 def distance(miller_vec):
@@ -105,7 +106,10 @@ def main():
 
     miller_indices = assign_miller_indices(points)
     distances = distance(miller_indices)
+    angles = angle(miller_indices)
     print(distances)
+    print(np.rad2deg(angles))
+    print(angles)
     print(miller_indices)
 
     std.default.plt_pretty("x / mm", "y / mm")
