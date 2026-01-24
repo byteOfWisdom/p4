@@ -44,8 +44,6 @@ def possible_lattice_vectors(limit):
         limit -= 1
     evens = np.append(np.arange(0, limit + 1, 2), -1 * np.arange(0, limit + 1, 2))
     odds = np.append(np.arange(1, limit + 2, 2), -1 * np.arange(1, limit + 2, 2))
-    # evens = np.arange(0, limit + 1, 2)
-    # odds = np.arange(1, limit + 2, 2)
     h, j, k = np.meshgrid(evens, evens, evens)
     even_tuples = [np.ravel(h), np.ravel(j), np.ravel(k)]
     h, j, k = np.meshgrid(odds, odds, odds)
@@ -87,6 +85,17 @@ def scale_points(points, im_data):
     return points
 
 
+def angle(miller_vec):
+    return 0
+
+
+def distance(miller_vec):
+    a0 = 564e-12
+    miller_len = np.sqrt(np.sum(miller_vec ** 2, -1))
+    d = a0 / miller_len
+    return d
+
+
 def main():
     im_data = np.array(image.imread(argv[1]))
 
@@ -95,6 +104,8 @@ def main():
     points = scale_points(points, im_data)
 
     miller_indices = assign_miller_indices(points)
+    distances = distance(miller_indices)
+    print(distances)
     print(miller_indices)
 
     std.default.plt_pretty("x / mm", "y / mm")
