@@ -47,7 +47,7 @@ def degtorad(deg_angle):
     return rad_angle
 
 
-def convert(file: str, order: int = 1, saving=False):
+def convert(file: str, order: int = 1):
     angles, counts = get_data(file)
     angles = p.ev(angles, 0.05)  # fehler aus winkelschritt/2
     counts = p.ev(counts, counts * 0.03)
@@ -81,7 +81,7 @@ def convert(file: str, order: int = 1, saving=False):
 #     ) + background(x, params[3 * n], params[3 * n + 1])
 
 
-def fit_peaks(file: str, number, pure=False):
+def fit_peaks(file: str, number, pure=False, verbose=True):
     init_guess = []  # for gaussian params
 
     xrange = np.linspace(7, 19, 5000)
@@ -108,7 +108,8 @@ def fit_peaks(file: str, number, pure=False):
 
     init_guess = gauss0 + gauss1 + gauss2 + gauss3 + gauss4 + gauss5 + linear_fit
 
-    print("init. guesses:", init_guess)
+    if verbose == True:
+        print("init. guesses:", init_guess)
 
     # get relevant data
     energies_ev, counts = convert(file)
@@ -121,6 +122,7 @@ def fit_peaks(file: str, number, pure=False):
         xerr=e_ev_err,
         yerr=c_err,
         label="Messdaten der unbekannten Anode",
+        **std.default.error_bar_def,
     )
     plt.legend(loc="best")
     plt.savefig("../latex/figs/bragg_alldata.pdf")
@@ -155,13 +157,14 @@ def fit_peaks(file: str, number, pure=False):
 
     err = np.sqrt(np.diag(cov))
 
-    # fit parameters
-    for i in range(0, number * 3, 3):
-        print("A:", fit[i], "+-", err[i])
-        print("mu:", fit[i + 1], "+-", err[i + 1])
-        print("sigma:", fit[i + 2], "+-", err[i + 2])
-    print("a:", fit[-2], "+-", err[-2])
-    print("b:", fit[-1], "+-", err[-1])
+    if verbose == True:
+        # fit parameters
+        for i in range(0, number * 3, 3):
+            print("A:", fit[i], "+-", err[i])
+            print("mu:", fit[i + 1], "+-", err[i + 1])
+            print("sigma:", fit[i + 2], "+-", err[i + 2])
+        print("a:", fit[-2], "+-", err[-2])
+        print("b:", fit[-1], "+-", err[-1])
 
     # goodness of fit:
     goodness = round(
@@ -170,12 +173,10 @@ def fit_peaks(file: str, number, pure=False):
         ),
         3,
     )
-    print("R^2:", goodness)
-
-    # print(fit)
+    if verbose == True:
+        print("R^2:", goodness)
 
     fit_range = np.linspace(7, 12, 5000)
-    # fitted_func = fitted_spectrum(fit_range, 5, *init_guess)
 
     # plot individual fitted gaussians + background
 
@@ -189,7 +190,7 @@ def fit_peaks(file: str, number, pure=False):
         plt.legend(loc="best")
 
         plt.savefig("bragg_fitting_data.pdf")
-        return
+        return fit, err
 
     plt.plot(
         fit_range,
@@ -240,12 +241,47 @@ def fit_peaks(file: str, number, pure=False):
         plt.savefig(argv[2])
     else:
         plt.show()
+
+    return fit, err
+
+
+def back_to_wave(file):
+    fit, err = fit_peaks(file, 6, verbose=False)
+    e1 = p.ev(fit[1], err[1])
+    e2 = p.ev(fit[4], err[4])
+    e3 = p.ev(fit[7], err[7])
+    e4 = p.ev(fit[10], err[10])
+    e5 = p.ev(fit[13], err[13])
+    e6 = p.ev(fit[16], err[16])
+
+    energies = np.array([e1, e2, e3, e4, e5, e6])
+    energies_ev = energies * 1e3
+    wavelengths = []
+
+    for i in energies_ev:
+        value, err = p.ve(i)
+        print("Peakenergie:", i.format(), "eV")
+
+    wavelength = lambda energy: (scipy.constants.h * scipy.constants.c) / (
+        energy * scipy.constants.e
+    )
+
+    for i in energies_ev:
+        wavelengths.append(wavelength(i))
+
+    wavelengths = np.array(wavelengths)
+    wavelengths = wavelengths * 1e9
+
+    for i in wavelengths:
+        value, err = p.ve(i)
+        print("Wellenlänge:", i.format(), "nm")
     return
 
 
 def main():
-    convert(argv[1])
-    fit_peaks(argv[1], 6)
+    # convert(argv[1])
+    # fit_peaks(argv[1], 6)
+    back_to_wave(argv[1])
     return
 
 
