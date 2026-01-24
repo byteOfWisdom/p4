@@ -8,7 +8,6 @@ import std
 
 
 def is_pink(rgb):
-    # return np.all(rgb == [255, 0, 255, 255])
     return (rgb[0] > 200) & (rgb[1] < 95) & (rgb[2] > 200) & (rgb[3] == 255)
 
 
@@ -24,7 +23,10 @@ def find_laue_maxima(im_data):
     middle_coord = np.average(points[middle], 0)
     points = np.delete(points, middle, 0)
 
-    pixel_spacing = 1 # todo: measure the fucking film
+    # film dimensions are: 
+    film_height = 80e-3 # this just a guess
+
+    pixel_spacing = np.max(np.shape(im_data)) / film_height
     points = points - middle_coord
     points *= pixel_spacing
 
@@ -58,8 +60,10 @@ def assign_miller_indices(points):
     l = 15e-3 # 15mm distance
     zq = np.sqrt(np.sum(points ** 2, 1) + l) - l
 
-    print(possible_lattice_vectors(3))
+    candidates = possible_lattice_vectors(10)
 
+    for c in candidates:
+        
 
 
 def main():
