@@ -23,12 +23,7 @@ def find_laue_maxima(im_data):
     middle_coord = np.average(points[middle], 0)
     points = np.delete(points, middle, 0)
 
-    # film dimensions are: 
-    film_height = 80e-3 # this just a guess
-
-    pixel_spacing = np.max(np.shape(im_data)) / film_height
     points = points - middle_coord
-    points *= pixel_spacing
 
     return points
 
@@ -47,23 +42,49 @@ def dedup_double_markings(points):
 def possible_lattice_vectors(limit):
     if limit % 2:
         limit -= 1
-    evens = np.arange(0, limit + 1, 2)
-    odds = np.arange(1, limit + 2, 2)
+    evens = np.append(np.arange(0, limit + 1, 2), -1 * np.arange(0, limit + 1, 2))
+    odds = np.append(np.arange(1, limit + 2, 2), -1 * np.arange(1, limit + 2, 2))
+    # evens = np.arange(0, limit + 1, 2)
+    # odds = np.arange(1, limit + 2, 2)
     h, j, k = np.meshgrid(evens, evens, evens)
     even_tuples = [np.ravel(h), np.ravel(j), np.ravel(k)]
     h, j, k = np.meshgrid(odds, odds, odds)
     odd_tuples = [np.ravel(h), np.ravel(j), np.ravel(k)]
-    return np.transpose(np.append(even_tuples, odd_tuples, 1))
+    vecs = np.transpose(np.append(even_tuples, odd_tuples, 1))
+    not_zero = [v[0] != 0 and v[1] != 0 and v[2] != 0 for v in vecs]
+    return vecs[not_zero]
 
 
 def assign_miller_indices(points):
-    l = 15e-3 # 15mm distance
-    zq = np.sqrt(np.sum(points ** 2, 1) + l) - l
+    dist = 15e-3 # 15mm distance
+    zq = np.sqrt(np.sum(points ** 2, 1) + dist) - dist
+
+    points_3d = np.array([[points[i][0], points[i][1], zq[i]] for i in range(len(points))])
 
     candidates = possible_lattice_vectors(10)
+    lens = np.sum(candidates ** 2, -1) ** -0.5
+    norm_candidates = np.array([lens[i] * candidates[i] for i in range(len(candidates))])
+    lens_p = np.sum(points_3d ** 2, -1) ** -0.5
+    norm_points = np.array([lens_p[i] * candidates[i] for i in range(len(points_3d))])
 
-    for c in candidates:
-        
+    res = []
+
+    for p in norm_points:
+        deviation = np.sum(np.cross(p, norm_candidates) ** 2, -1)
+        id = np.where(deviation == np.min(deviation))[0][0]
+        grating_vec = candidates[id]
+        res.append(grating_vec)
+
+    return res
+
+
+def scale_points(points, im_data):
+    # film dimensions are: 
+    film_height = 80e-3 # this just a guess
+
+    pixel_spacing = film_height / np.max(np.shape(im_data))
+    points *= pixel_spacing
+    return points
 
 
 def main():
@@ -71,17 +92,18 @@ def main():
 
     points = find_laue_maxima(im_data)
     points = dedup_double_markings(points)
+    points = scale_points(points, im_data)
 
-    # plt.imshow(im_data)
-    # std.default.plt_pretty("x", "y")
-    # plt.gca().set_aspect('equal')
-    # plt.scatter(np.transpose(points)[0], np.transpose(points)[1], marker="x")
-    # plt.show()
+    miller_indices = assign_miller_indices(points)
+    print(miller_indices)
 
-    print(points)
+    std.default.plt_pretty("x / mm", "y / mm")
+    plt.gca().set_aspect('equal')
+    plt.scatter(1e3 * np.transpose(points)[0], 1e3 * np.transpose(points)[1], marker="x")
 
-    assign_miller_indices(points)
-    
+    for i in range(len(miller_indices)):
+        plt.annotate(f"({miller_indices[i][0]}, {miller_indices[i][1]}, {miller_indices[i][2]})", (1e3 * points[i][0], 1e3 * points[i][1]))
+    plt.show()
 
 if __name__ == "__main__":
     main()
