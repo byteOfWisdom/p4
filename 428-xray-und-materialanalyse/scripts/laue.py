@@ -36,7 +36,6 @@ def dedup_double_markings(points):
     while i < len(points):
         p = points[i]
         dists = np.sqrt(np.sum((points - p) ** 2, 1))
-        print(np.sort(dists))
         points = np.delete(points, (dists != 0) & (dists <= 1.5), 0)
         i += 1
 
@@ -46,9 +45,13 @@ def dedup_double_markings(points):
 def possible_lattice_vectors(limit):
     if limit % 2:
         limit -= 1
-    evens = np.arange(0, limit, 2)
-    odds = np.arange(1, limit + 1, 2)
-    return np.append(np.meshgrid(evens), np.meshgrid(odds))
+    evens = np.arange(0, limit + 1, 2)
+    odds = np.arange(1, limit + 2, 2)
+    h, j, k = np.meshgrid(evens, evens, evens)
+    even_tuples = [np.ravel(h), np.ravel(j), np.ravel(k)]
+    h, j, k = np.meshgrid(odds, odds, odds)
+    odd_tuples = [np.ravel(h), np.ravel(j), np.ravel(k)]
+    return np.transpose(np.append(even_tuples, odd_tuples, 1))
 
 
 def assign_miller_indices(points):
@@ -66,10 +69,10 @@ def main():
     points = dedup_double_markings(points)
 
     # plt.imshow(im_data)
-    std.default.plt_pretty("x", "y")
-    plt.gca().set_aspect('equal')
-    plt.scatter(np.transpose(points)[0], np.transpose(points)[1], marker="x")
-    plt.show()
+    # std.default.plt_pretty("x", "y")
+    # plt.gca().set_aspect('equal')
+    # plt.scatter(np.transpose(points)[0], np.transpose(points)[1], marker="x")
+    # plt.show()
 
     print(points)
 
