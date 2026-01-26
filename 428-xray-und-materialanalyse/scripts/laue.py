@@ -43,10 +43,12 @@ def possible_lattice_vectors(limit):
     if limit % 2:
         limit -= 1
     evens = np.append(np.arange(0, limit + 1, 2), -1 * np.arange(0, limit + 1, 2))
+    positive_evens = np.arange(0, limit + 1, 2)
     odds = np.append(np.arange(1, limit + 2, 2), -1 * np.arange(1, limit + 2, 2))
-    h, j, k = np.meshgrid(evens, evens, evens)
+    positive_odds = np.arange(1, limit + 2, 2)
+    h, j, k = np.meshgrid(evens, evens, positive_evens)
     even_tuples = [np.ravel(h), np.ravel(j), np.ravel(k)]
-    h, j, k = np.meshgrid(odds, odds, odds)
+    h, j, k = np.meshgrid(odds, odds, positive_odds)
     odd_tuples = [np.ravel(h), np.ravel(j), np.ravel(k)]
     vecs = np.transpose(np.append(even_tuples, odd_tuples, 1))
     not_zero = [v[0] != 0 and v[1] != 0 and v[2] != 0 for v in vecs]
@@ -78,7 +80,7 @@ def assign_miller_indices(points):
 
 def scale_points(points, im_data):
     # film dimensions are: 
-    film_height = 80e-3 # this just a guess
+    film_height = 76e-3
 
     pixel_spacing = film_height / np.max(np.shape(im_data))
     points *= pixel_spacing
