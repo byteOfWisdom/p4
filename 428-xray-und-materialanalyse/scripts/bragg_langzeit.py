@@ -54,7 +54,7 @@ def energy_data(file: str, order: int = 4):
         label="Messdaten",
     )
     plt.legend(loc="best")
-    plt.savefig("../latex/figs/bragg_mo_alldata.pdf")
+    plt.savefig("../figs/bragg_mo_alldata.pdf")
     plt.show()
     return energies_kev, counts
 
@@ -114,6 +114,10 @@ def fit_curve(file):
     )
     print("R^2:", goodness)
 
+    fitted = double_gaussian()(~energies_range, *fit)
+    chi_square = round(std.reduced_chi_2(~counts_range, fitted, fit), 3)
+    print(rf"$\Chi^2_r$:", chi_square)
+
     std.default.plt_pretty("Energie [keV]", "Intensität [1/s]")
     plt.errorbar(
         ~energies_range,
@@ -126,12 +130,12 @@ def fit_curve(file):
     plt.plot(
         xrange,
         double_gaussian()(xrange, *fit),
-        label=rf"Anpassungsfunktion, $R^2$={str(goodness).replace('.', ',')}",
+        label=rf"Anpassungsfkt., $\chi^2_r$={str(chi_square).replace('.', ',')}, $R^2$={str(goodness).replace('.', ',')}",
         linewidth=1,
     )
     # plt.plot(xrange,gaussian(xrange,*fit[0:3]),label="Gauss 1")
     # plt.plot(xrange,gaussian(xrange,*fit[3:]),label="Gauss 2")
-    plt.legend(loc="best", fontsize="small")
+    plt.legend(loc="best", fontsize="smaller")
     if len(argv) >= 3:
         plt.savefig(argv[2])
     else:
