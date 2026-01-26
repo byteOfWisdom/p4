@@ -11,6 +11,8 @@ from iminuit import cost
 
 save_flag = argv[2] == "save" if len(argv) > 2 else False
 
+energy_scale = None
+
 peak_guesses = {
     "pb": [105, 139, 165, 196, 119],
     "ti": [45, 60, 69, 71],
@@ -25,9 +27,11 @@ peak_guesses = {
     "ag": [42, 105, 124, 286, 323],
     "zn": [92, 112, 126, 130],
     "in": [47, 54, 83, 105, 117, 311, 347],
-    "unknown1": [],
-    "unknown2": [],
-    "unknown3": []
+    "unknown1": [70, 83, 89, 104],
+    # "unknown2": [90, 105, 111, 118, 121],
+    "unknown2": [105, 111, 118, 121],
+    "unknown3": [105, 111]
+    # "unknown3": [105, 111, 119]
 }
 
 
@@ -89,6 +93,7 @@ def fit_peaks(bin, count, name):
         p0.append(5)
     res, (errors, goodness) = std.fit_func(func, bin, count, y_errors=5, p0=p0, force_cf=True)
     if save_flag:
+        plt.title(name)
         std.default.plt_pretty("bin", "countrate")
         plt.scatter(bin, count, marker="x")
         xrange = np.linspace(min(bin), max(bin), 10000)
@@ -137,14 +142,46 @@ def mass_fractions(elements, amplitudes):
     return res
 
 
+def calculate_composition(sample, bin, count, comp_func, known_elements):
+    p0 = np.zeros(len(known_elements.values()))
+    _, sample_func, _ = fit_peaks(bin, count, sample)
+    x = np.linspace(0, 512, 4 * 512)
+    y = sample_func(x)
+    res, _ = fit_composition(comp_func, x, y, y_errors=5, p0=p0)
+    res = np.sqrt(np.abs(res))
+    abundance = np.flip(np.argsort(res))
+    contained_elements = np.array(list(known_elements.keys()))[abundance]
+    print(contained_elements)
+    print(res[abundance])
+    mfs = mass_fractions(contained_elements, res[abundance])
+    for elem in mfs:
+        print(f"{elem}: {round(mfs[elem] * 100, 2)}")
+    if save_flag:
+        plt.title(sample)
+        std.default.plt_pretty("Energie / keV", "Zählrate")
+        plt.plot(energy_scale(x), y, linestyle="dashed")
+        xrange = np.linspace(min(bin), max(bin), 10000)
+        plt.plot(energy_scale(xrange), comp_func(xrange, *(res**2)), color="green")
+        # plt.show()
+        plt.savefig(f"../figs/composition_{sample}.pdf")
+        plt.cla()
+
+    
+
 def main():
     files = glob((argv[1] + "/" if argv[-1] != "/" else argv[1]) + "*" + "_target.txt")
     elements = filter(lambda x: ("unknown" not in x) and ("fezn" not in x), files)
     unknowns = filter(lambda x: "unknown" in x, files)
 
+    # for name, x, y in map(load_file, unknowns):
+    #     plt.title(name)
+    #     plt.plot(x, y)
+    #     plt.show()
+
     print("running energy calibration")
     _, bin, count = load_file(next(filter(lambda x: "fezn" in x, files)))
     fezn_lines = [6.403484, 7.05798, 8.63886, 9.572] # Kalpha, Kbeta for fe then zn in kev
+    global energy_scale
     energy_scale = energy_calibration("fezn", bin, count, fezn_lines)
 
     print("fitting refrence spectra")
@@ -158,30 +195,11 @@ def main():
     known_elements["cr"] = chromium
 
     comp_func = make_comp_func(known_elements)
-    p0 = np.zeros(len(known_elements.values()))
 
     print("determining composition")
-    for sample, bin, count in map(load_file, unknowns):
-        print(f"running for {sample}")
-        # res, _ = std.fit_func(comp_func, bin, count, y_errors=5, p0=p0)
-        res, _ = fit_composition(comp_func, bin, count, y_errors=5, p0=p0)
-        res = np.sqrt(np.abs(res))
-        abundance = np.flip(np.argsort(res))
-        contained_elements = np.array(list(known_elements.keys()))[abundance]
-        print(contained_elements)
-        print(res[abundance])
-        mfs = mass_fractions(contained_elements, res[abundance])
-        for elem in mfs:
-            print(f"{elem}: {round(mfs[elem] * 100, 2)}")
-        if save_flag:
-            plt.title(sample)
-            std.default.plt_pretty("Energie / keV", "Zählrate")
-            plt.scatter(energy_scale(bin), count, marker="x")
-            xrange = np.linspace(min(bin), max(bin), 10000)
-            plt.plot(energy_scale(xrange), comp_func(xrange, *(res**2)), color="green")
-            # plt.show()
-            plt.savefig(f"../figs/composition_{sample}.pdf")
-            plt.cla()
+    for data in map(load_file, unknowns):
+        print(f"running for {data[0]}")
+        calculate_composition(*data, comp_func, known_elements)
 
 
 if __name__ == "__main__":
