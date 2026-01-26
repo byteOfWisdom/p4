@@ -125,7 +125,7 @@ def fit_peaks(file: str, number, pure=False, verbose=True):
         **std.default.error_bar_def,
     )
     plt.legend(loc="best")
-    plt.savefig("../latex/figs/bragg_alldata.pdf")
+    plt.savefig("../figs/bragg_alldata.pdf")
     plt.show()
 
     energies_range = energies_ev[(7e3 <= energies_ev) & (12e3 >= energies_ev)]
@@ -166,15 +166,18 @@ def fit_peaks(file: str, number, pure=False, verbose=True):
         print("a:", fit[-2], "+-", err[-2])
         print("b:", fit[-1], "+-", err[-1])
 
-    # goodness of fit:
+    # goodness of fit via reduced chi square:
     goodness = round(
         std.goodness_of_fit(
             ~counts_range, spectrum_func(number)(~energies_range_kev, *fit)
         ),
         3,
     )
+
+    fitted = spectrum_func(number)(~energies_range_kev, ~counts_range, *fit)
+    chi_square = round(std.reduced_chi_2(~counts_range, fitted, fit), 3)
     if verbose == True:
-        print("R^2:", goodness)
+        print(rf"$\Chi^2_r$:", chi_square)
 
     fit_range = np.linspace(7, 12, 5000)
 
@@ -183,13 +186,13 @@ def fit_peaks(file: str, number, pure=False, verbose=True):
     plt.plot(
         fit_range,
         spectrum_func(number)(fit_range, *fit),
-        label=rf"Anpassungsfunktion, $R^2$={goodness}",
+        label=rf"Anpassungsfkt., $\chi^2_r$={str(chi_square).replace('.', ',')}, $R^2$={str(goodness).replace('.', ',')}",
         linestyle="solid",
     )
     if pure is True:
         plt.legend(loc="best")
 
-        plt.savefig("bragg_fitting_data.pdf")
+        plt.savefig("../figs/bragg_fitting_data.pdf")
         return fit, err
 
     plt.plot(
@@ -258,9 +261,24 @@ def back_to_wave(file):
     energies_ev = energies * 1e3
     wavelengths = []
 
-    for i in energies_ev:
-        value, err = p.ve(i)
-        print("Peakenergie:", i.format(), "eV")
+    ref_energies = np.array(
+        [
+            p.ev(11609.4, 4.4),
+            p.ev(7399.1, 1.7),
+            8397.6,
+            9672.35,
+            11285.9,
+            9961.5,
+        ]
+    )
+
+    for i in range(len(energies_ev)):
+        value, err = p.ve(energies_ev[i])
+        print("Peakenergie:", energies_ev[i].format(), "eV")
+        print(
+            "Referenzenergie:",
+            [ref_energies[i].format() if i < 2 else ref_energies[i]],
+        )
 
     wavelength = lambda energy: (scipy.constants.h * scipy.constants.c) / (
         energy * scipy.constants.e
@@ -270,17 +288,38 @@ def back_to_wave(file):
         wavelengths.append(wavelength(i))
 
     wavelengths = np.array(wavelengths)
-    wavelengths = wavelengths * 1e9
+    wavelengths_nm = wavelengths * 1e9
 
-    for i in wavelengths:
-        value, err = p.ve(i)
-        print("Wellenlänge:", i.format(), "nm")
-    return
+    diff_energies = energies_ev - ref_energies
+    for i in diff_energies:
+        val, err = p.ve(i)
+        sigma = True
+        if err - val <= 1:
+            sigma = True
+        elif val - err > 1:
+            sigma = False
+
+        print("Differenz Energie:", i.format(), "eV", sigma)
+
+    ref_wavelengths = wavelength(ref_energies)
+    ref_wavelengths_nm = ref_wavelengths * 1e9
+
+    diff_wavelengths = -ref_wavelengths_nm + wavelengths_nm
+
+    for i in range(len(ref_wavelengths_nm)):
+        if i == 0 or i == 1:
+            print("Referenzwellenlänge:", ref_wavelengths_nm[i].format(), "nm")
+            print("Wellenlänge:", wavelengths_nm[i].format(), "nm")
+            print("Diff:", diff_wavelengths[i].format(), "nm")
+        else:
+            print("Referenzwellenlänge:", ref_wavelengths_nm[i], "nm")
+            print("Wellenlänge:", wavelengths_nm[i].format(), "nm")
+            print("Diff:", diff_wavelengths[i].format(), "nm")
 
 
 def main():
     # convert(argv[1])
-    # fit_peaks(argv[1], 6)
+    # fit_peaks(argv[1], 6, pure=True, verbose=True)
     back_to_wave(argv[1])
     return
 

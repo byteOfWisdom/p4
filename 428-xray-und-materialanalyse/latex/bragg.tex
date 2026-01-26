@@ -1,0 +1,93 @@
+\chapter{Bragg-Reflexion an NaCl}
+
+
+\section{Bragg-Reflexion: Untersuchung einer unbekannten Anode}
+
+\subsection{Bragg-Bedingung}
+\todo{Bragg-Bedingung}
+
+\subsection{Durchführung}
+
+\todo{Aufbau}
+
+\subsection{Messergebnisse und Auswertung}
+
+\todo{Berechnungsmethode aus Daten, Fehlerabschätzung diskutieren}
+
+
+\jafps{bragg_alldata}{Darstellung der Energie-Intensität-Verteilung der Röntgenstrahlung der unbekannten Anode. Das Spektrum entspricht der Überlagerung von Bremsstrahlung und charakteristischer Röntgenstrahlung der Anode.}{0.4}
+
+\jafps{bragg_fitting_data}{Energiespektrum der unbekannten Anode mit Anpassungsfunktion aus sechs Gaußfunktionen für die charakteristischen Linien und einem linearen Untergrund der Bremsstrahlung.}{0.4}
+
+In Abbildung \ref{fig:bragg_fitting_data} ist das Energiespektrum der Anode mit einer Anpassungsfunktion der Form
+
+\begin{align} \label{eq:bragg_spectrum}
+    I(E)=\left(\sum_i^6 (A_i \exp{-\frac{1}{2}(\frac{E-\mu}{\sigma_i})^2})\right)+aE+b
+\end{align}
+
+dargestellt. Diese Form wurde angenommen, da im Spektrum sechs Gaußfunktionsförmige Spitzen erkennen lassen sowie ein allgemeiner linearer Untergrund. Mithilfe der \texttt{optimize.curve\_fit}-Funktion der python-Package \texttt{scipy}, welche die Methode der kleinsten Quadrate nutzt, wurde die Anpassung durchgeführt. Als Anpassungsgüte ergibt sich so mit dem (für Überlagerungen von Gaußverteilungen und dem linearen Untergrund nicht ideal geeigneten \cite{chisquare}) Maß des reduzierten $\chi^2=3,11$ bzw. alternativ das (für die Beurteilung der Anpassungsgüte zwischen Modell und Daten, die nicht einer Distribution folgen besser geeignete) Bestimmtheitsmaß $R^2=0,999$. Beide dieser Gütewerte entsprechen einer sehr guten Übereinstimmung zwischen Daten und dem angenommenen Modell von überlagerten Gaußfunktionen und linearem Untergrund.
+
+In Abbildung \ref{fig:bragg_gaussians} wird die Zusammensetzung des Spektrums aus Bremsstrahlung und charakteristischen Linien durch die separate Auftragung der Spektrumskomponenten mit den aus der Anpassung errechneten Parametern klar. Mögliche weitere charakteristische Linien im Anodenmaterial-Spektrum mit Amplituden unter dem Bremsstrahlungsuntergrund können mit der durchgeführten Methode nicht bestimmt werden. Insgesamt erscheint die Annahme, dass es sechs (gut erkennbare) charakteristische Linien im Röntgenspektrum der unbekannten Anode gibt, also gerechtfertigt.
+
+\jafps{bragg_gaussians}{Energiespektrum der unbekannten Anode mit einzeichneter gesamter Anpassungsfunktion sowie einzeln dargestellten Komponenten der Anpassungsfunktion aus sechs Gaußfunktionen mit jeweils unterschiedlichen Amplituden $A$, Spitzenschwerpunkt $\mu$ und Standardabweichung $\sigma$ (jeweils in gestrichtelten Linien eingezeichnet) sowie dem linearen Untergrund (durchgezogene Linie).}{0.4}
+
+Die errechneten Parameter für die Gaußfunktionen der Anpassungsfunktion \ref{eq:bragg_spectrum} an das Spektrum der Anode sind in Tabelle \ref{tab:bragg_params} aufgeführt. Für den linearen Untergrund ergeben sich die Parameter
+\[
+a = (\num{139(4)}) ~\text{1/keV s}, \quad b = (\num{-719(31)}) ~\text{1/s}
+\]
+Diese sind für die weitere Berechnung unerheblich.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|} \hline
+    $A$ [$\unit{1/s}$] & $\mu$ [eV] & $\sigma$ [keV] \\ \hline
+    $\num{61(22)}$ & $\num{7415(23)}$ & $\num{0.08(3)}$ \\
+    $\num{2004(20)}$ & $\num{8396.8(1.0)}$ & $\num{0.1262(1)}$ \\
+    $\num{1873(43)}$ & $\num{9661.9(5.5)}$ & $\num{0.170(5)}$ \\
+    $\num{1178(35)}$ & $\num{9955.7(9.4)}$ & $\num{0.1830(9)}$ \\
+    $\num{583(70)}$ & $\num{11280(22)}$ & $\num{0.18(2)}$ \\
+    $\num{252(39)}$ & $\num{11606(67)}$ & $\num{0.23(6)}$ \\
+    \hline
+	\end{tabular}
+	\caption{Parameter der sechs Gaußfunktionen des charakteristischen Spektrums der unbekannten Anode.}
+	\label{tab:bragg_params}
+\end{table}
+
+
+Die Schwerpunkte der Gaußfunktionen entsprechen jeweils den Energien eines Elektronenübergangs im Anodenmaterial. Die so bestimmten Energiewerte werden mit den Literaturwerten für Röntgenemissionslinien verglichen, um bestimmen zu können, aus welchem Material die verwendete Anode besteht.
+Bei dem Vergleich der möglichen Emissionslinien von verschiedenen Materialien fällt eine deutliche Übereinstimmung der gemessenen Werte mit dem Spektrum von Wolfram auf. Es können die $L_{\alpha_1}, L_{\beta_1}, L_{\beta_2}$ sowie die $L_{\gamma_1}$-Linien aus den Angaben in \cite{xraydatabooklet} identifiziert werden. Weiter können aus den zusätzlichen Angaben zu weiteren Emissionslinien in \cite{NISTxray} auch die, in IUPAC-Notation \footnote{zu den Notationskonventionen der Linien siehe auch \cite{IUPACrecs}}, $L_1N_2$-Linie und die $L_3M_1$-Linie von Wolfram mit den zwei beobachteten Linien mit den geringsten Intensitätsamplituden identifiziert werden. Sie wurden, relativ zum Anteil des Bremsstrahlungsuntergrund in ihrem jeweiligen Energiebereich des Röntgenspektrums, nur mit geringer Emissionsintensität angeregt und sind daher nicht einfach im Gesamtspektrum zu erkennen.
+
+Die $K$-Linien, die in \cite{xraydatabooklet} noch als prominente charakteristische Linien im Wolfram-Röntgenspektrum gelistet sind, können im aufgenommenen Spektrum nicht beobachtet werden, da hier die Beschleunigungsspannung der Röntgenröhre auf $U=\SI{35}{\kilo\V}$ eingestellt wurde, also damit auch die den einfallenden Elektronen maximal zur Verfügung stehende Energie bei $E=\SI{35}{\kilo\eV}$ begrenzt war. Den Übergängen der $K$-Linien von Wolfram entsprechen hingegen Übergangsenergien $E>\SI{57}{\kilo\eV}$, sie konnten also in der Anode gar nicht angeregt werden.
+
+Die experimentell bestimmten Energien ($E_\text{exp.}\equiv\mu$) und Wellenlängen sowie die jeweils zugeordneten Literaturwerte mit jeweiligem Übergang für Wolfram sind in Tabelle \ref{tab:bragg_lines} aufgeführt.
+
+Im Rahmen der Unsicherheiten der Messwerte stimmen die Wellenlängen der experimentell bestimmten und zugeordneten Emissionslinien außer bei der $L_{\beta_2}$-Linie im Rahmen einer $1\sigma$-Umgebung ihrer Fehler überein. Die $L_{\beta_2}$-Linie stimmt erst in einer $2\sigma$-Umgebung mit dem Literaturwert für diese Linie bei Wolfram überein. Die Werte der experimentell bestimmten Energien der charakteristischen Linien sowie die zugeordneten Energien für Wolfram stimmen im Rahmen einer $1\sigma$-Umgebung alle miteinander überein. Insgesamt kann also mit hoher Wahrscheinlichkeit geschlussfolgert werden, dass die unbekannte Anode aus Wolfram besteht und die beobachteten Linien den aufgeführten Elektronenübergängen entsprechen.
+
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c||c|c|c|} \hline
+    $E_\text{exp.}$ [eV] & $\lambda$ [nm] & zugeordn. Übergang & $E_\text{Lit}$ [eV] & $\lambda_\text{Lit}$ [nm] \\
+    \hline
+    $\num{7415(23)}$ & $\num{0.16720(52)}$ & $L_3M_1$ & $\num{7388.1(17)}$ \cite{NISTxray} & $\num{0.167567(38)}$ \\
+    $\num{8396.8(1.0)}$ & $\num{0.147656(18)}$ & $L_{\alpha_1}/L_3M_5$ & $\num{8397.6}$ & $\num{0.147642}$\\
+    $\num{9661.9(5.5)}$ & $\num{0.128322(73)}$ & $L_{\beta_1}/L_2M_4$  & $\num{9972.35}$ & $\num{0.128184}$\\
+    $\num{9955.7(9.4)}$ & $\num{0.12454(12)}$ & $L_{\beta_2}/L_3N_5$ & $\num{9961.5}$ & $\num{0.124463}$\\
+    $\num{11280(22)}$ & $\num{0.10991(21)}$ & $L_{\gamma_1}/L_2N_4$ & $\num{11285.9}$ & $\num{0.109858}$ \\
+    $\num{11606(67)}$ & $\num{0.10683(62)}$ & $L_1N_2$ & $\num{11609.4(44)}$ \cite{NISTxray} & $\num{0.106796(40)}$\\
+    \hline
+	\end{tabular}
+	\caption{Experimentell aus dem Röntgenspektrum bestimmte charakteristische Energien und Wellenlängen mit zugeordneten Linien (ohne Fehlerangabe) nach \cite{xraydatabooklet} in Siegbahn-Notation. Die zweite, jeweils korrespondierende Angabe in IUPAC-Notation stammt aus \cite{NISTxray}, was auch für die weiteren Linien genutzt wird, die in \cite{xraydatabooklet} nicht aufgeführt sind.}
+	\label{tab:bragg_lines}
+\end{table}
+
+
+\section{Feinstruktur-Analyse der Molybdän-$K_\alpha$-Linie}
+
+\todo{Theorie Feinstruktur kurz}
+
+\subsection{Messergebnisse und Auswertung}
+
+\jafps{bragg_mo_alldata}{}{0.4}
+
+\jafps{langzeit_fit}{}{0.4}
