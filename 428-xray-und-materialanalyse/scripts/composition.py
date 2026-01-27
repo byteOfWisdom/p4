@@ -39,7 +39,7 @@ peak_guesses = {
 
 refrence_fit_params = {
     "Element": [],
-    "a" : np.array([]),
+    "A / $s^{-1}$" : np.array([]),
     "$\\mu$": np.array([]),
     "$\\sigma$": np.array([])
 }
@@ -104,7 +104,7 @@ def fit_peaks(bin, count, name):
     if save_flag:
         # plt.title(name)
         std.default.plt_pretty("Bin", "Zählrate / $s^{-1}$")
-        plt.scatter(bin, count, marker="x")
+        plt.errorbar(bin, count, marker="x", yerr=0.1 * count, **std.default.error_bar_def)
         xrange = np.linspace(min(bin), max(bin), 10000)
         plt.plot(xrange, func(xrange, *res), color="green", label=f"$R^2={round(goodness, 3)}$")
         # plt.show()
@@ -120,7 +120,7 @@ def fit_peaks(bin, count, name):
     sigmas = fit_res[2::3]
     global refrence_fit_params
     refrence_fit_params["Element"] += [name] * len(sigmas)
-    refrence_fit_params["a"] = np.append(refrence_fit_params["a"], amps)
+    refrence_fit_params["A / $s^{-1}$"] = np.append(refrence_fit_params["A / $s^{-1}$"], amps)
     refrence_fit_params['$\\mu$'] = np.append(refrence_fit_params["$\\mu$"], mus)
     refrence_fit_params['$\\sigma$'] = np.append(refrence_fit_params['$\\sigma$'], sigmas)
 
@@ -175,7 +175,9 @@ def energy_calibration(name, bin, count, refrence_lines):
         # plt.show()
         plt.savefig("../figs/energy_cal_better.pdf")
         plt.cla()
-    return lambda x: (lambda x, a, b: a * x + b)(x, *params)
+    a = p.ev(params[0], errors[0])
+    b = p.ev(params[1], errors[1])
+    return np.vectorize(lambda x: (lambda x, a, b: p.ve(a * x + b))(x, a, b))
 
 
 def mass_fractions(elements, amplitudes):
@@ -192,22 +194,30 @@ def calculate_composition(sample, bin, count, comp_func, known_elements):
     _, sample_func, _ = fit_peaks(bin, count, sample)
     x = np.linspace(0, 512, 4 * 512)
     y = sample_func(x)
-    res, _ = fit_composition(comp_func, x, y, y_errors=5, p0=p0)
+    res, (errors, goodness) = fit_composition(comp_func, x, y, y_errors=5, p0=p0)
     # res, _ = std.fit_func(comp_func, x, y, y_errors=5, p0=p0)
-    res = np.sqrt(np.abs(res))
+    res = np.array(res)
+
+    ev_res = p.ev(res, errors)
+    ev_res[~ev_res < 0] *= -1
+    ev_res = ev_res ** 2
+    res = res ** 2
+    # ev_res = np.sqrt(ev_res)
+    # res = np.sqrt(np.abs(res))
     abundance = np.flip(np.argsort(res))
     contained_elements = np.array(list(known_elements.keys()))[abundance]
     print(contained_elements)
     print(res[abundance])
-    mfs = mass_fractions(contained_elements, res[abundance])
+    mfs = mass_fractions(contained_elements, ev_res[abundance])
     for elem in mfs:
-        print(f"{elem}: {round(mfs[elem] * 100, 2)}")
+        print(f"{elem}: {(mfs[elem] * 100).format()} %")
     if save_flag:
-        plt.title(sample)
+        # plt.title(sample)
         std.default.plt_pretty("Energie / keV", "Zählrate")
-        plt.plot(energy_scale(x), y, linestyle="dashed")
+        plt.plot(energy_scale(x)[0], y, linestyle="dashed")
         xrange = np.linspace(min(bin), max(bin), 10000)
-        plt.plot(energy_scale(xrange), comp_func(xrange, *(res**2)), color="green")
+        plt.plot(energy_scale(xrange)[0], comp_func(xrange, *(res**2)), color="green", label=f"R^2={round(goodness, 3)}")
+        plt.xlim(2, 11)
         # plt.show()
         plt.savefig(f"../figs/composition_{sample}.pdf")
         plt.cla()
@@ -250,6 +260,7 @@ def main():
         calculate_composition(*data, comp_func, known_elements)
 
     if save_flag:
+        refrence_fit_params["$\\mu / keV$"] = energy_scale(refrence_fit_params['$\\mu$'])
         std.util.print_tex_table(refrence_fit_params, "../latex/xrf_fit.table")
 
 

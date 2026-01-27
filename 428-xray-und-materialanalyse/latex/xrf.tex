@@ -16,7 +16,7 @@ Zur Energiekalibration wird an das Spektrum der Fe-Zn Probe eine Summe aus Gauß
 	\begin{tabular}{|c|c|c|c|} \hline
 		\input{energy_cal.table}
 	\end{tabular}
-	\caption{Parameter mit Zugeordneten Linien}
+	\caption{Parameter mit zugeordneten Linien}
 	\label{tab:energy_cal}
 \end{table}
 
@@ -46,6 +46,18 @@ Die so gewonnene Energiekalibration wird für alle weiteren Messungen mit der PI
 \subsection{Enthaltene Elemente}
 An die erfassten Referenzspektren werden Summen von Gaußfunktionen angepasst, mit einer Gaußkurve pro erkennbarer Spektrallinie. Hierbei wird ein Verfahren der kleinsten Quadrate verwendet \todo{cite}.
 
-So werden die charakteristischen Röntgenlinien der Elemente bestimmt. Die Parameter der bestimmten Linien sind in Tabelle \todo{table} angehangen.
+So werden die charakteristischen Röntgenlinien der Elemente bestimmt, wobei stets die zwei Linien mit den größten Amplituden als die $K_\alpha$ und $K_\beta$ Linien des jeweiligen Elementes angenommen werden. Die Parameter der bestimmten Linien sind in Tabelle \ref{tab:xrf_lines} angehangen.
 
-Im anschluss werden solche Funktionen auch an die Spektren der unbekannten Proben angepasst und diese dann als Linearkombination der Referenzspektren dargestellt.
+Im anschluss werden solche Funktionen auch an die Spektren der unbekannten Proben angepasst und diese dann als Linearkombination der Angepassten Gaußkurven der $K_\alpha$ und $K_\beta$ Linien der Referenzproben dargestellt.
+
+Man erhält somit die Funktion, mit den Anpassungsparametern $k_i$, wobei $i \in \{\text{Elemente der Referenzproben}\}$ ist.
+
+\begin{align}
+	f(x) &= \Sigma_i \, k_i \cdot g_i(x) \\
+	g_i(x) &= A_{\alpha, i} e^{(x - \mu_{\alpha, i})^2 / \sigma_{\alpha, i}^2}
+	+ A_{\beta, i} e^{(x - \mu_{\beta, i})^2 / \sigma_{\beta, i}^2}
+\end{align}
+
+Diese wird an $g_\text{unbekannt}(x)$ angepasst um die Zusammensetzung zu bestimmen. Hierzu wird wieder ein Verfahren der geringsten Quadrate genutzt. Die Anpassungsparameter $k_i$ sind dann direkt die Relativen Höhen der Peaks $\frac{H}{H_0}$.
+
+Die Anpassungen für alle Unbekannten Proben sind \todo{refrence images} zu finden, die bestimmten Faktoren $k_i$ sind in Tabelle \todo{!!} zu finden.
