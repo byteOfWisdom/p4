@@ -19,8 +19,8 @@ def double_gaussian():
 
 def handle_data(file):
     angles, counts = get_data(file)
-    angles = p.ev(angles, 0.05)
-    counts = p.ev(counts, counts * 0.03)  # larger error est. due to tiny incidence
+    angles = p.ev(angles, 0.005)
+    counts = p.ev(counts, counts * 0.05)  # larger error est. due to tiny incidence
     _, a_err = p.ve(angles)
     _, c_err = p.ve(counts)
     std.default.plt_pretty("Winkel", "Intensität")
@@ -183,12 +183,16 @@ def energy_to_wavelength(file):
 
     ref_w1 = wavelength(ref_e1)
     ref_w2 = wavelength(ref_e2)
-    ref_w_diff = ref_w2 - ref_w1
+    ref_w_diff_nm = (ref_w2 - ref_w1) * 1e9
 
     w1 = wavelength(energy1_ev)
     w2 = wavelength(energy2_ev)
     w1_nm = w1 * 1e9
     w2_nm = w2 * 1e9
+
+    print("ref w1:", ref_w1 * 1e9, "nm")
+    print("ref w2:", ref_w2 * 1e9, "nm")
+
     _, w1_nm_err = p.ve(w1_nm)
     _, w2_nm_err = p.ve(w2_nm)
     diff_w = w1 - w2
@@ -196,14 +200,14 @@ def energy_to_wavelength(file):
     _, diff_w_err = p.ve(diff_w)
     _, diff_w_nm_err = p.ve(diff_w_nm)
 
-    badness_perc_w = 1 - diff_w / ref_w_diff
-    worst_bad_w = 1 - (diff_w + diff_w_err) / ref_w_diff
-    least_bad_w = 1 - (diff_w - diff_w_err) / ref_w_diff
+    badness_perc_w = 1 - diff_w_nm / ref_w_diff_nm
+    worst_bad_w = 1 - (diff_w_nm + diff_w_nm_err) / ref_w_diff_nm
+    least_bad_w = 1 - (diff_w_nm - diff_w_nm_err) / ref_w_diff_nm
 
     print("w1:", ~w1_nm, "+-", w1_nm_err, "nm")
-    print("w2:", ~w2_nm * 1e9, "+-", w2_nm_err * 1e9, "nm")
+    print("w2:", ~w2_nm, "+-", w2_nm_err, "nm")
     print("diff w:", ~diff_w_nm, "+-", diff_w_nm_err, "nm")
-    print("ref w diff:", ref_w_diff * 1e9, "nm")
+    print("ref w diff:", ref_w_diff_nm, "nm")
     print(
         "Wellenlänge Abweichung:",
         round(~badness_perc_w, 3),
