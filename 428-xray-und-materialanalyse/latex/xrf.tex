@@ -20,9 +20,25 @@ Zur Energiekalibration wird an das Spektrum der Fe-Zn Probe eine Summe aus Gauß
 	\label{tab:energy_cal}
 \end{table}
 
-\jafps{energy_cal}{Gradenanpassung zur Energiekalibration an die $K_\alpha$ und $K_\beta$ Linien von Eisen und Zink.}{0.75}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|} \hline
+		\input{energy_cal_better.table}
+	\end{tabular}
+	\caption{Parameter mit Zugeordneten Linien am kombinierten Spektrum der Fe und Zn Proben}
+	\label{tab:energy_cal_better}
+\end{table}
 
-Die an diese Punkte angepasste Grade hat die Form $f(x) = a x + b$ und es ergeben sich die Parameter $a = \SI{1}{\electronvolt}$ und $b = \SI{1}{\electronvolt}$, zu sehen in Abbildung \ref{fig:energy_cal}.
+\jafpp{energy_cal}{Gradenanpassung zur Energiekalibration an die $K_\alpha$ und $K_\beta$ Linien von Eisen und Zink, gewonnen aus der Mischprobe}{energy_cal_better}{aus den einzelnen Messungen der beiden Elemente.}
+
+\jafps{ref_fezn}{Spektrum der Gemischten Fe-Zn Probe}{0.5}
+\jafpp{ref_fe}{Spektrum der Fe}{ref_zn}{Zn Probe}
+
+Die Anpassungen der Gaußkurven an die Spektren sind angehangen, siehe Abbildung \ref{fig:ref_fezn} bis \ref{fig:ref_zn}.
+
+Da die Anpassungsgüte bei der kombinierten Fe-Zn Probe mit $R^2 = 0.35$ sehr schlecht ist, wurde die Summe der einzelnen Spektren von Fe und Zn verwendet um die Kalibration erneut durchzuführen. Hierbei konnte eine sehr viel bessere Anpassungsgüte von $R^2={0.96}$ erziehlt werden. Die so gewonnenen Werte sind in Tabelle \ref{tab:energy_cal_better} wurden im weiteren verwendet.
+
+Die an diese Punkte angepasste Grade hat die Form $f(x) = a x + b$ und es ergeben sich die Parameter $a = \SI{0.083(12)}{\electronvolt}$ und $b = \SI{-3(1)}{\electronvolt}$, zu sehen in Abbildung \ref{fig:energy_cal}.
 
 Die so gewonnene Energiekalibration wird für alle weiteren Messungen mit der PIN-Photodiode genutzt.
 

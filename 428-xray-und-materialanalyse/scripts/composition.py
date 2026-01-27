@@ -12,7 +12,7 @@ import propeller as p
 
 save_flag = argv[2] == "save" if len(argv) > 2 else False
 
-energy_scale = None
+energy_scale = lambda x: x
 
 peak_guesses = {
     "pb": [105, 139, 165, 196, 119],
@@ -23,7 +23,8 @@ peak_guesses = {
     "ni": [97, 108, 113],
     "zr": [116, 152, 205, 231, 235],
     "cu": [105, 117, 121],
-    "fezn": [83, 93, 98, 112],
+    # "fezn": [83, 93, 98, 112],
+    "fezn": [83, 93, 112, 120],
     "sn": [50, 92, 104, 323],
     # "sn": [50, 104, 323],
     "ag": [42, 105, 124, 286, 323],
@@ -102,7 +103,7 @@ def fit_peaks(bin, count, name):
     res, (errors, goodness) = std.fit_func(func, bin, count, y_errors=5, p0=p0, force_cf=True)
     if save_flag:
         # plt.title(name)
-        std.default.plt_pretty("bin", "countrate")
+        std.default.plt_pretty("Bin", "Zählrate / $s^{-1}$")
         plt.scatter(bin, count, marker="x")
         xrange = np.linspace(min(bin), max(bin), 10000)
         plt.plot(xrange, func(xrange, *res), color="green", label=f"$R^2={round(goodness, 3)}$")
@@ -123,7 +124,11 @@ def fit_peaks(bin, count, name):
     refrence_fit_params['$\\mu$'] = np.append(refrence_fit_params["$\\mu$"], mus)
     refrence_fit_params['$\\sigma$'] = np.append(refrence_fit_params['$\\sigma$'], sigmas)
 
-    return name, lambda x: func(x, *res), fit_res
+    biggest = np.flip(np.argsort(np.abs(amps)))
+    f = lambda x: std.gaussian(x, ~amps[biggest[0]], ~mus[biggest[0]], ~sigmas[biggest[0]]) + std.gaussian(x, ~amps[biggest[1]], ~mus[biggest[1]], ~sigmas[biggest[1]]) 
+
+    return name, f, fit_res
+    # return name, lambda x: func(x, *res), fit_res
 
 
 def make_comp_func(elements):
@@ -149,19 +154,26 @@ def energy_calibration(name, bin, count, refrence_lines):
     amps = params[0::3]
     sigmas = params[2::3]
     # to_use = amps >= np.flip(np.sort(np.abs(~amps)))[len(refrence_lines)]
-    params, _ = std.fit_func(lambda x, a, b: a * x + b, ~peaks, refrence_lines, force_cf=True)
+    params, (errors, goodness) = std.fit_func(lambda x, a, b: a * x + b, ~peaks, refrence_lines, force_cf=True)
+    print("a= ", p.ev(params[0], errors[0]).format())
+    print("b= ", p.ev(params[1], errors[1]).format())
     if save_flag:
         std.util.print_tex_table({
                                      "A / $s^{-1}$": amps,
                                      "$\\mu$": peaks,
                                      "$\\sigma$": sigmas,
                                      "Linie": np.zeros(6)
-                                 }, "../latex/energy_cal.table")
-        std.default.plt_pretty("Bin", "Zählrate / $s^{-1}$")
-        plt.scatter(peaks[np.flip(np.argsort(amps))[:len(refrence_lines)]], refrence_lines)
-        plt.plot(peaks[np.flip(np.argsort(amps))[:len(refrence_lines)]], (lambda x, a, b: a * x + b)(peaks[np.flip(np.argsort(amps))[:len(refrence_lines)]], *params))
+                                 }, "../latex/energy_cal_better.table")
+        std.default.plt_pretty("Bin", "Energie / keV")
+        x = peaks[np.flip(np.argsort(amps))[:len(refrence_lines)]]
+        plt.errorbar(x, refrence_lines, p.ve(x)[1], **std.default.error_bar_def)
+        plt.plot(
+                 peaks[np.flip(np.argsort(amps))[:len(refrence_lines)]],
+                 (lambda x, a, b: a * x + b)(peaks[np.flip(np.argsort(amps))[:len(refrence_lines)]], *params),
+                 label=f"$R^2 = {round(goodness, 3)}$")
+        plt.legend()
         # plt.show()
-        plt.savefig("../figs/energy_cal.pdf")
+        plt.savefig("../figs/energy_cal_better.pdf")
         plt.cla()
     return lambda x: (lambda x, a, b: a * x + b)(x, *params)
 
@@ -181,6 +193,7 @@ def calculate_composition(sample, bin, count, comp_func, known_elements):
     x = np.linspace(0, 512, 4 * 512)
     y = sample_func(x)
     res, _ = fit_composition(comp_func, x, y, y_errors=5, p0=p0)
+    # res, _ = std.fit_func(comp_func, x, y, y_errors=5, p0=p0)
     res = np.sqrt(np.abs(res))
     abundance = np.flip(np.argsort(res))
     contained_elements = np.array(list(known_elements.keys()))[abundance]
@@ -203,18 +216,16 @@ def calculate_composition(sample, bin, count, comp_func, known_elements):
 
 def main():
     files = glob((argv[1] + "/" if argv[-1] != "/" else argv[1]) + "*" + "_target.txt")
-    elements = filter(lambda x: ("unknown" not in x) and ("fezn" not in x), files)
+    elements = list(filter(lambda x: ("unknown" not in x) and ("fezn" not in x), files))
     unknowns = filter(lambda x: "unknown" in x, files)
 
-    # for name, x, y in map(load_file, unknowns):
-    #     plt.title(name)
-    #     plt.plot(x, y)
-    #     plt.show()
-
     print("running energy calibration")
-    _, bin, count = load_file(next(filter(lambda x: "fezn" in x, files)))
-    # fezn_lines = [6.403484, 7.05798, 8.63886, 9.572] # Kalpha, Kbeta for fe then zn in kev
-    fezn_lines = [6.403484, 7.05798, 9.572, 8.63886] # Kalpha, Kbeta for fe then zn in kev
+    # _, bin, count = load_file(next(filter(lambda x: "fezn" in x, files)))
+    _, bin, fe_count = load_file(next(filter(lambda x: "fe_target" in x, elements)))
+    _, bin, zn_count = load_file(next(filter(lambda x: "/zn_target" in x, elements)))
+    count = fe_count + zn_count
+    fezn_lines = [6.403484, 7.05798, 8.63886, 9.572] # Kalpha, Kbeta for fe then zn in kev
+    # fezn_lines = [6.403484, 7.05798, 9.572, 8.63886] # Kalpha, Kbeta for fe then zn in kev
     global energy_scale
     global refrence_fit_params
     energy_scale = energy_calibration("fezn", bin, count, fezn_lines)
@@ -228,6 +239,8 @@ def main():
     # need chromium for sample 2
     chromium = lambda x: known_elements["fe"](x + 12)
     known_elements["cr"] = chromium
+
+    del known_elements["w"]
 
     comp_func = make_comp_func(known_elements)
 
