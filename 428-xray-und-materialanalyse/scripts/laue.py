@@ -43,9 +43,11 @@ def possible_lattice_vectors(limit):
     if limit % 2:
         limit -= 1
     evens = np.append(np.arange(0, limit + 1, 2), -1 * np.arange(0, limit + 1, 2))
-    positive_evens = np.arange(0, limit + 1, 2)
+    # positive_evens = np.arange(0, limit + 1, 2)
+    positive_evens = np.array([0, 2])
     odds = np.append(np.arange(1, limit + 2, 2), -1 * np.arange(1, limit + 2, 2))
-    positive_odds = np.arange(1, limit + 2, 2)
+    # positive_odds = np.arange(1, limit + 2, 2)
+    positive_odds = np.array([1])
     h, j, k = np.meshgrid(evens, evens, positive_evens)
     even_tuples = [np.ravel(h), np.ravel(j), np.ravel(k)]
     h, j, k = np.meshgrid(odds, odds, positive_odds)
@@ -99,6 +101,10 @@ def distance(miller_vec):
     return d
 
 
+def wavelength(miller_vec, d):
+    return d / np.sqrt(np.sum(miller_vec ** 2))
+
+
 def main():
     im_data = np.array(image.imread(argv[1]))
 
@@ -109,9 +115,13 @@ def main():
     miller_indices = assign_miller_indices(points)
     distances = distance(miller_indices)
     angles = angle(miller_indices)
+    print("d are:")
     print(distances)
+
+    print("angles are:")
     print(np.rad2deg(angles))
     print(angles)
+
     print(miller_indices)
 
     std.default.plt_pretty("x / mm", "y / mm")
