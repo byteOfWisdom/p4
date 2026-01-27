@@ -185,7 +185,7 @@ def mass_fractions(elements, amplitudes):
     sum_of_parts = np.sum(density_amplitudes)
     res = {}
     for i in range(len(elements)):
-        res[elements[i]] = density_amplitudes[i] / sum_of_parts
+        res[elements[i]] = density_amplitudes[i] / sum_of_parts, amplitudes[i]
     return res
 
 
@@ -210,7 +210,7 @@ def calculate_composition(sample, bin, count, comp_func, known_elements):
     print(res[abundance])
     mfs = mass_fractions(contained_elements, ev_res[abundance])
     for elem in mfs:
-        print(f"{elem}: {(mfs[elem] * 100).format()} %")
+        print(f"{elem}: {(mfs[elem][0] * 100).format()}%, k={mfs[elem][1].format()}")
     if save_flag:
         # plt.title(sample)
         std.default.plt_pretty("Energie / keV", "Zählrate")
