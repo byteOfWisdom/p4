@@ -22,7 +22,7 @@ Im Anschluss werden mit dem gleichen Messverfahren die Spektren der unbekannten 
 \section{Auswertung}
 \subsection{Energiekalibration}
 Zur Energiekalibration wird an das Spektrum der Fe-Zn Probe eine Summe aus Gaußkurven angepasst. Aus dieser Anpassung werden die $K_\alpha$ und $K_\beta$ Linien von Eisen und Zink identifiziert und zugeordnet. Im Anschluss wird an die so bestimmten Punkte aus Bin und Energie der Linie eine Grade angepasst. Hierbei wird ein einfaches Verfahren der geringsten Quadrate verwendet. Es sind sechs Spitzen im Spektrum zu erkennen, an welche jeweils Gaußkurven angepasst werden. Die Fehler der Intensitätsmesswerte werden als $10\%$ des jeweiligen Messwerts (abgeschätzte Größe zur Kompensation der Fluktuation der Messung bzw. des Rauschens des Signals aus Bereichen fast konstanten Signals) angenommen, die Zuordnung zu den Energie-bins wird als fehlerfrei angenommen (dies ist eine sinnvolle Annahme, da die Größe der Bins aufgrund der überschaubaren Menge an Kanälen von 512 groß genug ist, dass eine fehlerhafte Zuordnung sehr unwahrscheinlich und wenn überhaupt annähernd statistisch verteilt ist, sich also über alle Bins gleich verteilt und die relative Intensität nicht beeinflusst). Die Fehler werden wie bereits vorher über die gesamte Auswertung mit Gaußscher Fehlerfortpflanzung behandelt.
-Die relevanten Linien werden den vier Spitzen mit den Größten Amplituden zugeordnet, in Reihenfolge aufsteigender Energie. Man findet dann die in Tabelle \ref{tab:energy_cal} aufgelisteten Werte und Zuordnungen.
+Die relevanten Linien werden den vier Spitzen mit den Größten Amplituden zugeordnet, in Reihenfolge aufsteigender Energie. Man findet dann die in Tabelle \ref{tab:energy_cal} aufgelisteten Werte ($mu$ entspricht der Energiebin-Koordinate des Schwerpunkts) und Zuordnungen der Linien.
 
 \begin{table}[H]
 	\centering
@@ -81,12 +81,10 @@ Man erhält somit die folgende Anpassungsfunktion mit den Anpassungsparametern $
 
 Diese wird an die jeweilige Intensitätsverteilung $g_\text{unbekannt}(x)$ angepasst um die Zusammensetzung der unbekannten Proben nacheinander zu bestimmen. Hierzu wird wieder ein Verfahren der geringsten Quadrate genutzt. Die Anpassungsparameter $k_i$ sind dann direkt die relativen Höhen der Spitzen im Spektrum: $\frac{H}{H_0}$. Aus ihnen ergeben sich in erster Näherung die Massenanteile $C_i$ der einzelnen Elemente $i$ in den Proben mit den Dichten $\rho_i$ als \cite[7-8]{Versuchsanleitung428}:
 \begin{align} \label{eq:massenanteile}
-C_i = {\rho_i \frac{H}{H_0}}{\sum_i \rho_i \frac{H}{H_0}}
+C_i = \frac{\rho_i \frac{H}{H_0}}{\sum_i \rho_i \frac{H}{H_0}}
 \end{align}
 
-
-
-Die zu den Anpassungsparametern mit den Dichten aus \todo{dichten} so bestimmten Massenanteile sind in den folgenden Tabellen für die drei Proben aufgeführt:
+Die zu den Anpassungsparametern mit den Dichten aus \cite[735-792]{crc} so bestimmten Massenanteile sind in den folgenden Tabellen für die drei Proben aufgeführt:
 
 \input{comp_res.table}
 
