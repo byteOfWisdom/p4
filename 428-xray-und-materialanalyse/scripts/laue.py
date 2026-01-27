@@ -144,9 +144,9 @@ def main():
 
     physical_things_table = {
         "Punkt Nr.": indices,
-        "d / pm": distances * 1e12,
-        "$\\theta$ / Grad": np.rad2deg(angles),
-        "$\\lambda$ / pm": wavelengths * 1e12
+        "d / pm": np.round(distances * 1e12),
+        "$\\theta$ / Grad": np.round(np.rad2deg(angles)),
+        "$\\lambda$ / pm": np.round(wavelengths * 1e12)
     }
 
     std.util.print_tex_table(point_and_index_table, "../latex/miller_indices.table")
