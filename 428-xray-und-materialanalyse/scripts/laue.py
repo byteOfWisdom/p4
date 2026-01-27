@@ -64,7 +64,7 @@ def assign_miller_indices(points):
 
     points_3d = np.array([[points[i][0], points[i][1], zq[i]] for i in range(len(points))])
 
-    candidates = possible_lattice_vectors(6)
+    candidates = possible_lattice_vectors(8)
     lens = np.sum(candidates ** 2, -1) ** -0.5
     norm_candidates = np.array([lens[i] * candidates[i] for i in range(len(candidates))])
     lens_p = np.sum(points_3d ** 2, -1) ** -0.5
@@ -145,7 +145,7 @@ def main():
     physical_things_table = {
         "Punkt Nr.": indices,
         "d / pm": distances * 1e12,
-        "$\\theta$ / rad": angles,
+        "$\\theta$ / Grad": np.rad2deg(angles),
         "$\\lambda$ / pm": wavelengths * 1e12
     }
 
