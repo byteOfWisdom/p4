@@ -1,6 +1,28 @@
 \chapter{Laue Verfahren}
 
+
+
+\section{Auswertung}
+
+\jafps{../data/laue.png}{Scan der Laue Aufnahme}{0.4}
+Aus der Größe der Punkte wird eine Messungenauigkeit von $\SI{2}{\milli\meter}$ abgeschätzt, welche auch in der z-Richtung Plausibel ist.
+
+
+Für die Bedingung für die Lage der Maxima findet man die folgende is Äquivalent zu. 
+\begin{align}
+	& x_Q : y_Q : z_Q = h : k : l \\
+	& \equiv |(x_Q, y_Q, z_Q)^T \times (h, k, l)^T| = 0 \label{eq:laue}
+\end{align}
+
+Die millerschen Indizes werden zugeordnet, indem alle plausiblen Vektoren $(h, k, l)^T$ erzeugt werden und pro Punkt $(x_Q, y_Q, z_Q)^T$ der Vektor $(h, k, l)^T$ gesucht wird, für welchen Gl \eqref{eq:laue} minimal wird. Diese Zurodnung ist in Tabelle \ref{tab:laue_1} zu finden und zusammen mit der Lage der Punkte in Abbildung \ref{fig:laue_messung} dargestellt.
+
+Aufgrund von Messungenauigkeiten lässt sich das genaue Verhältnis von $x_Q : y_Q : z_Q$ nie exakt treffen und es muss mit einer Restungenauigkeit gearbeitet werden. Dies hat das Potential eine Falsche zuordnung der millerschen Indizes zu den gefundenen Punkten nach sich zu ziehen, abhängig davon, wie die maximal erlaube abweichung der Verhältnisse und die maximal als plausibel angenommenen millerschen Indizes gewählt werden. Hier wurde für $|h|, |k| \le 8$ und $z \le 2$ der Millervektor mit der minimalen Abweichung gewählt, da die Messfehler so groß sind, dass jede schwelle für die erlaubte Abweichung ohne fundierte Aussage oder Begründung wäre.
+
 \jafps{laue_messung}{Laue Messung \todo{ordentliche unterschrift}}{0.75}
+
+Die weiteren Physikalischen größen werden aus diesen zugeordneten Indizes berechnet und sind in Tabelle \ref{tab:laue_2} aufgelistet. Die so berechneten Werte erscheinen weitesgehend plausibel, da die Wellenlänge im Röntgenbereich und kleiner als der Netzebenenabstand ist und die Winkel in einem für den Aufbau geometrisch möglichen Bereich liegen. Erwähnenswert hierbei ist Punkt 0, bei dem die gefundene Wellenlänge größer ist, als der Netzebenenabstand, was physikalisch nicht sinnvoll ist. Ansonsten erfüllen die Werte diese groben Plausibilitätsbedingungen.
+
+Zu den Unsicherheiten dieser in Tabelle \ref{tab:laue_2} berechneten größen sind konkrete Aussagen schwer, da sie sich hauptsächlich aus der Unsicherheit bei der Zuordnung der millerschen Indizes ergeben. Die beste Möglichkeit die Auswirkungen dieser Unsicherheit zu quantifizieren wäre die Nutzung eines Monte-Carlo Verfahrens um die Auswirkungen leicht anders liegender Punkte oder anders gewählter Genauigkeits- und Indexgrenzen auf das Ergebnis zu bestimmen. Der Aufwand hierfür übersteigt den an dieser Stelle Sinnvollen bei weitem, weshalb davon abgesehen wurde \todo{TODO: quelle MC}.
 
 
 \begin{table}[H]
@@ -17,6 +39,7 @@
 	\begin{tabular}{|c|c|c|c|} \hline
 		\input{miller_measurements.table}
 	\end{tabular}
-	\caption{Punkte und aus Messungen berechnete Größen}
+	\caption{Punkte und aus Messungen berechnete Größen. Für Diskussion zu Unsicherheiten, siehe Fließtext.}
 	\label{tab:laue_2}
 \end{table}
+
