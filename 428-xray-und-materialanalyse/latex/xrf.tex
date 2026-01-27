@@ -1,9 +1,21 @@
 \chapter{Zerstörungsfreie Analyse chemischer Zusammensetzungen}
 
-Röntgenfluoreszenzspektroskopie werden die charakteristischen Röngenlinien von Atomen in einer Probe genutzt um die Zusammensetzung der Probe zu bestimmen. Atome in einer Probe mit Röntgenphotonen ionisiert, beim 
+\section{Charakteristisches Spektrum durch Röntgenfluoreszenz}
+
+Bei Röntgenfluoreszenzspektroskopie werden die charakteristischen Röngenlinien von Atomen in einer Probe genutzt um die Zusammensetzung der Probe zu bestimmen.
+Es wird hierbei der Effekt genutzt, dass die Atome der Probe nicht nur durch energiereiche Elektronen sondern auch durch Röntgenphotonen (z.B. von der Anode einer Röntgenröhre emittiert) angeregt werden. Beim Übergang eines Hüllenelektrons in den freigewordenen niedrigeren Zustand wird dann ein weiteres (niedrigenergetischeres) Photon im Frequenzbereich der Röntgenstrahlung emittiert. Die Probe fluoresziert. Diese so durch Bestrahlung mit anderer Röntgenstrahlung emittierte Röntgenstrahlung entspricht dem charakteristischen Spektrum der Probe, die anschließend gemessen werden kann. Der Bremsstrahlungsuntergrund, der bei Röntgenstrahlungserzeugnung durch Elektronenbestrahlung entsteht, wird nicht angeregt und wird nur bei zufälliger Ausbreitungsrichtung in Richtung des Eingangs Strahlungsmessgeräts gemessen \cite[261]{Demtroeder3}. So entsteht ein charakteristisches Spektrum der Probe in dem auch Emissionslinien geringer Intensität (also eher kleiner Anregungswahrscheinlichkeit) nachgewiesen werden können \cite{LDfluoreszenz}.
+
+\section{Röntgenenergiedetektor}
+
+Für die Messung der Energie der Röntgenphotonen aus dem charakteristischen Spektrum der zu untersuchenden Probe wird als Sensor ein Röntgenenergiedetektor genutzt. Er ermöglicht die Messung der Energie der einfallenden Photonen, nicht nur die pure Inzidenz selbst wie es ein Geiger-Müller-Zähler leistet. Sein schematischer Aufbau ist in Abbildung \ref{fig:xraydetektor} dargestellt. Er besteht aus einer PiN-Photodiode aus einer Silizium-Einkristall-pn-Diode (beschaltet in Sperrrichtung) mit breiter undotierter intrinsischer Zone, in der proportional zur Energie des einfallenden Röntgenphotons Elektron-Loch-Paare erzeugt werden, sowie hintergeschalteten Verstärkern, die aus den freigewordenen Elektronen aus den Elektron-Loch-Paaren einen Spannungspuls proportional zur Energie des Photons erzeugen. Es gilt mit den in der Abbildung \ref{fig:xraydetektor} eingezeichneten Bezeichnungen insgesamt dann die Proportionalität (mit $E_X$ als Energie $E=\frac{hc}{\lambda}$ des einfallenden Röntgenphotons) für die am Ende messbare Spannung $U_X \propto E_X $. Alle Proportionalitätsgrößen sind bekannt oder können durch eine Kalibration mit bekannten Röntgenphoton-Energien für die spezifische PiN-Diode bestimmt werden \cite{LDkalibration}.
+Mit einem nachgeschaltetem Vielkanalanalysator wird die Höhe des Spannungspulses einer von 512 (im 512-Kanal-Betrieb \cite{Versuchsanleitung428}) Bins, also aufsteigenden Energieintervallkanälen zuordnet.
+
+\jafps{xraydetektor}{Aufbauskizze der PiN-Photodiode. Es ist zur Aufnahme der Spannungen und Einordnung in eine der 512-Energie-Kanäle/bins noch ein Vielkanalanalysator in Reihe nachgeschaltet. Abbildung entnommen aus \cite[1]{LDkalibration}.}{0.4}
+
+
 
 \section{Durchführung}
-Es werden bei einer Beschleunigungsspannung von $U_B = \SI{35}{\kilo\volt}$ und einem Heizstrom von $I_H = \SI{1}{\milli\ampere}$ die verschiedenen monoatomaren Referenzproben Bestrahlt. Dies findet unter einem Winkel von $\Theta = \SI{45}{\degree}$. Dabei werden die Fluoreszenzphotonen mit einer PIN photodiode\todo{cite} und einem Vielkanalanalysator \todo{cite} gemessen.
+Es werden bei einer Beschleunigungsspannung von $U_B = \SI{35}{\kilo\volt}$ und einem Heizstrom von $I_H = \SI{1}{\milli\ampere}$ die verschiedenen monoatomaren Referenzproben Bestrahlt. Dies findet unter einem Winkel von $\Theta = \SI{45}{\degree}$. Dabei werden die Fluoreszenzphotonen mit der PIN-Photodiode und dem Vielkanalanalysator gemessen\cite{Versuchsanleitung428}.
 
 Im Anschluss werden mit dem gleichen Messverfahren die Spektren der unbekannten Proben erfasst.
 

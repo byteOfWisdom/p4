@@ -55,7 +55,7 @@ als Energie in Abhängigkeit des Glanzwinkels $\theta$ der Reflexion aufgetragen
 Das sichtbare Energiespektrum erfüllt die Erwartungen an ein Röntgenemissionsspektrum, es ist eine Überlagerung des kontinuierlichen Bremsstrahlungsspektrum und einzelnen charakteristischen Intensitätsspitzen zu erkennen.
 Als Fehler der gemessenen Werte wurden hierbei die Hälfte des eingestellten Winkelschritts, also $\Delta \theta = \SI{0.1}{\degree}$ angenommen, sowie die Abschätzung des Fehlers der Intensitätszählung des Geiger-Müller-Zählrohr als $10\%$ des jeweiligen Messwerts aufgrund der endlichen Zählrohr-Eintrittsbreite (auch bei Verschmälerung durch den Kollimator mit ebenfalls endlicher Breite) sowie der endlichen Totzeit des Zählrohrs und endlicher Strahldivergenz gemacht. Diese Fehler wurden mithilfe Gaußscher Fehlerfortpflanzung\cite[8-9]{gerthsen} durch die Umrechnung weiterfortgepflanzt, wie auch bei allen anderen weiteren Berechnungen in diesem Protokoll.
 
-Aufgrund der endlichen Breite der charakteristischen Linien wegen \todo{Gründe für verbreiterung} kann ihre Energie nicht direkt abgelesen werden. Die mittlere Energie der charakteristischen Linien, die jeweils einem Energieübergang im Anodenmaterial entsprechen, kann aus der Standardabweichung $\mu$ einer Gaußfunktionsanpassung jeder Linie abgelesen werden. Dazu wird eine Anpassung an das Energie-Intensitätsspektrum durchgeführt.
+Aufgrund der endlichen Breite der charakteristischen Linien wegen \todo{Gründe für verbreiterung} einer endlichen Strahldivergenz durch die Zählrohreintrittsbreite, eine Strahlaufweiterung auf dem Weg zwischen Kristall und Zählrohr sowie auf dem Weg zwischen Eingangskollimator (mit ebenfalls endlicher Breite) und Kristall, kann ihre Energie nicht direkt abgelesen werden. Die mittlere Energie der charakteristischen Linien, die jeweils einem Energieübergang im Anodenmaterial entsprechen, kann aus der Standardabweichung $\mu$ einer Gaußfunktionsanpassung jeder Linie abgelesen werden. Dazu wird eine Anpassung an das Energie-Intensitätsspektrum durchgeführt.
 
 In Abbildung \ref{fig:bragg_fitting_data} ist das Energiespektrum der Anode mit einer Anpassungsfunktion der Form
 
@@ -133,7 +133,7 @@ Es soll nun die Feinstruktur des charakteristischen Spektrums von Molybdän unte
 \jafps{mo_feinstruktur_ld_1}{Aufspaltung der L-Schale von Molybdän und erlaute Übergänge in die K-Schale. Abbildung entnommen aus \cite[1]{LDfeinstruktur}.}{0.4}
 
 
-Da die Energieverschiebung innerhalb der L-Schale aufgrund des Zeeman-Effekts nur gering ist, wird zur Beobachtung der Aufspaltung einerseits eine lange Messzeit pro Winkelschritt (es wird bei der Intensitätsangabe die Zahl der vom Geiger-Mülle-Zählrohr gemessenen Ereignisse über die Zeit pro Messschritt, als pro Winkelschritt, gemittelt) und kleine Winkelschritte genutzt, andererseits die vergrößerte Energieauflösung bei höheren Ordnungen. Um zwei Linien als getrennt auflösen zu können, müssen ihre addierten HWHM-Breiten (half width half maxima, halbe Breite der halben Höhe) kleiner sein als der minimal auflösbare Energieabstand. Es wird hier genutzt, dass nach der Bragg-Bedingung (Gl. \ref{eq:braggbedingung}) gilt:
+Da die Energieverschiebung innerhalb der L-Schale aufgrund des Zeeman-Effekts nur gering ist, wird zur Beobachtung der Aufspaltung einerseits eine lange Messzeit pro Winkelschritt (es wird bei der Intensitätsangabe die Zahl der vom Geiger-Mülle-Zählrohr gemessenen Ereignisse über die Zeit pro Messschritt, als pro Winkelschritt, gemittelt) und kleine Winkelschritte genutzt, andererseits die vergrößerte Energieauflösung bei höheren Ordnungen. Um zwei Linien als getrennt auflösen zu können, müssen ihre addierten FWHM-Breiten (Full width half maxima, volle Breite auf der halben Höhe) kleiner sein als der minimal auflösbare Energieabstand. Es wird hier genutzt, dass nach der Bragg-Bedingung (Gl. \ref{eq:braggbedingung}) gilt:
 \[ \frac{dE}{d\theta} \propto m\cdot \cos{(\theta)}
 \]
 Die Winkelauflösung bleibt über den gesamten Bereich konstant, aber bei höheren Ordnungen $m$ wird so die Energieauflösung größer \cite{LDfeinstruktur}. Es wird die $K_\alpha$-Aufspaltung in das Feinstrukturdublett aus $K_{\alpha_1}$ und $K_{\alpha_2}$ in der vierten Beugungsordnung ($m=4$) untersucht, die in dieser Ordnung mit dem Winkelschritt $\Delta \theta = \SI{0,01}{\degree}$ auflösbar sein sollte \cite[2]{Versuchsanleitung428}.
@@ -156,7 +156,7 @@ I(E) = A_1\cdot \exp{-\frac{1}{2}(\frac{E-\mu_1}{\sigma_1})^2} + A_2\cdot \exp{-
 \]
 
 Die Anpassung wird wie oben mit \texttt{scipy.optimize.curve\_fit} durchgeführt, auch hier werden sowohl das reduzierte
-$\chi^2$ als auch das Anpassungsmaß $R^2$ bestimmt, letzteres da es sich eigentlich nicht um eine Distribution handelt sondern um ein Modell aus einer Linearkombination zweier Gaußfunkionen mit konstantem Anteil. Die Anpassung ist in Abbildung \ref{fig:langzeit} dargestellt. Die bestimmten Werte für die Anpassungsparameter sind in Tabelle \todo{tabelle} aufgeführt. Für den konstanten Versatz ergibt sich ein Wert von $b=\num{0.542(9)}~\text{1/s}$.
+$\chi^2$ als auch das Anpassungsmaß $R^2$ bestimmt, letzteres da es sich eigentlich nicht um eine Distribution handelt sondern um ein Modell aus einer Linearkombination zweier Gaußfunkionen mit konstantem Anteil. Die Anpassung ist in Abbildung \ref{fig:langzeit} dargestellt. Die bestimmten Werte für die Anpassungsparameter sind in Tabelle \ref{tab:mo_params} aufgeführt. Für den konstanten Versatz ergibt sich ein Wert von $b=\num{0.542(9)}~\text{1/s}$.
 
 \begin{table}[H]
 	\centering
@@ -185,7 +185,7 @@ Es soll nun noch der Wellenlängenabstand innerhalb des beobachteten Dubletts be
     $K_{\alpha_2}$ & $\num{172796(11)}$ & $\num{0.07175(5)}$ & $\num{17374.3}$ & $\num{0.071361}$ \\
     \hline
 	\end{tabular}
-	\caption{Experimentell bestimmte Energien und Wellenlängen des $K_\alpha$-Dubletts und zugehörige Literaturwerte (entnommen aus \cite{xraydatabooklet}.}
+	\caption{Experimentell bestimmte Energien und Wellenlängen des $K_\alpha$-Dubletts und zugehörige Literaturwerte (diese wurden entnommen aus \cite{xraydatabooklet}).}
 	\label{tab:mo_wavelengths}
 \end{table}
 
@@ -196,7 +196,7 @@ Es soll nun noch der Wellenlängenabstand innerhalb des beobachteten Dubletts be
     $\num{101.9(1.4)}$ &  $\num{105.040000}$ & $\num{0.000421(6)}$ & $\num{0.000429}$ \\
     \hline
 	\end{tabular}
-	\caption{Experimentell bestimmte Energien und Wellenlängendifferenzen des $K_\alpha$-Dubletts und zugehörige Literaturwerte (entnommen aus \cite{xraydatabooklet}.}
+	\caption{Experimentell bestimmte Energien und Wellenlängendifferenzen des $K_\alpha$-Dubletts und zugehörige Literaturwerte (diese wurden entnommen aus \cite{xraydatabooklet}).}
 	\label{tab:mo_diffs}
 \end{table}
 
