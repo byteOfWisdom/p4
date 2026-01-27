@@ -1,4 +1,35 @@
 \chapter{Zerstörungsfreie Analyse chemischer Zusammensetzungen}
 
+Röntgenfluoreszenzspektroskopie werden die charakteristischen Röngenlinien von Atomen in einer Probe genutzt um die Zusammensetzung der Probe zu bestimmen. Atome in einer Probe mit Röntgenphotonen ionisiert, beim 
+
 \section{Durchführung}
-nein!
+Es werden bei einer Beschleunigungsspannung von $U_B = \SI{35}{\kilo\volt}$ und einem Heizstrom von $I_H = \SI{1}{\milli\ampere}$ die verschiedenen monoatomaren Referenzproben Bestrahlt. Dies findet unter einem Winkel von $\Theta = \SI{45}{\degree}$. Dabei werden die Fluoreszenzphotonen mit einer PIN photodiode\todo{cite} und einem Vielkanalanalysator \todo{cite} gemessen.
+
+Im Anschluss werden mit dem gleichen Messverfahren die Spektren der unbekannten Proben erfasst.
+
+\section{Auswertung}
+\subsection{Energiekalibration}
+Zur Energiekalibration wird an das Spektrum der Fe-Zn Probe eine Summe aus Gaußkurven angepasst. Aus dieser Anpassung werden die $K_\alpha$ und $K_\beta$ Linien von Eisen und Zink identifiziert und zugeordnet. Im Anschluss wird an die so bestimmten Punkte aus Bin und Energie der Linie eine Grade angepasst. Hierbei wird ein einfaches Verfahren der geringsten Quadrate verwendet. Es sind sechs Spitzen im Spektrum zu erkennen, an welche jeweils Gaußkurven angepasst werden. Die relevanten Linien werden den vier Spitzen mit den Größten Amplituden zugeordnet, in Reihenfolge aufsteigender Energie. Man findet dann die in Tabelle \ref{tab:energy_cal} aufgelisteten Werte und Zuordnungen.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|} \hline
+		\input{energy_cal.table}
+	\end{tabular}
+	\caption{Parameter mit Zugeordneten Linien}
+	\label{tab:energy_cal}
+\end{table}
+
+\jafps{energy_cal}{Gradenanpassung zur Energiekalibration an die $K_\alpha$ und $K_\beta$ Linien von Eisen und Zink.}{0.75}
+
+Die an diese Punkte angepasste Grade hat die Form $f(x) = a x + b$ und es ergeben sich die Parameter $a = \SI{1}{\electronvolt}$ und $b = \SI{1}{\electronvolt}$, zu sehen in Abbildung \ref{fig:energy_cal}.
+
+Die so gewonnene Energiekalibration wird für alle weiteren Messungen mit der PIN-Photodiode genutzt.
+
+
+\subsection{Enthaltene Elemente}
+An die erfassten Referenzspektren werden Summen von Gaußfunktionen angepasst, mit einer Gaußkurve pro erkennbarer Spektrallinie. Hierbei wird ein Verfahren der kleinsten Quadrate verwendet \todo{cite}.
+
+So werden die charakteristischen Röntgenlinien der Elemente bestimmt. Die Parameter der bestimmten Linien sind in Tabelle \todo{table} angehangen.
+
+Im anschluss werden solche Funktionen auch an die Spektren der unbekannten Proben angepasst und diese dann als Linearkombination der Referenzspektren dargestellt.
