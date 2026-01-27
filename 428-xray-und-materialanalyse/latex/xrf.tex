@@ -15,20 +15,21 @@ Mit einem nachgeschaltetem Vielkanalanalysator wird die Höhe des Spannungspulse
 
 
 \section{Durchführung}
-Es werden bei einer Beschleunigungsspannung von $U_B = \SI{35}{\kilo\volt}$ und einem Heizstrom von $I_H = \SI{1}{\milli\ampere}$ die verschiedenen monoatomaren Referenzproben Bestrahlt. Dies findet unter einem Winkel von $\Theta = \SI{45}{\degree}$. Dabei werden die Fluoreszenzphotonen mit der PIN-Photodiode und dem Vielkanalanalysator gemessen\cite{Versuchsanleitung428}.
+Es werden bei einer Beschleunigungsspannung von $U_B = \SI{35}{\kilo\volt}$ und einem Heizstrom von $I_H = \SI{1}{\milli\ampere}$ die verschiedenen monoatomaren Referenzproben bestrahlt. Dies findet unter dem festen Winkel von $\Theta = \SI{45}{\degree}$ statt. Es werden die Fluoreszenzphotonen, die von der Probe emittiert werden, mit der PIN-Photodiode und dem Vielkanalanalysator gemessen\cite{Versuchsanleitung428}.
 
-Im Anschluss werden mit dem gleichen Messverfahren die Spektren der unbekannten Proben erfasst.
+Im Anschluss werden mit dem gleichen Messverfahren die Spektren der unbekannten Proben erfasst, in welchen dann die einige der bekannten Linien der untersuchten Referenzmaterialien wiederzufinden sind. So kann auf die Zusammensetzung der unbekannten Proben geschlossen werden.
 
 \section{Auswertung}
 \subsection{Energiekalibration}
-Zur Energiekalibration wird an das Spektrum der Fe-Zn Probe eine Summe aus Gaußkurven angepasst. Aus dieser Anpassung werden die $K_\alpha$ und $K_\beta$ Linien von Eisen und Zink identifiziert und zugeordnet. Im Anschluss wird an die so bestimmten Punkte aus Bin und Energie der Linie eine Grade angepasst. Hierbei wird ein einfaches Verfahren der geringsten Quadrate verwendet. Es sind sechs Spitzen im Spektrum zu erkennen, an welche jeweils Gaußkurven angepasst werden. Die relevanten Linien werden den vier Spitzen mit den Größten Amplituden zugeordnet, in Reihenfolge aufsteigender Energie. Man findet dann die in Tabelle \ref{tab:energy_cal} aufgelisteten Werte und Zuordnungen.
+Zur Energiekalibration wird an das Spektrum der Fe-Zn Probe eine Summe aus Gaußkurven angepasst. Aus dieser Anpassung werden die $K_\alpha$ und $K_\beta$ Linien von Eisen und Zink identifiziert und zugeordnet. Im Anschluss wird an die so bestimmten Punkte aus Bin und Energie der Linie eine Grade angepasst. Hierbei wird ein einfaches Verfahren der geringsten Quadrate verwendet. Es sind sechs Spitzen im Spektrum zu erkennen, an welche jeweils Gaußkurven angepasst werden. Die Fehler der Intensitätsmesswerte werden als $10\%$ des jeweiligen Messwerts (abgeschätzte Größe zur Kompensation der Fluktuation der Messung bzw. des Rauschens des Signals aus Bereichen fast konstanten Signals) angenommen, die Zuordnung zu den Energie-bins wird als fehlerfrei angenommen (dies ist eine sinnvolle Annahme, da die Größe der Bins aufgrund der überschaubaren Menge an Kanälen von 512 groß genug ist, dass eine fehlerhafte Zuordnung sehr unwahrscheinlich und wenn überhaupt annähernd statistisch verteilt ist, sich also über alle Bins gleich verteilt und die relative Intensität nicht beeinflusst). Die Fehler werden wie bereits vorher über die gesamte Auswertung mit Gaußscher Fehlerfortpflanzung behandelt.
+Die relevanten Linien werden den vier Spitzen mit den Größten Amplituden zugeordnet, in Reihenfolge aufsteigender Energie. Man findet dann die in Tabelle \ref{tab:energy_cal} aufgelisteten Werte und Zuordnungen.
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|c|c|c|} \hline
 		\input{energy_cal.table}
 	\end{tabular}
-	\caption{Parameter mit zugeordneten Linien}
+	\caption{Parameter mit zugeordneten Linien für die FeZn-Probe.}
 	\label{tab:energy_cal}
 \end{table}
 
@@ -37,14 +38,14 @@ Zur Energiekalibration wird an das Spektrum der Fe-Zn Probe eine Summe aus Gauß
 	\begin{tabular}{|c|c|c|c|} \hline
 		\input{energy_cal_better.table}
 	\end{tabular}
-	\caption{Parameter mit Zugeordneten Linien am kombinierten Spektrum der Fe und Zn Proben}
+	\caption{Parameter mit zugeordneten Linien am kombinierten Spektrum der Fe- und Zn-Proben}
 	\label{tab:energy_cal_better}
 \end{table}
 
 \jafpp{energy_cal}{Gradenanpassung zur Energiekalibration an die $K_\alpha$ und $K_\beta$ Linien von Eisen und Zink, gewonnen aus der Mischprobe}{energy_cal_better}{aus den einzelnen Messungen der beiden Elemente.}
 
-\jafps{ref_fezn}{Spektrum der Gemischten Fe-Zn Probe}{0.5}
-\jafpp{ref_fe}{Spektrum der Fe}{ref_zn}{Zn Probe}
+\jafps{ref_fezn}{Energiebin-Intensitäts-Spektrum der Gemischten Fe-Zn Probe}{0.5}
+\jafpp{ref_fe}{Energiebin-Intensitäts-Spektrum der Fe}{ref_zn}{Zn Probe}
 
 Die Anpassungen der Gaußkurven an die Spektren sind angehangen, siehe Abbildung \ref{fig:ref_fezn} bis \ref{fig:ref_zn}.
 
@@ -52,25 +53,25 @@ Da die Anpassungsgüte bei der kombinierten Fe-Zn Probe mit $R^2 = 0.35$ sehr sc
 
 Die an diese Punkte angepasste Grade hat die Form $f(x) = a x + b$ und es ergeben sich die Parameter $a = \SI{0.083(12)}{\electronvolt}$ und $b = \SI{-3(1)}{\electronvolt}$, zu sehen in Abbildung \ref{fig:energy_cal}.
 
-Die so gewonnene Energiekalibration wird für alle weiteren Messungen mit der PIN-Photodiode genutzt.
+Die so gewonnene Energiekalibration wird für alle weiteren Messungen mit der PIN-Photodiode genutzt, um aus den Bins die zugehörige Energie zu bestimmen.
 
 
 \subsection{Enthaltene Elemente}
-An die erfassten Referenzspektren werden Summen von Gaußfunktionen angepasst, mit einer Gaußkurve pro erkennbarer Spektrallinie. Hierbei wird ein Verfahren der kleinsten Quadrate verwendet \todo{cite}.
+An die erfassten Referenzspektren werden Summen von Gaußfunktionen angepasst, mit einer Gaußkurve pro erkennbarer Spektrallinie. Hierbei wird das Verfahren der kleinsten Quadrate über die python-Funktion \texttt{scipy.optimize.curve_fit} verwendet.
 
-So werden die charakteristischen Röntgenlinien der Elemente bestimmt, wobei stets die zwei Linien mit den größten Amplituden als die $K_\alpha$ und $K_\beta$ Linien des jeweiligen Elementes angenommen werden. Die Parameter der bestimmten Linien sind in Tabelle \ref{tab:xrf_lines} angehangen.
+Aus den Schwerpunkten der  werden die charakteristischen Röntgenlinien der Elemente bestimmt, wobei stets die zwei Linien mit den größten Amplituden als die $K_\alpha$ und $K_\beta$ Linien des jeweiligen Elementes angenommen werden \footnote{Die Energiebereiche dieser Emissionslinien können alle mit der gewählten Beschleunigungsspannung erreicht werden \cite{NISTxray}.}. Die Parameter der bestimmten Linien sind in Tabelle \ref{tab:xrf_lines} angehangen.
 
-Die Anpassungen von Gaußfunktionen an alle Referenzproben ist Angehangen, siehe Abbildung \ref{fig:ref_ag} bis \ref{fig:ref:zr}.
+Die Anpassungen von Gaußfunktionen an alle Referenzproben ist Angehangen, siehe Abbildung \ref{fig:ref_ag} bis \ref{fig:ref_zr}.
 
-An die Aufgenommenen Spektren der unbekannten Proben werden Ebenfalls pro erkennbarem Peak Gaußkurven Angepasst, zu erkenn in den Abbildungen \ref{fig:ref_unknown1}, \ref{fig:ref_unknown2} und \ref{fig:ref_unknown3}.
-Hierbei kann nicht beurteilt werden, wie viele der gefundenen Linien zu tatsächlichen charakteristischen Übergängen gehören, da die Anzahl der Bestandteile Unbekannt ist.
+An die aufgenommenen Spektren der unbekannten Proben werden ebenfalls pro erkennbarer Spitze Gaußkurven angepasst, dargestellt in den Abbildungen \ref{fig:ref_unknown1}, \ref{fig:ref_unknown2} und \ref{fig:ref_unknown3}.
+Hierbei kann nicht a priori beurteilt werden, wie viele der gefundenen Linien von tatsächlichen charakteristischen Übergängen vorhanden sind, da die Anzahl der Bestandteile unbekannt ist. Auch eine Überlagerung von nahe gelegenen Linien verschiedener Bestandteile kann zu Verfälschung der Bestimmung führen, da nicht immer klar festgelegt werden kann, welche Linien tatsächlich vorhanden sind.
 
-\jafpp{ref_unknown1}{Messung und Anpassung von Gausskurven für Probe 1}{ref_unknown2}{Probe 2}
-\jafps{ref_unknown3}{Messung und Anpassung von Gausskurven für Probe 3}{0.5}
+\jafpp{ref_unknown1}{Messdaten und Anpassungsfunktion aus Linearkombination von Gausskurven für die unbekannte Probe 1}{ref_unknown2}{Probe 2}
+\jafps{ref_unknown3}{Messdaten und Anpassungsfunktion aus Gausskurven für die unbekannte Probe 3}{0.5}
 
-Im anschluss werden solche Funktionen auch an die Spektren der unbekannten Proben angepasst und diese dann als Linearkombination der Angepassten Gaußkurven der $K_\alpha$ und $K_\beta$ Linien der Referenzproben dargestellt.
+Im anschluss werden solche Funktionen auch an die Spektren der unbekannten Proben angepasst und diese dann als Linearkombination der angepassten Gaußkurven der $K_\alpha$ und $K_\beta$ Linien der Referenzproben dargestellt. So kann über die Amplituden der Linearkombinations-Elemente, die nicht null sind, bestimmt werden, welche Elemente mit ihren charakteristischen Linien in den unbekannten Proben vorhanden sind.
 
-Man erhält somit die Funktion, mit den Anpassungsparametern $k_i$, wobei $i \in \{\text{Elemente der Referenzproben}\}$ ist.
+Man erhält somit die folgende Anpassungsfunktion mit den Anpassungsparametern $k_i$, wobei $i \in \{\text{Elemente der Referenzproben}\}$ ist.
 
 \begin{align}
 	f(x) &= \Sigma_i \, k_i \cdot g_i(x) \\
@@ -78,10 +79,19 @@ Man erhält somit die Funktion, mit den Anpassungsparametern $k_i$, wobei $i \in
 	+ A_{\beta, i} e^{(x - \mu_{\beta, i})^2 / \sigma_{\beta, i}^2}
 \end{align}
 
-Diese wird an $g_\text{unbekannt}(x)$ angepasst um die Zusammensetzung zu bestimmen. Hierzu wird wieder ein Verfahren der geringsten Quadrate genutzt. Die Anpassungsparameter $k_i$ sind dann direkt die Relativen Höhen der Peaks $\frac{H}{H_0}$. Diese werden zusammen mit der Näherungsformel \todo{formel massenanteile mit citation}
+Diese wird an die jeweilige Intensitätsverteilung $g_\text{unbekannt}(x)$ angepasst um die Zusammensetzung der unbekannten Proben nacheinander zu bestimmen. Hierzu wird wieder ein Verfahren der geringsten Quadrate genutzt. Die Anpassungsparameter $k_i$ sind dann direkt die relativen Höhen der Spitzen im Spektrum: $\frac{H}{H_0}$. Aus ihnen ergeben sich in erster Näherung die Massenanteile $C_i$ der einzelnen Elemente $i$ in den Proben mit den Dichten $\rho_i$ als \cite[7-8]{Versuchsanleitung428}:
+\begin{align} \label{eq:massenanteile}
+	C_i = \frac{\rho_i}\frac{H_i}{H_{0,i}}{\sum_i \rho_i}\frac{H_i}{H_{0,i}}
+\end{align}
+
+Die zu den Anpassungsparametern mit den Dichten aus \cite{dichten} so bestimmten Massenanteile sind in den folgenden Tabellen für die drei Proben aufgeführt:
 
 \input{comp_res.table}
 
+Aus den Ergebnissen lässt sich ablesen, dass die drei Proben aus drei verschiedenen Metalllegierungen bestehen. Die erste Probe \todo{was sind das jeweils?}
+
 \todo{zusammenfassung ergebnisse}
 
-\todo{fehlerdiskussion und fazit}
+Die so erfolgte Materialanalyse erscheint auf den ersten Blick sehr erfolgreich. Alle drei Zusammensetzungen der unbekannten Proben entsprechen sinnvollen, aus dem Alltag bekannten Legierungen \todo{fact check this}. Ein Vergleich mit Literaturwerten ist jedoch nicht möglich, da die Proben nicht beschriftet waren.
+
+Insgesamt kann es bei dieser Messmethode zu Fehlern kommen, da es zu sekundärer Fluoreszenz kommen kann. Dabei wird durch ein energiereiches Röntgenfluoreszenzphoton bei einem nahen Atom im Material von (ggf. einer anderen Atomsorte) ein zweiter Übergang angeregt, durch den dann insgesamt ein Röntgenphoton eines geringer energetischen Übergangs vom Material emittiert und gemessen wird. Mit der Detektionsmethode des Röntgenenergiedetektors gibt es keine Möglichkeit, das erste Röntgenphoton zu detektieren, stattdessen sieht es so aus, als ob ein höherer Anteil des zweiten Materials in der Probe vorhanden sei. Bei den untersuchten Proben könnte solche sekundäre Fluoreszenz bei den Zn-$K_\beta$ und der Cu-$K_\alpha$-Linien ($K_{\alpha, Cu}< K_{\beta,Zn}$, \cite{LDfluoreszenz}, \cite{NISTxray}) aufgetreten sein, sodass die Massenverhältnisse einen höheren Kupfer-Anteil anzeigen, als tatsächlich vorhanden ist (siehe hierzu auch \cite{LDfluoreszenz}). Eine weitere Fehlerquelle folgt daraus, dass Teile der einfallenden Röntgenstrahlung bis in das Gehäuse der Photodiode eindringt, wo ebenfalls Atome Röntgenfluoreszenz produzieren können. Diese Strahlung wird von der PiN-Photodiode ebenfalls registriert und sorgt dafür, dass neben den Linien des eigentlich zu vermessenden Spektrum der Probe auch charakteristische Linien der Bestandteile des Diodengehäuse-Materials in der Messung enthalten sein können.
