@@ -7,6 +7,7 @@ import std
 from glob import glob
 import iminuit
 from iminuit import cost
+import propeller as p
 
 
 save_flag = argv[2] == "save" if len(argv) > 2 else False
@@ -22,18 +23,25 @@ peak_guesses = {
     "ni": [97, 108, 113],
     "zr": [116, 152, 205, 231, 235],
     "cu": [105, 117, 121],
-    "fezn": [62, 83, 93, 98, 112, 126],
+    "fezn": [83, 93, 98, 112],
     "sn": [50, 92, 104, 323],
+    # "sn": [50, 104, 323],
     "ag": [42, 105, 124, 286, 323],
     "zn": [92, 112, 126, 130],
     "in": [47, 54, 83, 105, 117, 311, 347],
     "unknown1": [70, 83, 89, 104],
     # "unknown2": [90, 105, 111, 118, 121],
     "unknown2": [105, 111, 118, 121],
-    "unknown3": [105, 111]
-    # "unknown3": [105, 111, 119]
+    # "unknown3": [105, 111]
+    "unknown3": [105, 111, 119]
 }
 
+refrence_fit_params = {
+    "Element": [],
+    "a" : np.array([]),
+    "$\\mu$": np.array([]),
+    "$\\sigma$": np.array([])
+}
 
 # density over atomic mass
 # densities = {
@@ -93,16 +101,29 @@ def fit_peaks(bin, count, name):
         p0.append(5)
     res, (errors, goodness) = std.fit_func(func, bin, count, y_errors=5, p0=p0, force_cf=True)
     if save_flag:
-        plt.title(name)
+        # plt.title(name)
         std.default.plt_pretty("bin", "countrate")
         plt.scatter(bin, count, marker="x")
         xrange = np.linspace(min(bin), max(bin), 10000)
-        plt.plot(xrange, func(xrange, *res), color="green")
+        plt.plot(xrange, func(xrange, *res), color="green", label=f"$R^2={round(goodness, 3)}$")
         # plt.show()
+        plt.xlim(0, 256)
+        plt.legend()
         plt.savefig(f"../figs/ref_{name}.pdf")
         plt.cla()
 
-    return name, lambda x: func(x, *res), res
+    fit_res = p.ev(res, errors)
+
+    amps = fit_res[0::3]
+    mus = fit_res[1::3]
+    sigmas = fit_res[2::3]
+    global refrence_fit_params
+    refrence_fit_params["Element"] += [name] * len(sigmas)
+    refrence_fit_params["a"] = np.append(refrence_fit_params["a"], amps)
+    refrence_fit_params['$\\mu$'] = np.append(refrence_fit_params["$\\mu$"], mus)
+    refrence_fit_params['$\\sigma$'] = np.append(refrence_fit_params['$\\sigma$'], sigmas)
+
+    return name, lambda x: func(x, *res), fit_res
 
 
 def make_comp_func(elements):
@@ -126,10 +147,22 @@ def energy_calibration(name, bin, count, refrence_lines):
     _, _, params = fit_peaks(bin, count, name)
     peaks = params[1::3]
     amps = params[0::3]
-    params, _ = std.fit_func(lambda x, a, b: a * x + b, peaks[np.flip(np.argsort(amps))[:len(refrence_lines)]], refrence_lines,force_cf=True)
-    # plt.scatter(peaks[np.flip(np.argsort(amps))[:len(refrence_lines)]], refrence_lines)
-    # plt.plot(peaks[np.flip(np.argsort(amps))[:len(refrence_lines)]], (lambda x, a, b: a * x + b)(peaks[np.flip(np.argsort(amps))[:len(refrence_lines)]], *params))
-    # plt.show()
+    sigmas = params[2::3]
+    # to_use = amps >= np.flip(np.sort(np.abs(~amps)))[len(refrence_lines)]
+    params, _ = std.fit_func(lambda x, a, b: a * x + b, ~peaks, refrence_lines, force_cf=True)
+    if save_flag:
+        std.util.print_tex_table({
+                                     "A / $s^{-1}$": amps,
+                                     "$\\mu$": peaks,
+                                     "$\\sigma$": sigmas,
+                                     "Linie": np.zeros(6)
+                                 }, "../latex/energy_cal.table")
+        std.default.plt_pretty("Bin", "Zählrate / $s^{-1}$")
+        plt.scatter(peaks[np.flip(np.argsort(amps))[:len(refrence_lines)]], refrence_lines)
+        plt.plot(peaks[np.flip(np.argsort(amps))[:len(refrence_lines)]], (lambda x, a, b: a * x + b)(peaks[np.flip(np.argsort(amps))[:len(refrence_lines)]], *params))
+        # plt.show()
+        plt.savefig("../figs/energy_cal.pdf")
+        plt.cla()
     return lambda x: (lambda x, a, b: a * x + b)(x, *params)
 
 
@@ -180,14 +213,16 @@ def main():
 
     print("running energy calibration")
     _, bin, count = load_file(next(filter(lambda x: "fezn" in x, files)))
-    fezn_lines = [6.403484, 7.05798, 8.63886, 9.572] # Kalpha, Kbeta for fe then zn in kev
+    # fezn_lines = [6.403484, 7.05798, 8.63886, 9.572] # Kalpha, Kbeta for fe then zn in kev
+    fezn_lines = [6.403484, 7.05798, 9.572, 8.63886] # Kalpha, Kbeta for fe then zn in kev
     global energy_scale
+    global refrence_fit_params
     energy_scale = energy_calibration("fezn", bin, count, fezn_lines)
 
     print("fitting refrence spectra")
     known_elements = {}
     for elem, bin, count in map(load_file, elements):
-        name, spectrum, _ = fit_peaks(bin, count, elem)
+        name, spectrum, fit_res = fit_peaks(bin, count, elem)
         known_elements[name] = spectrum
 
     # need chromium for sample 2
@@ -200,6 +235,9 @@ def main():
     for data in map(load_file, unknowns):
         print(f"running for {data[0]}")
         calculate_composition(*data, comp_func, known_elements)
+
+    if save_flag:
+        std.util.print_tex_table(refrence_fit_params, "../latex/xrf_fit.table")
 
 
 if __name__ == "__main__":
