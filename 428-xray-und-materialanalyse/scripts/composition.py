@@ -261,7 +261,7 @@ def main():
         calculate_composition(*data, comp_func, known_elements)
 
     if save_flag:
-        refrence_fit_params["$\\mu / keV$"] = energy_scale(refrence_fit_params['$\\mu$'])
+        refrence_fit_params["$\\mu / keV$"] = p.ev(*energy_scale(refrence_fit_params['$\\mu$']))
         std.util.print_tex_table(refrence_fit_params, "../latex/xrf_fit.table")
 
 

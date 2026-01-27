@@ -5,6 +5,7 @@ from matplotlib import image
 import numpy as np
 from sys import argv
 import std
+import propeller as p
 
 
 def is_pink(rgb):
@@ -47,7 +48,7 @@ def possible_lattice_vectors(limit):
     positive_evens = np.array([0, 2])
     odds = np.append(np.arange(1, limit + 2, 2), -1 * np.arange(1, limit + 2, 2))
     # positive_odds = np.arange(1, limit + 2, 2)
-    positive_odds = np.array([1])
+    positive_odds = np.array([1, 3])
     h, j, k = np.meshgrid(evens, evens, positive_evens)
     even_tuples = [np.ravel(h), np.ravel(j), np.ravel(k)]
     h, j, k = np.meshgrid(odds, odds, positive_odds)
@@ -101,9 +102,8 @@ def distance(miller_vec):
     return d
 
 
-def wavelength(miller_vec, d):
-    return d / np.sqrt(np.sum(miller_vec ** 2))
-
+def wavelength(theta, d):
+    return 2 * np.sin(theta) * d
 
 def main():
     im_data = np.array(image.imread(argv[1]))
@@ -115,6 +115,7 @@ def main():
     miller_indices = assign_miller_indices(points)
     distances = distance(miller_indices)
     angles = angle(miller_indices)
+    wavelengths = wavelength(angles, distances)
     print("d are:")
     print(distances)
 
@@ -122,7 +123,34 @@ def main():
     print(np.rad2deg(angles))
     print(angles)
 
+    print("wavelengths are:")
+    print(wavelengths * 1e9)
+
     print(miller_indices)
+
+    tmi = np.transpose(miller_indices)
+    h, k, l = tmi[0], tmi[1], tmi[2]
+
+    indices = np.arange(len(h))
+
+    point_and_index_table = {
+        "Punkt Nr.": indices,
+        "x / mm": p.ev(1e3 * np.transpose(points)[0], 2),
+        "y / mm": p.ev(1e3 * np.transpose(points)[1], 2),
+        "h": h,
+        "k": k,
+        "l": l
+    }
+
+    physical_things_table = {
+        "Punkt Nr.": indices,
+        "d / pm": distances * 1e12,
+        "$\\theta$ / rad": angles,
+        "$\\lambda$ / pm": wavelengths * 1e12
+    }
+
+    std.util.print_tex_table(point_and_index_table, "../latex/miller_indices.table")
+    std.util.print_tex_table(physical_things_table, "../latex/miller_measurements.table")
 
     std.default.plt_pretty("x / mm", "y / mm")
     plt.gca().set_aspect('equal')
