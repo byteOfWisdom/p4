@@ -61,7 +61,7 @@ def assign_miller_indices(points):
 
     points_3d = np.array([[points[i][0], points[i][1], zq[i]] for i in range(len(points))])
 
-    candidates = possible_lattice_vectors(10)
+    candidates = possible_lattice_vectors(6)
     lens = np.sum(candidates ** 2, -1) ** -0.5
     norm_candidates = np.array([lens[i] * candidates[i] for i in range(len(candidates))])
     lens_p = np.sum(points_3d ** 2, -1) ** -0.5
