@@ -249,7 +249,7 @@ def main():
 
     # need chromium for sample 2
     chromium = lambda x: known_elements["fe"](x + 12)
-    known_elements["cr"] = chromium
+    # known_elements["cr"] = chromium
 
     del known_elements["w"]
 

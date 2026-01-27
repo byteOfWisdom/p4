@@ -48,6 +48,14 @@ An die erfassten Referenzspektren werden Summen von Gaußfunktionen angepasst, m
 
 So werden die charakteristischen Röntgenlinien der Elemente bestimmt, wobei stets die zwei Linien mit den größten Amplituden als die $K_\alpha$ und $K_\beta$ Linien des jeweiligen Elementes angenommen werden. Die Parameter der bestimmten Linien sind in Tabelle \ref{tab:xrf_lines} angehangen.
 
+Die Anpassungen von Gaußfunktionen an alle Referenzproben ist Angehangen, siehe Abbildung \ref{fig:ref_ag} bis \ref{fig:ref:zr}.
+
+An die Aufgenommenen Spektren der unbekannten Proben werden Ebenfalls pro erkennbarem Peak Gaußkurven Angepasst, zu erkenn in den Abbildungen \ref{fig:ref_unknown1}, \ref{fig:ref_unknown2} und \ref{fig:ref_unknown3}.
+Hierbei kann nicht beurteilt werden, wie viele der gefundenen Linien zu tatsächlichen charakteristischen Übergängen gehören, da die Anzahl der Bestandteile Unbekannt ist.
+
+\jafpp{ref_unknown1}{Messung und Anpassung von Gausskurven für Probe 1}{ref_unknown2}{Probe 2}
+\jafps{ref_unknown3}{Messung und Anpassung von Gausskurven für Probe 3}{0.5}
+
 Im anschluss werden solche Funktionen auch an die Spektren der unbekannten Proben angepasst und diese dann als Linearkombination der Angepassten Gaußkurven der $K_\alpha$ und $K_\beta$ Linien der Referenzproben dargestellt.
 
 Man erhält somit die Funktion, mit den Anpassungsparametern $k_i$, wobei $i \in \{\text{Elemente der Referenzproben}\}$ ist.
@@ -58,18 +66,10 @@ Man erhält somit die Funktion, mit den Anpassungsparametern $k_i$, wobei $i \in
 	+ A_{\beta, i} e^{(x - \mu_{\beta, i})^2 / \sigma_{\beta, i}^2}
 \end{align}
 
-Diese wird an $g_\text{unbekannt}(x)$ angepasst um die Zusammensetzung zu bestimmen. Hierzu wird wieder ein Verfahren der geringsten Quadrate genutzt. Die Anpassungsparameter $k_i$ sind dann direkt die Relativen Höhen der Peaks $\frac{H}{H_0}$.
+Diese wird an $g_\text{unbekannt}(x)$ angepasst um die Zusammensetzung zu bestimmen. Hierzu wird wieder ein Verfahren der geringsten Quadrate genutzt. Die Anpassungsparameter $k_i$ sind dann direkt die Relativen Höhen der Peaks $\frac{H}{H_0}$. Diese werden zusammen mit der Näherungsformel \todo{formel massenanteile mit citation}
 
-Die Anpassungen für alle Unbekannten Proben sind \todo{refrence images} zu finden, die bestimmten Faktoren $k_i$ sind in Tabelle \todo{!!} zu finden.
+\input{comp_res.table}
 
+\todo{zusammenfassung ergebnisse}
 
-\begin{table}[H]
-	\centering
-	\begin{tabular}{|c|c|c|c|c|c|c|} \hline
-	 & \multicolumn{2}{c|}{Probe 1} & \multicolumn{2}{c|}{Probe 2} &  \multicolumn{2}{c|}{Probe 3}\\
-	\hline
-	Element & $k_i$ & $m_1 / \%$ & $k_i$ & $m_1 / \%$ & $k_i$ & $m_1 / \% $\\ 
-	\end{tabular}
-	\caption{Berechnete Massenanteile für die Unbekannten Proben}
-	\label{tab:mass_comp}
-\end{table}
+\todo{fehlerdiskussion und fazit}
