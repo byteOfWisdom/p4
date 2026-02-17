@@ -1,0 +1,80 @@
+\chapter{Laue-Verfahren}
+
+<<<<<<< HEAD
+\section{Laue-Bedingung}
+
+Es soll nun die Struktur der Netzebenen eines Kristalls, an denen einfallende Röntgenstrahlung reflektiert, untersucht werden. Dafür wird das Laue-Verfahren genutzt, für welches der schematische Aufbau in Abbildung \ref{fig:laue_aufbau} dargestellt wird. Hierbei gilt für alle drei Raumrichtungen die Bragg-Bedingung \ref{eq:bragg_bedingung}, jeweils mit einer anderen ganzen Zahl für die Ordnung der konstruktiven Interferenz für jede der drei Raumrichtungen, die als Index der Netzbenenschar $d_{hkl}$, an denen die Röntgenwelle reflektiert, genutzt werden.
+
+\jafps{laue_aufbau}{Schematischer Aufbau für das Laue-Verfahren, entnommen aus \cite{LDlaue}. Hier ist a) die Röntgenröhre, b) ein Kollimator zur Verkleinerung der Strahlweite, c) der Kristall an dem reflektiert wird und d) ein geeigneter Schirm, hier ein Röntgenfilm, auf dem das Beugungsmuster sichtbar wird.}{0.4}
+
+Der genutzte Kristall ist NaCl, der eine fcc-Raumstruktur aufweist.  Es ergibt sich mit dem Gittervektor ($a$ ist die Gitterkonstante) \[
+\vec{G}= \frac{1}{a} (h, k, l)^T
+\]
+die folgende Bedingung für konstruktive Interferenz \cite{LDlaue}:
+\begin{align}
+	\lambda = 2 \sin{(\theta)} \underbrace{\frac{a}{\sqrt{h^2 +k^2+l^2}}}_{=d}
+\end{align}
+Hierbei ist $d$ wie in der Bragg-Bedingung der Netzebenenabstand.
+
+Wird das Beugungsmuster für festen Winkel des Kristalls auf einem Röntgenfilm fotographisch festgehalten, kann aus den geometrischen Position der Beugungsmustermaxima (siehe Abbildung \ref{fig:laue_bild}, die die Laue-Bedingung erfüllen, relativ zum Ursprung, der in den unablenkten Strahlfleck in der Mitte des Films gelegt wird, die Netzebenenschar bestimmt werden. Es gelten die geometrischen Beziehungen (L als Abstand zwischen Kristall und Film):
+\begin{align}
+    \tan{{\theta}} = \frac{z_Q}{\sqrt{x_Q^2+y_Q^2}}
+	z_Q = \sqrt{x_Q^2 + y^2_Q + L^2}-L
+\end{align}
+Es folgt dann mit $x_Q = x_P, y_Q = y_P$:
+\begin{align}
+	h : k : l = x_Q : y_Q : z_Q
+\end{align}
+
+\jafps{laue_bild}{Entnommen aus \cite{Versuchsanleitung428}}{0.4}
+
+
+\section{Durchführung}
+
+
+Es wird nun der NaCl-Kristall auf einer Lochblende direkt vor dem Fenster zur Röntgenröhre platziert und Röntgenlicht mit einer Mo-Anode in der Röntgenröhre erzeugt. Als Parameter für das Röntgengerät werden eingestellt: $U_B=\SI{35,0}{\kilo\V}, I=\SI{1,0}{\milli\A}, \Delta \theta = \SI{0,0}{\degree}, \Delta t = \SI{1800}{\second}$. Der Kristall bewegt sich also nicht. Im Abstand von $\SI{15}{\milli\meter}$ zum Kristall wird der Röntgenfilm auf dem Filmhalter positioniert und die Beleuchtung gestartet. Die Filmmitte wurde möglichst genau in die Mitte des Strahls positioniert. Der Film wird anschließend anhand der Anleitung des Films entwickelt \cite{Versuchsanleitung428}.
+
+\section{Ergebnisse und Auswertung}
+
+
+\section{Auswertung}
+
+\jafps{../data/laue.png}{Scan der Laue Aufnahme}{0.4}
+Aus der Größe der Punkte wird eine Messungenauigkeit von $\SI{2}{\milli\meter}$ abgeschätzt, welche auch in der z-Richtung Plausibel ist.
+
+
+Für die Bedingung für die Lage der Maxima findet man die folgende is Äquivalent zu.
+\begin{align}
+	& x_Q : y_Q : z_Q = h : k : l \\
+	& \equiv |(x_Q, y_Q, z_Q)^T \times (h, k, l)^T| = 0 \label{eq:laue}
+\end{align}
+
+Die millerschen Indizes werden zugeordnet, indem alle plausiblen Vektoren $(h, k, l)^T$ erzeugt werden und pro Punkt $(x_Q, y_Q, z_Q)^T$ der Vektor $(h, k, l)^T$ gesucht wird, für welchen Gl \eqref{eq:laue} minimal wird. Diese Zurodnung ist in Tabelle \ref{tab:laue_1} zu finden und zusammen mit der Lage der Punkte in Abbildung \ref{fig:laue_messung} dargestellt.
+
+Aufgrund von Messungenauigkeiten lässt sich das genaue Verhältnis von $x_Q : y_Q : z_Q$ nie exakt treffen und es muss mit einer Restungenauigkeit gearbeitet werden. Dies hat das Potential eine Falsche zuordnung der millerschen Indizes zu den gefundenen Punkten nach sich zu ziehen, abhängig davon, wie die maximal erlaube abweichung der Verhältnisse und die maximal als plausibel angenommenen millerschen Indizes gewählt werden. Hier wurde für $|h|, |k| \le 8$ und $z \le 2$ der Millervektor mit der minimalen Abweichung gewählt, da die Messfehler so groß sind, dass jede schwelle für die erlaubte Abweichung ohne fundierte Aussage oder Begründung wäre.
+
+\jafps{laue_messung}{Laue-Messung auf dem entwickelten Röntgenfilm.}{0.75}
+
+
+Die weiteren Physikalischen größen werden aus diesen zugeordneten Indizes berechnet und sind in Tabelle \ref{tab:laue_2} aufgelistet. Die so berechneten Werte erscheinen weitesgehend plausibel, da die Wellenlänge im Röntgenbereich und kleiner als der Netzebenenabstand ist und die Winkel in einem für den Aufbau geometrisch möglichen Bereich liegen. Erwähnenswert hierbei ist Punkt 0, bei dem die gefundene Wellenlänge größer ist, als der Netzebenenabstand, was physikalisch nicht sinnvoll ist. Ansonsten erfüllen die Werte diese groben Plausibilitätsbedingungen.
+
+Zu den Unsicherheiten dieser in Tabelle \ref{tab:laue_2} berechneten größen sind konkrete Aussagen schwer, da sie sich hauptsächlich aus der Unsicherheit bei der Zuordnung der millerschen Indizes ergeben. Die beste Möglichkeit die Auswirkungen dieser Unsicherheit zu quantifizieren wäre die Nutzung eines Monte-Carlo Verfahrens um die Auswirkungen leicht anders liegender Punkte oder anders gewählter Genauigkeits- und Indexgrenzen auf das Ergebnis zu bestimmen. Der Aufwand hierfür übersteigt den an dieser Stelle Sinnvollen bei weitem, weshalb davon abgesehen wurde \todo{TODO: quelle MC}.
+
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|} \hline
+		\input{miller_indices.table}
+	\end{tabular}
+	\caption{Punkte und zugeordnete Miller Indizes}
+	\label{tab:laue_1}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|} \hline
+		\input{miller_measurements.table}
+	\end{tabular}
+	\caption{Punkte und aus Messungen berechnete Größen. Für Diskussion zu Unsicherheiten, siehe Fließtext.}
+	\label{tab:laue_2}
+\end{table}

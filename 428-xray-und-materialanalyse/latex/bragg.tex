@@ -1,0 +1,203 @@
+\chapter{Bragg-Reflexion an NaCl}
+
+
+\section{Bragg-Reflexion: Untersuchung einer unbekannten Anode} \label{sec:bragg_anode}
+
+\subsection{Bragg-Bedingung}
+
+Um das charakteristische Röntgenspektrum von Materialien zu untersuchen, kann die Bragg-Methode angewandt werden. Dabei wird Röntgenstrahlung einer Röntgenröhre mit einer Anode aus dem zu untersuchenden Material auf einen Kristall eingestrahlt. Die Teilstrahlen werden an den Atomen des Kristallgitters reflektiert und interferieren danach miteinander. Es entsteht konstruktive Interferenz, wenn der Gangunterschied zweier benachbarter Teilstrahlen genau $\delta_1 = m\lambda$ ($\lambda$ als Wellenlänge der Strahlung, $m$ als Ordnung des betrachteten Maximums) beträgt. Der Gangunterschied zwischen Teilstrahlen, die an benachbarten Netzebenen des Kristalls mit dem Abstand $d$ reflektiert werden, beträgt $\delta_2=2d\sin{(\theta)}$. Hierbei ist $\theta$ der Glanzwinkel, der Winkel zwischen ein- und auslaufenden Wellen und Netzebenen. Für konstruktiv interferierende, d.h. messbare reflektierte Strahlung gilt also die Bragg-Bedingung\cite[416]{Demtroeder3},\cite{LDBragg}:
+\begin{align}
+\label{eq:braggbedingung}
+	m\lambda = 2d\sin{(\theta)}
+\end{align}
+Wird der Winkel, in dem die auslaufende Strahlung gemessen wird, variiert, kann so die Intensität der bei diesem Winkel reflektierte Strahlung gemessen werden und bei bekanntem Netzebenenabstand für die verschiedenen Ordnungen ein Wellenlängenspektrum der emittierten Röntgenstrahlung der Anode aufgenommen werden\cite{LDBragg}. Zudem gilt dann mit der Lichtgeschwindigkeit $c$ und dem Planck'schen Wirkungsquantum $h=\SI{6.626 07015e-34}{\joule\per\hertz}$\cite{KonstantenNIST}:
+\begin{align} \label{eq:braggenergie}
+E=\frac{hc}{\lambda}=\frac{hcm}{2d\sin{(\theta)} }
+\end{align}
+und es ergibt sich aus den Winkeln ein Energiespektrum \cite{LDWolfram}.
+
+Der Nachweis der reflektierten Röntgenstrahlung erfolgt hier über ein Geiger-Müller-Zählrohr, welches einen Spannungspuls erzeugt, wenn bereits ein einziges Röntgenphoton in seine Öffnung einfällt\cite{Versuchsanleitung428},\cite[482-483]{gerthsen}. Die Winkel des Kristalls, an welchem reflektiert wird und des Zählrohrs zum Einfallswinkel der Strahlung sind in $2\theta$-Kopplung (der Kristall dreht sich um $theta$, das Zählrohr um $2\theta$) verbunden \cite{LDgoniometer}.
+
+\subsection{Durchführung}
+
+In Abbildung \ref{fig:aufbau_bragg} ist der Aufbau zur Messung der ersten Ordnung des unbekannten Anodenspektrums dargestellt.
+
+\jafpsh{aufbau_bragg}{Skizze des Messaufbaus, entnommen aus \cite[2]{LDBragg}. }{0.5}
+
+Links von der Skizze ist die Röntgenröhre mit der unbekannten Anode (Anode Nr. 3) aufgebaut. Von links nach rechts besteht der Aufbau dann aus einem Kollimator für die einfallenden Röntgenstrahlung, einem winkelverstellbaren Target-Tisch mit plan aufliegendem NaCl-Kristall und dahinter in Winkelkopplung zur Kristallposition das Geiger-Müller-Zählrohr mit strahlseitigem Kollimator zur Begrenzung der Strahlweite. Es ist verbunden mit der Auslesesoftware. Erster Kollimator und Kristall sind ca. $\SI{5}{\centi\meter}$ voneinander entfernt, Kristall und Eingang des Zählrohr ca. $\SI{6}{\centi\meter}$\cite[4]{Versuchsanleitung428}, um die Strahldivergenz klein und die Photonenintensität groß genug um ein Energiespektrum mit niedrigem Rauschen-zu-Signal-Verhältnis zu erhalten.
+
+Es wurden für die zwei Kollimatoren zur Verkleinerung der Strahldivergenz jeweils Spalte der Breite $\SI{1}{\milli\meter}$ auf das Einfallsfenster des Röntgenstrahls und vor den Eingang des Geiger-Müller-Zählrohrs eingebaut. Der genutzte Kristall ist ein Natrium-Chlorid-Kristall (NaCl) mit planer Schnittfläche und den Abmessungen $\SI{25(1)}{\milli\meter}\times\SI{25(1)}{\milli\meter}\times\unit{3-4}{~\text{mm}}$, der auf den Targethalter gelegt wurde. Es wurde der gekoppelte Modus zwischen Kristallhalter und Zählrohr, welches hinten am Targethalterarm aufgesetzt wurde, ausgewählt, sodass der Eingang des Zählrohrs bei Änderung der Kristallposition und so des Reflexionswinkels weiter in der Mitte des reflektierten Strahls liegt und die Photonen gezählt werden können.
+
+
+Als Parameter der Messung werden die folgenden Werte gewählt\cite[4]{Versuchsanleitung428}:
+\begin{itemize}
+    \item Beschleunigungsspannung: $U=\SI{35,0}{\kilo\V}$
+    \item Emissionsstrom (prop. zur Heizspannung $U_H$): $I=\SI{1,00}{\milli\A}$
+    \item Messzeit/Winkelschritt: $\Delta t = \SI{10}{\second}$
+    \item Winkelschritt: $\Delta \theta = \SI{0,1}{\degree}$
+    \item Winkelbereich: $\SIrange{2,0}{25,0}{\degree}$
+\end{itemize}
+
+
+
+\subsection{Messergebnisse und Auswertung} \label{sec:bragg_auswertung}
+
+
+Die aufgenommenen Daten von winkelabhängiger Intensität der Röntgenstrahlung, die jeweils die Bragg-Bedingung (Gl. \ref{eq:braggbedingung}) erfüllt, werden mit der Umrechnung \[
+\lambda = \frac{2d\sin{(\theta)}}{n} \ergo E = \frac{hc}{\lambda} = \frac{hcn}{2d\sin{(\theta)}}
+\]
+als Energie in Abhängigkeit des Glanzwinkels $\theta$ der Reflexion aufgetragen. Es wird angenommen, dass nur die erste Ordnung ($n=1$) betrachtet wurde und dass für die genutzte Schneidung und Orientierung des NaCl-Kristalls (als fcc-Gitterstruktur, also \textit{flächenzentriertes Gitter} \cite[13]{kittelsolidstate}) der Netzebenenabstand $d=\frac{a}{2}$ (mit $a=\SI{564}{\pico\meter}$ als Gitterkonstante des NaCl-Kristalls\cite{naclgitterkonst}, dessen räumliche Struktur in Abbildung \ref{fig:nacl_cube_kittel_13} dargestellt ist) ist. Diese Auftragung ist in Abbildung \ref{fig:bragg_alldata} dargestellt.
+
+\jafps{nacl_cube_kittel_13}{Schematische Darstellung des räumlichen Aufbaus des NaCl-Kristalls in drei Dimensionen. Abbildung entnommen aus \cite[13]{kittelsolidstate}.}{0.5}
+
+\jafps{bragg_alldata}{Darstellung der Energie-Intensität-Verteilung der Röntgenstrahlung der unbekannten Anode. Das Spektrum entspricht der Überlagerung von Bremsstrahlung und charakteristischer Röntgenstrahlung der Anode.}{0.5}
+
+Das sichtbare Energiespektrum erfüllt die Erwartungen an ein Röntgenemissionsspektrum, es ist eine Überlagerung des kontinuierlichen Bremsstrahlungsspektrum und einzelnen charakteristischen Intensitätsspitzen zu erkennen.
+Als Fehler der gemessenen Werte wurden hierbei die Hälfte des eingestellten Winkelschritts, also $\Delta \theta = \SI{0.1}{\degree}$ angenommen, sowie die Abschätzung des Fehlers der Intensitätszählung des Geiger-Müller-Zählrohr als $10\%$ des jeweiligen Messwerts aufgrund der endlichen Zählrohr-Eintrittsbreite (auch bei Verschmälerung durch den Kollimator mit ebenfalls endlicher Breite) sowie der endlichen Totzeit des Zählrohrs und endlicher Strahldivergenz gemacht. Diese Fehler wurden mithilfe Gaußscher Fehlerfortpflanzung\cite[8-9]{gerthsen} durch die Umrechnung weiterfortgepflanzt, wie auch bei allen anderen weiteren Berechnungen in diesem Protokoll.
+
+Aufgrund der endlichen Breite der charakteristischen Linien wegen einer endlichen Strahldivergenz durch die Zählrohreintrittsbreite, eine Strahlaufweiterung auf dem Weg zwischen Kristall und Zählrohr sowie auf dem Weg zwischen Eingangskollimator (mit ebenfalls endlicher Breite) und Kristall, kann ihre Energie nicht direkt abgelesen werden. Die mittlere Energie der charakteristischen Linien, die jeweils einem Energieübergang im Anodenmaterial entsprechen, kann aus der Standardabweichung $\mu$ einer Gaußfunktionsanpassung jeder Linie abgelesen werden. Dazu wird eine Anpassung an das Energie-Intensitätsspektrum durchgeführt.
+
+In Abbildung \ref{fig:bragg_fitting_data} ist das Energiespektrum der Anode mit einer Anpassungsfunktion der Form
+
+\begin{align} \label{eq:bragg_spectrum}
+    I(E)=\left(\sum_i^6 A_i \exp{-\frac{1}{2}(\frac{E-\mu_i}{\sigma_i})^2}\right)+aE+b
+\end{align}
+
+dargestellt. Diese Form wurde angenommen, da im Spektrum sechs Gaußfunktionsförmige Spitzen erkennen lassen sowie ein allgemeiner linearer Untergrund. Mithilfe der \texttt{optimize.curve\_fit}-Funktion der python-Package \texttt{scipy}, welche die Methode der kleinsten Quadrate nutzt, wurde die Anpassung durchgeführt. Als Anpassungsgüte ergibt sich so mit dem (für Überlagerungen von Gaußverteilungen und dem linearen Untergrund nicht ideal geeigneten \cite{chisquare}) Maß des reduzierten $\chi^2=3,11$ bzw. alternativ das (für die Beurteilung der Anpassungsgüte zwischen Modell und Daten, die nicht einer Distribution folgen besser geeignete) Bestimmtheitsmaß $R^2=0,999$. Beide dieser Gütewerte entsprechen einer sehr guten Übereinstimmung zwischen Daten und dem angenommenen Modell von überlagerten Gaußfunktionen und linearem Untergrund.
+
+\jafps{bragg_fitting_data}{Energiespektrumsausschnitt mit den beobachteten charakteristischen Linien der ersten Ordnung (höchste Intensität, in der Mitte des betrachteten Winkelbereichs) der unbekannten Anode mit Anpassungsfunktion aus sechs Gaußfunktionen für die charakteristischen Linien und einem linearen Untergrund der Bremsstrahlung.}{0.5}
+
+In Abbildung \ref{fig:bragg_gaussians} wird diese Zusammensetzung des Spektrums aus Bremsstrahlung und charakteristischen Linien durch die separate Auftragung der Spektrumskomponenten mit den aus der Anpassung errechneten Parametern klar. Mögliche weitere charakteristische Linien im Anodenmaterial-Spektrum mit Amplituden unter dem Bremsstrahlungsuntergrund können mit der durchgeführten Methode nicht bestimmt werden. Insgesamt erscheint die Annahme, dass es sechs (gut erkennbare) charakteristische Linien im Röntgenspektrum der unbekannten Anode gibt, also gerechtfertigt.
+
+\jafps{bragg_gaussians}{Energiespektrum der unbekannten Anode mit einzeichneter gesamter Anpassungsfunktion sowie einzeln dargestellten Komponenten der Anpassungsfunktion aus sechs Gaußfunktionen mit jeweils unterschiedlichen Amplituden $A$, Spitzenschwerpunkt $\mu$ und Standardabweichung $\sigma$ (jeweils in gestrichtelten Linien eingezeichnet) sowie dem linearen Untergrund (durchgezogene Linie).}{0.5}
+
+Die errechneten Parameter für die Gaußfunktionen der Anpassungsfunktion \ref{eq:bragg_spectrum} an das Spektrum der Anode sind in Tabelle \ref{tab:bragg_params} aufgeführt. Für den linearen Untergrund ergeben sich die Parameter
+\[
+a = (\num{139(4)}) ~\text{1/keV s}, \quad b = (\num{-719(31)}) ~\text{1/s}
+\]
+Diese sind für die weitere Berechnung unerheblich.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|} \hline
+    $A_i$ [$\unit{1/s}$] & $\mu_i$ [eV] & $\sigma_i$ [keV] \\ \hline
+    $\num{61(22)}$ & $\num{7415(23)}$ & $\num{0.08(3)}$ \\
+    $\num{2004(20)}$ & $\num{8396.8(1.0)}$ & $\num{0.1262(1)}$ \\
+    $\num{1873(43)}$ & $\num{9661.9(5.5)}$ & $\num{0.170(5)}$ \\
+    $\num{1178(35)}$ & $\num{9955.7(9.4)}$ & $\num{0.1830(9)}$ \\
+    $\num{583(70)}$ & $\num{11280(22)}$ & $\num{0.18(2)}$ \\
+    $\num{252(39)}$ & $\num{11606(67)}$ & $\num{0.23(6)}$ \\
+    \hline
+	\end{tabular}
+	\caption{Parameter der sechs Gaußfunktionen des charakteristischen Spektrums der unbekannten Anode.}
+	\label{tab:bragg_params}
+\end{table}
+
+
+Die Schwerpunkte der Gaußfunktionen entsprechen jeweils den Energien eines Elektronenübergangs im Anodenmaterial. Die so bestimmten Energiewerte werden mit den Literaturwerten für Röntgenemissionslinien verglichen, um bestimmen zu können, aus welchem Material die verwendete Anode besteht.
+Bei dem Vergleich der möglichen Emissionslinien von verschiedenen Materialien fällt eine deutliche Übereinstimmung der gemessenen Werte mit dem Spektrum von Wolfram auf. Es können die $L_{\alpha_1}, L_{\beta_1}, L_{\beta_2}$ sowie die $L_{\gamma_1}$-Linien aus den Angaben in \cite{xraydatabooklet} identifiziert werden. Weiter können aus den zusätzlichen Angaben zu weiteren Emissionslinien in \cite{NISTxray} auch die, in IUPAC-Notation \footnote{zu den Notationskonventionen der Linien siehe auch \cite{IUPACrecs}}, $L_1N_2$-Linie und die $L_3M_1$-Linie von Wolfram mit den zwei beobachteten Linien mit den geringsten Intensitätsamplituden identifiziert werden. Sie wurden, relativ zum Anteil des Bremsstrahlungsuntergrund in ihrem jeweiligen Energiebereich des Röntgenspektrums, nur mit geringer Emissionsintensität angeregt und sind daher nicht einfach im Gesamtspektrum zu erkennen.
+
+Die $K$-Linien, die in \cite{xraydatabooklet} noch als prominente charakteristische Linien im Wolfram-Röntgenspektrum gelistet sind, können im aufgenommenen Spektrum nicht beobachtet werden, da hier die Beschleunigungsspannung der Röntgenröhre auf $U=\SI{35}{\kilo\V}$ eingestellt wurde, also damit auch die den einfallenden Elektronen maximal zur Verfügung stehende Energie bei $E=\SI{35}{\kilo\eV}$ begrenzt war. Den Übergängen der $K$-Linien von Wolfram entsprechen hingegen Übergangsenergien $E>\SI{57}{\kilo\eV}$\cite{xraydatabooklet}, sie konnten also in der Anode gar nicht angeregt werden.
+
+Die experimentell bestimmten Energien ($E_\text{exp.}\equiv\mu$) und Wellenlängen sowie die jeweils zugeordneten Literaturwerte mit jeweiligem Übergang für Wolfram sind in Tabelle \ref{tab:bragg_lines} aufgeführt.
+
+Im Rahmen der Unsicherheiten der Messwerte stimmen die Wellenlängen der experimentell bestimmten und zugeordneten Emissionslinien außer bei der $L_{\beta_2}$-Linie im Rahmen einer $1\sigma$-Umgebung ihrer Fehler überein. Die $L_{\beta_2}$-Linie stimmt erst in einer $2\sigma$-Umgebung mit dem Literaturwert für diese Linie bei Wolfram überein. Die Werte der experimentell bestimmten Energien der charakteristischen Linien sowie die zugeordneten Energien für Wolfram stimmen im Rahmen einer $1\sigma$-Umgebung alle miteinander überein.
+
+Insgesamt kann also mit hoher Wahrscheinlichkeit geschlussfolgert werden, dass die unbekannte Anode aus Wolfram besteht und die beobachteten Linien den aufgeführten Elektronenübergängen entsprechen.
+
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c||c|c|c|} \hline
+    $E_\text{exp.}$ [eV] & $\lambda$ [nm] & zugeordn. Übergang & $E_\text{Lit}$ [eV] & $\lambda_\text{Lit}$ [nm] \\
+    \hline
+    $\num{7415(23)}$ & $\num{0.16720(52)}$ & $L_3M_1$ & $\num{7388.1(17)}$ \cite{NISTxray} & $\num{0.167567(38)}$ \\
+    $\num{8396.8(1.0)}$ & $\num{0.147656(18)}$ & $L_{\alpha_1}/L_3M_5$ & $\num{8397.6}$ & $\num{0.147642}$\\
+    $\num{9661.9(5.5)}$ & $\num{0.128322(73)}$ & $L_{\beta_1}/L_2M_4$  & $\num{9972.35}$ & $\num{0.128184}$\\
+    $\num{9955.7(9.4)}$ & $\num{0.12454(12)}$ & $L_{\beta_2}/L_3N_5$ & $\num{9961.5}$ & $\num{0.124463}$\\
+    $\num{11280(22)}$ & $\num{0.10991(21)}$ & $L_{\gamma_1}/L_2N_4$ & $\num{11285.9}$ & $\num{0.109858}$ \\
+    $\num{11606(67)}$ & $\num{0.10683(62)}$ & $L_1N_2$ & $\num{11609.4(44)}$ \cite{NISTxray} & $\num{0.106796(40)}$\\
+    \hline
+	\end{tabular}
+	\caption{Experimentell aus dem Röntgenspektrum bestimmte charakteristische Energien und Wellenlängen mit zugeordneten Linien (ohne Fehlerangabe) nach \cite{xraydatabooklet} in Siegbahn-Notation. Die zweite, jeweils korrespondierende Angabe in IUPAC-Notation stammt aus \cite{NISTxray}, was auch für die weiteren Linien genutzt wird, die in \cite{xraydatabooklet} nicht aufgeführt sind.}
+	\label{tab:bragg_lines}
+\end{table}
+
+
+\section{Feinstruktur-Analyse der Molybdän-$K_\alpha$-Linie}
+
+Aufgrund des Spins der Hüllenelektronen heben sich die Entartung der Energien der Elektronenzustände teilweise auf. Dabei koppelt der Spin an den Drehimpuls der Elektronen als Wechselwirkung des magnetischen Moments des Elektrons mit dem magnetischen Feld, welches nach Maxwell durch die Bahnbewegung erzeugt wird. Dadurch spalten sich die Energieeigenwerte der möglichen Elektronenzustände in mehrere Zustände unterschiedlicher Energie auf (Zeeman-Effekt). Übergänge innerhalb eines Atoms unterliegen hierbei Selektionsregeln für die möglichen Quantenzahlendifferenzen, die Start- und Endzustand eines Elektronenübergangs charakterisieren dürfen. Es sind also nur diskrete und nicht alle Übergänge erlaubt. Im Emissionslinienspektrum der charakteristischen Röntgenstrahlung können daher einige zusätzliche Linien beobachtet werden, die ursprünglichen Linien teilen sich symmetrisch in mehrere Energie-verschobene Linien auf. Dies wird Feinstruktur genannt \cite[169-175]{Demtroeder3}.
+
+Es soll nun die Feinstruktur des charakteristischen Spektrums von Molybdän untersucht werden. Molybdän weist in seiner L-Schale eine Feinstruktur aus den drei Elektronenzuständen $L_I, L_{II}$ und $L_{III}$ auf. Die möglichen Übergänge in die K-Schale eines Molybdän-Atoms unterliegen den Auswahlregeln $\Delta l = \pm 1, \Delta j = \{0, \pm 1\} $ (hier ist $l$ die Drehimpulsquantenzahl des Elektrons, $j$ die Gesamtdrehimpulsquantenzahl). Es ergeben sich so zwei erlaubte Übergänge von der L-Schale in die K-Schale: $K_{\alpha_1}$ und $K_{\alpha_2}$ \cite{LDfeinstruktur}, das ist dargestellt in Abbildung \ref{fig:mo_feinstruktur_ld_1}.
+
+\jafps{mo_feinstruktur_ld_1}{Aufspaltung der L-Schale von Molybdän und erlaute Übergänge in die K-Schale. Abbildung entnommen aus \cite[1]{LDfeinstruktur}.}{0.4}
+
+
+Da die Energieverschiebung innerhalb der L-Schale aufgrund des Zeeman-Effekts nur gering ist, wird zur Beobachtung der Aufspaltung einerseits eine lange Messzeit pro Winkelschritt (es wird bei der Intensitätsangabe die Zahl der vom Geiger-Mülle-Zählrohr gemessenen Ereignisse über die Zeit pro Messschritt, als pro Winkelschritt, gemittelt) und kleine Winkelschritte genutzt, andererseits die vergrößerte Energieauflösung bei höheren Ordnungen. Um zwei Linien als getrennt auflösen zu können, müssen ihre addierten FWHM-Breiten (Full width half maxima, volle Breite auf der halben Höhe) kleiner sein als der minimal auflösbare Energieabstand. Es wird hier genutzt, dass nach der Bragg-Bedingung (Gl. \ref{eq:braggbedingung}) gilt:
+\[ \frac{dE}{d\theta} \propto m\cdot \cos{(\theta)}
+\]
+Die Winkelauflösung bleibt über den gesamten Bereich konstant, aber bei höheren Ordnungen $m$ wird so die Energieauflösung größer \cite{LDfeinstruktur}. Es wird die $K_\alpha$-Aufspaltung in das Feinstrukturdublett aus $K_{\alpha_1}$ und $K_{\alpha_2}$ in der vierten Beugungsordnung ($m=4$) untersucht, die in dieser Ordnung mit dem Winkelschritt $\Delta \theta = \SI{0,01}{\degree}$ auflösbar sein sollte \cite[2]{Versuchsanleitung428}.
+
+\section{Durchführung}
+
+Es wurde der gleiche Aufbau wie in Abschnitt \ref{sec:bragg_anode} aufgebaut, allerdings wurde die unbekannte (als Wolfram bestimmte) Anode durch die Molybdän-Anode ausgetauscht. Außerdem wurden der Kollimator vor dem Strahleingangsfenster und der Kollimator vor dem Eingang des Zählrohrs gegen die Kollimatoren mit dünnerem Spalt (Spaltbreite $\SI{0,3}{\milli\meter}$) ausgetauscht. Dadurch wird die Aufweitung des Strahls stärker begrenzt, was für die hohe notwendige Winkelauflösung der Messung nötig ist. Als Winkelschrittbreite wurde der ausreichend kleine Wert $\Delta \theta = \SI{0,01}{\degree}$ eingestellt. Eine noch kleinere Schrittbreite hätte zwar die Auflösung verbessert, aber die Messung auch unpraktikabel verlängert. Andererseits wird durch die geringeren Spaltbreiten die Intensität des Strahls stärker begrenzt, was zu einem höheren Rauschen-zu-Signal-Verhältnis aufgrund von weniger gemessenen Röntgenphotonen führt. Der Fehler der Intensität wurde daher auch als $10\%$ des Messwerts angenommen, der Winkelfehler als halber Winkelschritt $\Delta \theta = \SI{0,005}{\degree}$ Daher wurde als Messzeit, über die pro Winkelschritt die Signalintensität aufgenommen und dann gemittelt wird $\Delta t = \SI{120}{\s}$ eingestellt. Als Winkelintervall für $\theta$ wurde $\SIrange{28,5}{32,0}{\degree}$ eingestellt. Damit ist die fünfte Ordnung des Energiespektrums von Molybdän-Röntgenstrahlung mit der Winkeleinstellung betrachtet.
+Erneut wurde der \texttt{coupled}-Modus gewählt, bei dem der Kristall (erneut NaCl als planer Kristall auf dem Targethalter) mit dem Geiger-Müller-Zählrohr in $2\theta$-Kopplung ist. Als Röntgenröhreneinstellungen wurden erneut $U_B=\SI{35}{\kilo\V}$ und $I=\SI{1,00}{\milli\A}$ gewählt \cite[2,5]{Versuchsanleitung428}.
+
+\subsection{Messergebnisse und Auswertung}
+
+Wie in Abschnitt \ref{sec:bragg_auswertung} wird das aufgenommene Spektrum der über die Messdauer pro Winkelschritt gemittelten Messereignisse (auf das Zählrohr reflektierte und registrierte Röntgenphotonen) abhängig vom Winkel des Kristalls (und damit dem Zählrohr in Kopplung) in das Intensitätsspektrum pro Energie umgerechnet. Hierbei gilt anders als vorher jedoch $m=4$, die Umrechnung zu Energie ist also $E=\frac{2hc}{d\sin{(\theta)}}$.
+Die Daten werden aufgetragen, dies ist Abbildung \ref{fig:bragg_mo_alldata} für den gesamten untersuchten Winkelbereich dargestellt.
+
+\jafps{bragg_mo_alldata}{Energie-Intensitätsverteilung der Bragg-Reflexion an NaCl für den Winkelschritt $\Delta \theta = \SI{0,01}{\degree}$ für $\SIrange{28,5}{32,0}{\degree}$.}{0.5}
+
+Das kontinuierliche Bremsstrahlungsspektrum im Untergrund ist in diesem Spektrum aufgrund des sehr kleinen Winkelbereichs nur als annähernd konstant verlaufender linearer Versatz zum Nullpunkt der y-Achse z erkennen, über einen größeren Winkelbereich würde es wie in Abschnitt \ref{sec:bragg_anode} sichtbar werden. Es sind deutlich die beiden erwarteten $K_{\alpha_1}$ und $K_{\alpha_2}$ Linien der Feinstrukturaufspaltung der $K_\alpha$-Linie zu erkennen, die als zwei getrennte gaußförmige Spitzen mit endlicher Breite im Spektrum erkennbar sind. Die Auflösung der weniger als $\SI{1}{\kilo\eV}$ getrennt erwarteten \cite{xraydatabooklet} Linien ist also gelungen.
+Es ist zu beachten, dass die Intensität des Spektrums sehr niedrig ist -- die Maxima des Spektrums befinden sich im Bereich von 2,5 Photonen pro Sekunde. Daher wird auch ein deutlicher Rausch-Untergrund neben den beiden gaußförmigen Maxima sichtbar. Für die weitere Untersuchung wird nur mit einem kleineren Ausschnitt der Daten rund um die beiden charakteristischen Linien betrachtet. Es wird die Überlagerung von zwei Gaußfunktionen mit Amplituden $A_i$, Mittelwerten $\mu_i$ und Standardabweichungen $\sigma_i$ zusammen mit einem konstanten y-Achsen-Versatz an die Daten angepasst. Die Anpassungsfunktion hat die Form \[
+I(E) = A_1\cdot \exp{-\frac{1}{2}(\frac{E-\mu_1}{\sigma_1})^2} + A_2\cdot \exp{-\frac{1}{2}(\frac{E-\mu_2}{\sigma_2})^2} + b
+\]
+
+Die Anpassung wird wie oben mit \texttt{scipy.optimize.curve\_fit} durchgeführt, auch hier werden sowohl das reduzierte
+$\chi^2$ als auch das Anpassungsmaß $R^2$ bestimmt, letzteres da es sich eigentlich nicht um eine Distribution handelt sondern um ein Modell aus einer Linearkombination zweier Gaußfunkionen mit konstantem Anteil. Die Anpassung ist in Abbildung \ref{fig:langzeit} dargestellt. Die bestimmten Werte für die Anpassungsparameter sind in Tabelle \ref{tab:mo_params} aufgeführt. Für den konstanten Versatz ergibt sich ein Wert von $b=\num{0.542(9)}~\text{1/s}$.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|} \hline
+    $A_i$ [$\unit{1/s}$] & $\mu_i$ [eV] & $\sigma_i$ [keV] \\ \hline
+    $\num{1.10(4)}$ & $\num{172796(11)}$ & $\num{0.03649(17)}$ \\
+    $\num{1.84(4)}$ & $\num{173815(7)}$ & $\num{0.0437(12) }$ \\
+    \hline
+	\end{tabular}
+	\caption{Parameter der zwei Gaußfunktionen des charakteristischen Spektrums der Molybdän-Anode.}
+	\label{tab:mo_params}
+\end{table}
+
+\jafps{langzeit}{Für die Untersuchung der charakteristischen Linien von Mo relevanter Ausschnitt des Intensitäts-Energiespektrums mit Anpassungsform aus zwei Gaußfunktionen und einem konstanten Untergrund. Der sehr kleine Wert des reduzierten $\chi^2=0,033$ weist hier nicht auf eine Überanpassung der Daten hin, da die Form des Anpassungsmodells sehr klar erkennbar ist, sondern begründet sich aus dem großen Rauschen-zu-Signal-Verhältnis der Daten, was ebenfalls zu kleinem $\chi^2_r$ führen kann. Das Bestimmtheitsmaß $R^2=0.969$ zeigt, dass die Daten trotzdem sehr gut zu der gewählten Anpassungsfunktion passen.}{0.5}
+
+Die beiden Linien können klar den Energien der $K_{\alpha_1}$ und $K_{\alpha_2}$-Linien zugeordnet werden, die erste beobachtete Linie (kleinere Amplitude $A_1$) mit der niedrigeren Energie wird der Referenzlinie mit der niedrigeren Energie ($K_{\alpha_2}$) zugeordnet, die zweite mit der höheren Energie der $K_{\alpha_1}$-Linie. Die zweite Linie stimmt zwar im absoluten Energiewert besser mit $K_{\alpha_2}$ überein, hierbei handelt es sich aber vermutlich um eine systematische Verschiebung der bestimmten Energien zu niedrigeren Energien, da die beobachteten Energien beide niedriger sind als die Referenzenergien. Dies kann zum Beispiel durch eine Verschiebung der Nullposition des Kristallwinkels verursacht worden sein. Eine explizite Kalibration dieser Position vor Start der Messung würde die Bestimmung hier verbessern. Die Zuordnung kann aufgrund der fehlenden weiteren Übergangslinien in sinnvollem Umkreis (siehe Übersicht der möglichen Emissionslinien für Molybdän in \cite{NISTxray}) relativ zu den Literaturwerten trotzdem eindeutig so erfolgen.
+
+Es soll nun noch der Wellenlängenabstand innerhalb des beobachteten Dubletts bestimmt werden. Hierzu wird die Beziehung $\lambda=\frac{hc}{E}$ genutzt. Auch die Referenzenergien der beiden Linien, die aus \cite{xraydatabooklet} entnommen werden, werden in Wellenlängen umgerechnet. Die so bestimmten Werte und die daraus bestimmten Abstände der Energien $\Delta E$ und Wellenlängen $\Delta \lambda$ sind in Tabellen \ref{tab:mo_wavelengths} und \ref{tab:mo_diffs} aufgeführt.
+
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|} \hline
+    Linie & $E_{\text{exp.}}$ [eV] & $\lambda_{\text{exp.}}$ [nm] & $E_{\text{Lit.}}$ [eV] & $\lambda_{\text{Lit.}}$ [nm]\\ \hline
+    $K_{\alpha_1}$ & $\num{173815(7)}$ & $\num{0.071331(3)}$ & $\num{17479.35}$ & $\num{0.070932}$\\
+    $K_{\alpha_2}$ & $\num{172796(11)}$ & $\num{0.07175(5)}$ & $\num{17374.3}$ & $\num{0.071361}$ \\
+    \hline
+	\end{tabular}
+	\caption{Experimentell bestimmte Energien und Wellenlängen des $K_\alpha$-Dubletts und zugehörige Literaturwerte (diese wurden entnommen aus \cite{xraydatabooklet}).}
+	\label{tab:mo_wavelengths}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|} \hline
+    $\Delta E_{\text{exp.}}$ [eV] & $\Delta E_{\text{Lit.}}$ [eV] & $\Delta \lambda_{\text{exp.}}$ [nm] & $\Delta \lambda_{\text{Lit.}}$ [nm]\\ \hline
+    $\num{101.9(1.4)}$ &  $\num{105.040000}$ & $\num{0.000421(6)}$ & $\num{0.000429}$ \\
+    \hline
+	\end{tabular}
+	\caption{Experimentell bestimmte Energien und Wellenlängendifferenzen des $K_\alpha$-Dubletts und zugehörige Literaturwerte (diese wurden entnommen aus \cite{xraydatabooklet}).}
+	\label{tab:mo_diffs}
+\end{table}
+
+Die experimentell bestimmte Energiedifferenz $\Delta E_\text{exp.}$ weicht um $2,9\%$ von der Referenzenergiedifferenz $\Delta E_\text{Lit.}$ ab (im Rahmen einer $1\sigma$-Umgebung $1,6-4,2\%$-Abweichung). Sie stimmen zwar nur innerhalb einer $3\sigma$-Umgebung überein, die Abweichung ist aber trotzdem prozentual nur klein. Die bestimmte Wellenlängendifferenz innerhalb des Dubletts $\Delta \lambda_\text{exp.}$ weicht um $1,9\%$ (im Rahmen einer $1\sigma$-Umgebung um $0,5-3,2\%$) vom Literaturwert $\Delta \lambda_\text{Lit.}$, die beiden Werte stimmen zwar nur innerhalb einer $2\sigma$-Umgebung miteinander überein, aber ihre Abweichung ist prozentual gegenüber ihrem Wert nur sehr klein. Die Bestimmung des Wellenlängenabstands innerhalb des $K_\alpha$-Dubletts konnte also trotzdem relativ genau erfolgen. Eine Verbesserung der Werte könnte zum Beispiel durch eine längere Messzeit pro Winkelschritt oder kleinere Winkelschritte erfolgen um das Rauschen zu verringern und die Energieauflösung zu erhöhen, der Bremsstrahlungsuntergrund begrenzt aber die Bestimmung der Linien, deren Amplitude aufgrund der hohen Beugungsordnung nur geringfügig größer ist als die Bremsstrahlung in diesem Bereich.
